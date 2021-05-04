@@ -1,0 +1,40 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+    #parse ( "/templates/add-html-head-content.vm" )
+    </head>
+	<body onload="setup()">
+	
+		#if($ErrorMessage) 
+			<div class="login-container saml-container" style="max-width: 400px;">
+				<form id="loginForm" class="login-form">
+					<div class="login-logo"></div>
+					<div id="loginMessage" class="alert alert-danger login-message" style="display: block;">${ErrorMessage}</div>
+					#if($ErrorDetails) <br/><div id="loginMessageDetails" class="alert alert-danger login-message">${ErrorDetails}</div>#end
+					
+					
+					<!--
+					<div class="form-group">
+						<label id="usernameLabel" for="usernameInput">User name</label> 
+						<input id="usernameInput" class="form-control" type="text" placeholder="User name" autocorrect="off" autocapitalize="none">
+					</div>
+					<div class="form-group">
+						<label id="passwordLabel" for="passwordInput">Password</label> 
+						<input id="passwordInput" class="form-control" type="password" placeholder="Password" autocorrect="off" autocapitalize="none">
+					</div>-->
+					#if($ApplicationLocation) <a href="${ApplicationLocation}" class="btn btn-primary">Home</a>#end
+					#if($ApplicationSSOLocation) <a href="${ApplicationSSOLocation}" class="btn btn-primary">Try Again</a>#end
+				</form>
+			</div>
+
+			<!--
+			<script src="../js/login_i18n.js"></script>
+			<script src="../js/login.js"></script>	-->	
+		
+		#else 
+			<BIG>Initializing SSO... </BIG>
+			#if($Location) <BIG> ${Location}</BIG>#end
+		#end
+	
+	    #parse ( "/templates/add-html-body-content.vm" )
+	</body>
+</html>

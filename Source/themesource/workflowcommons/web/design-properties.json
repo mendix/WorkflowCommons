@@ -1,0 +1,31 @@
+{
+    "DynamicText": [
+        {
+            "name": "Workflow Commons Badge",
+            "type": "Dropdown",
+            "description": "Turns the label into a badge with your specific brand color.",
+            "options": [
+                {
+                    "name": "Brand Default",
+                    "class": "mxwc-state-badge mxwc-state-badge-default spacing-outer-right text-bold"
+                },
+                {
+                    "name": "Brand Success",
+                    "class": "mxwc-state-badge mxwc-state-badge-success spacing-outer-right text-bold"
+                },
+                {
+                    "name": "Brand Primary",
+                    "class": "mxwc-state-badge mxwc-state-badge-primary spacing-outer-right text-bold"
+                },
+                {
+                    "name": "Brand Warning",
+                    "class": "mxwc-state-badge mxwc-state-badge-warning spacing-outer-right text-bold"
+                },
+                {
+                    "name": "Brand Danger",
+                    "class": "mxwc-state-badge mxwc-state-badge-danger spacing-outer-right text-bold"
+                }
+            ]
+        }
+    ]
+}

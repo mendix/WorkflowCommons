@@ -1,0 +1,50 @@
+// Used to add specific styling to the Workflows I initiated overview page
+.mxwc-wiio-master {
+	position: sticky;
+	top: 48px;
+	//z-index: 9999;
+
+	.tr:hover {
+		.mxwc-wiio-master-cell {
+			background-color: $grid-bg-hover;
+		}
+	}
+
+	.td {
+		padding: 0px;
+	}
+
+	.mxwc-wiio-master-cell {
+		padding: $grid-padding-top $grid-padding-right $grid-padding-bottom $grid-padding-left;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+	}
+
+	.mxwc-wiio-master-row-selected {
+		background-color: $grid-bg-selected;		
+
+		&:hover {
+			background-color: $grid-bg-selected-hover;
+		}
+	}
+}
+
+.mxwc-wiio-detail-selected{
+	margin-top: -24px;
+
+	.mxwc-wiio-detail-header{
+		position: sticky;
+		top: 0px;
+		padding: 95px 0 $m-spacing-large 0;
+		z-index: 2;
+		background-color: $bg-color;
+	}
+}
+
+.mxwc-wiio-detail-noselection{
+	margin-top: 73px;
+}
+

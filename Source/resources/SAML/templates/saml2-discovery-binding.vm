@@ -1,0 +1,29 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+    #parse ( "/templates/add-html-head-content.vm" )
+    </head>
+	<body onload="setup()">
+	
+		
+		<div class="login-container saml-container" style="max-width: 400px;">
+			<form id="loginForm" class="login-form">
+				<div class="login-logo"></div>
+				
+				<ul>
+				#foreach( $idp in $idpList )
+					<li> <a href="$idp.url" title="$idp.title">$idp.title</a></li>
+				#end
+				</ul>
+				
+				#if($ApplicationLocation) <a href="${ApplicationLocation}" class="btn btn-primary">Home</a>#end
+				#if($ApplicationSSOLocation) <a href="${ApplicationSSOLocation}" class="btn btn-primary">Try Again</a>#end
+			</form>
+		</div>
+
+		<!--
+		<script src="../js/login_i18n.js"></script>
+		<script src="../js/login.js"></script>	-->	
+	
+	    #parse ( "/templates/add-html-body-content.vm" )
+	</body>
+</html>

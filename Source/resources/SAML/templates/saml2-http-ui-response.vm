@@ -1,0 +1,20 @@
+##
+## Velocity Template for SAML 2 HTTP-POST binding
+##
+## Velocity context may contain the following properties
+## ErrorMessage - String - If an error occured, the message we want to show to the user
+## Location - String - the url we want to show to the user
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+    #parse ( "/templates/add-html-head-content.vm" )
+    </head>
+    <body>
+		#if($ErrorMessage) <div class="SSOError">${ErrorMessage}</div>
+			#if($ErrorDetails) <br/><div class="SSOErrorDetails">${ErrorDetails}</div>#end
+		#else 
+			<BIG>Initializing SSO... </BIG>
+			#if($Location) <BIG> ${Location}</BIG>#end
+		#end
+    </body>
+</html>
