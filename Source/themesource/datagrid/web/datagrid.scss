@@ -175,7 +175,7 @@ $brand-primary: #264ae5 !default;
         border-width: 0;
         border-color: $grid-border-color;
         border-bottom-width: 1px;
-        overflow: hidden;
+        /*overflow: hidden;*/
 
         &.td-borders {
             border-top-width: 1px;
@@ -188,8 +188,8 @@ $brand-primary: #264ae5 !default;
 
         > .td-text,
         * {
-            text-overflow: ellipsis;
-            overflow: hidden;
+            white-space: normal;
+            word-break: break-all;
         }
 
         > .empty-placeholder {

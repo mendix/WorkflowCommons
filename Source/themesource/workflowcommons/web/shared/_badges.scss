@@ -1,7 +1,11 @@
 .mxwc-state-badge {
 	border-radius: 16px;
+	min-width: 18px;
+	min-height: 18px;
 	padding: 4px 8px 4px 8px;
 	color: white;
+	white-space: nowrap;
+
 
 	&.mxwc-state-badge-success {
 		background: $brand-success;
