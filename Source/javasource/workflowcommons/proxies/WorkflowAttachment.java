@@ -16,7 +16,6 @@ public class WorkflowAttachment extends system.proxies.FileDocument
 	 */
 	public enum MemberNames
 	{
-		FileName("FileName"),
 		FileID("FileID"),
 		Name("Name"),
 		DeleteAfterDownload("DeleteAfterDownload"),
@@ -81,42 +80,6 @@ public class WorkflowAttachment extends system.proxies.FileDocument
 		for (com.mendix.systemwideinterfaces.core.IMendixObject obj : com.mendix.core.Core.retrieveXPathQuery(context, "//WorkflowCommons.WorkflowAttachment" + xpathConstraint))
 			result.add(workflowcommons.proxies.WorkflowAttachment.initialize(context, obj));
 		return result;
-	}
-
-	/**
-	 * @return value of FileName
-	 */
-	public final java.lang.String getFileName()
-	{
-		return getFileName(getContext());
-	}
-
-	/**
-	 * @param context
-	 * @return value of FileName
-	 */
-	public final java.lang.String getFileName(com.mendix.systemwideinterfaces.core.IContext context)
-	{
-		return (java.lang.String) getMendixObject().getValue(context, MemberNames.FileName.toString());
-	}
-
-	/**
-	 * Set value of FileName
-	 * @param filename
-	 */
-	public final void setFileName(java.lang.String filename)
-	{
-		setFileName(getContext(), filename);
-	}
-
-	/**
-	 * Set value of FileName
-	 * @param context
-	 * @param filename
-	 */
-	public final void setFileName(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String filename)
-	{
-		getMendixObject().setValue(context, MemberNames.FileName.toString(), filename);
 	}
 
 	/**

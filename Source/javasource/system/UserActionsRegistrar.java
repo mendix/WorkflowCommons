@@ -7,6 +7,19 @@ public class UserActionsRegistrar
   public void registerActions(IActionRegistrator registrator)
   {
     registrator.bundleComponentLoaded();
+    registrator.registerUserAction(filehandling.actions.Base64DecodeToFile.class);
+    registrator.registerUserAction(filehandling.actions.Base64EncodeFile.class);
+    registrator.registerUserAction(filehandling.actions.DuplicateFileDocument.class);
+    registrator.registerUserAction(filehandling.actions.DuplicateImageDocument.class);
+    registrator.registerUserAction(filehandling.actions.FileDocumentFromFile.class);
+    registrator.registerUserAction(filehandling.actions.FileFromFileDocument.class);
+    registrator.registerUserAction(filehandling.actions.GetFileContentsFromResource.class);
+    registrator.registerUserAction(filehandling.actions.getFileSize.class);
+    registrator.registerUserAction(filehandling.actions.GetImageDimensions.class);
+    registrator.registerUserAction(filehandling.actions.storeURLToFileDocument.class);
+    registrator.registerUserAction(filehandling.actions.StringFromFile.class);
+    registrator.registerUserAction(filehandling.actions.StringFromURL.class);
+    registrator.registerUserAction(filehandling.actions.StringToFile.class);
     registrator.registerUserAction(mendixsso.actions.CalculateOpenIDFromUUID.class);
     registrator.registerUserAction(mendixsso.actions.DecryptString.class);
     registrator.registerUserAction(mendixsso.actions.EncryptString.class);

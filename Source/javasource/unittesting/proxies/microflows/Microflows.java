@@ -32,6 +32,11 @@ public class Microflows
 		Map<java.lang.String, Object> params = new HashMap<>();
 		Core.microflowCall("UnitTesting.IVK_FindAllTests").withParams(params).execute(context);
 	}
+	public static void iVK_RefreshUnitTestOverview(IContext context)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		Core.microflowCall("UnitTesting.IVK_RefreshUnitTestOverview").withParams(params).execute(context);
+	}
 	public static void iVK_RemoveAllAndFindAllTests(IContext context)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();

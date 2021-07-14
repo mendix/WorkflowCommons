@@ -2,9 +2,45 @@
   "serializationVersion": 2,
   "settingsParts": [
     {
-      "suppressions": [],
+      "suppressions": [
+        {
+          "moduleID": "cb637730-c6b3-4631-948b-0c7e84eb26ff",
+          "documentID": null,
+          "errorCodeFilter": null
+        },
+        {
+          "moduleID": "816e9393-07f4-4f53-be9f-51d8a404aada",
+          "documentID": null,
+          "errorCodeFilter": null
+        },
+        {
+          "moduleID": "ac334f2b-4df5-47a1-a2a6-8058976b9d29",
+          "documentID": null,
+          "errorCodeFilter": null
+        },
+        {
+          "moduleID": "ff9cd8af-c942-46c8-a593-371aef769fd0",
+          "documentID": null,
+          "errorCodeFilter": null
+        },
+        {
+          "moduleID": "35c98847-558e-442e-800f-175c07eb84a7",
+          "documentID": "8c3968dd-7ab9-4d57-80a9-9a193be350e8",
+          "errorCodeFilter": "CW0055"
+        },
+        {
+          "moduleID": "7536bac3-41df-48d2-8dcd-84bf983e237b",
+          "documentID": "0b2447cd-8655-4832-a95e-e15b3c666398",
+          "errorCodeFilter": "CW0094"
+        },
+        {
+          "moduleID": "7536bac3-41df-48d2-8dcd-84bf983e237b",
+          "documentID": "b3c84068-17f7-49e4-9702-a2825c0c61db",
+          "errorCodeFilter": "CW0094"
+        }
+      ],
       "suppressAppStoreWarnings": false,
-      "showSuppressionInfo": true,
+      "showSuppressionInfo": false,
       "type": "Mendix.Modeler.Suppressions.SuppressionRules, Mendix.Modeler.Core, Version=9.3.0.22930, Culture=neutral, PublicKeyToken=null"
     },
     {
