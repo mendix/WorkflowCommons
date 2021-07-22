@@ -41,6 +41,11 @@ public class Microflows
 		params.put("UnitTestRun", _unitTestRun == null ? null : _unitTestRun.getMendixObject());
 		Core.microflowCall("WorkflowCommonsUnitTests.CreateAndStartExpenseRequestWorkflow").withParams(params).execute(context);
 	}
+	public static void createDemoUsersForUnitTest(IContext context)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		Core.microflowCall("WorkflowCommonsUnitTests.CreateDemoUsersForUnitTest").withParams(params).execute(context);
+	}
 	public static java.util.List<unittesting.proxies.UnitTest> dS_TestSuite_GetFailedUnitTests(IContext context, unittesting.proxies.TestSuite _testSuite)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();

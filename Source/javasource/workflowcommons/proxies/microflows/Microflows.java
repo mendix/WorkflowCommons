@@ -33,24 +33,11 @@ public class Microflows
 		params.put("WorkflowAttachment", _workflowAttachment == null ? null : _workflowAttachment.getMendixObject());
 		Core.microflowCall("WorkflowCommons.ACT_Attachment_Save").withParams(params).execute(context);
 	}
-	public static void aCT_Comment_ActivateEditMode(IContext context, workflowcommons.proxies.WorkflowCommentHelper _workflowCommentHelper, workflowcommons.proxies.WorkflowComment _workflowComment)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("WorkflowCommentHelper", _workflowCommentHelper == null ? null : _workflowCommentHelper.getMendixObject());
-		params.put("WorkflowComment", _workflowComment == null ? null : _workflowComment.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_Comment_ActivateEditMode").withParams(params).execute(context);
-	}
 	public static void aCT_Comment_Delete(IContext context, workflowcommons.proxies.WorkflowComment _workflowComment)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
 		params.put("WorkflowComment", _workflowComment == null ? null : _workflowComment.getMendixObject());
 		Core.microflowCall("WorkflowCommons.ACT_Comment_Delete").withParams(params).execute(context);
-	}
-	public static void aCT_Comment_Revert(IContext context, workflowcommons.proxies.WorkflowCommentHelper _workflowCommentHelper)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("WorkflowCommentHelper", _workflowCommentHelper == null ? null : _workflowCommentHelper.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_Comment_Revert").withParams(params).execute(context);
 	}
 	public static boolean aCT_TaskCount_Refresh(IContext context, workflowcommons.proxies.TaskCount _taskCount)
 	{
@@ -89,37 +76,6 @@ public class Microflows
 		Map<java.lang.String, Object> params = new HashMap<>();
 		params.put("WorkflowInstance", _workflowInstance == null ? null : _workflowInstance.getMendixObject());
 		Core.microflowCall("WorkflowCommons.ACT_Workflow_Abort").withParams(params).execute(context);
-	}
-	public static void aCT_Workflow_Continue(IContext context, system.proxies.WorkflowInstance _workflow)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Workflow", _workflow == null ? null : _workflow.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_Workflow_Continue").withParams(params).execute(context);
-	}
-	public static void aCT_Workflow_Pause(IContext context, system.proxies.WorkflowInstance _workflow)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Workflow", _workflow == null ? null : _workflow.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_Workflow_Pause").withParams(params).execute(context);
-	}
-	public static void aCT_Workflow_Restart(IContext context, system.proxies.WorkflowInstance _workflowInstance)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("WorkflowInstance", _workflowInstance == null ? null : _workflowInstance.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_Workflow_Restart").withParams(params).execute(context);
-	}
-	public static void aCT_Workflow_Resume(IContext context, system.proxies.WorkflowInstance _workflow)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Workflow", _workflow == null ? null : _workflow.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_Workflow_Resume").withParams(params).execute(context);
-	}
-	public static void aCT_WorkflowCommentHelper_SaveEdit(IContext context, workflowcommons.proxies.WorkflowCommentHelper _workflowCommentHelper, workflowcommons.proxies.WorkflowComment _workflowComment)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("WorkflowCommentHelper", _workflowCommentHelper == null ? null : _workflowCommentHelper.getMendixObject());
-		params.put("WorkflowComment", _workflowComment == null ? null : _workflowComment.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_WorkflowCommentHelper_SaveEdit").withParams(params).execute(context);
 	}
 	public static void aCT_WorkflowCommentHelper_SaveNew(IContext context, workflowcommons.proxies.WorkflowCommentHelper _workflowCommentHelper, system.proxies.WorkflowInstance _workflowInstance)
 	{
@@ -193,13 +149,6 @@ public class Microflows
 				result.add(workflowcommons.proxies.UserTaskTimeLine.initialize(context, obj));
 		}
 		return result;
-	}
-	public static workflowcommons.proxies.WorkflowCommentHelper dS_WorkflowCommentHelper_InitializeEdit(IContext context, workflowcommons.proxies.WorkflowComment _workflowComment)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("WorkflowComment", _workflowComment == null ? null : _workflowComment.getMendixObject());
-		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommons.DS_WorkflowCommentHelper_InitializeEdit").withParams(params).execute(context);
-		return result == null ? null : workflowcommons.proxies.WorkflowCommentHelper.initialize(context, result);
 	}
 	public static workflowcommons.proxies.WorkflowCommentHelper dS_WorkflowCommentHelper_InitializeNew(IContext context)
 	{
@@ -557,6 +506,12 @@ public class Microflows
 		params.put("UserTaskTimeLine", _userTaskTimeLine == null ? null : _userTaskTimeLine.getMendixObject());
 		params.put("WorkflowUserTask", _workflowUserTask == null ? null : _workflowUserTask.getMendixObject());
 		Core.microflowCall("WorkflowCommons.SUB_UserTaskTimeline_WorkflowUserTask_SetAssignee").withParams(params).execute(context);
+	}
+	public static void sUB_Workflow_Abort(IContext context, system.proxies.WorkflowInstance _workflowInstance)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		params.put("WorkflowInstance", _workflowInstance == null ? null : _workflowInstance.getMendixObject());
+		Core.microflowCall("WorkflowCommons.SUB_Workflow_Abort").withParams(params).execute(context);
 	}
 	public static java.math.BigDecimal sUB_Workflow_AverageHandlingTime(IContext context, java.lang.Long _workflowInstance_CountCompleted, java.util.Date _completedAfter, java.util.Date _completedBefore, system.proxies.WorkflowDefinition _workflowDefinition_Selected)
 	{

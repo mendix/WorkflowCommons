@@ -58,6 +58,18 @@ public class Microflows
 		Map<java.lang.String, Object> params = new HashMap<>();
 		Core.microflowCall("ExpenseRequestExample.ACT_SetMarkAllWorkflowsOverdue").withParams(params).execute(context);
 	}
+	public static void aCT_Workflow_Pause(IContext context, system.proxies.WorkflowInstance _workflow)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		params.put("Workflow", _workflow == null ? null : _workflow.getMendixObject());
+		Core.microflowCall("ExpenseRequestExample.ACT_Workflow_Pause").withParams(params).execute(context);
+	}
+	public static void aCT_Workflow_Resume(IContext context, system.proxies.WorkflowInstance _workflow)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		params.put("Workflow", _workflow == null ? null : _workflow.getMendixObject());
+		Core.microflowCall("ExpenseRequestExample.ACT_Workflow_Resume").withParams(params).execute(context);
+	}
 	public static void sUB_StartExpenseRequest(IContext context, expenserequestexample.proxies.Expense _expense)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
