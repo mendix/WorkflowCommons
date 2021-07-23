@@ -1,6 +1,4 @@
-# This is a basic workflow to help you get started with Actions
-
-name: Mendix workflow-commons
+name: Mendix WorkflowCommons
 
 # Controls when the workflow will run
 on:
@@ -22,34 +20,26 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # Checks-out current repository under $GITHUB_WORKSPACE/app folder
       - uses: actions/checkout@v2
         with:
-          path: 'workflow-commons'
+          path: 'app'
 
+      # Checks-out mendix/docker-mendix-buildpack to $GITHUB_WORKSPACE/build-pack folder
       - uses: actions/checkout@v2
         with:
-          # Repository name with owner. For example, actions/checkout
-          # Default: ${{ github.repository }}
           repository: 'mendix/docker-mendix-buildpack'
-
-          # The branch, tag or SHA to checkout. When checking out the repository that
-          # triggered a workflow, this defaults to the reference or SHA for that event.
-          # Otherwise, uses the default branch.
-
-
-          # Relative path under $GITHUB_WORKSPACE to place the repository
           path: 'build-pack'
 
-
-      # Runs a single command using the runners shell
       - name: Create build directory
         run: mkdir build-pack/build
+      
+      - name: Create output directory
+        run: mkdir $GITHUB_WORKSPACE/out
 
-      - name: Copy file
-        run: cp -v -r workflow-commons/Source/. build-pack/build
+      - name: Copy application files to build directory
+        run: cp -v -r app/Source/. build-pack/build
 
-      # Runs a set of commands using the runners shell
       - name: Build docker image
         run: |
           cd build-pack
@@ -67,15 +57,14 @@ jobs:
 
       - name: Check status of unit tests
         run: |
-          mkdir $GITHUB_WORKSPACE/results
           timeout 120s \
             bash -c \
                'until \
-                  curl -s -H "Accept: application/json" -o $GITHUB_WORKSPACE/results/test_results.json -w "%{http_code}" http://localhost:8080/rest/wfcunittest/v1/wfcunittests/status | grep "200" && \
-                  cat $GITHUB_WORKSPACE/results/test_results.json | jq ".Result" | grep "_3_Success"; \
+                  curl -s -H "Accept: application/json" -o $GITHUB_WORKSPACE/out/test_results.json -w "%{http_code}" http://localhost:8080/rest/wfcunittest/v1/wfcunittests/status | grep "200" && \
+                  cat $GITHUB_WORKSPACE/out/test_results.json | jq ".Result" | grep "_3_Success"; \
                 do sleep 5; done' \
             || true
-          if ! cat $GITHUB_WORKSPACE/results/test_results.json | jq ".Result" | grep "_3_Success" ; then
+          if ! cat $GITHUB_WORKSPACE/out/test_results.json | jq ".Result" | grep "_3_Success" ; then
             echo “Failed to execute tests”
             exit 1
           fi
@@ -83,11 +72,11 @@ jobs:
       - name: Collect docker logs
         id: collectLogs
         if: ${{ always() }}
-        run: docker ps -q | xargs -n 1 docker logs >> $GITHUB_WORKSPACE/results/docker.log
+        run: docker ps -q | xargs -n 1 docker logs >> $GITHUB_WORKSPACE/out/docker.log
 
       - name: Archive results
         if: ${{ always() }}
         uses: actions/upload-artifact@v2
         with:
           name: Results
-          path: ${{ github.workspace }}/results/*
+          path: ${{ github.workspace }}/out/*
