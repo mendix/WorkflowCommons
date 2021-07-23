@@ -66,7 +66,7 @@ jobs:
           timeout 60s bash -c 'until curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/rest/wfcunittest/v1/wfcunittests/start | grep "204"; do sleep 5; done'
 
       - name: Check status of unit tests
-        run:  |
+        run: |
           mkdir $GITHUB_WORKSPACE/results
           timeout 120s \
             bash -c \
@@ -76,7 +76,18 @@ jobs:
                 do sleep 5; done' \
             || true
           if ! cat $GITHUB_WORKSPACE/results/test_results.json | jq ".Result" | grep "_3_Success" ; then
-            cat $GITHUB_WORKSPACE/results/test_results.json
             echo “Failed to execute tests”
             exit 1
           fi
+
+      - name: Collect docker logs
+        id: collectLogs
+        if: ${{ always() }}
+        run: docker ps -q | xargs -n 1 docker logs >> $GITHUB_WORKSPACE/results/docker.log
+
+      - name: Archive results
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: Results
+          path: ${{ github.workspace }}/results/*
