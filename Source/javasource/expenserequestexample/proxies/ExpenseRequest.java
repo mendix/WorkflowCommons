@@ -4,8 +4,12 @@
 
 package expenserequestexample.proxies;
 
-public class ExpenseRequest extends system.proxies.WorkflowContext
+public class ExpenseRequest
 {
+	private final com.mendix.systemwideinterfaces.core.IMendixObject expenseRequestMendixObject;
+
+	private final com.mendix.systemwideinterfaces.core.IContext context;
+
 	/**
 	 * Internal name of this entity
 	 */
@@ -20,9 +24,10 @@ public class ExpenseRequest extends system.proxies.WorkflowContext
 		ApprovedSecondary("ApprovedSecondary"),
 		Note("Note"),
 		ExpenseRequest_Expense("ExpenseRequestExample.ExpenseRequest_Expense"),
+		ExpenseRequestWorkflow_ExpenseRequest("ExpenseRequestExample.ExpenseRequestWorkflow_ExpenseRequest"),
+		DummyWorkflow_ExpenseRequest("WorkflowCommonsUnitTests.DummyWorkflow_ExpenseRequest"),
 		ExpenseRequest_UnitTestRunCreated("ExpenseRequestExample.ExpenseRequest_UnitTestRunCreated"),
-		ExpenseRequest_UnitTestRunReadyForTesting("ExpenseRequestExample.ExpenseRequest_UnitTestRunReadyForTesting"),
-		WorkflowInstance_WorkflowContext("System.WorkflowInstance_WorkflowContext");
+		ExpenseRequest_UnitTestRunReadyForTesting("ExpenseRequestExample.ExpenseRequest_UnitTestRunReadyForTesting");
 
 		private java.lang.String metaName;
 
@@ -45,9 +50,13 @@ public class ExpenseRequest extends system.proxies.WorkflowContext
 
 	protected ExpenseRequest(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject expenseRequestMendixObject)
 	{
-		super(context, expenseRequestMendixObject);
+		if (expenseRequestMendixObject == null)
+			throw new java.lang.IllegalArgumentException("The given object cannot be null.");
 		if (!com.mendix.core.Core.isSubClassOf("ExpenseRequestExample.ExpenseRequest", expenseRequestMendixObject.getType()))
 			throw new java.lang.IllegalArgumentException("The given object is not a ExpenseRequestExample.ExpenseRequest");
+
+		this.expenseRequestMendixObject = expenseRequestMendixObject;
+		this.context = context;
 	}
 
 	/**
@@ -82,6 +91,37 @@ public class ExpenseRequest extends system.proxies.WorkflowContext
 		return result;
 	}
 
+	/**
+	 * Commit the changes made on this proxy object.
+	 */
+	public final void commit() throws com.mendix.core.CoreException
+	{
+		com.mendix.core.Core.commit(context, getMendixObject());
+	}
+
+	/**
+	 * Commit the changes made on this proxy object using the specified context.
+	 */
+	public final void commit(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		com.mendix.core.Core.commit(context, getMendixObject());
+	}
+
+	/**
+	 * Delete the object.
+	 */
+	public final void delete()
+	{
+		com.mendix.core.Core.delete(context, getMendixObject());
+	}
+
+	/**
+	 * Delete the object using the specified context.
+	 */
+	public final void delete(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		com.mendix.core.Core.delete(context, getMendixObject());
+	}
 	/**
 	 * @return value of Approved
 	 */
@@ -234,6 +274,92 @@ public class ExpenseRequest extends system.proxies.WorkflowContext
 	}
 
 	/**
+	 * @return value of ExpenseRequestWorkflow_ExpenseRequest
+	 */
+	public final expenserequestexample.proxies.ExpenseRequestWorkflow getExpenseRequestWorkflow_ExpenseRequest() throws com.mendix.core.CoreException
+	{
+		return getExpenseRequestWorkflow_ExpenseRequest(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of ExpenseRequestWorkflow_ExpenseRequest
+	 */
+	public final expenserequestexample.proxies.ExpenseRequestWorkflow getExpenseRequestWorkflow_ExpenseRequest(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		expenserequestexample.proxies.ExpenseRequestWorkflow result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.ExpenseRequestWorkflow_ExpenseRequest.toString());
+		if (identifier != null)
+			result = expenserequestexample.proxies.ExpenseRequestWorkflow.load(context, identifier);
+		return result;
+	}
+
+	/**
+	 * Set value of ExpenseRequestWorkflow_ExpenseRequest
+	 * @param expenserequestworkflow_expenserequest
+	 */
+	public final void setExpenseRequestWorkflow_ExpenseRequest(expenserequestexample.proxies.ExpenseRequestWorkflow expenserequestworkflow_expenserequest)
+	{
+		setExpenseRequestWorkflow_ExpenseRequest(getContext(), expenserequestworkflow_expenserequest);
+	}
+
+	/**
+	 * Set value of ExpenseRequestWorkflow_ExpenseRequest
+	 * @param context
+	 * @param expenserequestworkflow_expenserequest
+	 */
+	public final void setExpenseRequestWorkflow_ExpenseRequest(com.mendix.systemwideinterfaces.core.IContext context, expenserequestexample.proxies.ExpenseRequestWorkflow expenserequestworkflow_expenserequest)
+	{
+		if (expenserequestworkflow_expenserequest == null)
+			getMendixObject().setValue(context, MemberNames.ExpenseRequestWorkflow_ExpenseRequest.toString(), null);
+		else
+			getMendixObject().setValue(context, MemberNames.ExpenseRequestWorkflow_ExpenseRequest.toString(), expenserequestworkflow_expenserequest.getMendixObject().getId());
+	}
+
+	/**
+	 * @return value of DummyWorkflow_ExpenseRequest
+	 */
+	public final workflowcommonsunittests.proxies.DummyWorkflow getDummyWorkflow_ExpenseRequest() throws com.mendix.core.CoreException
+	{
+		return getDummyWorkflow_ExpenseRequest(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of DummyWorkflow_ExpenseRequest
+	 */
+	public final workflowcommonsunittests.proxies.DummyWorkflow getDummyWorkflow_ExpenseRequest(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		workflowcommonsunittests.proxies.DummyWorkflow result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.DummyWorkflow_ExpenseRequest.toString());
+		if (identifier != null)
+			result = workflowcommonsunittests.proxies.DummyWorkflow.load(context, identifier);
+		return result;
+	}
+
+	/**
+	 * Set value of DummyWorkflow_ExpenseRequest
+	 * @param dummyworkflow_expenserequest
+	 */
+	public final void setDummyWorkflow_ExpenseRequest(workflowcommonsunittests.proxies.DummyWorkflow dummyworkflow_expenserequest)
+	{
+		setDummyWorkflow_ExpenseRequest(getContext(), dummyworkflow_expenserequest);
+	}
+
+	/**
+	 * Set value of DummyWorkflow_ExpenseRequest
+	 * @param context
+	 * @param dummyworkflow_expenserequest
+	 */
+	public final void setDummyWorkflow_ExpenseRequest(com.mendix.systemwideinterfaces.core.IContext context, workflowcommonsunittests.proxies.DummyWorkflow dummyworkflow_expenserequest)
+	{
+		if (dummyworkflow_expenserequest == null)
+			getMendixObject().setValue(context, MemberNames.DummyWorkflow_ExpenseRequest.toString(), null);
+		else
+			getMendixObject().setValue(context, MemberNames.DummyWorkflow_ExpenseRequest.toString(), dummyworkflow_expenserequest.getMendixObject().getId());
+	}
+
+	/**
 	 * @return value of ExpenseRequest_UnitTestRunCreated
 	 */
 	public final workflowcommonsunittests.proxies.UnitTestRun getExpenseRequest_UnitTestRunCreated() throws com.mendix.core.CoreException
@@ -319,6 +445,22 @@ public class ExpenseRequest extends system.proxies.WorkflowContext
 			getMendixObject().setValue(context, MemberNames.ExpenseRequest_UnitTestRunReadyForTesting.toString(), expenserequest_unittestrunreadyfortesting.getMendixObject().getId());
 	}
 
+	/**
+	 * @return the IMendixObject instance of this proxy for use in the Core interface.
+	 */
+	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
+	{
+		return expenseRequestMendixObject;
+	}
+
+	/**
+	 * @return the IContext instance of this proxy, or null if no IContext instance was specified at initialization.
+	 */
+	public final com.mendix.systemwideinterfaces.core.IContext getContext()
+	{
+		return context;
+	}
+
 	@java.lang.Override
 	public boolean equals(Object obj)
 	{
@@ -351,7 +493,6 @@ public class ExpenseRequest extends system.proxies.WorkflowContext
 	 * @return String GUID from this object, format: ID_0000000000
 	 * @deprecated Use getMendixObject().getId().toLong() to get a unique identifier for this object.
 	 */
-	@java.lang.Override
 	@java.lang.Deprecated
 	public java.lang.String getGUID()
 	{

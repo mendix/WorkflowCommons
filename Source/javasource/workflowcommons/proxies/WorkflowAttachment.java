@@ -22,7 +22,7 @@ public class WorkflowAttachment extends system.proxies.FileDocument
 		Contents("Contents"),
 		HasContents("HasContents"),
 		Size("Size"),
-		WorkflowAttachment_WorkflowInstance("WorkflowCommons.WorkflowAttachment_WorkflowInstance");
+		WorkflowAttachment_Workflow("WorkflowCommons.WorkflowAttachment_Workflow");
 
 		private java.lang.String metaName;
 
@@ -83,46 +83,46 @@ public class WorkflowAttachment extends system.proxies.FileDocument
 	}
 
 	/**
-	 * @return value of WorkflowAttachment_WorkflowInstance
+	 * @return value of WorkflowAttachment_Workflow
 	 */
-	public final system.proxies.WorkflowInstance getWorkflowAttachment_WorkflowInstance() throws com.mendix.core.CoreException
+	public final system.proxies.Workflow getWorkflowAttachment_Workflow() throws com.mendix.core.CoreException
 	{
-		return getWorkflowAttachment_WorkflowInstance(getContext());
+		return getWorkflowAttachment_Workflow(getContext());
 	}
 
 	/**
 	 * @param context
-	 * @return value of WorkflowAttachment_WorkflowInstance
+	 * @return value of WorkflowAttachment_Workflow
 	 */
-	public final system.proxies.WorkflowInstance getWorkflowAttachment_WorkflowInstance(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final system.proxies.Workflow getWorkflowAttachment_Workflow(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		system.proxies.WorkflowInstance result = null;
-		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.WorkflowAttachment_WorkflowInstance.toString());
+		system.proxies.Workflow result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.WorkflowAttachment_Workflow.toString());
 		if (identifier != null)
-			result = system.proxies.WorkflowInstance.load(context, identifier);
+			result = system.proxies.Workflow.load(context, identifier);
 		return result;
 	}
 
 	/**
-	 * Set value of WorkflowAttachment_WorkflowInstance
-	 * @param workflowattachment_workflowinstance
+	 * Set value of WorkflowAttachment_Workflow
+	 * @param workflowattachment_workflow
 	 */
-	public final void setWorkflowAttachment_WorkflowInstance(system.proxies.WorkflowInstance workflowattachment_workflowinstance)
+	public final void setWorkflowAttachment_Workflow(system.proxies.Workflow workflowattachment_workflow)
 	{
-		setWorkflowAttachment_WorkflowInstance(getContext(), workflowattachment_workflowinstance);
+		setWorkflowAttachment_Workflow(getContext(), workflowattachment_workflow);
 	}
 
 	/**
-	 * Set value of WorkflowAttachment_WorkflowInstance
+	 * Set value of WorkflowAttachment_Workflow
 	 * @param context
-	 * @param workflowattachment_workflowinstance
+	 * @param workflowattachment_workflow
 	 */
-	public final void setWorkflowAttachment_WorkflowInstance(com.mendix.systemwideinterfaces.core.IContext context, system.proxies.WorkflowInstance workflowattachment_workflowinstance)
+	public final void setWorkflowAttachment_Workflow(com.mendix.systemwideinterfaces.core.IContext context, system.proxies.Workflow workflowattachment_workflow)
 	{
-		if (workflowattachment_workflowinstance == null)
-			getMendixObject().setValue(context, MemberNames.WorkflowAttachment_WorkflowInstance.toString(), null);
+		if (workflowattachment_workflow == null)
+			getMendixObject().setValue(context, MemberNames.WorkflowAttachment_Workflow.toString(), null);
 		else
-			getMendixObject().setValue(context, MemberNames.WorkflowAttachment_WorkflowInstance.toString(), workflowattachment_workflowinstance.getMendixObject().getId());
+			getMendixObject().setValue(context, MemberNames.WorkflowAttachment_Workflow.toString(), workflowattachment_workflow.getMendixObject().getId());
 	}
 
 	@java.lang.Override

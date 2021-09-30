@@ -27,6 +27,8 @@ public class DashboardContext
 		TimeFrameStepUnit("TimeFrameStepUnit"),
 		DashboardContext_TaskSummary("WorkflowCommons.DashboardContext_TaskSummary"),
 		DashboardContext_WorkflowSummary("WorkflowCommons.DashboardContext_WorkflowSummary"),
+		DashboardContext_DefinitionHelperTask("WorkflowCommons.DashboardContext_DefinitionHelperTask"),
+		DashboardContext_DefinitionHelperWorkflow("WorkflowCommons.DashboardContext_DefinitionHelperWorkflow"),
 		DashboardContext_Session("WorkflowCommons.DashboardContext_Session"),
 		DashboardContext_WorkflowDefinition("WorkflowCommons.DashboardContext_WorkflowDefinition"),
 		DashboardContext_WorkflowTaskDefinition("WorkflowCommons.DashboardContext_WorkflowTaskDefinition");
@@ -399,6 +401,92 @@ public class DashboardContext
 	}
 
 	/**
+	 * @return value of DashboardContext_DefinitionHelperTask
+	 */
+	public final workflowcommons.proxies.DefinitionHelper getDashboardContext_DefinitionHelperTask() throws com.mendix.core.CoreException
+	{
+		return getDashboardContext_DefinitionHelperTask(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of DashboardContext_DefinitionHelperTask
+	 */
+	public final workflowcommons.proxies.DefinitionHelper getDashboardContext_DefinitionHelperTask(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		workflowcommons.proxies.DefinitionHelper result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.DashboardContext_DefinitionHelperTask.toString());
+		if (identifier != null)
+			result = workflowcommons.proxies.DefinitionHelper.load(context, identifier);
+		return result;
+	}
+
+	/**
+	 * Set value of DashboardContext_DefinitionHelperTask
+	 * @param dashboardcontext_definitionhelpertask
+	 */
+	public final void setDashboardContext_DefinitionHelperTask(workflowcommons.proxies.DefinitionHelper dashboardcontext_definitionhelpertask)
+	{
+		setDashboardContext_DefinitionHelperTask(getContext(), dashboardcontext_definitionhelpertask);
+	}
+
+	/**
+	 * Set value of DashboardContext_DefinitionHelperTask
+	 * @param context
+	 * @param dashboardcontext_definitionhelpertask
+	 */
+	public final void setDashboardContext_DefinitionHelperTask(com.mendix.systemwideinterfaces.core.IContext context, workflowcommons.proxies.DefinitionHelper dashboardcontext_definitionhelpertask)
+	{
+		if (dashboardcontext_definitionhelpertask == null)
+			getMendixObject().setValue(context, MemberNames.DashboardContext_DefinitionHelperTask.toString(), null);
+		else
+			getMendixObject().setValue(context, MemberNames.DashboardContext_DefinitionHelperTask.toString(), dashboardcontext_definitionhelpertask.getMendixObject().getId());
+	}
+
+	/**
+	 * @return value of DashboardContext_DefinitionHelperWorkflow
+	 */
+	public final workflowcommons.proxies.DefinitionHelper getDashboardContext_DefinitionHelperWorkflow() throws com.mendix.core.CoreException
+	{
+		return getDashboardContext_DefinitionHelperWorkflow(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of DashboardContext_DefinitionHelperWorkflow
+	 */
+	public final workflowcommons.proxies.DefinitionHelper getDashboardContext_DefinitionHelperWorkflow(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		workflowcommons.proxies.DefinitionHelper result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.DashboardContext_DefinitionHelperWorkflow.toString());
+		if (identifier != null)
+			result = workflowcommons.proxies.DefinitionHelper.load(context, identifier);
+		return result;
+	}
+
+	/**
+	 * Set value of DashboardContext_DefinitionHelperWorkflow
+	 * @param dashboardcontext_definitionhelperworkflow
+	 */
+	public final void setDashboardContext_DefinitionHelperWorkflow(workflowcommons.proxies.DefinitionHelper dashboardcontext_definitionhelperworkflow)
+	{
+		setDashboardContext_DefinitionHelperWorkflow(getContext(), dashboardcontext_definitionhelperworkflow);
+	}
+
+	/**
+	 * Set value of DashboardContext_DefinitionHelperWorkflow
+	 * @param context
+	 * @param dashboardcontext_definitionhelperworkflow
+	 */
+	public final void setDashboardContext_DefinitionHelperWorkflow(com.mendix.systemwideinterfaces.core.IContext context, workflowcommons.proxies.DefinitionHelper dashboardcontext_definitionhelperworkflow)
+	{
+		if (dashboardcontext_definitionhelperworkflow == null)
+			getMendixObject().setValue(context, MemberNames.DashboardContext_DefinitionHelperWorkflow.toString(), null);
+		else
+			getMendixObject().setValue(context, MemberNames.DashboardContext_DefinitionHelperWorkflow.toString(), dashboardcontext_definitionhelperworkflow.getMendixObject().getId());
+	}
+
+	/**
 	 * @return value of DashboardContext_Session
 	 */
 	public final system.proxies.Session getDashboardContext_Session() throws com.mendix.core.CoreException
@@ -487,7 +575,7 @@ public class DashboardContext
 	/**
 	 * @return value of DashboardContext_WorkflowTaskDefinition
 	 */
-	public final system.proxies.WorkflowTaskDefinition getDashboardContext_WorkflowTaskDefinition() throws com.mendix.core.CoreException
+	public final system.proxies.WorkflowUserTaskDefinition getDashboardContext_WorkflowTaskDefinition() throws com.mendix.core.CoreException
 	{
 		return getDashboardContext_WorkflowTaskDefinition(getContext());
 	}
@@ -496,12 +584,12 @@ public class DashboardContext
 	 * @param context
 	 * @return value of DashboardContext_WorkflowTaskDefinition
 	 */
-	public final system.proxies.WorkflowTaskDefinition getDashboardContext_WorkflowTaskDefinition(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final system.proxies.WorkflowUserTaskDefinition getDashboardContext_WorkflowTaskDefinition(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		system.proxies.WorkflowTaskDefinition result = null;
+		system.proxies.WorkflowUserTaskDefinition result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.DashboardContext_WorkflowTaskDefinition.toString());
 		if (identifier != null)
-			result = system.proxies.WorkflowTaskDefinition.load(context, identifier);
+			result = system.proxies.WorkflowUserTaskDefinition.load(context, identifier);
 		return result;
 	}
 
@@ -509,7 +597,7 @@ public class DashboardContext
 	 * Set value of DashboardContext_WorkflowTaskDefinition
 	 * @param dashboardcontext_workflowtaskdefinition
 	 */
-	public final void setDashboardContext_WorkflowTaskDefinition(system.proxies.WorkflowTaskDefinition dashboardcontext_workflowtaskdefinition)
+	public final void setDashboardContext_WorkflowTaskDefinition(system.proxies.WorkflowUserTaskDefinition dashboardcontext_workflowtaskdefinition)
 	{
 		setDashboardContext_WorkflowTaskDefinition(getContext(), dashboardcontext_workflowtaskdefinition);
 	}
@@ -519,7 +607,7 @@ public class DashboardContext
 	 * @param context
 	 * @param dashboardcontext_workflowtaskdefinition
 	 */
-	public final void setDashboardContext_WorkflowTaskDefinition(com.mendix.systemwideinterfaces.core.IContext context, system.proxies.WorkflowTaskDefinition dashboardcontext_workflowtaskdefinition)
+	public final void setDashboardContext_WorkflowTaskDefinition(com.mendix.systemwideinterfaces.core.IContext context, system.proxies.WorkflowUserTaskDefinition dashboardcontext_workflowtaskdefinition)
 	{
 		if (dashboardcontext_workflowtaskdefinition == null)
 			getMendixObject().setValue(context, MemberNames.DashboardContext_WorkflowTaskDefinition.toString(), null);

@@ -21,7 +21,7 @@ public class WorkflowComment
 	public enum MemberNames
 	{
 		Content("Content"),
-		WorkflowComment_WorkflowInstance("WorkflowCommons.WorkflowComment_WorkflowInstance");
+		WorkflowComment_Workflow("WorkflowCommons.WorkflowComment_Workflow");
 
 		private java.lang.String metaName;
 
@@ -153,46 +153,46 @@ public class WorkflowComment
 	}
 
 	/**
-	 * @return value of WorkflowComment_WorkflowInstance
+	 * @return value of WorkflowComment_Workflow
 	 */
-	public final system.proxies.WorkflowInstance getWorkflowComment_WorkflowInstance() throws com.mendix.core.CoreException
+	public final system.proxies.Workflow getWorkflowComment_Workflow() throws com.mendix.core.CoreException
 	{
-		return getWorkflowComment_WorkflowInstance(getContext());
+		return getWorkflowComment_Workflow(getContext());
 	}
 
 	/**
 	 * @param context
-	 * @return value of WorkflowComment_WorkflowInstance
+	 * @return value of WorkflowComment_Workflow
 	 */
-	public final system.proxies.WorkflowInstance getWorkflowComment_WorkflowInstance(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final system.proxies.Workflow getWorkflowComment_Workflow(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		system.proxies.WorkflowInstance result = null;
-		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.WorkflowComment_WorkflowInstance.toString());
+		system.proxies.Workflow result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.WorkflowComment_Workflow.toString());
 		if (identifier != null)
-			result = system.proxies.WorkflowInstance.load(context, identifier);
+			result = system.proxies.Workflow.load(context, identifier);
 		return result;
 	}
 
 	/**
-	 * Set value of WorkflowComment_WorkflowInstance
-	 * @param workflowcomment_workflowinstance
+	 * Set value of WorkflowComment_Workflow
+	 * @param workflowcomment_workflow
 	 */
-	public final void setWorkflowComment_WorkflowInstance(system.proxies.WorkflowInstance workflowcomment_workflowinstance)
+	public final void setWorkflowComment_Workflow(system.proxies.Workflow workflowcomment_workflow)
 	{
-		setWorkflowComment_WorkflowInstance(getContext(), workflowcomment_workflowinstance);
+		setWorkflowComment_Workflow(getContext(), workflowcomment_workflow);
 	}
 
 	/**
-	 * Set value of WorkflowComment_WorkflowInstance
+	 * Set value of WorkflowComment_Workflow
 	 * @param context
-	 * @param workflowcomment_workflowinstance
+	 * @param workflowcomment_workflow
 	 */
-	public final void setWorkflowComment_WorkflowInstance(com.mendix.systemwideinterfaces.core.IContext context, system.proxies.WorkflowInstance workflowcomment_workflowinstance)
+	public final void setWorkflowComment_Workflow(com.mendix.systemwideinterfaces.core.IContext context, system.proxies.Workflow workflowcomment_workflow)
 	{
-		if (workflowcomment_workflowinstance == null)
-			getMendixObject().setValue(context, MemberNames.WorkflowComment_WorkflowInstance.toString(), null);
+		if (workflowcomment_workflow == null)
+			getMendixObject().setValue(context, MemberNames.WorkflowComment_Workflow.toString(), null);
 		else
-			getMendixObject().setValue(context, MemberNames.WorkflowComment_WorkflowInstance.toString(), workflowcomment_workflowinstance.getMendixObject().getId());
+			getMendixObject().setValue(context, MemberNames.WorkflowComment_Workflow.toString(), workflowcomment_workflow.getMendixObject().getId());
 	}
 
 	/**

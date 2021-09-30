@@ -224,7 +224,7 @@ public class UserTaskTimeLine
 	 * Set value of State
 	 * @param state
 	 */
-	public final system.proxies.WorkflowTaskState getState()
+	public final system.proxies.WorkflowUserTaskState getState()
 	{
 		return getState(getContext());
 	}
@@ -233,20 +233,20 @@ public class UserTaskTimeLine
 	 * @param context
 	 * @return value of State
 	 */
-	public final system.proxies.WorkflowTaskState getState(com.mendix.systemwideinterfaces.core.IContext context)
+	public final system.proxies.WorkflowUserTaskState getState(com.mendix.systemwideinterfaces.core.IContext context)
 	{
 		Object obj = getMendixObject().getValue(context, MemberNames.State.toString());
 		if (obj == null)
 			return null;
 
-		return system.proxies.WorkflowTaskState.valueOf((java.lang.String) obj);
+		return system.proxies.WorkflowUserTaskState.valueOf((java.lang.String) obj);
 	}
 
 	/**
 	 * Set value of State
 	 * @param state
 	 */
-	public final void setState(system.proxies.WorkflowTaskState state)
+	public final void setState(system.proxies.WorkflowUserTaskState state)
 	{
 		setState(getContext(), state);
 	}
@@ -256,7 +256,7 @@ public class UserTaskTimeLine
 	 * @param context
 	 * @param state
 	 */
-	public final void setState(com.mendix.systemwideinterfaces.core.IContext context, system.proxies.WorkflowTaskState state)
+	public final void setState(com.mendix.systemwideinterfaces.core.IContext context, system.proxies.WorkflowUserTaskState state)
 	{
 		if (state != null)
 			getMendixObject().setValue(context, MemberNames.State.toString(), state.toString());
