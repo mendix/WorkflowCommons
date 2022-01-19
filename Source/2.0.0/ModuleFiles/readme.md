@@ -1,0 +1,1 @@
+This folder is used to store aditional resources needed to support the module

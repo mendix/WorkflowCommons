@@ -1,0 +1,30 @@
+{
+  "layout": {
+  },
+  "configuration": {
+  },
+  "charts": {
+    "LineChart": {
+      "layout": {
+      },
+      "data": {
+      },
+      "configuration": {
+      }
+    },
+    "AreaChart": {
+    },
+    "BubbleChart": {
+    },
+    "TimeSeries": {
+    },
+    "ColumnChart": {
+    },
+    "BarChart": {
+    },
+    "PieChart": {
+    },
+    "HeatMap": {
+    }
+  }
+}
