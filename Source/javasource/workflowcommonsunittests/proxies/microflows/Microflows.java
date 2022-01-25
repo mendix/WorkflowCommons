@@ -318,11 +318,32 @@ public class Microflows
 		params.put("ExpenseRequest", _expenseRequest == null ? null : _expenseRequest.getMendixObject());
 		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.WFS_DummySystemTask").withParams(params).execute(context);
 	}
+	public static void workflow_ChangeStateInQueue(IContext context, system.proxies.Workflow _workflow, java.lang.String _action)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		params.put("Workflow", _workflow == null ? null : _workflow.getMendixObject());
+		params.put("Action", _action);
+		Core.microflowCall("WorkflowCommonsUnitTests.Workflow_ChangeStateInQueue").withParams(params).execute(context);
+	}
 	public static void workflow_MarkIncompatible(IContext context, system.proxies.Workflow _workflow)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
 		params.put("Workflow", _workflow == null ? null : _workflow.getMendixObject());
 		Core.microflowCall("WorkflowCommonsUnitTests.Workflow_MarkIncompatible").withParams(params).execute(context);
+	}
+	public static void workflowUserTask_CompleteDummyTaskInQueue(IContext context, administration.proxies.Account _account, system.proxies.WorkflowUserTask _workflowUserTask)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		params.put("Account", _account == null ? null : _account.getMendixObject());
+		params.put("WorkflowUserTask", _workflowUserTask == null ? null : _workflowUserTask.getMendixObject());
+		Core.microflowCall("WorkflowCommonsUnitTests.WorkflowUserTask_CompleteDummyTaskInQueue").withParams(params).execute(context);
+	}
+	public static void workflowUserTask_CompleteTaskInQueue(IContext context, administration.proxies.Account _account, system.proxies.WorkflowUserTask _workflowUserTask)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		params.put("Account", _account == null ? null : _account.getMendixObject());
+		params.put("WorkflowUserTask", _workflowUserTask == null ? null : _workflowUserTask.getMendixObject());
+		Core.microflowCall("WorkflowCommonsUnitTests.WorkflowUserTask_CompleteTaskInQueue").withParams(params).execute(context);
 	}
 	public static boolean workflowUserTask_HasExpectedState(IContext context, system.proxies.WorkflowUserTask _workflowUserTask, system.proxies.WorkflowUserTaskState _expectedWorkflowTaskState, java.lang.String _messagePrefix)
 	{
