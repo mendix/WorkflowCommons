@@ -15,6 +15,11 @@ public class Constants
 		return (java.lang.Long)Core.getConfiguration().getConstantValue("MendixSSO.AuthRequestExpiryDurationInMinutes");
 	}
 
+	public static java.lang.Long getBatchSize()
+	{
+		return (java.lang.Long)Core.getConfiguration().getConstantValue("MendixSSO.BatchSize");
+	}
+
 	/**
 	* When your application contains SSO user objects based on a previous user entity and no customized user data has to be retained, you can choose to enable automatic deletion of the old user object  and provisioning of the new user object when that user logs in. Setting the default value of this constant to true will enable this.
 	* (Also read MendixSSO documentation, section "Incompatible user data type")
@@ -24,11 +29,6 @@ public class Constants
 	public static boolean getConsentToDeleteIncompatibleUsers()
 	{
 		return (java.lang.Boolean)Core.getConfiguration().getConstantValue("MendixSSO.ConsentToDeleteIncompatibleUsers");
-	}
-
-	public static java.lang.Long getDeleteTokenBatchSize()
-	{
-		return (java.lang.Long)Core.getConfiguration().getConstantValue("MendixSSO.DeleteTokenBatchSize");
 	}
 
 	/**
@@ -66,11 +66,6 @@ public class Constants
 		return (java.lang.String)Core.getConfiguration().getConstantValue("MendixSSO.LogNode");
 	}
 
-	public static java.lang.String getMxID2_OpenIDPrefix()
-	{
-		return (java.lang.String)Core.getConfiguration().getConstantValue("MendixSSO.MxID2_OpenIDPrefix");
-	}
-
 	public static java.lang.String getOpenIdConnectDiscoveryPath()
 	{
 		return (java.lang.String)Core.getConfiguration().getConstantValue("MendixSSO.OpenIdConnectDiscoveryPath");
@@ -89,6 +84,16 @@ public class Constants
 	public static java.lang.String getRolesLocation()
 	{
 		return (java.lang.String)Core.getConfiguration().getConstantValue("MendixSSO.RolesLocation");
+	}
+
+	public static java.lang.String getSignupHint()
+	{
+		return (java.lang.String)Core.getConfiguration().getConstantValue("MendixSSO.SignupHint");
+	}
+
+	public static boolean getSilentAuthentication()
+	{
+		return (java.lang.Boolean)Core.getConfiguration().getConstantValue("MendixSSO.SilentAuthentication");
 	}
 
 	/**

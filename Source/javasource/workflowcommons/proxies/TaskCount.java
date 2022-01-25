@@ -22,8 +22,7 @@ public class TaskCount
 	{
 		MyOpenTaskCount("MyOpenTaskCount"),
 		AllOpenTaskCount("AllOpenTaskCount"),
-		UnassignedTaskCount("UnassignedTaskCount"),
-		CompletedTaskCount("CompletedTaskCount");
+		UnassignedTaskCount("UnassignedTaskCount");
 
 		private java.lang.String metaName;
 
@@ -216,42 +215,6 @@ public class TaskCount
 	public final void setUnassignedTaskCount(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Integer unassignedtaskcount)
 	{
 		getMendixObject().setValue(context, MemberNames.UnassignedTaskCount.toString(), unassignedtaskcount);
-	}
-
-	/**
-	 * @return value of CompletedTaskCount
-	 */
-	public final java.lang.Integer getCompletedTaskCount()
-	{
-		return getCompletedTaskCount(getContext());
-	}
-
-	/**
-	 * @param context
-	 * @return value of CompletedTaskCount
-	 */
-	public final java.lang.Integer getCompletedTaskCount(com.mendix.systemwideinterfaces.core.IContext context)
-	{
-		return (java.lang.Integer) getMendixObject().getValue(context, MemberNames.CompletedTaskCount.toString());
-	}
-
-	/**
-	 * Set value of CompletedTaskCount
-	 * @param completedtaskcount
-	 */
-	public final void setCompletedTaskCount(java.lang.Integer completedtaskcount)
-	{
-		setCompletedTaskCount(getContext(), completedtaskcount);
-	}
-
-	/**
-	 * Set value of CompletedTaskCount
-	 * @param context
-	 * @param completedtaskcount
-	 */
-	public final void setCompletedTaskCount(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Integer completedtaskcount)
-	{
-		getMendixObject().setValue(context, MemberNames.CompletedTaskCount.toString(), completedtaskcount);
 	}
 
 	/**

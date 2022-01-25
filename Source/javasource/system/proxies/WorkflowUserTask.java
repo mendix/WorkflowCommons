@@ -27,7 +27,6 @@ public class WorkflowUserTask
 		EndTime("EndTime"),
 		Outcome("Outcome"),
 		State("State"),
-		Reason("Reason"),
 		WorkflowUserTask_TargetUsers("System.WorkflowUserTask_TargetUsers"),
 		WorkflowUserTask_Assignee("System.WorkflowUserTask_Assignee"),
 		WorkflowUserTask_Workflow("System.WorkflowUserTask_Workflow"),
@@ -78,15 +77,6 @@ public class WorkflowUserTask
 	 */
 	public static system.proxies.WorkflowUserTask initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
 	{
-		if (com.mendix.core.Core.isSubClassOf("WorkflowCommonsUnitTests.DummyWFUserTask", mendixObject.getType()))
-			return workflowcommonsunittests.proxies.DummyWFUserTask.initialize(context, mendixObject);
-
-		if (com.mendix.core.Core.isSubClassOf("ExpenseRequestExample.FinanceControllerApproveExpenseWFUserTask", mendixObject.getType()))
-			return expenserequestexample.proxies.FinanceControllerApproveExpenseWFUserTask.initialize(context, mendixObject);
-
-		if (com.mendix.core.Core.isSubClassOf("ExpenseRequestExample.ManagerApproveExpenseWFUserTask", mendixObject.getType()))
-			return expenserequestexample.proxies.ManagerApproveExpenseWFUserTask.initialize(context, mendixObject);
-
 		return new system.proxies.WorkflowUserTask(context, mendixObject);
 	}
 
@@ -96,7 +86,7 @@ public class WorkflowUserTask
 		return system.proxies.WorkflowUserTask.initialize(context, mendixObject);
 	}
 
-	public static java.util.List<? extends system.proxies.WorkflowUserTask> load(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String xpathConstraint) throws com.mendix.core.CoreException
+	public static java.util.List<system.proxies.WorkflowUserTask> load(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String xpathConstraint) throws com.mendix.core.CoreException
 	{
 		java.util.List<system.proxies.WorkflowUserTask> result = new java.util.ArrayList<system.proxies.WorkflowUserTask>();
 		for (com.mendix.systemwideinterfaces.core.IMendixObject obj : com.mendix.core.Core.retrieveXPathQuery(context, "//System.WorkflowUserTask" + xpathConstraint))
@@ -393,42 +383,6 @@ public class WorkflowUserTask
 			getMendixObject().setValue(context, MemberNames.State.toString(), state.toString());
 		else
 			getMendixObject().setValue(context, MemberNames.State.toString(), null);
-	}
-
-	/**
-	 * @return value of Reason
-	 */
-	public final java.lang.String getReason()
-	{
-		return getReason(getContext());
-	}
-
-	/**
-	 * @param context
-	 * @return value of Reason
-	 */
-	public final java.lang.String getReason(com.mendix.systemwideinterfaces.core.IContext context)
-	{
-		return (java.lang.String) getMendixObject().getValue(context, MemberNames.Reason.toString());
-	}
-
-	/**
-	 * Set value of Reason
-	 * @param reason
-	 */
-	public final void setReason(java.lang.String reason)
-	{
-		setReason(getContext(), reason);
-	}
-
-	/**
-	 * Set value of Reason
-	 * @param context
-	 * @param reason
-	 */
-	public final void setReason(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String reason)
-	{
-		getMendixObject().setValue(context, MemberNames.Reason.toString(), reason);
 	}
 
 	/**

@@ -5,7 +5,10 @@
 package system.proxies;
 
 /**
- * The type of context to use for executing queued tasks.
+ * The type of context to use for executing tasks in task queues.
+ * * System: Execute in the system context.
+ * * User: Execute in a user context for a specific user.
+ * * Anonymous: Execute in a context for an anonymous user.
  */
 public enum ContextType
 {

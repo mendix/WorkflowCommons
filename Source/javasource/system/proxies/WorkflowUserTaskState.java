@@ -6,12 +6,10 @@ package system.proxies;
 
 public enum WorkflowUserTaskState
 {
-	Initialized(new java.lang.String[][] { new java.lang.String[] { "en_US", "Initialized" } }),
-	Targeted(new java.lang.String[][] { new java.lang.String[] { "en_US", "Targeted" } }),
-	Starting(new java.lang.String[][] { new java.lang.String[] { "en_US", "Starting" } }),
-	Paused(new java.lang.String[][] { new java.lang.String[] { "en_US", "Paused" } }),
+	Created(new java.lang.String[][] { new java.lang.String[] { "en_US", "Created" } }),
 	InProgress(new java.lang.String[][] { new java.lang.String[] { "en_US", "In Progress" } }),
 	Completed(new java.lang.String[][] { new java.lang.String[] { "en_US", "Completed" } }),
+	Paused(new java.lang.String[][] { new java.lang.String[] { "en_US", "Paused" } }),
 	Aborted(new java.lang.String[][] { new java.lang.String[] { "en_US", "Aborted" } }),
 	Failed(new java.lang.String[][] { new java.lang.String[] { "en_US", "Failed" } });
 

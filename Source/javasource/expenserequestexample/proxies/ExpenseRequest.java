@@ -24,10 +24,9 @@ public class ExpenseRequest
 		ApprovedSecondary("ApprovedSecondary"),
 		Note("Note"),
 		ExpenseRequest_Expense("ExpenseRequestExample.ExpenseRequest_Expense"),
-		ExpenseRequestWorkflow_ExpenseRequest("ExpenseRequestExample.ExpenseRequestWorkflow_ExpenseRequest"),
-		DummyWorkflow_ExpenseRequest("WorkflowCommonsUnitTests.DummyWorkflow_ExpenseRequest"),
 		ExpenseRequest_UnitTestRunCreated("ExpenseRequestExample.ExpenseRequest_UnitTestRunCreated"),
-		ExpenseRequest_UnitTestRunReadyForTesting("ExpenseRequestExample.ExpenseRequest_UnitTestRunReadyForTesting");
+		ExpenseRequest_UnitTestRunReadyForTesting("ExpenseRequestExample.ExpenseRequest_UnitTestRunReadyForTesting"),
+		ExpenseRequest_Workflow("ExpenseRequestExample.ExpenseRequest_Workflow");
 
 		private java.lang.String metaName;
 
@@ -274,92 +273,6 @@ public class ExpenseRequest
 	}
 
 	/**
-	 * @return value of ExpenseRequestWorkflow_ExpenseRequest
-	 */
-	public final expenserequestexample.proxies.ExpenseRequestWorkflow getExpenseRequestWorkflow_ExpenseRequest() throws com.mendix.core.CoreException
-	{
-		return getExpenseRequestWorkflow_ExpenseRequest(getContext());
-	}
-
-	/**
-	 * @param context
-	 * @return value of ExpenseRequestWorkflow_ExpenseRequest
-	 */
-	public final expenserequestexample.proxies.ExpenseRequestWorkflow getExpenseRequestWorkflow_ExpenseRequest(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
-	{
-		expenserequestexample.proxies.ExpenseRequestWorkflow result = null;
-		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.ExpenseRequestWorkflow_ExpenseRequest.toString());
-		if (identifier != null)
-			result = expenserequestexample.proxies.ExpenseRequestWorkflow.load(context, identifier);
-		return result;
-	}
-
-	/**
-	 * Set value of ExpenseRequestWorkflow_ExpenseRequest
-	 * @param expenserequestworkflow_expenserequest
-	 */
-	public final void setExpenseRequestWorkflow_ExpenseRequest(expenserequestexample.proxies.ExpenseRequestWorkflow expenserequestworkflow_expenserequest)
-	{
-		setExpenseRequestWorkflow_ExpenseRequest(getContext(), expenserequestworkflow_expenserequest);
-	}
-
-	/**
-	 * Set value of ExpenseRequestWorkflow_ExpenseRequest
-	 * @param context
-	 * @param expenserequestworkflow_expenserequest
-	 */
-	public final void setExpenseRequestWorkflow_ExpenseRequest(com.mendix.systemwideinterfaces.core.IContext context, expenserequestexample.proxies.ExpenseRequestWorkflow expenserequestworkflow_expenserequest)
-	{
-		if (expenserequestworkflow_expenserequest == null)
-			getMendixObject().setValue(context, MemberNames.ExpenseRequestWorkflow_ExpenseRequest.toString(), null);
-		else
-			getMendixObject().setValue(context, MemberNames.ExpenseRequestWorkflow_ExpenseRequest.toString(), expenserequestworkflow_expenserequest.getMendixObject().getId());
-	}
-
-	/**
-	 * @return value of DummyWorkflow_ExpenseRequest
-	 */
-	public final workflowcommonsunittests.proxies.DummyWorkflow getDummyWorkflow_ExpenseRequest() throws com.mendix.core.CoreException
-	{
-		return getDummyWorkflow_ExpenseRequest(getContext());
-	}
-
-	/**
-	 * @param context
-	 * @return value of DummyWorkflow_ExpenseRequest
-	 */
-	public final workflowcommonsunittests.proxies.DummyWorkflow getDummyWorkflow_ExpenseRequest(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
-	{
-		workflowcommonsunittests.proxies.DummyWorkflow result = null;
-		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.DummyWorkflow_ExpenseRequest.toString());
-		if (identifier != null)
-			result = workflowcommonsunittests.proxies.DummyWorkflow.load(context, identifier);
-		return result;
-	}
-
-	/**
-	 * Set value of DummyWorkflow_ExpenseRequest
-	 * @param dummyworkflow_expenserequest
-	 */
-	public final void setDummyWorkflow_ExpenseRequest(workflowcommonsunittests.proxies.DummyWorkflow dummyworkflow_expenserequest)
-	{
-		setDummyWorkflow_ExpenseRequest(getContext(), dummyworkflow_expenserequest);
-	}
-
-	/**
-	 * Set value of DummyWorkflow_ExpenseRequest
-	 * @param context
-	 * @param dummyworkflow_expenserequest
-	 */
-	public final void setDummyWorkflow_ExpenseRequest(com.mendix.systemwideinterfaces.core.IContext context, workflowcommonsunittests.proxies.DummyWorkflow dummyworkflow_expenserequest)
-	{
-		if (dummyworkflow_expenserequest == null)
-			getMendixObject().setValue(context, MemberNames.DummyWorkflow_ExpenseRequest.toString(), null);
-		else
-			getMendixObject().setValue(context, MemberNames.DummyWorkflow_ExpenseRequest.toString(), dummyworkflow_expenserequest.getMendixObject().getId());
-	}
-
-	/**
 	 * @return value of ExpenseRequest_UnitTestRunCreated
 	 */
 	public final workflowcommonsunittests.proxies.UnitTestRun getExpenseRequest_UnitTestRunCreated() throws com.mendix.core.CoreException
@@ -443,6 +356,49 @@ public class ExpenseRequest
 			getMendixObject().setValue(context, MemberNames.ExpenseRequest_UnitTestRunReadyForTesting.toString(), null);
 		else
 			getMendixObject().setValue(context, MemberNames.ExpenseRequest_UnitTestRunReadyForTesting.toString(), expenserequest_unittestrunreadyfortesting.getMendixObject().getId());
+	}
+
+	/**
+	 * @return value of ExpenseRequest_Workflow
+	 */
+	public final system.proxies.Workflow getExpenseRequest_Workflow() throws com.mendix.core.CoreException
+	{
+		return getExpenseRequest_Workflow(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of ExpenseRequest_Workflow
+	 */
+	public final system.proxies.Workflow getExpenseRequest_Workflow(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		system.proxies.Workflow result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.ExpenseRequest_Workflow.toString());
+		if (identifier != null)
+			result = system.proxies.Workflow.load(context, identifier);
+		return result;
+	}
+
+	/**
+	 * Set value of ExpenseRequest_Workflow
+	 * @param expenserequest_workflow
+	 */
+	public final void setExpenseRequest_Workflow(system.proxies.Workflow expenserequest_workflow)
+	{
+		setExpenseRequest_Workflow(getContext(), expenserequest_workflow);
+	}
+
+	/**
+	 * Set value of ExpenseRequest_Workflow
+	 * @param context
+	 * @param expenserequest_workflow
+	 */
+	public final void setExpenseRequest_Workflow(com.mendix.systemwideinterfaces.core.IContext context, system.proxies.Workflow expenserequest_workflow)
+	{
+		if (expenserequest_workflow == null)
+			getMendixObject().setValue(context, MemberNames.ExpenseRequest_Workflow.toString(), null);
+		else
+			getMendixObject().setValue(context, MemberNames.ExpenseRequest_Workflow.toString(), expenserequest_workflow.getMendixObject().getId());
 	}
 
 	/**

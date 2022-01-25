@@ -20,9 +20,6 @@ public class TaskSummary
 	 */
 	public enum MemberNames
 	{
-		NumberOfTasksCompleted("NumberOfTasksCompleted"),
-		TaskAverageHandlingTime("TaskAverageHandlingTime"),
-		TasksHandledInTime("TasksHandledInTime"),
 		NumberOfTasksOverdue("NumberOfTasksOverdue"),
 		NumberOfTasksInProgress("NumberOfTasksInProgress"),
 		NumberOfTasksFailed("NumberOfTasksFailed"),
@@ -113,114 +110,6 @@ public class TaskSummary
 	{
 		com.mendix.core.Core.delete(context, getMendixObject());
 	}
-	/**
-	 * @return value of NumberOfTasksCompleted
-	 */
-	public final java.lang.Integer getNumberOfTasksCompleted()
-	{
-		return getNumberOfTasksCompleted(getContext());
-	}
-
-	/**
-	 * @param context
-	 * @return value of NumberOfTasksCompleted
-	 */
-	public final java.lang.Integer getNumberOfTasksCompleted(com.mendix.systemwideinterfaces.core.IContext context)
-	{
-		return (java.lang.Integer) getMendixObject().getValue(context, MemberNames.NumberOfTasksCompleted.toString());
-	}
-
-	/**
-	 * Set value of NumberOfTasksCompleted
-	 * @param numberoftaskscompleted
-	 */
-	public final void setNumberOfTasksCompleted(java.lang.Integer numberoftaskscompleted)
-	{
-		setNumberOfTasksCompleted(getContext(), numberoftaskscompleted);
-	}
-
-	/**
-	 * Set value of NumberOfTasksCompleted
-	 * @param context
-	 * @param numberoftaskscompleted
-	 */
-	public final void setNumberOfTasksCompleted(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Integer numberoftaskscompleted)
-	{
-		getMendixObject().setValue(context, MemberNames.NumberOfTasksCompleted.toString(), numberoftaskscompleted);
-	}
-
-	/**
-	 * @return value of TaskAverageHandlingTime
-	 */
-	public final java.math.BigDecimal getTaskAverageHandlingTime()
-	{
-		return getTaskAverageHandlingTime(getContext());
-	}
-
-	/**
-	 * @param context
-	 * @return value of TaskAverageHandlingTime
-	 */
-	public final java.math.BigDecimal getTaskAverageHandlingTime(com.mendix.systemwideinterfaces.core.IContext context)
-	{
-		return (java.math.BigDecimal) getMendixObject().getValue(context, MemberNames.TaskAverageHandlingTime.toString());
-	}
-
-	/**
-	 * Set value of TaskAverageHandlingTime
-	 * @param taskaveragehandlingtime
-	 */
-	public final void setTaskAverageHandlingTime(java.math.BigDecimal taskaveragehandlingtime)
-	{
-		setTaskAverageHandlingTime(getContext(), taskaveragehandlingtime);
-	}
-
-	/**
-	 * Set value of TaskAverageHandlingTime
-	 * @param context
-	 * @param taskaveragehandlingtime
-	 */
-	public final void setTaskAverageHandlingTime(com.mendix.systemwideinterfaces.core.IContext context, java.math.BigDecimal taskaveragehandlingtime)
-	{
-		getMendixObject().setValue(context, MemberNames.TaskAverageHandlingTime.toString(), taskaveragehandlingtime);
-	}
-
-	/**
-	 * @return value of TasksHandledInTime
-	 */
-	public final java.math.BigDecimal getTasksHandledInTime()
-	{
-		return getTasksHandledInTime(getContext());
-	}
-
-	/**
-	 * @param context
-	 * @return value of TasksHandledInTime
-	 */
-	public final java.math.BigDecimal getTasksHandledInTime(com.mendix.systemwideinterfaces.core.IContext context)
-	{
-		return (java.math.BigDecimal) getMendixObject().getValue(context, MemberNames.TasksHandledInTime.toString());
-	}
-
-	/**
-	 * Set value of TasksHandledInTime
-	 * @param taskshandledintime
-	 */
-	public final void setTasksHandledInTime(java.math.BigDecimal taskshandledintime)
-	{
-		setTasksHandledInTime(getContext(), taskshandledintime);
-	}
-
-	/**
-	 * Set value of TasksHandledInTime
-	 * @param context
-	 * @param taskshandledintime
-	 */
-	public final void setTasksHandledInTime(com.mendix.systemwideinterfaces.core.IContext context, java.math.BigDecimal taskshandledintime)
-	{
-		getMendixObject().setValue(context, MemberNames.TasksHandledInTime.toString(), taskshandledintime);
-	}
-
 	/**
 	 * @return value of NumberOfTasksOverdue
 	 */

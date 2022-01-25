@@ -76,12 +76,6 @@ public class Workflow
 	 */
 	public static system.proxies.Workflow initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
 	{
-		if (com.mendix.core.Core.isSubClassOf("WorkflowCommonsUnitTests.DummyWorkflow", mendixObject.getType()))
-			return workflowcommonsunittests.proxies.DummyWorkflow.initialize(context, mendixObject);
-
-		if (com.mendix.core.Core.isSubClassOf("ExpenseRequestExample.ExpenseRequestWorkflow", mendixObject.getType()))
-			return expenserequestexample.proxies.ExpenseRequestWorkflow.initialize(context, mendixObject);
-
 		return new system.proxies.Workflow(context, mendixObject);
 	}
 
@@ -91,7 +85,7 @@ public class Workflow
 		return system.proxies.Workflow.initialize(context, mendixObject);
 	}
 
-	public static java.util.List<? extends system.proxies.Workflow> load(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String xpathConstraint) throws com.mendix.core.CoreException
+	public static java.util.List<system.proxies.Workflow> load(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String xpathConstraint) throws com.mendix.core.CoreException
 	{
 		java.util.List<system.proxies.Workflow> result = new java.util.ArrayList<system.proxies.Workflow>();
 		for (com.mendix.systemwideinterfaces.core.IMendixObject obj : com.mendix.core.Core.retrieveXPathQuery(context, "//System.Workflow" + xpathConstraint))

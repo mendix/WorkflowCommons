@@ -20,10 +20,8 @@ public class WorkflowSummary
 	 */
 	public enum MemberNames
 	{
-		NumberOfWorkflowsCompleted("NumberOfWorkflowsCompleted"),
 		NumberOfWorkflowsInProgress("NumberOfWorkflowsInProgress"),
 		NumberOfWorkflowOverdue("NumberOfWorkflowOverdue"),
-		NumberOfWorkflowsAborted("NumberOfWorkflowsAborted"),
 		DashboardContext_WorkflowSummary("WorkflowCommons.DashboardContext_WorkflowSummary"),
 		WorkflowSummary_WorkflowDefinition("WorkflowCommons.WorkflowSummary_WorkflowDefinition");
 
@@ -113,42 +111,6 @@ public class WorkflowSummary
 		com.mendix.core.Core.delete(context, getMendixObject());
 	}
 	/**
-	 * @return value of NumberOfWorkflowsCompleted
-	 */
-	public final java.lang.Integer getNumberOfWorkflowsCompleted()
-	{
-		return getNumberOfWorkflowsCompleted(getContext());
-	}
-
-	/**
-	 * @param context
-	 * @return value of NumberOfWorkflowsCompleted
-	 */
-	public final java.lang.Integer getNumberOfWorkflowsCompleted(com.mendix.systemwideinterfaces.core.IContext context)
-	{
-		return (java.lang.Integer) getMendixObject().getValue(context, MemberNames.NumberOfWorkflowsCompleted.toString());
-	}
-
-	/**
-	 * Set value of NumberOfWorkflowsCompleted
-	 * @param numberofworkflowscompleted
-	 */
-	public final void setNumberOfWorkflowsCompleted(java.lang.Integer numberofworkflowscompleted)
-	{
-		setNumberOfWorkflowsCompleted(getContext(), numberofworkflowscompleted);
-	}
-
-	/**
-	 * Set value of NumberOfWorkflowsCompleted
-	 * @param context
-	 * @param numberofworkflowscompleted
-	 */
-	public final void setNumberOfWorkflowsCompleted(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Integer numberofworkflowscompleted)
-	{
-		getMendixObject().setValue(context, MemberNames.NumberOfWorkflowsCompleted.toString(), numberofworkflowscompleted);
-	}
-
-	/**
 	 * @return value of NumberOfWorkflowsInProgress
 	 */
 	public final java.lang.Integer getNumberOfWorkflowsInProgress()
@@ -218,42 +180,6 @@ public class WorkflowSummary
 	public final void setNumberOfWorkflowOverdue(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Integer numberofworkflowoverdue)
 	{
 		getMendixObject().setValue(context, MemberNames.NumberOfWorkflowOverdue.toString(), numberofworkflowoverdue);
-	}
-
-	/**
-	 * @return value of NumberOfWorkflowsAborted
-	 */
-	public final java.lang.Integer getNumberOfWorkflowsAborted()
-	{
-		return getNumberOfWorkflowsAborted(getContext());
-	}
-
-	/**
-	 * @param context
-	 * @return value of NumberOfWorkflowsAborted
-	 */
-	public final java.lang.Integer getNumberOfWorkflowsAborted(com.mendix.systemwideinterfaces.core.IContext context)
-	{
-		return (java.lang.Integer) getMendixObject().getValue(context, MemberNames.NumberOfWorkflowsAborted.toString());
-	}
-
-	/**
-	 * Set value of NumberOfWorkflowsAborted
-	 * @param numberofworkflowsaborted
-	 */
-	public final void setNumberOfWorkflowsAborted(java.lang.Integer numberofworkflowsaborted)
-	{
-		setNumberOfWorkflowsAborted(getContext(), numberofworkflowsaborted);
-	}
-
-	/**
-	 * Set value of NumberOfWorkflowsAborted
-	 * @param context
-	 * @param numberofworkflowsaborted
-	 */
-	public final void setNumberOfWorkflowsAborted(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Integer numberofworkflowsaborted)
-	{
-		getMendixObject().setValue(context, MemberNames.NumberOfWorkflowsAborted.toString(), numberofworkflowsaborted);
 	}
 
 	/**

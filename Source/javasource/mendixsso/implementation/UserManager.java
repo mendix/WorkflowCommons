@@ -85,7 +85,7 @@ public class UserManager {
         final IMendixObject mxNewUser = UserMapper.getInstance().createUser(context, userProfile, uuid);
 
         final boolean hasAccess = Core.microflowCall("MendixSSO.RetrieveUserRoles")
-                .withParam("UUID", uuid)
+                .withParam("UserUUID", uuid)
                 .withParam("User", mxNewUser)
                 .execute(context);
 

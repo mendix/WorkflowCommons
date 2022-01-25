@@ -22,7 +22,8 @@ public class AuthRequest
 	{
 		State("State"),
 		Nonce("Nonce"),
-		Continuation("Continuation");
+		Continuation("Continuation"),
+		Prompt("Prompt");
 
 		private java.lang.String metaName;
 
@@ -223,6 +224,42 @@ public class AuthRequest
 	public final void setContinuation(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String continuation)
 	{
 		getMendixObject().setValue(context, MemberNames.Continuation.toString(), continuation);
+	}
+
+	/**
+	 * @return value of Prompt
+	 */
+	public final java.lang.String getPrompt()
+	{
+		return getPrompt(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of Prompt
+	 */
+	public final java.lang.String getPrompt(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.String) getMendixObject().getValue(context, MemberNames.Prompt.toString());
+	}
+
+	/**
+	 * Set value of Prompt
+	 * @param prompt
+	 */
+	public final void setPrompt(java.lang.String prompt)
+	{
+		setPrompt(getContext(), prompt);
+	}
+
+	/**
+	 * Set value of Prompt
+	 * @param context
+	 * @param prompt
+	 */
+	public final void setPrompt(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String prompt)
+	{
+		getMendixObject().setValue(context, MemberNames.Prompt.toString(), prompt);
 	}
 
 	/**

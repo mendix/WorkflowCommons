@@ -10,6 +10,7 @@ import com.mendix.core.Core;
 import com.mendix.core.CoreException;
 import com.mendix.systemwideinterfaces.MendixRuntimeException;
 import com.mendix.systemwideinterfaces.core.IContext;
+import com.mendix.systemwideinterfaces.core.IMendixObject;
 
 public class Microflows
 {
@@ -57,6 +58,13 @@ public class Microflows
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
 		Core.microflowCall("ExpenseRequestExample.ACT_SetMarkAllWorkflowsOverdue").withParams(params).execute(context);
+	}
+	public static expenserequestexample.proxies.ExpenseRequest dS_WorkflowTask_RetrieveExpenseRequest(IContext context, system.proxies.WorkflowUserTask _workflowUserTask)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		params.put("WorkflowUserTask", _workflowUserTask == null ? null : _workflowUserTask.getMendixObject());
+		IMendixObject result = (IMendixObject)Core.microflowCall("ExpenseRequestExample.DS_WorkflowTask_RetrieveExpenseRequest").withParams(params).execute(context);
+		return result == null ? null : expenserequestexample.proxies.ExpenseRequest.initialize(context, result);
 	}
 	public static void sUB_StartExpenseRequest(IContext context, expenserequestexample.proxies.Expense _expense)
 	{

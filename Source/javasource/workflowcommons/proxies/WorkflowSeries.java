@@ -22,9 +22,6 @@ public class WorkflowSeries
 	{
 		DateDisplay("DateDisplay"),
 		Date("Date"),
-		NumberofWorkflowsCompleted("NumberofWorkflowsCompleted"),
-		AverageWorkflowHandlingTime("AverageWorkflowHandlingTime"),
-		NumberofWorkflowsCompletedOverdue("NumberofWorkflowsCompletedOverdue"),
 		WorkflowSeries_DashboardContext("WorkflowCommons.WorkflowSeries_DashboardContext");
 
 		private java.lang.String metaName;
@@ -182,114 +179,6 @@ public class WorkflowSeries
 	public final void setDate(com.mendix.systemwideinterfaces.core.IContext context, java.util.Date date)
 	{
 		getMendixObject().setValue(context, MemberNames.Date.toString(), date);
-	}
-
-	/**
-	 * @return value of NumberofWorkflowsCompleted
-	 */
-	public final java.lang.Integer getNumberofWorkflowsCompleted()
-	{
-		return getNumberofWorkflowsCompleted(getContext());
-	}
-
-	/**
-	 * @param context
-	 * @return value of NumberofWorkflowsCompleted
-	 */
-	public final java.lang.Integer getNumberofWorkflowsCompleted(com.mendix.systemwideinterfaces.core.IContext context)
-	{
-		return (java.lang.Integer) getMendixObject().getValue(context, MemberNames.NumberofWorkflowsCompleted.toString());
-	}
-
-	/**
-	 * Set value of NumberofWorkflowsCompleted
-	 * @param numberofworkflowscompleted
-	 */
-	public final void setNumberofWorkflowsCompleted(java.lang.Integer numberofworkflowscompleted)
-	{
-		setNumberofWorkflowsCompleted(getContext(), numberofworkflowscompleted);
-	}
-
-	/**
-	 * Set value of NumberofWorkflowsCompleted
-	 * @param context
-	 * @param numberofworkflowscompleted
-	 */
-	public final void setNumberofWorkflowsCompleted(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Integer numberofworkflowscompleted)
-	{
-		getMendixObject().setValue(context, MemberNames.NumberofWorkflowsCompleted.toString(), numberofworkflowscompleted);
-	}
-
-	/**
-	 * @return value of AverageWorkflowHandlingTime
-	 */
-	public final java.math.BigDecimal getAverageWorkflowHandlingTime()
-	{
-		return getAverageWorkflowHandlingTime(getContext());
-	}
-
-	/**
-	 * @param context
-	 * @return value of AverageWorkflowHandlingTime
-	 */
-	public final java.math.BigDecimal getAverageWorkflowHandlingTime(com.mendix.systemwideinterfaces.core.IContext context)
-	{
-		return (java.math.BigDecimal) getMendixObject().getValue(context, MemberNames.AverageWorkflowHandlingTime.toString());
-	}
-
-	/**
-	 * Set value of AverageWorkflowHandlingTime
-	 * @param averageworkflowhandlingtime
-	 */
-	public final void setAverageWorkflowHandlingTime(java.math.BigDecimal averageworkflowhandlingtime)
-	{
-		setAverageWorkflowHandlingTime(getContext(), averageworkflowhandlingtime);
-	}
-
-	/**
-	 * Set value of AverageWorkflowHandlingTime
-	 * @param context
-	 * @param averageworkflowhandlingtime
-	 */
-	public final void setAverageWorkflowHandlingTime(com.mendix.systemwideinterfaces.core.IContext context, java.math.BigDecimal averageworkflowhandlingtime)
-	{
-		getMendixObject().setValue(context, MemberNames.AverageWorkflowHandlingTime.toString(), averageworkflowhandlingtime);
-	}
-
-	/**
-	 * @return value of NumberofWorkflowsCompletedOverdue
-	 */
-	public final java.lang.Integer getNumberofWorkflowsCompletedOverdue()
-	{
-		return getNumberofWorkflowsCompletedOverdue(getContext());
-	}
-
-	/**
-	 * @param context
-	 * @return value of NumberofWorkflowsCompletedOverdue
-	 */
-	public final java.lang.Integer getNumberofWorkflowsCompletedOverdue(com.mendix.systemwideinterfaces.core.IContext context)
-	{
-		return (java.lang.Integer) getMendixObject().getValue(context, MemberNames.NumberofWorkflowsCompletedOverdue.toString());
-	}
-
-	/**
-	 * Set value of NumberofWorkflowsCompletedOverdue
-	 * @param numberofworkflowscompletedoverdue
-	 */
-	public final void setNumberofWorkflowsCompletedOverdue(java.lang.Integer numberofworkflowscompletedoverdue)
-	{
-		setNumberofWorkflowsCompletedOverdue(getContext(), numberofworkflowscompletedoverdue);
-	}
-
-	/**
-	 * Set value of NumberofWorkflowsCompletedOverdue
-	 * @param context
-	 * @param numberofworkflowscompletedoverdue
-	 */
-	public final void setNumberofWorkflowsCompletedOverdue(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Integer numberofworkflowscompletedoverdue)
-	{
-		getMendixObject().setValue(context, MemberNames.NumberofWorkflowsCompletedOverdue.toString(), numberofworkflowscompletedoverdue);
 	}
 
 	/**

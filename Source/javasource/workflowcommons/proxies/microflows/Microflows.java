@@ -71,6 +71,18 @@ public class Microflows
 		params.put("User", _user == null ? null : _user.getMendixObject());
 		Core.microflowCall("WorkflowCommons.ACT_UserTask_AssignToUser").withParams(params).execute(context);
 	}
+	public static void aCT_UserTask_ShowDefaultAdminPage(IContext context, system.proxies.WorkflowUserTask _workflowUserTask)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		params.put("WorkflowUserTask", _workflowUserTask == null ? null : _workflowUserTask.getMendixObject());
+		Core.microflowCall("WorkflowCommons.ACT_UserTask_ShowDefaultAdminPage").withParams(params).execute(context);
+	}
+	public static void aCT_UserTask_ShowUserTaskPage(IContext context, system.proxies.WorkflowUserTask _workflowUserTask)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		params.put("WorkflowUserTask", _workflowUserTask == null ? null : _workflowUserTask.getMendixObject());
+		Core.microflowCall("WorkflowCommons.ACT_UserTask_ShowUserTaskPage").withParams(params).execute(context);
+	}
 	public static void aCT_UserTask_Unassign(IContext context, system.proxies.WorkflowUserTask _userTask)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
@@ -107,17 +119,11 @@ public class Microflows
 		params.put("Workflow", _workflow == null ? null : _workflow.getMendixObject());
 		Core.microflowCall("WorkflowCommons.ACT_Workflow_Resume").withParams(params).execute(context);
 	}
-	public static void aCT_Workflow_Withdraw(IContext context, system.proxies.Workflow _workflow)
+	public static void aCT_Workflow_ShowWorkflowAdminPage(IContext context, system.proxies.Workflow _workflow)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
 		params.put("Workflow", _workflow == null ? null : _workflow.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_Workflow_Withdraw").withParams(params).execute(context);
-	}
-	public static void aCT_Workflow_WithdrawConfirmation(IContext context, workflowcommons.proxies.WorkflowComment _workflowComment)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("WorkflowComment", _workflowComment == null ? null : _workflowComment.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_Workflow_WithdrawConfirmation").withParams(params).execute(context);
+		Core.microflowCall("WorkflowCommons.ACT_Workflow_ShowWorkflowAdminPage").withParams(params).execute(context);
 	}
 	public static void aCT_WorkflowCommentHelper_SaveNew(IContext context, workflowcommons.proxies.WorkflowCommentHelper _workflowCommentHelper, system.proxies.Workflow _workflow)
 	{
@@ -139,59 +145,11 @@ public class Microflows
 		params.put("WorkflowUserTask", _workflowUserTask == null ? null : _workflowUserTask.getMendixObject());
 		Core.microflowCall("WorkflowCommons.ACT_WorkflowUserTask_AssignUser").withParams(params).execute(context);
 	}
-	public static system.proxies.WorkflowDefinition dashboardContext_GetSelectedWorkflowDefinition(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommons.DashboardContext_GetSelectedWorkflowDefinition").withParams(params).execute(context);
-		return result == null ? null : system.proxies.WorkflowDefinition.initialize(context, result);
-	}
-	public static system.proxies.WorkflowUserTaskDefinition dashboardContext_GetSelectedWorkflowTaskDefinition(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommons.DashboardContext_GetSelectedWorkflowTaskDefinition").withParams(params).execute(context);
-		return result == null ? null : system.proxies.WorkflowUserTaskDefinition.initialize(context, result);
-	}
 	public static workflowcommons.proxies.TaskCount dS_TaskCount(IContext context)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
 		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommons.DS_TaskCount").withParams(params).execute(context);
 		return result == null ? null : workflowcommons.proxies.TaskCount.initialize(context, result);
-	}
-	public static workflowcommons.proxies.DashboardContext dS_TaskDashboard(IContext context)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommons.DS_TaskDashboard").withParams(params).execute(context);
-		return result == null ? null : workflowcommons.proxies.DashboardContext.initialize(context, result);
-	}
-	public static java.util.List<workflowcommons.proxies.TaskSeries> dS_TaskSeries(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		java.util.List<IMendixObject> objs = Core.microflowCall("WorkflowCommons.DS_TaskSeries").withParams(params).execute(context);
-		java.util.List<workflowcommons.proxies.TaskSeries> result = null;
-		if (objs != null)
-		{
-			result = new java.util.ArrayList<>();
-			for (IMendixObject obj : objs)
-				result.add(workflowcommons.proxies.TaskSeries.initialize(context, obj));
-		}
-		return result;
-	}
-	public static java.util.List<workflowcommons.proxies.UserTaskTimeLine> dS_UserTaskTimeline(IContext context, system.proxies.Workflow _workflow)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Workflow", _workflow == null ? null : _workflow.getMendixObject());
-		java.util.List<IMendixObject> objs = Core.microflowCall("WorkflowCommons.DS_UserTaskTimeline").withParams(params).execute(context);
-		java.util.List<workflowcommons.proxies.UserTaskTimeLine> result = null;
-		if (objs != null)
-		{
-			result = new java.util.ArrayList<>();
-			for (IMendixObject obj : objs)
-				result.add(workflowcommons.proxies.UserTaskTimeLine.initialize(context, obj));
-		}
-		return result;
 	}
 	public static java.util.List<system.proxies.Workflow> dS_Workflow(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
 	{
@@ -232,20 +190,6 @@ public class Microflows
 		}
 		return result;
 	}
-	public static java.util.List<workflowcommons.proxies.DefinitionHelper> dS_WorkflowDefinition_SelectableImplementation(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		java.util.List<IMendixObject> objs = Core.microflowCall("WorkflowCommons.DS_WorkflowDefinition_SelectableImplementation").withParams(params).execute(context);
-		java.util.List<workflowcommons.proxies.DefinitionHelper> result = null;
-		if (objs != null)
-		{
-			result = new java.util.ArrayList<>();
-			for (IMendixObject obj : objs)
-				result.add(workflowcommons.proxies.DefinitionHelper.initialize(context, obj));
-		}
-		return result;
-	}
 	public static java.util.List<workflowcommons.proxies.WorkflowSeries> dS_WorkflowSeries(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
@@ -274,20 +218,6 @@ public class Microflows
 		}
 		return result;
 	}
-	public static java.util.List<system.proxies.WorkflowUserTask> dS_WorkflowTask_AssignedToUser(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		java.util.List<IMendixObject> objs = Core.microflowCall("WorkflowCommons.DS_WorkflowTask_AssignedToUser").withParams(params).execute(context);
-		java.util.List<system.proxies.WorkflowUserTask> result = null;
-		if (objs != null)
-		{
-			result = new java.util.ArrayList<>();
-			for (IMendixObject obj : objs)
-				result.add(system.proxies.WorkflowUserTask.initialize(context, obj));
-		}
-		return result;
-	}
 	public static java.util.List<system.proxies.WorkflowUserTaskDefinition> dS_WorkflowTaskDefinition_Selectable_Administrator(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
@@ -301,40 +231,6 @@ public class Microflows
 				result.add(system.proxies.WorkflowUserTaskDefinition.initialize(context, obj));
 		}
 		return result;
-	}
-	public static java.util.List<workflowcommons.proxies.DefinitionHelper> dS_WorkflowTaskDefinition_Selectable_UserImplementation(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		java.util.List<IMendixObject> objs = Core.microflowCall("WorkflowCommons.DS_WorkflowTaskDefinition_Selectable_UserImplementation").withParams(params).execute(context);
-		java.util.List<workflowcommons.proxies.DefinitionHelper> result = null;
-		if (objs != null)
-		{
-			result = new java.util.ArrayList<>();
-			for (IMendixObject obj : objs)
-				result.add(workflowcommons.proxies.DefinitionHelper.initialize(context, obj));
-		}
-		return result;
-	}
-	public static java.util.List<workflowcommons.proxies.WorkflowTaskDetail> dS_WorkflowTaskDetail(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		java.util.List<IMendixObject> objs = Core.microflowCall("WorkflowCommons.DS_WorkflowTaskDetail").withParams(params).execute(context);
-		java.util.List<workflowcommons.proxies.WorkflowTaskDetail> result = null;
-		if (objs != null)
-		{
-			result = new java.util.ArrayList<>();
-			for (IMendixObject obj : objs)
-				result.add(workflowcommons.proxies.WorkflowTaskDetail.initialize(context, obj));
-		}
-		return result;
-	}
-	public static void oCh_DashboardContext_UpdateTaskDashboard(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		Core.microflowCall("WorkflowCommons.OCh_DashboardContext_UpdateTaskDashboard").withParams(params).execute(context);
 	}
 	public static void oCh_DashboardContext_UpdateWorkflowDashboard(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
 	{
@@ -366,35 +262,13 @@ public class Microflows
 		params.put("TaskCount", _taskCount == null ? null : _taskCount.getMendixObject());
 		Core.microflowCall("WorkflowCommons.SUB_TaskCount_Update").withParams(params).execute(context);
 	}
-	public static void sUB_TaskDashboard_Update(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		Core.microflowCall("WorkflowCommons.SUB_TaskDashboard_Update").withParams(params).execute(context);
-	}
-	public static void sUB_TaskSeries_CreateOrUpdate(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext, system.proxies.WorkflowDefinition _workflowDefinition_Selected, system.proxies.User _user, system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		params.put("WorkflowDefinition_Selected", _workflowDefinition_Selected == null ? null : _workflowDefinition_Selected.getMendixObject());
-		params.put("User", _user == null ? null : _user.getMendixObject());
-		params.put("TaskDefinition_Selected", _taskDefinition_Selected == null ? null : _taskDefinition_Selected.getMendixObject());
-		Core.microflowCall("WorkflowCommons.SUB_TaskSeries_CreateOrUpdate").withParams(params).execute(context);
-	}
-	public static void sUB_TaskSeriesList_Delete(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		Core.microflowCall("WorkflowCommons.SUB_TaskSeriesList_Delete").withParams(params).execute(context);
-	}
-	public static workflowcommons.proxies.TaskSummary sUB_TaskSummary_CreateOrUpdate(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext, system.proxies.WorkflowDefinition _workflowDefinition_Selected, boolean _admin, system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected, system.proxies.User _user)
+	public static workflowcommons.proxies.TaskSummary sUB_TaskSummary_CreateOrUpdate(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext, system.proxies.WorkflowDefinition _workflowDefinition_Selected, boolean _admin, system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
 		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
 		params.put("WorkflowDefinition_Selected", _workflowDefinition_Selected == null ? null : _workflowDefinition_Selected.getMendixObject());
 		params.put("Admin", _admin);
 		params.put("TaskDefinition_Selected", _taskDefinition_Selected == null ? null : _taskDefinition_Selected.getMendixObject());
-		params.put("User", _user == null ? null : _user.getMendixObject());
 		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommons.SUB_TaskSummary_CreateOrUpdate").withParams(params).execute(context);
 		return result == null ? null : workflowcommons.proxies.TaskSummary.initialize(context, result);
 	}
@@ -418,65 +292,6 @@ public class Microflows
 		params.put("User", _user == null ? null : _user.getMendixObject());
 		params.put("WorkflowUserTask", _workflowUserTask == null ? null : _workflowUserTask.getMendixObject());
 		Core.microflowCall("WorkflowCommons.SUB_UserTask_Assign").withParams(params).execute(context);
-	}
-	public static java.util.List<system.proxies.WorkflowUserTask> sUB_UserTask_AssignedToUser(IContext context, java.util.Date _completedOrStartedAfter, java.util.Date _completedOrStartedBefore, system.proxies.WorkflowDefinition _workflowDefinition_Selected, system.proxies.User _user, system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("CompletedOrStartedAfter", _completedOrStartedAfter);
-		params.put("CompletedOrStartedBefore", _completedOrStartedBefore);
-		params.put("WorkflowDefinition_Selected", _workflowDefinition_Selected == null ? null : _workflowDefinition_Selected.getMendixObject());
-		params.put("User", _user == null ? null : _user.getMendixObject());
-		params.put("TaskDefinition_Selected", _taskDefinition_Selected == null ? null : _taskDefinition_Selected.getMendixObject());
-		java.util.List<IMendixObject> objs = Core.microflowCall("WorkflowCommons.SUB_UserTask_AssignedToUser").withParams(params).execute(context);
-		java.util.List<system.proxies.WorkflowUserTask> result = null;
-		if (objs != null)
-		{
-			result = new java.util.ArrayList<>();
-			for (IMendixObject obj : objs)
-				result.add(system.proxies.WorkflowUserTask.initialize(context, obj));
-		}
-		return result;
-	}
-	public static java.math.BigDecimal sUB_UserTask_AverageHandlingTime(IContext context, java.util.Date _completedAfter, java.util.Date _completedBefore, system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected, system.proxies.User _user, system.proxies.WorkflowDefinition _workflowDefinition_Selected, java.lang.Long _userTask_CountCompleted)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("CompletedAfter", _completedAfter);
-		params.put("CompletedBefore", _completedBefore);
-		params.put("TaskDefinition_Selected", _taskDefinition_Selected == null ? null : _taskDefinition_Selected.getMendixObject());
-		params.put("User", _user == null ? null : _user.getMendixObject());
-		params.put("WorkflowDefinition_Selected", _workflowDefinition_Selected == null ? null : _workflowDefinition_Selected.getMendixObject());
-		params.put("UserTask_CountCompleted", _userTask_CountCompleted);
-		return (java.math.BigDecimal) Core.microflowCall("WorkflowCommons.SUB_UserTask_AverageHandlingTime").withParams(params).execute(context);
-	}
-	public static java.lang.Long sUB_UserTask_CountCompleted(IContext context, java.util.Date _completedAfter, java.util.Date _completedBefore, system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected, system.proxies.WorkflowDefinition _workflowDefinition_Selected, system.proxies.User _user)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("CompletedAfter", _completedAfter);
-		params.put("CompletedBefore", _completedBefore);
-		params.put("TaskDefinition_Selected", _taskDefinition_Selected == null ? null : _taskDefinition_Selected.getMendixObject());
-		params.put("WorkflowDefinition_Selected", _workflowDefinition_Selected == null ? null : _workflowDefinition_Selected.getMendixObject());
-		params.put("User", _user == null ? null : _user.getMendixObject());
-		return (java.lang.Long) Core.microflowCall("WorkflowCommons.SUB_UserTask_CountCompleted").withParams(params).execute(context);
-	}
-	public static java.lang.Long sUB_UserTask_CountCompletedOnTime(IContext context, java.util.Date _completedAfter, java.util.Date _completedBefore, system.proxies.WorkflowDefinition _workflowDefinition_Selected, system.proxies.User _user, system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("CompletedAfter", _completedAfter);
-		params.put("CompletedBefore", _completedBefore);
-		params.put("WorkflowDefinition_Selected", _workflowDefinition_Selected == null ? null : _workflowDefinition_Selected.getMendixObject());
-		params.put("User", _user == null ? null : _user.getMendixObject());
-		params.put("TaskDefinition_Selected", _taskDefinition_Selected == null ? null : _taskDefinition_Selected.getMendixObject());
-		return (java.lang.Long) Core.microflowCall("WorkflowCommons.SUB_UserTask_CountCompletedOnTime").withParams(params).execute(context);
-	}
-	public static java.lang.Long sUB_UserTask_CountCompletedOverdue(IContext context, java.util.Date _completedAfter, java.util.Date _completedBefore, system.proxies.WorkflowDefinition _workflowDefinition_Selected, system.proxies.User _user, system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("CompletedAfter", _completedAfter);
-		params.put("CompletedBefore", _completedBefore);
-		params.put("WorkflowDefinition_Selected", _workflowDefinition_Selected == null ? null : _workflowDefinition_Selected.getMendixObject());
-		params.put("User", _user == null ? null : _user.getMendixObject());
-		params.put("TaskDefinition_Selected", _taskDefinition_Selected == null ? null : _taskDefinition_Selected.getMendixObject());
-		return (java.lang.Long) Core.microflowCall("WorkflowCommons.SUB_UserTask_CountCompletedOverdue").withParams(params).execute(context);
 	}
 	public static java.lang.Long sUB_UserTask_CountFailed(IContext context, java.util.Date _completedAfter, java.util.Date _completedBefore, system.proxies.User _user, system.proxies.WorkflowDefinition _workflowDefinition_Selected, system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected)
 	{
@@ -508,13 +323,6 @@ public class Microflows
 		params.put("TaskDefinition_Selected", _taskDefinition_Selected == null ? null : _taskDefinition_Selected.getMendixObject());
 		return (java.lang.Long) Core.microflowCall("WorkflowCommons.SUB_UserTask_CountOverdue").withParams(params).execute(context);
 	}
-	public static void sUB_UserTaskTimeline_WorkflowUserTask_SetAssignee(IContext context, workflowcommons.proxies.UserTaskTimeLine _userTaskTimeLine, system.proxies.WorkflowUserTask _workflowUserTask)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("UserTaskTimeLine", _userTaskTimeLine == null ? null : _userTaskTimeLine.getMendixObject());
-		params.put("WorkflowUserTask", _workflowUserTask == null ? null : _workflowUserTask.getMendixObject());
-		Core.microflowCall("WorkflowCommons.SUB_UserTaskTimeline_WorkflowUserTask_SetAssignee").withParams(params).execute(context);
-	}
 	public static java.math.BigDecimal sUB_Workflow_AverageHandlingTime(IContext context, java.lang.Long _workflow_CountCompleted, java.util.Date _completedAfter, java.util.Date _completedBefore, system.proxies.WorkflowDefinition _workflowDefinition_Selected)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
@@ -530,19 +338,6 @@ public class Microflows
 		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
 		Core.microflowCall("WorkflowCommons.SUB_WorkflowDashboard_Update").withParams(params).execute(context);
 	}
-	public static void sUB_WorkflowSeries_CreateOrUpdate(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext, system.proxies.WorkflowDefinition _workflowDefinition_Selected)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		params.put("WorkflowDefinition_Selected", _workflowDefinition_Selected == null ? null : _workflowDefinition_Selected.getMendixObject());
-		Core.microflowCall("WorkflowCommons.SUB_WorkflowSeries_CreateOrUpdate").withParams(params).execute(context);
-	}
-	public static void sUB_WorkflowSeriesList_Delete(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		Core.microflowCall("WorkflowCommons.SUB_WorkflowSeriesList_Delete").withParams(params).execute(context);
-	}
 	public static workflowcommons.proxies.WorkflowSummary sUB_WorkflowSummary_CreateOrUpdate(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext, system.proxies.WorkflowDefinition _workflowDefinition_Selected)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
@@ -557,43 +352,6 @@ public class Microflows
 		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
 		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommons.SUB_WorkflowSummary_RetrieveOrCreate").withParams(params).execute(context);
 		return result == null ? null : workflowcommons.proxies.WorkflowSummary.initialize(context, result);
-	}
-	public static java.math.BigDecimal sUB_WorkflowTask_AverageHandlingTime(IContext context, java.util.Date _completedAfter, java.util.Date _completedBefore, system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("CompletedAfter", _completedAfter);
-		params.put("CompletedBefore", _completedBefore);
-		params.put("TaskDefinition_Selected", _taskDefinition_Selected == null ? null : _taskDefinition_Selected.getMendixObject());
-		return (java.math.BigDecimal) Core.microflowCall("WorkflowCommons.SUB_WorkflowTask_AverageHandlingTime").withParams(params).execute(context);
-	}
-	public static void sUB_WorkflowTaskDetail_CreateOrUpdate(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext, system.proxies.WorkflowDefinition _workflowDefinition_Selected)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		params.put("WorkflowDefinition_Selected", _workflowDefinition_Selected == null ? null : _workflowDefinition_Selected.getMendixObject());
-		Core.microflowCall("WorkflowCommons.SUB_WorkflowTaskDetail_CreateOrUpdate").withParams(params).execute(context);
-	}
-	public static void sUB_WorkflowTaskDetail_Delete(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		Core.microflowCall("WorkflowCommons.SUB_WorkflowTaskDetail_Delete").withParams(params).execute(context);
-	}
-	public static java.lang.Long sUB_Worklow_CountAborted(IContext context, java.util.Date _completedAfter, java.util.Date _completedBefore, system.proxies.WorkflowDefinition _workflowDefinition_Selected)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("CompletedAfter", _completedAfter);
-		params.put("CompletedBefore", _completedBefore);
-		params.put("WorkflowDefinition_Selected", _workflowDefinition_Selected == null ? null : _workflowDefinition_Selected.getMendixObject());
-		return (java.lang.Long) Core.microflowCall("WorkflowCommons.SUB_Worklow_CountAborted").withParams(params).execute(context);
-	}
-	public static java.lang.Long sUB_Worklow_CountCompleted(IContext context, java.util.Date _completedAfter, java.util.Date _completedBefore, system.proxies.WorkflowDefinition _workflowDefinition_Selected)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("CompletedAfter", _completedAfter);
-		params.put("CompletedBefore", _completedBefore);
-		params.put("WorkflowDefinition_Selected", _workflowDefinition_Selected == null ? null : _workflowDefinition_Selected.getMendixObject());
-		return (java.lang.Long) Core.microflowCall("WorkflowCommons.SUB_Worklow_CountCompleted").withParams(params).execute(context);
 	}
 	public static java.lang.Long sUB_Worklow_CountCompletedOnTime(IContext context, java.util.Date _completedAfter, java.util.Date _completedBefore, system.proxies.WorkflowDefinition _workflowDefinition_Selected)
 	{
