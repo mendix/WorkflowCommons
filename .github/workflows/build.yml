@@ -84,8 +84,7 @@ jobs:
       - name: Build MX Util
         run: |
           cd $GITHUB_WORKSPACE/mx-tools
-          # In future Will use make file to build
-          docker build ./src --build-arg MX_VERSION=${{env.MX_VERSION}} -t mendixlabs/mx-docker-tools:${{env.MX_VERSION}}
+          make version=${{env.MX_VERSION}} build
 
       - name: Run MX Util
         run: |
