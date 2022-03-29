@@ -34,10 +34,11 @@ public class GetQueueCounts extends CustomJavaAction<java.util.List<IMendixObjec
 	@java.lang.Override
 	public java.util.List<IMendixObject> executeAction() throws Exception
 	{
-		this.QueuedTasks = new java.util.ArrayList<system.proxies.QueuedTask>();
-		if (__QueuedTasks != null)
-			for (IMendixObject __QueuedTasksElement : __QueuedTasks)
-				this.QueuedTasks.add(system.proxies.QueuedTask.initialize(getContext(), __QueuedTasksElement));
+		this.QueuedTasks = java.util.Optional.ofNullable(this.__QueuedTasks)
+			.orElse(java.util.Collections.emptyList())
+			.stream()
+			.map(__QueuedTasksElement -> system.proxies.QueuedTask.initialize(getContext(), __QueuedTasksElement))
+			.collect(java.util.stream.Collectors.toList());
 
 		// BEGIN USER CODE
 		final IContext ctx = getContext();
@@ -67,6 +68,7 @@ public class GetQueueCounts extends CustomJavaAction<java.util.List<IMendixObjec
 
 	/**
 	 * Returns a string representation of this action
+	 * @return a string representation of this action
 	 */
 	@java.lang.Override
 	public java.lang.String toString()

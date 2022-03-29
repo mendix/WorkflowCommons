@@ -7,18 +7,29 @@ package workflowcommonsunittests.proxies.microflows;
 import java.util.HashMap;
 import java.util.Map;
 import com.mendix.core.Core;
-import com.mendix.core.CoreException;
-import com.mendix.systemwideinterfaces.MendixRuntimeException;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 
 public class Microflows
 {
+	/**
+	 * @deprecated
+	 * The default constructor of the Microflows class should not be used.
+	 * Use the static microflow invocation methods instead.
+	 */
+	@java.lang.Deprecated(since = "9.12", forRemoval = true)
+	public Microflows() {}
+
 	// These are the microflows for the WorkflowCommonsUnitTests module
 	public static void aCT_ExecuteAllWFCommonsUnitTests(IContext context)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
 		Core.microflowCall("WorkflowCommonsUnitTests.ACT_ExecuteAllWFCommonsUnitTests").withParams(params).execute(context);
+	}
+	public static void aCT_Setup_Cleanup(IContext context)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		Core.microflowCall("WorkflowCommonsUnitTests.ACT_Setup_Cleanup").withParams(params).execute(context);
 	}
 	public static void createAndStartDummyWorkflow(IContext context, java.lang.String _action, workflowcommonsunittests.proxies.UnitTestRun _unitTestRun)
 	{
@@ -44,14 +55,19 @@ public class Microflows
 		Map<java.lang.String, Object> params = new HashMap<>();
 		params.put("TestSuite", _testSuite == null ? null : _testSuite.getMendixObject());
 		java.util.List<IMendixObject> objs = Core.microflowCall("WorkflowCommonsUnitTests.DS_TestSuite_GetFailedUnitTests").withParams(params).execute(context);
-		java.util.List<unittesting.proxies.UnitTest> result = null;
-		if (objs != null)
-		{
-			result = new java.util.ArrayList<>();
-			for (IMendixObject obj : objs)
-				result.add(unittesting.proxies.UnitTest.initialize(context, obj));
+		if (objs == null) {
+			return null;
+		} else {
+			return objs.stream()
+				.map(obj -> unittesting.proxies.UnitTest.initialize(context, obj))
+				.collect(java.util.stream.Collectors.toList());
 		}
-		return result;
+	}
+	public static void oCh_WorkflowUserTask_State_UnitTest(IContext context, system.proxies.WorkflowUserTask _userTask)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		params.put("UserTask", _userTask == null ? null : _userTask.getMendixObject());
+		Core.microflowCall("WorkflowCommonsUnitTests.OCh_WorkflowUserTask_State_UnitTest").withParams(params).execute(context);
 	}
 	public static void pRS_InitiateUnitTests(IContext context, system.proxies.HttpRequest _httpRequest, system.proxies.HttpResponse _httpResponse)
 	{
@@ -109,6 +125,19 @@ public class Microflows
 		Map<java.lang.String, Object> params = new HashMap<>();
 		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommonsUnitTests.SUB_RetrieveTestSuite").withParams(params).execute(context);
 		return result == null ? null : unittesting.proxies.TestSuite.initialize(context, result);
+	}
+	public static workflowcommons.proxies.UserTaskView sUB_UserTaskView_FindOrCreate_UnitTest(IContext context, system.proxies.WorkflowUserTask _workflowUserTask)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		params.put("WorkflowUserTask", _workflowUserTask == null ? null : _workflowUserTask.getMendixObject());
+		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommonsUnitTests.SUB_UserTaskView_FindOrCreate_UnitTest").withParams(params).execute(context);
+		return result == null ? null : workflowcommons.proxies.UserTaskView.initialize(context, result);
+	}
+	public static void sUB_WorkflowUserTask_Complete_Eventing(IContext context, system.proxies.WorkflowUserTask _workflowUserTask)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		params.put("WorkflowUserTask", _workflowUserTask == null ? null : _workflowUserTask.getMendixObject());
+		Core.microflowCall("WorkflowCommonsUnitTests.SUB_WorkflowUserTask_Complete_Eventing").withParams(params).execute(context);
 	}
 	public static void tASK_CompleteUserTask(IContext context, system.proxies.Workflow _workflow, expenserequestexample.proxies.Expense _expense)
 	{
@@ -187,16 +216,6 @@ public class Microflows
 		Map<java.lang.String, Object> params = new HashMap<>();
 		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountInProgressUserTasksForDummyWorkflow").withParams(params).execute(context);
 	}
-	public static boolean uT_WorkflowDashboard_CountInProgressWorkflows(IContext context)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountInProgressWorkflows").withParams(params).execute(context);
-	}
-	public static boolean uT_WorkflowDashboard_CountInProgressWorkflowsForDummyWorkflow(IContext context)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountInProgressWorkflowsForDummyWorkflow").withParams(params).execute(context);
-	}
 	public static boolean uT_WorkflowDashboard_CountOverdueUserTasks(IContext context)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
@@ -257,16 +276,6 @@ public class Microflows
 		Map<java.lang.String, Object> params = new HashMap<>();
 		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_TestUpdateSettingsDefault").withParams(params).execute(context);
 	}
-	public static boolean uT_WorkflowDashboard_WorkflowSummaryCreateOrUpdate(IContext context)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_WorkflowSummaryCreateOrUpdate").withParams(params).execute(context);
-	}
-	public static boolean uT_WorkflowDashboard_WorkflowSummaryCreateOrUpdateForDummyWorkflow(IContext context)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_WorkflowSummaryCreateOrUpdateForDummyWorkflow").withParams(params).execute(context);
-	}
 	public static boolean uT_WorkflowUserTask_AssignToNoneTargettedUser(IContext context)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
@@ -307,10 +316,10 @@ public class Microflows
 		Map<java.lang.String, Object> params = new HashMap<>();
 		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_ZWorkflow_RestartIncompatibleWorkflow").withParams(params).execute(context);
 	}
-	public static boolean uT_ZWorkflow_ResumePausedWorkflow(IContext context)
+	public static boolean uT_ZWorkflow_UnpausePausedWorkflow(IContext context)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_ZWorkflow_ResumePausedWorkflow").withParams(params).execute(context);
+		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_ZWorkflow_UnpausePausedWorkflow").withParams(params).execute(context);
 	}
 	public static boolean wFS_DummySystemTask(IContext context, expenserequestexample.proxies.ExpenseRequest _expenseRequest)
 	{
