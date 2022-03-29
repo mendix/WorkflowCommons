@@ -32,10 +32,11 @@ public class MapToChartParameters extends CustomJavaAction<java.util.List<IMendi
 	@java.lang.Override
 	public java.util.List<IMendixObject> executeAction() throws Exception
 	{
-		this.ProcessedQueueTasks = new java.util.ArrayList<system.proxies.ProcessedQueueTask>();
-		if (__ProcessedQueueTasks != null)
-			for (IMendixObject __ProcessedQueueTasksElement : __ProcessedQueueTasks)
-				this.ProcessedQueueTasks.add(system.proxies.ProcessedQueueTask.initialize(getContext(), __ProcessedQueueTasksElement));
+		this.ProcessedQueueTasks = java.util.Optional.ofNullable(this.__ProcessedQueueTasks)
+			.orElse(java.util.Collections.emptyList())
+			.stream()
+			.map(__ProcessedQueueTasksElement -> system.proxies.ProcessedQueueTask.initialize(getContext(), __ProcessedQueueTasksElement))
+			.collect(java.util.stream.Collectors.toList());
 
 		// BEGIN USER CODE
 		return ProcessedQueueTasks
@@ -47,6 +48,7 @@ public class MapToChartParameters extends CustomJavaAction<java.util.List<IMendi
 
 	/**
 	 * Returns a string representation of this action
+	 * @return a string representation of this action
 	 */
 	@java.lang.Override
 	public java.lang.String toString()

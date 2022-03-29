@@ -34,10 +34,11 @@ public class GetProcessedQueueCount extends CustomJavaAction<java.util.List<IMen
 	@java.lang.Override
 	public java.util.List<IMendixObject> executeAction() throws Exception
 	{
-		this.processedQueueTasks = new java.util.ArrayList<system.proxies.ProcessedQueueTask>();
-		if (__processedQueueTasks != null)
-			for (IMendixObject __processedQueueTasksElement : __processedQueueTasks)
-				this.processedQueueTasks.add(system.proxies.ProcessedQueueTask.initialize(getContext(), __processedQueueTasksElement));
+		this.processedQueueTasks = java.util.Optional.ofNullable(this.__processedQueueTasks)
+			.orElse(java.util.Collections.emptyList())
+			.stream()
+			.map(__processedQueueTasksElement -> system.proxies.ProcessedQueueTask.initialize(getContext(), __processedQueueTasksElement))
+			.collect(java.util.stream.Collectors.toList());
 
 		// BEGIN USER CODE
 		IContext ctx = getContext();
@@ -67,6 +68,7 @@ public class GetProcessedQueueCount extends CustomJavaAction<java.util.List<IMen
 
 	/**
 	 * Returns a string representation of this action
+	 * @return a string representation of this action
 	 */
 	@java.lang.Override
 	public java.lang.String toString()
