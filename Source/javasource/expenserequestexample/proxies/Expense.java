@@ -26,7 +26,7 @@ public class Expense
 		ExpenseRequest_Expense("ExpenseRequestExample.ExpenseRequest_Expense"),
 		Expense_Account("ExpenseRequestExample.Expense_Account");
 
-		private java.lang.String metaName;
+		private final java.lang.String metaName;
 
 		MemberNames(java.lang.String s)
 		{
@@ -42,15 +42,17 @@ public class Expense
 
 	public Expense(com.mendix.systemwideinterfaces.core.IContext context)
 	{
-		this(context, com.mendix.core.Core.instantiate(context, "ExpenseRequestExample.Expense"));
+		this(context, com.mendix.core.Core.instantiate(context, entityName));
 	}
 
 	protected Expense(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject expenseMendixObject)
 	{
-		if (expenseMendixObject == null)
+		if (expenseMendixObject == null) {
 			throw new java.lang.IllegalArgumentException("The given object cannot be null.");
-		if (!com.mendix.core.Core.isSubClassOf("ExpenseRequestExample.Expense", expenseMendixObject.getType()))
-			throw new java.lang.IllegalArgumentException("The given object is not a ExpenseRequestExample.Expense");
+		}
+		if (!com.mendix.core.Core.isSubClassOf(entityName, expenseMendixObject.getType())) {
+			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
+		}	
 
 		this.expenseMendixObject = expenseMendixObject;
 		this.context = context;
@@ -68,6 +70,9 @@ public class Expense
 	/**
 	 * Initialize a proxy using context (recommended). This context will be used for security checking when the get- and set-methods without context parameters are called.
 	 * The get- and set-methods with context parameter should be used when for instance sudo access is necessary (IContext.createSudoClone() can be used to obtain sudo access).
+	 * @param context The context to be used
+	 * @param mendixObject The Mendix object for the new instance
+	 * @return a new instance of this proxy class
 	 */
 	public static expenserequestexample.proxies.Expense initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
 	{
@@ -82,14 +87,16 @@ public class Expense
 
 	public static java.util.List<expenserequestexample.proxies.Expense> load(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String xpathConstraint) throws com.mendix.core.CoreException
 	{
-		java.util.List<expenserequestexample.proxies.Expense> result = new java.util.ArrayList<expenserequestexample.proxies.Expense>();
-		for (com.mendix.systemwideinterfaces.core.IMendixObject obj : com.mendix.core.Core.retrieveXPathQuery(context, "//ExpenseRequestExample.Expense" + xpathConstraint))
-			result.add(expenserequestexample.proxies.Expense.initialize(context, obj));
-		return result;
+		return com.mendix.core.Core.createXPathQuery(String.format("//%1$s%2$s", entityName, xpathConstraint))
+			.execute(context)
+			.stream()
+			.map(obj -> expenserequestexample.proxies.Expense.initialize(context, obj))
+			.collect(java.util.stream.Collectors.toList());
 	}
 
 	/**
 	 * Commit the changes made on this proxy object.
+	 * @throws com.mendix.core.CoreException
 	 */
 	public final void commit() throws com.mendix.core.CoreException
 	{
@@ -98,6 +105,7 @@ public class Expense
 
 	/**
 	 * Commit the changes made on this proxy object using the specified context.
+	 * @throws com.mendix.core.CoreException
 	 */
 	public final void commit(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
@@ -228,6 +236,7 @@ public class Expense
 	}
 
 	/**
+	 * @throws com.mendix.core.CoreException
 	 * @return value of ExpenseRequest_Expense
 	 */
 	public final expenserequestexample.proxies.ExpenseRequest getExpenseRequest_Expense() throws com.mendix.core.CoreException
@@ -238,13 +247,15 @@ public class Expense
 	/**
 	 * @param context
 	 * @return value of ExpenseRequest_Expense
+	 * @throws com.mendix.core.CoreException
 	 */
 	public final expenserequestexample.proxies.ExpenseRequest getExpenseRequest_Expense(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
 		expenserequestexample.proxies.ExpenseRequest result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.ExpenseRequest_Expense.toString());
-		if (identifier != null)
+		if (identifier != null) {
 			result = expenserequestexample.proxies.ExpenseRequest.load(context, identifier);
+		}
 		return result;
 	}
 
@@ -264,13 +275,15 @@ public class Expense
 	 */
 	public final void setExpenseRequest_Expense(com.mendix.systemwideinterfaces.core.IContext context, expenserequestexample.proxies.ExpenseRequest expenserequest_expense)
 	{
-		if (expenserequest_expense == null)
+		if (expenserequest_expense == null) {
 			getMendixObject().setValue(context, MemberNames.ExpenseRequest_Expense.toString(), null);
-		else
+		} else {
 			getMendixObject().setValue(context, MemberNames.ExpenseRequest_Expense.toString(), expenserequest_expense.getMendixObject().getId());
+		}
 	}
 
 	/**
+	 * @throws com.mendix.core.CoreException
 	 * @return value of Expense_Account
 	 */
 	public final administration.proxies.Account getExpense_Account() throws com.mendix.core.CoreException
@@ -281,13 +294,15 @@ public class Expense
 	/**
 	 * @param context
 	 * @return value of Expense_Account
+	 * @throws com.mendix.core.CoreException
 	 */
 	public final administration.proxies.Account getExpense_Account(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
 		administration.proxies.Account result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.Expense_Account.toString());
-		if (identifier != null)
+		if (identifier != null) {
 			result = administration.proxies.Account.load(context, identifier);
+		}
 		return result;
 	}
 
@@ -307,10 +322,11 @@ public class Expense
 	 */
 	public final void setExpense_Account(com.mendix.systemwideinterfaces.core.IContext context, administration.proxies.Account expense_account)
 	{
-		if (expense_account == null)
+		if (expense_account == null) {
 			getMendixObject().setValue(context, MemberNames.Expense_Account.toString(), null);
-		else
+		} else {
 			getMendixObject().setValue(context, MemberNames.Expense_Account.toString(), expense_account.getMendixObject().getId());
+		}
 	}
 
 	/**
@@ -332,9 +348,9 @@ public class Expense
 	@java.lang.Override
 	public boolean equals(Object obj)
 	{
-		if (obj == this)
+		if (obj == this) {
 			return true;
-
+		}
 		if (obj != null && getClass().equals(obj.getClass()))
 		{
 			final expenserequestexample.proxies.Expense that = (expenserequestexample.proxies.Expense) obj;
@@ -354,7 +370,7 @@ public class Expense
 	 */
 	public static java.lang.String getType()
 	{
-		return "ExpenseRequestExample.Expense";
+		return entityName;
 	}
 
 	/**

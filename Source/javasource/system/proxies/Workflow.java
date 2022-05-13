@@ -31,7 +31,7 @@ public class Workflow
 		Reason("Reason"),
 		Workflow_WorkflowDefinition("System.Workflow_WorkflowDefinition");
 
-		private java.lang.String metaName;
+		private final java.lang.String metaName;
 
 		MemberNames(java.lang.String s)
 		{
@@ -47,15 +47,17 @@ public class Workflow
 
 	public Workflow(com.mendix.systemwideinterfaces.core.IContext context)
 	{
-		this(context, com.mendix.core.Core.instantiate(context, "System.Workflow"));
+		this(context, com.mendix.core.Core.instantiate(context, entityName));
 	}
 
 	protected Workflow(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject workflowMendixObject)
 	{
-		if (workflowMendixObject == null)
+		if (workflowMendixObject == null) {
 			throw new java.lang.IllegalArgumentException("The given object cannot be null.");
-		if (!com.mendix.core.Core.isSubClassOf("System.Workflow", workflowMendixObject.getType()))
-			throw new java.lang.IllegalArgumentException("The given object is not a System.Workflow");
+		}
+		if (!com.mendix.core.Core.isSubClassOf(entityName, workflowMendixObject.getType())) {
+			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
+		}	
 
 		this.workflowMendixObject = workflowMendixObject;
 		this.context = context;
@@ -73,6 +75,9 @@ public class Workflow
 	/**
 	 * Initialize a proxy using context (recommended). This context will be used for security checking when the get- and set-methods without context parameters are called.
 	 * The get- and set-methods with context parameter should be used when for instance sudo access is necessary (IContext.createSudoClone() can be used to obtain sudo access).
+	 * @param context The context to be used
+	 * @param mendixObject The Mendix object for the new instance
+	 * @return a new instance of this proxy class
 	 */
 	public static system.proxies.Workflow initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
 	{
@@ -87,14 +92,16 @@ public class Workflow
 
 	public static java.util.List<system.proxies.Workflow> load(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String xpathConstraint) throws com.mendix.core.CoreException
 	{
-		java.util.List<system.proxies.Workflow> result = new java.util.ArrayList<system.proxies.Workflow>();
-		for (com.mendix.systemwideinterfaces.core.IMendixObject obj : com.mendix.core.Core.retrieveXPathQuery(context, "//System.Workflow" + xpathConstraint))
-			result.add(system.proxies.Workflow.initialize(context, obj));
-		return result;
+		return com.mendix.core.Core.createXPathQuery(String.format("//%1$s%2$s", entityName, xpathConstraint))
+			.execute(context)
+			.stream()
+			.map(obj -> system.proxies.Workflow.initialize(context, obj))
+			.collect(java.util.stream.Collectors.toList());
 	}
 
 	/**
 	 * Commit the changes made on this proxy object.
+	 * @throws com.mendix.core.CoreException
 	 */
 	public final void commit() throws com.mendix.core.CoreException
 	{
@@ -103,6 +110,7 @@ public class Workflow
 
 	/**
 	 * Commit the changes made on this proxy object using the specified context.
+	 * @throws com.mendix.core.CoreException
 	 */
 	public final void commit(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
@@ -392,9 +400,9 @@ public class Workflow
 	public final system.proxies.WorkflowState getState(com.mendix.systemwideinterfaces.core.IContext context)
 	{
 		Object obj = getMendixObject().getValue(context, MemberNames.State.toString());
-		if (obj == null)
+		if (obj == null) {
 			return null;
-
+		}
 		return system.proxies.WorkflowState.valueOf((java.lang.String) obj);
 	}
 
@@ -414,10 +422,11 @@ public class Workflow
 	 */
 	public final void setState(com.mendix.systemwideinterfaces.core.IContext context, system.proxies.WorkflowState state)
 	{
-		if (state != null)
+		if (state != null) {
 			getMendixObject().setValue(context, MemberNames.State.toString(), state.toString());
-		else
+		} else {
 			getMendixObject().setValue(context, MemberNames.State.toString(), null);
+		}
 	}
 
 	/**
@@ -457,6 +466,7 @@ public class Workflow
 	}
 
 	/**
+	 * @throws com.mendix.core.CoreException
 	 * @return value of Workflow_WorkflowDefinition
 	 */
 	public final system.proxies.WorkflowDefinition getWorkflow_WorkflowDefinition() throws com.mendix.core.CoreException
@@ -467,13 +477,15 @@ public class Workflow
 	/**
 	 * @param context
 	 * @return value of Workflow_WorkflowDefinition
+	 * @throws com.mendix.core.CoreException
 	 */
 	public final system.proxies.WorkflowDefinition getWorkflow_WorkflowDefinition(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
 		system.proxies.WorkflowDefinition result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.Workflow_WorkflowDefinition.toString());
-		if (identifier != null)
+		if (identifier != null) {
 			result = system.proxies.WorkflowDefinition.load(context, identifier);
+		}
 		return result;
 	}
 
@@ -493,10 +505,11 @@ public class Workflow
 	 */
 	public final void setWorkflow_WorkflowDefinition(com.mendix.systemwideinterfaces.core.IContext context, system.proxies.WorkflowDefinition workflow_workflowdefinition)
 	{
-		if (workflow_workflowdefinition == null)
+		if (workflow_workflowdefinition == null) {
 			getMendixObject().setValue(context, MemberNames.Workflow_WorkflowDefinition.toString(), null);
-		else
+		} else {
 			getMendixObject().setValue(context, MemberNames.Workflow_WorkflowDefinition.toString(), workflow_workflowdefinition.getMendixObject().getId());
+		}
 	}
 
 	/**
@@ -518,9 +531,9 @@ public class Workflow
 	@java.lang.Override
 	public boolean equals(Object obj)
 	{
-		if (obj == this)
+		if (obj == this) {
 			return true;
-
+		}
 		if (obj != null && getClass().equals(obj.getClass()))
 		{
 			final system.proxies.Workflow that = (system.proxies.Workflow) obj;
@@ -540,7 +553,7 @@ public class Workflow
 	 */
 	public static java.lang.String getType()
 	{
-		return "System.Workflow";
+		return entityName;
 	}
 
 	/**

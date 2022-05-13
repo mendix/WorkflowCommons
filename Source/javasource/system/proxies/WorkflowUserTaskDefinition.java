@@ -24,7 +24,7 @@ public class WorkflowUserTaskDefinition
 		IsObsolete("IsObsolete"),
 		WorkflowUserTaskDefinition_WorkflowDefinition("System.WorkflowUserTaskDefinition_WorkflowDefinition");
 
-		private java.lang.String metaName;
+		private final java.lang.String metaName;
 
 		MemberNames(java.lang.String s)
 		{
@@ -40,15 +40,17 @@ public class WorkflowUserTaskDefinition
 
 	public WorkflowUserTaskDefinition(com.mendix.systemwideinterfaces.core.IContext context)
 	{
-		this(context, com.mendix.core.Core.instantiate(context, "System.WorkflowUserTaskDefinition"));
+		this(context, com.mendix.core.Core.instantiate(context, entityName));
 	}
 
 	protected WorkflowUserTaskDefinition(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject workflowUserTaskDefinitionMendixObject)
 	{
-		if (workflowUserTaskDefinitionMendixObject == null)
+		if (workflowUserTaskDefinitionMendixObject == null) {
 			throw new java.lang.IllegalArgumentException("The given object cannot be null.");
-		if (!com.mendix.core.Core.isSubClassOf("System.WorkflowUserTaskDefinition", workflowUserTaskDefinitionMendixObject.getType()))
-			throw new java.lang.IllegalArgumentException("The given object is not a System.WorkflowUserTaskDefinition");
+		}
+		if (!com.mendix.core.Core.isSubClassOf(entityName, workflowUserTaskDefinitionMendixObject.getType())) {
+			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
+		}	
 
 		this.workflowUserTaskDefinitionMendixObject = workflowUserTaskDefinitionMendixObject;
 		this.context = context;
@@ -66,6 +68,9 @@ public class WorkflowUserTaskDefinition
 	/**
 	 * Initialize a proxy using context (recommended). This context will be used for security checking when the get- and set-methods without context parameters are called.
 	 * The get- and set-methods with context parameter should be used when for instance sudo access is necessary (IContext.createSudoClone() can be used to obtain sudo access).
+	 * @param context The context to be used
+	 * @param mendixObject The Mendix object for the new instance
+	 * @return a new instance of this proxy class
 	 */
 	public static system.proxies.WorkflowUserTaskDefinition initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
 	{
@@ -80,14 +85,16 @@ public class WorkflowUserTaskDefinition
 
 	public static java.util.List<system.proxies.WorkflowUserTaskDefinition> load(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String xpathConstraint) throws com.mendix.core.CoreException
 	{
-		java.util.List<system.proxies.WorkflowUserTaskDefinition> result = new java.util.ArrayList<system.proxies.WorkflowUserTaskDefinition>();
-		for (com.mendix.systemwideinterfaces.core.IMendixObject obj : com.mendix.core.Core.retrieveXPathQuery(context, "//System.WorkflowUserTaskDefinition" + xpathConstraint))
-			result.add(system.proxies.WorkflowUserTaskDefinition.initialize(context, obj));
-		return result;
+		return com.mendix.core.Core.createXPathQuery(String.format("//%1$s%2$s", entityName, xpathConstraint))
+			.execute(context)
+			.stream()
+			.map(obj -> system.proxies.WorkflowUserTaskDefinition.initialize(context, obj))
+			.collect(java.util.stream.Collectors.toList());
 	}
 
 	/**
 	 * Commit the changes made on this proxy object.
+	 * @throws com.mendix.core.CoreException
 	 */
 	public final void commit() throws com.mendix.core.CoreException
 	{
@@ -96,6 +103,7 @@ public class WorkflowUserTaskDefinition
 
 	/**
 	 * Commit the changes made on this proxy object using the specified context.
+	 * @throws com.mendix.core.CoreException
 	 */
 	public final void commit(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
@@ -190,6 +198,7 @@ public class WorkflowUserTaskDefinition
 	}
 
 	/**
+	 * @throws com.mendix.core.CoreException
 	 * @return value of WorkflowUserTaskDefinition_WorkflowDefinition
 	 */
 	public final system.proxies.WorkflowDefinition getWorkflowUserTaskDefinition_WorkflowDefinition() throws com.mendix.core.CoreException
@@ -200,13 +209,15 @@ public class WorkflowUserTaskDefinition
 	/**
 	 * @param context
 	 * @return value of WorkflowUserTaskDefinition_WorkflowDefinition
+	 * @throws com.mendix.core.CoreException
 	 */
 	public final system.proxies.WorkflowDefinition getWorkflowUserTaskDefinition_WorkflowDefinition(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
 		system.proxies.WorkflowDefinition result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.WorkflowUserTaskDefinition_WorkflowDefinition.toString());
-		if (identifier != null)
+		if (identifier != null) {
 			result = system.proxies.WorkflowDefinition.load(context, identifier);
+		}
 		return result;
 	}
 
@@ -226,10 +237,11 @@ public class WorkflowUserTaskDefinition
 	 */
 	public final void setWorkflowUserTaskDefinition_WorkflowDefinition(com.mendix.systemwideinterfaces.core.IContext context, system.proxies.WorkflowDefinition workflowusertaskdefinition_workflowdefinition)
 	{
-		if (workflowusertaskdefinition_workflowdefinition == null)
+		if (workflowusertaskdefinition_workflowdefinition == null) {
 			getMendixObject().setValue(context, MemberNames.WorkflowUserTaskDefinition_WorkflowDefinition.toString(), null);
-		else
+		} else {
 			getMendixObject().setValue(context, MemberNames.WorkflowUserTaskDefinition_WorkflowDefinition.toString(), workflowusertaskdefinition_workflowdefinition.getMendixObject().getId());
+		}
 	}
 
 	/**
@@ -251,9 +263,9 @@ public class WorkflowUserTaskDefinition
 	@java.lang.Override
 	public boolean equals(Object obj)
 	{
-		if (obj == this)
+		if (obj == this) {
 			return true;
-
+		}
 		if (obj != null && getClass().equals(obj.getClass()))
 		{
 			final system.proxies.WorkflowUserTaskDefinition that = (system.proxies.WorkflowUserTaskDefinition) obj;
@@ -273,7 +285,7 @@ public class WorkflowUserTaskDefinition
 	 */
 	public static java.lang.String getType()
 	{
-		return "System.WorkflowUserTaskDefinition";
+		return entityName;
 	}
 
 	/**
