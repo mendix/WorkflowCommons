@@ -111,8 +111,8 @@ jobs:
 
             cd "$TEMP_UNZIP_FOLDER/widgets"
             for i in *; do
-              if ! grep -qxFe "$i" $ALLOWED_LIST; then
-                echo "Deleting: $i"
+              if ! grep -q "$i" $ALLOWED_LIST; then
+                echo "Deleting widget: $i" | tee $GITHUB_WORKSPACE/out/deletedWidgets.log
                 rm "$i"
               fi
             done
