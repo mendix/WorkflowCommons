@@ -100,7 +100,7 @@ jobs:
             TARGET_MPK="$GITHUB_WORKSPACE/app/Releases/WorkflowCommons-Latest.mpk"
             ALLOWED_LIST="$GITHUB_WORKSPACE/app/.github/workflows/AllowedWidgetsList.txt"
 
-            if [ -f "$ALLOWED_LIST" ]; then 
+            if [! -f "$ALLOWED_LIST" ]; then 
               echo “Unable to found file AllowedWidgetsList.txt”
               exit 1; 
             fi
