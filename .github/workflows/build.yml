@@ -94,6 +94,31 @@ jobs:
           cp -f $GITHUB_WORKSPACE/app/Source/packages/WorkflowCommons.mpk $GITHUB_WORKSPACE/app/Releases/WorkflowCommons-Latest.mpk
           rm -rf $GITHUB_WORKSPACE/app/Source/packages
 
+      - name: Delete rudiment widgets
+        run: |
+            TEMP_UNZIP_FOLDER="$GITHUB_WORKSPACE/TempUnzip"
+            TARGET_MPK="$GITHUB_WORKSPACE/app/Releases/WorkflowCommons-Latest.mpk"
+            ALLOWED_LIST="$GITHUB_WORKSPACE/app/.github/workflows/AllowedWidgetsList.txt"
+
+            if [ -d "$TEMP_UNZIP_FOLDER" ]; then rm -Rf $TEMP_UNZIP_FOLDER; fi
+            mkdir $TEMP_UNZIP_FOLDER
+            unzip -x $TARGET_MPK -d $TEMP_UNZIP_FOLDER
+
+            cd "$TEMP_UNZIP_FOLDER/widgets"
+            for i in *; do
+              if ! grep -qxFe "$i" $ALLOWED_LIST; then
+                echo "Deleting: $i"
+                rm "$i"
+              fi
+            done
+            
+            cd $TEMP_UNZIP_FOLDER
+            zip -r WorkflowCommons-Latest.mpk *
+
+            mv -f WorkflowCommons-Latest.mpk $GITHUB_WORKSPACE/app/Releases/
+
+            if [ -d "$TEMP_UNZIP_FOLDER" ]; then rm -Rf $TEMP_UNZIP_FOLDER; fi
+
       - name: Commit release
         if: github.event_name != 'pull_request'
         run: |
