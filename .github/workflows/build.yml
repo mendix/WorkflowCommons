@@ -101,7 +101,7 @@ jobs:
             ALLOWED_LIST="$GITHUB_WORKSPACE/app/.github/workflows/AllowedWidgetsList.txt"
 
             if [! -f "$ALLOWED_LIST" ]; then 
-              echo “Unable to found file AllowedWidgetsList.txt”
+              echo “Unable to find file AllowedWidgetsList.txt”
               exit 1; 
             fi
 
@@ -132,7 +132,7 @@ jobs:
             git config --global user.email 'noreply@github.com'
             git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
             git add WorkflowCommons-Latest.mpk
-            git commit -am "Auto release WorkflowCommon"
+            git commit -am "Auto release WorkflowCommons"
             git push
 
       - name: Collect docker logs
