@@ -94,6 +94,37 @@ jobs:
           cp -f $GITHUB_WORKSPACE/app/Source/packages/WorkflowCommons.mpk $GITHUB_WORKSPACE/app/Releases/WorkflowCommons-Latest.mpk
           rm -rf $GITHUB_WORKSPACE/app/Source/packages
 
+      - name: Delete rudiment widgets
+        run: |
+            TEMP_UNZIP_FOLDER="$GITHUB_WORKSPACE/TempUnzip"
+            TARGET_MPK="$GITHUB_WORKSPACE/app/Releases/WorkflowCommons-Latest.mpk"
+            ALLOWED_LIST="$GITHUB_WORKSPACE/app/.github/workflows/AllowedWidgetsList.txt"
+
+            if [! -f "$ALLOWED_LIST" ]; then 
+              echo “Unable to find file AllowedWidgetsList.txt”
+              exit 1; 
+            fi
+
+            if [ -d "$TEMP_UNZIP_FOLDER" ]; then rm -Rf $TEMP_UNZIP_FOLDER; fi
+            mkdir $TEMP_UNZIP_FOLDER
+            unzip -x $TARGET_MPK -d $TEMP_UNZIP_FOLDER
+
+            cd "$TEMP_UNZIP_FOLDER/widgets"
+            for i in *; do
+              if ! grep -q "$i" $ALLOWED_LIST; then
+                echo "Deleting widget: $i" | tee -a $GITHUB_WORKSPACE/out/deletedWidgets.log
+                rm "$i"
+                sed -i "/$i/d" $TEMP_UNZIP_FOLDER/package.xml
+              fi
+            done
+            
+            cd $TEMP_UNZIP_FOLDER
+            zip -r WorkflowCommons-Latest.mpk *
+
+            mv -f WorkflowCommons-Latest.mpk $GITHUB_WORKSPACE/app/Releases/
+
+            if [ -d "$TEMP_UNZIP_FOLDER" ]; then rm -Rf $TEMP_UNZIP_FOLDER; fi
+
       - name: Commit release
         if: github.event_name != 'pull_request'
         run: |
@@ -102,7 +133,7 @@ jobs:
             git config --global user.email 'noreply@github.com'
             git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
             git add WorkflowCommons-Latest.mpk
-            git commit -am "Auto release WorkflowCommon"
+            git commit -am "Auto release WorkflowCommons"
             git push
 
       - name: Collect docker logs
