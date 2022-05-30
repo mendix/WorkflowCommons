@@ -46,6 +46,7 @@ $brand-primary: #264ae5 !default;
         position: -webkit-sticky; /* Safari */
         position: sticky;
         top: 0;
+        z-index: 1;
 
         /* Clickable column header (Sortable) */
         .clickable {
@@ -204,6 +205,10 @@ $brand-primary: #264ae5 !default;
         * {
             white-space: normal;
             word-break: break-all;
+        }
+
+        > .td-custom-content {
+            flex-grow: 1;
         }
 
         > .empty-placeholder {
