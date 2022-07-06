@@ -40,11 +40,22 @@ public class Microflows
 		Map<java.lang.String, Object> params = new HashMap<>();
 		Core.microflowCall("ExpenseRequestExample.ACT_Expense_New").withParams(params).execute(context);
 	}
+	public static void aCT_Expense_New_2(IContext context)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		Core.microflowCall("ExpenseRequestExample.ACT_Expense_New_2").withParams(params).execute(context);
+	}
 	public static void aCT_Expense_Save(IContext context, expenserequestexample.proxies.Expense _expense)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
 		params.put("Expense", _expense == null ? null : _expense.getMendixObject());
 		Core.microflowCall("ExpenseRequestExample.ACT_Expense_Save").withParams(params).execute(context);
+	}
+	public static void aCT_Expense_Save_2(IContext context, expenserequestexample.proxies.Expense _expense)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		params.put("Expense", _expense == null ? null : _expense.getMendixObject());
+		Core.microflowCall("ExpenseRequestExample.ACT_Expense_Save_2").withParams(params).execute(context);
 	}
 	public static void aCT_RejectExpenseRequest(IContext context, system.proxies.WorkflowUserTask _userTask, expenserequestexample.proxies.ExpenseRequest _expenseRequest)
 	{
@@ -77,6 +88,12 @@ public class Microflows
 		Map<java.lang.String, Object> params = new HashMap<>();
 		params.put("Expense", _expense == null ? null : _expense.getMendixObject());
 		Core.microflowCall("ExpenseRequestExample.SUB_StartExpenseRequest").withParams(params).execute(context);
+	}
+	public static void sUB_StartExpenseRequest_2(IContext context, expenserequestexample.proxies.Expense _expense)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		params.put("Expense", _expense == null ? null : _expense.getMendixObject());
+		Core.microflowCall("ExpenseRequestExample.SUB_StartExpenseRequest_2").withParams(params).execute(context);
 	}
 	public static boolean vAL_Expense(IContext context, expenserequestexample.proxies.Expense _expense)
 	{

@@ -5,7 +5,8 @@
 	padding: 4px 8px 4px 8px;
 	color: white;
 	white-space: nowrap;
-
+	display: block;
+    width: fit-content;
 
 	&.mxwc-state-badge-success {
 		background: $brand-success;
