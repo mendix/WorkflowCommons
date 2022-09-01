@@ -1,0 +1,21 @@
+.mxwc-dv-footer-remove-border > .mx-dataview-controls {
+    border-top: 0;
+}
+
+.mxwc-jump-to-popup {
+    min-width: 800px;
+
+    .mx-image {
+        max-width: 38px;
+    }
+
+    .mxwc-img-activity-placeholder {
+        opacity: 0.3;
+    }
+}
+
+.mxwc-jump-to-activity-selector select {
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

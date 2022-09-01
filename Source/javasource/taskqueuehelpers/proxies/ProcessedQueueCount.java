@@ -22,7 +22,7 @@ public class ProcessedQueueCount
 	{
 		QueueName("QueueName"),
 		CompletedCount("CompletedCount"),
-		NonCompletedCount("NonCompletedCount");
+		UncompletedCount("UncompletedCount");
 
 		private final java.lang.String metaName;
 
@@ -189,39 +189,39 @@ public class ProcessedQueueCount
 	}
 
 	/**
-	 * @return value of NonCompletedCount
+	 * @return value of UncompletedCount
 	 */
-	public final java.lang.Long getNonCompletedCount()
+	public final java.lang.Long getUncompletedCount()
 	{
-		return getNonCompletedCount(getContext());
+		return getUncompletedCount(getContext());
 	}
 
 	/**
 	 * @param context
-	 * @return value of NonCompletedCount
+	 * @return value of UncompletedCount
 	 */
-	public final java.lang.Long getNonCompletedCount(com.mendix.systemwideinterfaces.core.IContext context)
+	public final java.lang.Long getUncompletedCount(com.mendix.systemwideinterfaces.core.IContext context)
 	{
-		return (java.lang.Long) getMendixObject().getValue(context, MemberNames.NonCompletedCount.toString());
+		return (java.lang.Long) getMendixObject().getValue(context, MemberNames.UncompletedCount.toString());
 	}
 
 	/**
-	 * Set value of NonCompletedCount
-	 * @param noncompletedcount
+	 * Set value of UncompletedCount
+	 * @param uncompletedcount
 	 */
-	public final void setNonCompletedCount(java.lang.Long noncompletedcount)
+	public final void setUncompletedCount(java.lang.Long uncompletedcount)
 	{
-		setNonCompletedCount(getContext(), noncompletedcount);
+		setUncompletedCount(getContext(), uncompletedcount);
 	}
 
 	/**
-	 * Set value of NonCompletedCount
+	 * Set value of UncompletedCount
 	 * @param context
-	 * @param noncompletedcount
+	 * @param uncompletedcount
 	 */
-	public final void setNonCompletedCount(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Long noncompletedcount)
+	public final void setUncompletedCount(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Long uncompletedcount)
 	{
-		getMendixObject().setValue(context, MemberNames.NonCompletedCount.toString(), noncompletedcount);
+		getMendixObject().setValue(context, MemberNames.UncompletedCount.toString(), uncompletedcount);
 	}
 
 	/**

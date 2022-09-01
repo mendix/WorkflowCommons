@@ -40,22 +40,17 @@ public class Microflows
 		Map<java.lang.String, Object> params = new HashMap<>();
 		Core.microflowCall("ExpenseRequestExample.ACT_Expense_New").withParams(params).execute(context);
 	}
-	public static void aCT_Expense_New_2(IContext context)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		Core.microflowCall("ExpenseRequestExample.ACT_Expense_New_2").withParams(params).execute(context);
-	}
 	public static void aCT_Expense_Save(IContext context, expenserequestexample.proxies.Expense _expense)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
 		params.put("Expense", _expense == null ? null : _expense.getMendixObject());
 		Core.microflowCall("ExpenseRequestExample.ACT_Expense_Save").withParams(params).execute(context);
 	}
-	public static void aCT_Expense_Save_2(IContext context, expenserequestexample.proxies.Expense _expense)
+	public static void aCT_Expense_StartParallelWorkflow(IContext context, expenserequestexample.proxies.Expense _expense)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
 		params.put("Expense", _expense == null ? null : _expense.getMendixObject());
-		Core.microflowCall("ExpenseRequestExample.ACT_Expense_Save_2").withParams(params).execute(context);
+		Core.microflowCall("ExpenseRequestExample.ACT_Expense_StartParallelWorkflow").withParams(params).execute(context);
 	}
 	public static void aCT_RejectExpenseRequest(IContext context, system.proxies.WorkflowUserTask _userTask, expenserequestexample.proxies.ExpenseRequest _expenseRequest)
 	{
@@ -83,17 +78,18 @@ public class Microflows
 		IMendixObject result = (IMendixObject)Core.microflowCall("ExpenseRequestExample.DS_WorkflowTask_RetrieveExpenseRequest").withParams(params).execute(context);
 		return result == null ? null : expenserequestexample.proxies.ExpenseRequest.initialize(context, result);
 	}
+	public static expenserequestexample.proxies.ExpenseRequest dS_WorkflowUserTask_ParallelWorkflow_Context(IContext context, system.proxies.WorkflowUserTask _userTask)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		params.put("UserTask", _userTask == null ? null : _userTask.getMendixObject());
+		IMendixObject result = (IMendixObject)Core.microflowCall("ExpenseRequestExample.DS_WorkflowUserTask_ParallelWorkflow_Context").withParams(params).execute(context);
+		return result == null ? null : expenserequestexample.proxies.ExpenseRequest.initialize(context, result);
+	}
 	public static void sUB_StartExpenseRequest(IContext context, expenserequestexample.proxies.Expense _expense)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
 		params.put("Expense", _expense == null ? null : _expense.getMendixObject());
 		Core.microflowCall("ExpenseRequestExample.SUB_StartExpenseRequest").withParams(params).execute(context);
-	}
-	public static void sUB_StartExpenseRequest_2(IContext context, expenserequestexample.proxies.Expense _expense)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Expense", _expense == null ? null : _expense.getMendixObject());
-		Core.microflowCall("ExpenseRequestExample.SUB_StartExpenseRequest_2").withParams(params).execute(context);
 	}
 	public static boolean vAL_Expense(IContext context, expenserequestexample.proxies.Expense _expense)
 	{
@@ -106,6 +102,12 @@ public class Microflows
 		Map<java.lang.String, Object> params = new HashMap<>();
 		params.put("ExpenseRequest", _expenseRequest == null ? null : _expenseRequest.getMendixObject());
 		return (java.lang.Boolean) Core.microflowCall("ExpenseRequestExample.VAL_ExpenseRequest").withParams(params).execute(context);
+	}
+	public static void wF_ParallelWorkflow_Test(IContext context, expenserequestexample.proxies.ExpenseRequest _expenseRequest)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		params.put("ExpenseRequest", _expenseRequest == null ? null : _expenseRequest.getMendixObject());
+		Core.microflowCall("ExpenseRequestExample.WF_ParallelWorkflow_Test").withParams(params).execute(context);
 	}
 	public static void wF_ReimburseExpenseRequest(IContext context, expenserequestexample.proxies.ExpenseRequest _expenseRequest)
 	{

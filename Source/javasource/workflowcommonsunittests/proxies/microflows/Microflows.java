@@ -120,10 +120,22 @@ public class Microflows
 		params.put("WorkflowUserTask", _workflowUserTask == null ? null : _workflowUserTask.getMendixObject());
 		Core.microflowCall("WorkflowCommonsUnitTests.SUB_ExpenseRequestWorkflow_CompleteTask").withParams(params).execute(context);
 	}
+	public static void sub_JumpToEndWorkflow(IContext context, system.proxies.Workflow _workflow)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		params.put("Workflow", _workflow == null ? null : _workflow.getMendixObject());
+		Core.microflowCall("WorkflowCommonsUnitTests.Sub_JumpToEndWorkflow").withParams(params).execute(context);
+	}
 	public static unittesting.proxies.TestSuite sUB_RetrieveTestSuite(IContext context)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
 		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommonsUnitTests.SUB_RetrieveTestSuite").withParams(params).execute(context);
+		return result == null ? null : unittesting.proxies.TestSuite.initialize(context, result);
+	}
+	public static unittesting.proxies.TestSuite sUB_RetrieveTestSuite_WithRetry(IContext context)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommonsUnitTests.SUB_RetrieveTestSuite_WithRetry").withParams(params).execute(context);
 		return result == null ? null : unittesting.proxies.TestSuite.initialize(context, result);
 	}
 	public static void sUB_Workflow_SetOverdue(IContext context, system.proxies.Workflow _workflow)
@@ -423,6 +435,11 @@ public class Microflows
 		Map<java.lang.String, Object> params = new HashMap<>();
 		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowUserTask_UnAssignFromUser").withParams(params).execute(context);
 	}
+	public static boolean uT_ZWorkflow_AbortFailedWorkflow(IContext context)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_ZWorkflow_AbortFailedWorkflow").withParams(params).execute(context);
+	}
 	public static boolean uT_ZWorkflow_AbortIncompatibleWorkflow(IContext context)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
@@ -433,20 +450,45 @@ public class Microflows
 		Map<java.lang.String, Object> params = new HashMap<>();
 		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_ZWorkflow_AbortInProgressWorkflow").withParams(params).execute(context);
 	}
+	public static boolean uT_ZWorkflow_AbortPausedWorkflow(IContext context)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_ZWorkflow_AbortPausedWorkflow").withParams(params).execute(context);
+	}
 	public static boolean uT_ZWorkflow_ContinueIncompatibleWorkflow(IContext context)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
 		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_ZWorkflow_ContinueIncompatibleWorkflow").withParams(params).execute(context);
+	}
+	public static boolean uT_ZWorkflow_JumpToEndWorkflow(IContext context)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_ZWorkflow_JumpToEndWorkflow").withParams(params).execute(context);
 	}
 	public static boolean uT_ZWorkflow_PauseInProgressWorkflow(IContext context)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
 		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_ZWorkflow_PauseInProgressWorkflow").withParams(params).execute(context);
 	}
+	public static boolean uT_ZWorkflow_RestartAbortedWorkflow(IContext context)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_ZWorkflow_RestartAbortedWorkflow").withParams(params).execute(context);
+	}
+	public static boolean uT_ZWorkflow_RestartFailedWorkflow(IContext context)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_ZWorkflow_RestartFailedWorkflow").withParams(params).execute(context);
+	}
 	public static boolean uT_ZWorkflow_RestartIncompatibleWorkflow(IContext context)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
 		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_ZWorkflow_RestartIncompatibleWorkflow").withParams(params).execute(context);
+	}
+	public static boolean uT_ZWorkflow_RetryFailedWorkflow(IContext context)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_ZWorkflow_RetryFailedWorkflow").withParams(params).execute(context);
 	}
 	public static boolean uT_ZWorkflow_UnpausePausedWorkflow(IContext context)
 	{
