@@ -20,29 +20,26 @@ import com.mendix.systemwideinterfaces.core.IMendixObject;
  */
 public class MapToChartParameters extends CustomJavaAction<java.util.List<IMendixObject>>
 {
-	private java.util.List<IMendixObject> __ProcessedQueueTasks;
-	private java.util.List<system.proxies.ProcessedQueueTask> ProcessedQueueTasks;
+	private java.util.List<IMendixObject> __processedQueueTasks;
+	private java.util.List<system.proxies.ProcessedQueueTask> processedQueueTasks;
 
-	public MapToChartParameters(IContext context, java.util.List<IMendixObject> ProcessedQueueTasks)
+	public MapToChartParameters(IContext context, java.util.List<IMendixObject> processedQueueTasks)
 	{
 		super(context);
-		this.__ProcessedQueueTasks = ProcessedQueueTasks;
+		this.__processedQueueTasks = processedQueueTasks;
 	}
 
 	@java.lang.Override
 	public java.util.List<IMendixObject> executeAction() throws Exception
 	{
-		this.ProcessedQueueTasks = java.util.Optional.ofNullable(this.__ProcessedQueueTasks)
+		this.processedQueueTasks = java.util.Optional.ofNullable(this.__processedQueueTasks)
 			.orElse(java.util.Collections.emptyList())
 			.stream()
-			.map(__ProcessedQueueTasksElement -> system.proxies.ProcessedQueueTask.initialize(getContext(), __ProcessedQueueTasksElement))
+			.map(__processedQueueTasksElement -> system.proxies.ProcessedQueueTask.initialize(getContext(), __processedQueueTasksElement))
 			.collect(java.util.stream.Collectors.toList());
 
 		// BEGIN USER CODE
-		return ProcessedQueueTasks
-				.stream()
-				.map( processedQueueTask -> createChartParameter(processedQueueTask))
-				.collect(Collectors.toList());
+		return processedQueueTasks.stream().map(this::createChartParameter).collect(Collectors.toList());
 		// END USER CODE
 	}
 
@@ -57,14 +54,12 @@ public class MapToChartParameters extends CustomJavaAction<java.util.List<IMendi
 	}
 
 	// BEGIN EXTRA CODE
-	
 	private IMendixObject createChartParameter(system.proxies.ProcessedQueueTask processedQueueTask) {
-		ChartParameters parameter = new ChartParameters(getContext());
+		final ChartParameters parameter = new ChartParameters(getContext());
 		parameter.setQueueName(processedQueueTask.getQueueName());
 		parameter.setSequence(processedQueueTask.getSequence());
 		parameter.setStatus(processedQueueTask.getStatus().toString());
-		return parameter.getMendixObject();	
+		return parameter.getMendixObject();
 	}
-	
 	// END EXTRA CODE
 }

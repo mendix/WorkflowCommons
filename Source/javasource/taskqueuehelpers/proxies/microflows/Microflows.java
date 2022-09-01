@@ -21,10 +21,10 @@ public class Microflows
 	public Microflows() {}
 
 	// These are the microflows for the TaskQueueHelpers module
-	public static java.util.List<taskqueuehelpers.proxies.ProcessedQueueCount> dS_RetrieveProcessedQueueCount(IContext context, taskqueuehelpers.proxies.QueueCount _processedTask)
+	public static java.util.List<taskqueuehelpers.proxies.ProcessedQueueCount> dS_RetrieveProcessedQueueCount(IContext context, taskqueuehelpers.proxies.QueueCount _unused)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("ProcessedTask", _processedTask == null ? null : _processedTask.getMendixObject());
+		params.put("Unused", _unused == null ? null : _unused.getMendixObject());
 		java.util.List<IMendixObject> objs = Core.microflowCall("TaskQueueHelpers.DS_RetrieveProcessedQueueCount").withParams(params).execute(context);
 		if (objs == null) {
 			return null;
@@ -46,16 +46,29 @@ public class Microflows
 				.collect(java.util.stream.Collectors.toList());
 		}
 	}
+	public static java.util.List<system.proxies.ProcessedQueueTask> dS_RetrieveTaskRetries(IContext context, system.proxies.ProcessedQueueTask _processedQueueTask)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		params.put("ProcessedQueueTask", _processedQueueTask == null ? null : _processedQueueTask.getMendixObject());
+		java.util.List<IMendixObject> objs = Core.microflowCall("TaskQueueHelpers.DS_RetrieveTaskRetries").withParams(params).execute(context);
+		if (objs == null) {
+			return null;
+		} else {
+			return objs.stream()
+				.map(obj -> system.proxies.ProcessedQueueTask.initialize(context, obj))
+				.collect(java.util.stream.Collectors.toList());
+		}
+	}
 	public static taskqueuehelpers.proxies.QueueCount microflowForBarChart(IContext context)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
 		IMendixObject result = (IMendixObject)Core.microflowCall("TaskQueueHelpers.MicroflowForBarChart").withParams(params).execute(context);
 		return result == null ? null : taskqueuehelpers.proxies.QueueCount.initialize(context, result);
 	}
-	public static java.util.List<taskqueuehelpers.proxies.ChartParameters> microflowForPieChart(IContext context, taskqueuehelpers.proxies.QueueCount _processedTask)
+	public static java.util.List<taskqueuehelpers.proxies.ChartParameters> microflowForPieChart(IContext context, taskqueuehelpers.proxies.QueueCount _unused)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("ProcessedTask", _processedTask == null ? null : _processedTask.getMendixObject());
+		params.put("Unused", _unused == null ? null : _unused.getMendixObject());
 		java.util.List<IMendixObject> objs = Core.microflowCall("TaskQueueHelpers.MicroflowForPieChart").withParams(params).execute(context);
 		if (objs == null) {
 			return null;

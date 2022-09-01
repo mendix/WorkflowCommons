@@ -21,7 +21,7 @@ public class QueueCount
 	public enum MemberNames
 	{
 		QueueName("QueueName"),
-		OpenCount("OpenCount"),
+		WaitingCount("WaitingCount"),
 		RunningCount("RunningCount");
 
 		private final java.lang.String metaName;
@@ -153,39 +153,39 @@ public class QueueCount
 	}
 
 	/**
-	 * @return value of OpenCount
+	 * @return value of WaitingCount
 	 */
-	public final java.lang.Long getOpenCount()
+	public final java.lang.Long getWaitingCount()
 	{
-		return getOpenCount(getContext());
+		return getWaitingCount(getContext());
 	}
 
 	/**
 	 * @param context
-	 * @return value of OpenCount
+	 * @return value of WaitingCount
 	 */
-	public final java.lang.Long getOpenCount(com.mendix.systemwideinterfaces.core.IContext context)
+	public final java.lang.Long getWaitingCount(com.mendix.systemwideinterfaces.core.IContext context)
 	{
-		return (java.lang.Long) getMendixObject().getValue(context, MemberNames.OpenCount.toString());
+		return (java.lang.Long) getMendixObject().getValue(context, MemberNames.WaitingCount.toString());
 	}
 
 	/**
-	 * Set value of OpenCount
-	 * @param opencount
+	 * Set value of WaitingCount
+	 * @param waitingcount
 	 */
-	public final void setOpenCount(java.lang.Long opencount)
+	public final void setWaitingCount(java.lang.Long waitingcount)
 	{
-		setOpenCount(getContext(), opencount);
+		setWaitingCount(getContext(), waitingcount);
 	}
 
 	/**
-	 * Set value of OpenCount
+	 * Set value of WaitingCount
 	 * @param context
-	 * @param opencount
+	 * @param waitingcount
 	 */
-	public final void setOpenCount(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Long opencount)
+	public final void setWaitingCount(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Long waitingcount)
 	{
-		getMendixObject().setValue(context, MemberNames.OpenCount.toString(), opencount);
+		getMendixObject().setValue(context, MemberNames.WaitingCount.toString(), waitingcount);
 	}
 
 	/**

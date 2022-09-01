@@ -9,60 +9,43 @@
 
 package taskqueuehelpers.actions;
 
-import java.util.HashMap;
-import java.util.stream.Collectors;
 import com.mendix.core.Core;
+import com.mendix.systemwideinterfaces.connectionbus.data.IDataTable;
+import com.mendix.systemwideinterfaces.connectionbus.requests.types.IOQLTextGetRequest;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 import com.mendix.webui.CustomJavaAction;
+import system.proxies.QueuedTask;
 import taskqueuehelpers.proxies.QueueCount;
+import java.util.stream.Collectors;
 
 /**
  * Creates a List of QueueCount entities grouped by queue name. The grouping will aggregate the open count and running count of each queue.
  */
 public class GetQueueCounts extends CustomJavaAction<java.util.List<IMendixObject>>
 {
-	private java.util.List<IMendixObject> __QueuedTasks;
-	private java.util.List<system.proxies.QueuedTask> QueuedTasks;
-
-	public GetQueueCounts(IContext context, java.util.List<IMendixObject> QueuedTasks)
+	public GetQueueCounts(IContext context)
 	{
 		super(context);
-		this.__QueuedTasks = QueuedTasks;
 	}
 
 	@java.lang.Override
 	public java.util.List<IMendixObject> executeAction() throws Exception
 	{
-		this.QueuedTasks = java.util.Optional.ofNullable(this.__QueuedTasks)
-			.orElse(java.util.Collections.emptyList())
-			.stream()
-			.map(__QueuedTasksElement -> system.proxies.QueuedTask.initialize(getContext(), __QueuedTasksElement))
-			.collect(java.util.stream.Collectors.toList());
-
 		// BEGIN USER CODE
 		final IContext ctx = getContext();
 
-		final HashMap<String, IMendixObject> map = new HashMap<>();
+		final IOQLTextGetRequest request = Core.createOQLTextGetRequest();
+		request.setQuery(QUERY);
+		final IDataTable allTasks = Core.retrieveOQLDataTable(ctx, request);
 
-		for (system.proxies.QueuedTask queuedTask : QueuedTasks) {
-			final String qname = queuedTask.getQueueName();
-
-			final IMendixObject counts = map.computeIfAbsent(qname, key -> {
-				final QueueCount newcounts = new QueueCount(ctx);
-				newcounts.setQueueName(qname);
-				return newcounts.getMendixObject();
-			});
-
-			final String xasId = queuedTask.getXASId();
-			final String countAttr = xasId == null ? "OpenCount" : "RunningCount";
-			final Long count = counts.getValue(ctx, countAttr);
-			counts.setValue(ctx, countAttr, count + 1);
-
-			map.put(qname, counts);
-		}
-
-		return map.values().stream().collect(Collectors.toList());
+		return allTasks.getRows().stream().map(row -> {
+			final QueueCount count = new QueueCount(ctx);
+			count.setQueueName(row.getValue(ctx, 0));
+			count.setRunningCount(row.getValue(ctx, 1));
+			count.setWaitingCount(row.getValue(ctx, 2));
+			return count.getMendixObject();
+		}).collect(Collectors.toList());
 		// END USER CODE
 	}
 
@@ -77,5 +60,19 @@ public class GetQueueCounts extends CustomJavaAction<java.util.List<IMendixObjec
 	}
 
 	// BEGIN EXTRA CODE
+	private static final String QUERY = String.format(
+			"select %s, %s, %s from %s group by %s",
+			QueuedTask.MemberNames.QueueName,
+			threadIdCount("is not null"),
+			threadIdCount("is null"),
+			QueuedTask.entityName,
+			QueuedTask.MemberNames.QueueName);
+
+	private static String threadIdCount(String comparison) {
+		return String.format(
+				"sum(case when %s %s then cast(1 as long) else cast(0 as long) end)",
+				QueuedTask.MemberNames.ThreadId,
+				comparison);
+	}
 	// END EXTRA CODE
 }

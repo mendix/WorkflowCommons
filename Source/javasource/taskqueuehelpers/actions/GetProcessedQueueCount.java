@@ -9,60 +9,44 @@
 
 package taskqueuehelpers.actions;
 
-import java.util.HashMap;
-import java.util.stream.Collectors;
 import com.mendix.core.Core;
+import com.mendix.systemwideinterfaces.connectionbus.data.IDataTable;
+import com.mendix.systemwideinterfaces.connectionbus.requests.types.IOQLTextGetRequest;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 import com.mendix.webui.CustomJavaAction;
+import system.proxies.ProcessedQueueTask;
+import system.proxies.QueueTaskStatus;
 import taskqueuehelpers.proxies.ProcessedQueueCount;
+import java.util.stream.Collectors;
 
 /**
  * Creates a List of ProcessedQueueCount entities grouped by queue name. The grouping will aggregate the comlpeted and non-completed count of each queue based on status.
  */
 public class GetProcessedQueueCount extends CustomJavaAction<java.util.List<IMendixObject>>
 {
-	private java.util.List<IMendixObject> __processedQueueTasks;
-	private java.util.List<system.proxies.ProcessedQueueTask> processedQueueTasks;
-
-	public GetProcessedQueueCount(IContext context, java.util.List<IMendixObject> processedQueueTasks)
+	public GetProcessedQueueCount(IContext context)
 	{
 		super(context);
-		this.__processedQueueTasks = processedQueueTasks;
 	}
 
 	@java.lang.Override
 	public java.util.List<IMendixObject> executeAction() throws Exception
 	{
-		this.processedQueueTasks = java.util.Optional.ofNullable(this.__processedQueueTasks)
-			.orElse(java.util.Collections.emptyList())
-			.stream()
-			.map(__processedQueueTasksElement -> system.proxies.ProcessedQueueTask.initialize(getContext(), __processedQueueTasksElement))
-			.collect(java.util.stream.Collectors.toList());
-
 		// BEGIN USER CODE
-		IContext ctx = getContext();
+		final IContext ctx = getContext();
 
-		HashMap<String, IMendixObject> map = new HashMap<>();
+		final IOQLTextGetRequest request = Core.createOQLTextGetRequest();
+		request.setQuery(QUERY);
+		final IDataTable allTasks = Core.retrieveOQLDataTable(ctx, request);
 
-		for (system.proxies.ProcessedQueueTask task : processedQueueTasks) {
-			String qname = task.getQueueName();
-
-			IMendixObject counts = map.computeIfAbsent(qname, key -> {
-				IMendixObject newcounts = Core.instantiate(ctx, ProcessedQueueCount.entityName);
-				newcounts.setValue(ctx, "QueueName", qname);
-				return newcounts;
-			});
-
-			String status = task.getStatus().toString();
-			String countAttr = status.equals("Completed") ? "CompletedCount" : "NonCompletedCount";
-			Long count = counts.getValue(ctx, countAttr);
-			counts.setValue(ctx, countAttr, count + 1);
-
-			map.put(qname, counts);
-		}
-
-		return map.values().stream().collect(Collectors.toList());
+		return allTasks.getRows().stream().map(row -> {
+			final ProcessedQueueCount count = new ProcessedQueueCount(ctx);
+			count.setQueueName(row.getValue(ctx, 0));
+			count.setCompletedCount(row.getValue(ctx, 1));
+			count.setUncompletedCount(row.getValue(ctx, 2));
+			return count.getMendixObject();
+		}).collect(Collectors.toList());
 		// END USER CODE
 	}
 
@@ -77,5 +61,20 @@ public class GetProcessedQueueCount extends CustomJavaAction<java.util.List<IMen
 	}
 
 	// BEGIN EXTRA CODE
+	private static final String QUERY = String.format(
+			"select %s, %s, %s from %s group by %s",
+			ProcessedQueueTask.MemberNames.QueueName,
+			completedCount("="),
+			completedCount("!="),
+			ProcessedQueueTask.entityName,
+			ProcessedQueueTask.MemberNames.QueueName);
+
+	private static String completedCount(String comparison) {
+		return String.format(
+				"sum(case when %s %s '%s' then cast(1 as long) else cast(0 as long) end)",
+				ProcessedQueueTask.MemberNames.Status,
+				comparison,
+				QueueTaskStatus.Completed);
+	}
 	// END EXTRA CODE
 }
