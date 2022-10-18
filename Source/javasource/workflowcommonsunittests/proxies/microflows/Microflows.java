@@ -69,17 +69,15 @@ public class Microflows
 		params.put("UserTask", _userTask == null ? null : _userTask.getMendixObject());
 		Core.microflowCall("WorkflowCommonsUnitTests.OCh_WorkflowUserTask_State_UnitTest").withParams(params).execute(context);
 	}
-	public static void pRS_InitiateUnitTests(IContext context, system.proxies.HttpRequest _httpRequest, system.proxies.HttpResponse _httpResponse)
+	public static void pRS_InitiateUnitTests(IContext context, system.proxies.HttpResponse _httpResponse)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("httpRequest", _httpRequest == null ? null : _httpRequest.getMendixObject());
 		params.put("httpResponse", _httpResponse == null ? null : _httpResponse.getMendixObject());
 		Core.microflowCall("WorkflowCommonsUnitTests.PRS_InitiateUnitTests").withParams(params).execute(context);
 	}
-	public static unittesting.proxies.TestSuite pRS_PollUnitTestResults(IContext context, system.proxies.HttpRequest _httpRequest, system.proxies.HttpResponse _httpResponse)
+	public static unittesting.proxies.TestSuite pRS_PollUnitTestResults(IContext context, system.proxies.HttpResponse _httpResponse)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("httpRequest", _httpRequest == null ? null : _httpRequest.getMendixObject());
 		params.put("httpResponse", _httpResponse == null ? null : _httpResponse.getMendixObject());
 		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommonsUnitTests.PRS_PollUnitTestResults").withParams(params).execute(context);
 		return result == null ? null : unittesting.proxies.TestSuite.initialize(context, result);
