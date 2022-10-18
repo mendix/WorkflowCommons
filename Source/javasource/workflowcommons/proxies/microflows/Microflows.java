@@ -518,12 +518,12 @@ public class Microflows
 		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommons.SUB_TaskSummary_RetrieveOrCreate").withParams(params).execute(context);
 		return result == null ? null : workflowcommons.proxies.TaskSummary.initialize(context, result);
 	}
-	public static administration.proxies.Account sUB_User_GetAccount(IContext context, system.proxies.User _user)
+	public static system.proxies.User sUB_User_GetAccount(IContext context, system.proxies.User _user)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
 		params.put("User", _user == null ? null : _user.getMendixObject());
 		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommons.SUB_User_GetAccount").withParams(params).execute(context);
-		return result == null ? null : administration.proxies.Account.initialize(context, result);
+		return result == null ? null : system.proxies.User.initialize(context, result);
 	}
 	public static void sUB_UserTask_Assign(IContext context, system.proxies.User _user, system.proxies.WorkflowUserTask _workflowUserTask)
 	{

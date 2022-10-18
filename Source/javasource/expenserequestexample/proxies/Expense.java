@@ -24,7 +24,7 @@ public class Expense
 		Amount("Amount"),
 		Reimbursed("Reimbursed"),
 		ExpenseRequest_Expense("ExpenseRequestExample.ExpenseRequest_Expense"),
-		Expense_Account("ExpenseRequestExample.Expense_Account");
+		Expense_UserAccount("ExpenseRequestExample.Expense_UserAccount");
 
 		private final java.lang.String metaName;
 
@@ -284,48 +284,48 @@ public class Expense
 
 	/**
 	 * @throws com.mendix.core.CoreException
-	 * @return value of Expense_Account
+	 * @return value of Expense_UserAccount
 	 */
-	public final administration.proxies.Account getExpense_Account() throws com.mendix.core.CoreException
+	public final system.proxies.User getExpense_UserAccount() throws com.mendix.core.CoreException
 	{
-		return getExpense_Account(getContext());
+		return getExpense_UserAccount(getContext());
 	}
 
 	/**
 	 * @param context
-	 * @return value of Expense_Account
+	 * @return value of Expense_UserAccount
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final administration.proxies.Account getExpense_Account(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final system.proxies.User getExpense_UserAccount(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		administration.proxies.Account result = null;
-		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.Expense_Account.toString());
+		system.proxies.User result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.Expense_UserAccount.toString());
 		if (identifier != null) {
-			result = administration.proxies.Account.load(context, identifier);
+			result = system.proxies.User.load(context, identifier);
 		}
 		return result;
 	}
 
 	/**
-	 * Set value of Expense_Account
-	 * @param expense_account
+	 * Set value of Expense_UserAccount
+	 * @param expense_useraccount
 	 */
-	public final void setExpense_Account(administration.proxies.Account expense_account)
+	public final void setExpense_UserAccount(system.proxies.User expense_useraccount)
 	{
-		setExpense_Account(getContext(), expense_account);
+		setExpense_UserAccount(getContext(), expense_useraccount);
 	}
 
 	/**
-	 * Set value of Expense_Account
+	 * Set value of Expense_UserAccount
 	 * @param context
-	 * @param expense_account
+	 * @param expense_useraccount
 	 */
-	public final void setExpense_Account(com.mendix.systemwideinterfaces.core.IContext context, administration.proxies.Account expense_account)
+	public final void setExpense_UserAccount(com.mendix.systemwideinterfaces.core.IContext context, system.proxies.User expense_useraccount)
 	{
-		if (expense_account == null) {
-			getMendixObject().setValue(context, MemberNames.Expense_Account.toString(), null);
+		if (expense_useraccount == null) {
+			getMendixObject().setValue(context, MemberNames.Expense_UserAccount.toString(), null);
 		} else {
-			getMendixObject().setValue(context, MemberNames.Expense_Account.toString(), expense_account.getMendixObject().getId());
+			getMendixObject().setValue(context, MemberNames.Expense_UserAccount.toString(), expense_useraccount.getMendixObject().getId());
 		}
 	}
 
