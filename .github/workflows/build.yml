@@ -77,9 +77,36 @@ jobs:
                 do sleep 5; done' \
             || true
           if ! cat $GITHUB_WORKSPACE/out/test_results.json | jq ".Result" | grep "_3_Success" ; then
-            echo “Failed to execute tests”
+            echo "Failed to execute tests"
             exit 1
           fi
+
+      - name: Check Release notes and make new release tag
+        run: |
+          Organization="mendix"
+          Project="WorkflowCommons"
+          ReleaseNotesFile="ReleaseNotes.md"
+          ReleaseTag=$(curl https://api.github.com/repos/$Organization/$Project/releases/latest -s | jq .tag_name -r | tr -d '[:space:]')
+          echo "Detected release tag in github:\"$ReleaseTag\""
+          cd $GITHUB_WORKSPACE/app
+          DeclaredRelease=$(sed -n 's/^## Release //p' $ReleaseNotesFile | head -n 1 | tr -d '[:space:]')
+          echo "Declared release in the local file:\"$DeclaredRelease\""
+          if [ "$ReleaseTag" == "$DeclaredRelease" ]; then
+            echo "There are no new changes in the file \"$ReleaseNotesFile\". Please add new version and release notes into this file before make a merge request."
+            exit 1; 
+          fi
+          # Put release version into env variable
+          echo "NEW_RELEASE_VERSION=$DeclaredRelease" >> $GITHUB_ENV
+          # Make a correct file name
+          BinaryFileName="WorkflowCommons-$(echo "$DeclaredRelease" | sed 's/\./-/g').mpk"
+          echo "NEW_RELEASE_BIN_FILE=$BinaryFileName" >> $GITHUB_ENV
+          StartLine="## Release $DeclaredRelease"
+          EndLine="_______"
+          # Get release notes using "awk" and trin first and last lines usin "sed"
+          ReleseNotes=$(awk "/$StartLine/,/$EndLine/" $ReleaseNotesFile | sed 1d | sed '$ d')
+          echo "Release notest from file: $ReleseNotes"
+          # Put release notes into output path
+          echo "$ReleseNotes" | tee $GITHUB_WORKSPACE/out/ReleaseNotes.md
 
       - name: Build MX Util
         run: |
@@ -91,17 +118,17 @@ jobs:
           MX_TOOLS_IMAGE="mendixlabs/mx-docker-tools:"${{env.MX_VERSION}}
           mkdir $GITHUB_WORKSPACE/app/Source/packages
           docker run -v $GITHUB_WORKSPACE/app/Source:/opt/app -i $MX_TOOLS_IMAGE mxutil.exe create-module-package --package-dir /opt/app/packages /opt/app/ExpenseRequestStarterApp.mpr "WorkflowCommons" --exclude-files="(resources|userlib)" | tee $GITHUB_WORKSPACE/out/mxutil.log
-          cp -f $GITHUB_WORKSPACE/app/Source/packages/WorkflowCommons.mpk $GITHUB_WORKSPACE/app/Releases/WorkflowCommons-Latest.mpk
+          cp -f $GITHUB_WORKSPACE/app/Source/packages/WorkflowCommons.mpk $GITHUB_WORKSPACE/app/Releases/${{env.NEW_RELEASE_BIN_FILE}}
           rm -rf $GITHUB_WORKSPACE/app/Source/packages
 
       - name: Delete rudiment widgets
         run: |
             TEMP_UNZIP_FOLDER="$GITHUB_WORKSPACE/TempUnzip"
-            TARGET_MPK="$GITHUB_WORKSPACE/app/Releases/WorkflowCommons-Latest.mpk"
+            TARGET_MPK="$GITHUB_WORKSPACE/app/Releases/${{env.NEW_RELEASE_BIN_FILE}}"
             ALLOWED_LIST="$GITHUB_WORKSPACE/app/.github/workflows/AllowedWidgetsList.txt"
 
             if [! -f "$ALLOWED_LIST" ]; then 
-              echo “Unable to find file AllowedWidgetsList.txt”
+              echo "Unable to find file AllowedWidgetsList.txt"
               exit 1; 
             fi
 
@@ -119,9 +146,9 @@ jobs:
             done
             
             cd $TEMP_UNZIP_FOLDER
-            zip -r WorkflowCommons-Latest.mpk *
+            zip -r ${{env.NEW_RELEASE_BIN_FILE}} *
 
-            mv -f WorkflowCommons-Latest.mpk $GITHUB_WORKSPACE/app/Releases/
+            mv -f ${{env.NEW_RELEASE_BIN_FILE}} $GITHUB_WORKSPACE/app/Releases/
 
             if [ -d "$TEMP_UNZIP_FOLDER" ]; then rm -Rf $TEMP_UNZIP_FOLDER; fi
 
@@ -132,9 +159,19 @@ jobs:
             git config --global user.name 'Github Workflow'
             git config --global user.email 'noreply@github.com'
             git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-            git add WorkflowCommons-Latest.mpk
-            git commit -am "Auto release WorkflowCommons"
+            git add ${{env.NEW_RELEASE_BIN_FILE}}
+            git commit -am "Made relaes WorkflowCommons v. ${{env.NEW_RELEASE_VERSION}}"
             git push
+
+      - name: Make release in Github
+        uses: softprops/action-gh-release@v1
+        with:
+          body_path: ./out/ReleaseNotes.md
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag_name: ${{env.NEW_RELEASE_VERSION}}
+          name: Release ${{env.NEW_RELEASE_VERSION}}
+          files: |
+            ./app/Releases/${{env.NEW_RELEASE_BIN_FILE}}
 
       - name: Collect docker logs
         id: collectLogs
