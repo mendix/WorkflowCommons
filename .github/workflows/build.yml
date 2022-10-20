@@ -164,6 +164,7 @@ jobs:
             git push
 
       - name: Make release in Github
+        if: github.event_name != 'pull_request'
         uses: softprops/action-gh-release@v1
         with:
           body_path: ./out/ReleaseNotes.md
