@@ -6,7 +6,7 @@
     min-width: 800px;
 
     .mx-image {
-        max-width: 38px;
+        max-width: 32px;
     }
 
     .mxwc-img-activity-placeholder {
@@ -18,4 +18,10 @@
     width: 100%;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+.mxwc-lv-attachments {
+    .mx-listview-empty {
+        display: none;
+    }
 }

@@ -21,6 +21,8 @@ public class WorkflowComment
 	public enum MemberNames
 	{
 		Content("Content"),
+		WorkflowComment_WorkflowView("WorkflowCommons.WorkflowComment_WorkflowView"),
+		WorkflowComment_WorkflowComment("WorkflowCommons.WorkflowComment_WorkflowComment"),
 		WorkflowComment_Workflow("WorkflowCommons.WorkflowComment_Workflow");
 
 		private final java.lang.String metaName;
@@ -158,6 +160,100 @@ public class WorkflowComment
 	public final void setContent(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String content)
 	{
 		getMendixObject().setValue(context, MemberNames.Content.toString(), content);
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of WorkflowComment_WorkflowView
+	 */
+	public final workflowcommons.proxies.WorkflowView getWorkflowComment_WorkflowView() throws com.mendix.core.CoreException
+	{
+		return getWorkflowComment_WorkflowView(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of WorkflowComment_WorkflowView
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final workflowcommons.proxies.WorkflowView getWorkflowComment_WorkflowView(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		workflowcommons.proxies.WorkflowView result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.WorkflowComment_WorkflowView.toString());
+		if (identifier != null) {
+			result = workflowcommons.proxies.WorkflowView.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of WorkflowComment_WorkflowView
+	 * @param workflowcomment_workflowview
+	 */
+	public final void setWorkflowComment_WorkflowView(workflowcommons.proxies.WorkflowView workflowcomment_workflowview)
+	{
+		setWorkflowComment_WorkflowView(getContext(), workflowcomment_workflowview);
+	}
+
+	/**
+	 * Set value of WorkflowComment_WorkflowView
+	 * @param context
+	 * @param workflowcomment_workflowview
+	 */
+	public final void setWorkflowComment_WorkflowView(com.mendix.systemwideinterfaces.core.IContext context, workflowcommons.proxies.WorkflowView workflowcomment_workflowview)
+	{
+		if (workflowcomment_workflowview == null) {
+			getMendixObject().setValue(context, MemberNames.WorkflowComment_WorkflowView.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.WorkflowComment_WorkflowView.toString(), workflowcomment_workflowview.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of WorkflowComment_WorkflowComment
+	 */
+	public final workflowcommons.proxies.WorkflowComment getWorkflowComment_WorkflowComment() throws com.mendix.core.CoreException
+	{
+		return getWorkflowComment_WorkflowComment(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of WorkflowComment_WorkflowComment
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final workflowcommons.proxies.WorkflowComment getWorkflowComment_WorkflowComment(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		workflowcommons.proxies.WorkflowComment result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.WorkflowComment_WorkflowComment.toString());
+		if (identifier != null) {
+			result = workflowcommons.proxies.WorkflowComment.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of WorkflowComment_WorkflowComment
+	 * @param workflowcomment_workflowcomment
+	 */
+	public final void setWorkflowComment_WorkflowComment(workflowcommons.proxies.WorkflowComment workflowcomment_workflowcomment)
+	{
+		setWorkflowComment_WorkflowComment(getContext(), workflowcomment_workflowcomment);
+	}
+
+	/**
+	 * Set value of WorkflowComment_WorkflowComment
+	 * @param context
+	 * @param workflowcomment_workflowcomment
+	 */
+	public final void setWorkflowComment_WorkflowComment(com.mendix.systemwideinterfaces.core.IContext context, workflowcommons.proxies.WorkflowComment workflowcomment_workflowcomment)
+	{
+		if (workflowcomment_workflowcomment == null) {
+			getMendixObject().setValue(context, MemberNames.WorkflowComment_WorkflowComment.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.WorkflowComment_WorkflowComment.toString(), workflowcomment_workflowcomment.getMendixObject().getId());
+		}
 	}
 
 	/**

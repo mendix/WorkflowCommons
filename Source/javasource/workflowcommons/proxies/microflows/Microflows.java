@@ -21,10 +21,10 @@ public class Microflows
 	public Microflows() {}
 
 	// These are the microflows for the WorkflowCommons module
-	public static void aCT_Attachment_Create(IContext context, system.proxies.Workflow _workflow)
+	public static void aCT_Attachment_Create(IContext context, workflowcommons.proxies.WorkflowComment _workflowComment)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Workflow", _workflow == null ? null : _workflow.getMendixObject());
+		params.put("WorkflowComment", _workflowComment == null ? null : _workflowComment.getMendixObject());
 		Core.microflowCall("WorkflowCommons.ACT_Attachment_Create").withParams(params).execute(context);
 	}
 	public static void aCT_Attachment_Download(IContext context, system.proxies.FileDocument _fileDoc)
@@ -44,6 +44,11 @@ public class Microflows
 		Map<java.lang.String, Object> params = new HashMap<>();
 		params.put("WorkflowComment", _workflowComment == null ? null : _workflowComment.getMendixObject());
 		Core.microflowCall("WorkflowCommons.ACT_Comment_Delete").withParams(params).execute(context);
+	}
+	public static void aCT_CommentsAttachments_Migration(IContext context)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		Core.microflowCall("WorkflowCommons.ACT_CommentsAttachments_Migration").withParams(params).execute(context);
 	}
 	public static void aCT_DashboardContext_Refresh(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
 	{
@@ -118,6 +123,12 @@ public class Microflows
 		params.put("Workflow", _workflow == null ? null : _workflow.getMendixObject());
 		Core.microflowCall("WorkflowCommons.ACT_Workflow_JumpTo").withParams(params).execute(context);
 	}
+	public static void aCT_Workflow_OpenParentWorkflow(IContext context, system.proxies.Workflow _workflow)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		params.put("Workflow", _workflow == null ? null : _workflow.getMendixObject());
+		Core.microflowCall("WorkflowCommons.ACT_Workflow_OpenParentWorkflow").withParams(params).execute(context);
+	}
 	public static void aCT_Workflow_Pause(IContext context, system.proxies.Workflow _workflow)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
@@ -148,11 +159,11 @@ public class Microflows
 		params.put("WorkflowComment", _workflowComment == null ? null : _workflowComment.getMendixObject());
 		Core.microflowCall("WorkflowCommons.ACT_Workflow_WithdrawConfirmation").withParams(params).execute(context);
 	}
-	public static void aCT_WorkflowCommentHelper_SaveNew(IContext context, workflowcommons.proxies.WorkflowCommentHelper _workflowCommentHelper, system.proxies.Workflow _workflow)
+	public static void aCT_WorkflowCommentHelper_SaveNew(IContext context, workflowcommons.proxies.WorkflowCommentHelper _workflowCommentHelper, workflowcommons.proxies.WorkflowView _workflowView)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
 		params.put("WorkflowCommentHelper", _workflowCommentHelper == null ? null : _workflowCommentHelper.getMendixObject());
-		params.put("Workflow", _workflow == null ? null : _workflow.getMendixObject());
+		params.put("WorkflowView", _workflowView == null ? null : _workflowView.getMendixObject());
 		Core.microflowCall("WorkflowCommons.ACT_WorkflowCommentHelper_SaveNew").withParams(params).execute(context);
 	}
 	public static void aCT_WorkflowDefinition_DeleteAllWorkflows(IContext context, system.proxies.WorkflowDefinition _workflowDefinition)
@@ -232,6 +243,12 @@ public class Microflows
 		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommons.DashboardContext_GetSelectedWorkflowTaskDefinition").withParams(params).execute(context);
 		return result == null ? null : system.proxies.WorkflowUserTaskDefinition.initialize(context, result);
 	}
+	public static workflowcommons.proxies.Configuration dS_Configuration(IContext context)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommons.DS_Configuration").withParams(params).execute(context);
+		return result == null ? null : workflowcommons.proxies.Configuration.initialize(context, result);
+	}
 	public static workflowcommons.proxies.TaskCount dS_TaskCount(IContext context)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
@@ -256,6 +273,13 @@ public class Microflows
 				.map(obj -> workflowcommons.proxies.TaskSeries.initialize(context, obj))
 				.collect(java.util.stream.Collectors.toList());
 		}
+	}
+	public static workflowcommons.proxies.WorkflowView dS_Workflow_WorkflowView(IContext context, system.proxies.Workflow _workflow)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		params.put("Workflow", _workflow == null ? null : _workflow.getMendixObject());
+		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommons.DS_Workflow_WorkflowView").withParams(params).execute(context);
+		return result == null ? null : workflowcommons.proxies.WorkflowView.initialize(context, result);
 	}
 	public static workflowcommons.proxies.WorkflowCommentHelper dS_WorkflowCommentHelper_InitializeNew(IContext context)
 	{
@@ -333,19 +357,6 @@ public class Microflows
 				.collect(java.util.stream.Collectors.toList());
 		}
 	}
-	public static java.util.List<system.proxies.WorkflowUserTask> dS_WorkflowTask_InProgress(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		java.util.List<IMendixObject> objs = Core.microflowCall("WorkflowCommons.DS_WorkflowTask_InProgress").withParams(params).execute(context);
-		if (objs == null) {
-			return null;
-		} else {
-			return objs.stream()
-				.map(obj -> system.proxies.WorkflowUserTask.initialize(context, obj))
-				.collect(java.util.stream.Collectors.toList());
-		}
-	}
 	public static java.util.List<system.proxies.WorkflowUserTaskDefinition> dS_WorkflowTaskDefinition_Selectable_Administrator(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
@@ -385,38 +396,12 @@ public class Microflows
 				.collect(java.util.stream.Collectors.toList());
 		}
 	}
-	public static java.util.List<workflowcommons.proxies.UserTaskView> dS_WorkflowTaskView(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		java.util.List<IMendixObject> objs = Core.microflowCall("WorkflowCommons.DS_WorkflowTaskView").withParams(params).execute(context);
-		if (objs == null) {
-			return null;
-		} else {
-			return objs.stream()
-				.map(obj -> workflowcommons.proxies.UserTaskView.initialize(context, obj))
-				.collect(java.util.stream.Collectors.toList());
-		}
-	}
 	public static workflowcommons.proxies.WorkflowView dS_WorkflowUserTask_WorkflowView(IContext context, system.proxies.WorkflowUserTask _workflowUserTask)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
 		params.put("WorkflowUserTask", _workflowUserTask == null ? null : _workflowUserTask.getMendixObject());
 		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommons.DS_WorkflowUserTask_WorkflowView").withParams(params).execute(context);
 		return result == null ? null : workflowcommons.proxies.WorkflowView.initialize(context, result);
-	}
-	public static java.util.List<workflowcommons.proxies.WorkflowView> dS_WorkflowView(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		java.util.List<IMendixObject> objs = Core.microflowCall("WorkflowCommons.DS_WorkflowView").withParams(params).execute(context);
-		if (objs == null) {
-			return null;
-		} else {
-			return objs.stream()
-				.map(obj -> workflowcommons.proxies.WorkflowView.initialize(context, obj))
-				.collect(java.util.stream.Collectors.toList());
-		}
 	}
 	public static java.util.List<workflowcommons.proxies.UserTaskTimeLine> dS_WorkflowView_UserTaskTimeline(IContext context, workflowcommons.proxies.WorkflowView _workflowView)
 	{
@@ -460,6 +445,39 @@ public class Microflows
 		Map<java.lang.String, Object> params = new HashMap<>();
 		params.put("WorkflowSummary", _workflowSummary == null ? null : _workflowSummary.getMendixObject());
 		Core.microflowCall("WorkflowCommons.OCl_WorkflowSummary").withParams(params).execute(context);
+	}
+	public static void sUB_AttachmentsAndCommentsMigration_Verify(IContext context, workflowcommons.proxies.Configuration _configuration)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		params.put("Configuration", _configuration == null ? null : _configuration.getMendixObject());
+		Core.microflowCall("WorkflowCommons.SUB_AttachmentsAndCommentsMigration_Verify").withParams(params).execute(context);
+	}
+	public static void sUB_Comment_Migrate(IContext context, workflowcommons.proxies.WorkflowComment _workflowComment, java.util.List<workflowcommons.proxies.WorkflowComment> _migratedWorkflowCommentList)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		params.put("WorkflowComment", _workflowComment == null ? null : _workflowComment.getMendixObject());
+		java.util.List<IMendixObject> listparam_migratedWorkflowCommentList = null;
+		if (_migratedWorkflowCommentList != null)
+		{
+			listparam_migratedWorkflowCommentList = new java.util.ArrayList<>();
+			for (var obj : _migratedWorkflowCommentList) {
+				listparam_migratedWorkflowCommentList.add(obj.getMendixObject());
+			}
+		}
+		params.put("MigratedWorkflowCommentList", listparam_migratedWorkflowCommentList);
+
+		Core.microflowCall("WorkflowCommons.SUB_Comment_Migrate").withParams(params).execute(context);
+	}
+	public static java.lang.Long sUB_Comments_Migration(IContext context)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		return (java.lang.Long) Core.microflowCall("WorkflowCommons.SUB_Comments_Migration").withParams(params).execute(context);
+	}
+	public static workflowcommons.proxies.Configuration sUB_Configuration_FindOrCreate(IContext context)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommons.SUB_Configuration_FindOrCreate").withParams(params).execute(context);
+		return result == null ? null : workflowcommons.proxies.Configuration.initialize(context, result);
 	}
 	public static workflowcommons.proxies.DashboardContext sUB_DashboardContext_RetrieveOrCreate(IContext context)
 	{
@@ -666,6 +684,37 @@ public class Microflows
 		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommons.SUB_UserTaskView_FindOrCreate").withParams(params).execute(context);
 		return result == null ? null : workflowcommons.proxies.UserTaskView.initialize(context, result);
 	}
+	public static java.lang.Long sUB_Workflow_Attachment_Migrate(IContext context, system.proxies.Workflow _nonMigratedWorkflow, java.util.List<workflowcommons.proxies.WorkflowAttachment> _migratedWorkflowAttachmentList, java.util.List<workflowcommons.proxies.WorkflowComment> _autoGeneratedWorkflowCommentList)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		params.put("NonMigratedWorkflow", _nonMigratedWorkflow == null ? null : _nonMigratedWorkflow.getMendixObject());
+		java.util.List<IMendixObject> listparam_migratedWorkflowAttachmentList = null;
+		if (_migratedWorkflowAttachmentList != null)
+		{
+			listparam_migratedWorkflowAttachmentList = new java.util.ArrayList<>();
+			for (var obj : _migratedWorkflowAttachmentList) {
+				listparam_migratedWorkflowAttachmentList.add(obj.getMendixObject());
+			}
+		}
+		params.put("MigratedWorkflowAttachmentList", listparam_migratedWorkflowAttachmentList);
+
+		java.util.List<IMendixObject> listparam_autoGeneratedWorkflowCommentList = null;
+		if (_autoGeneratedWorkflowCommentList != null)
+		{
+			listparam_autoGeneratedWorkflowCommentList = new java.util.ArrayList<>();
+			for (var obj : _autoGeneratedWorkflowCommentList) {
+				listparam_autoGeneratedWorkflowCommentList.add(obj.getMendixObject());
+			}
+		}
+		params.put("AutoGeneratedWorkflowCommentList", listparam_autoGeneratedWorkflowCommentList);
+
+		return (java.lang.Long) Core.microflowCall("WorkflowCommons.SUB_Workflow_Attachment_Migrate").withParams(params).execute(context);
+	}
+	public static java.lang.Long sUB_Workflow_Attachments_Migration(IContext context)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		return (java.lang.Long) Core.microflowCall("WorkflowCommons.SUB_Workflow_Attachments_Migration").withParams(params).execute(context);
+	}
 	public static java.math.BigDecimal sUB_Workflow_AverageHandlingTime(IContext context, java.lang.Long _workflow_CountCompleted, java.util.Date _completedAfter, java.util.Date _completedBefore, system.proxies.WorkflowDefinition _workflowDefinition_Selected)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
@@ -714,6 +763,12 @@ public class Microflows
 		params.put("StartedBefore", _startedBefore);
 		params.put("WorkflowDefinition_Selected", _workflowDefinition_Selected == null ? null : _workflowDefinition_Selected.getMendixObject());
 		return (java.lang.Long) Core.microflowCall("WorkflowCommons.SUB_Workflow_CountOverdue").withParams(params).execute(context);
+	}
+	public static void sUB_Workflow_ShowWorkflowAdminPage(IContext context, system.proxies.Workflow _workflow)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		params.put("Workflow", _workflow == null ? null : _workflow.getMendixObject());
+		Core.microflowCall("WorkflowCommons.SUB_Workflow_ShowWorkflowAdminPage").withParams(params).execute(context);
 	}
 	public static void sUB_WorkflowDashboard_Update(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
 	{
