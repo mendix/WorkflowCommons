@@ -200,11 +200,6 @@ public class Microflows
 		Map<java.lang.String, Object> params = new HashMap<>();
 		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_Workflow_WorkflowCommentAdd").withParams(params).execute(context);
 	}
-	public static boolean uT_Workflow_WorkflowCommentRemove(IContext context)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_Workflow_WorkflowCommentRemove").withParams(params).execute(context);
-	}
 	public static boolean uT_WorkflowDashboard_AverageHandlingTime(IContext context)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();

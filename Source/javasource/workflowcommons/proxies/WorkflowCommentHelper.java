@@ -21,7 +21,6 @@ public class WorkflowCommentHelper
 	public enum MemberNames
 	{
 		Content("Content"),
-		EditMode("EditMode"),
 		WorkflowCommentHelper_WorkflowComment("WorkflowCommons.WorkflowCommentHelper_WorkflowComment");
 
 		private final java.lang.String metaName;
@@ -150,42 +149,6 @@ public class WorkflowCommentHelper
 	public final void setContent(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String content)
 	{
 		getMendixObject().setValue(context, MemberNames.Content.toString(), content);
-	}
-
-	/**
-	 * @return value of EditMode
-	 */
-	public final java.lang.Boolean getEditMode()
-	{
-		return getEditMode(getContext());
-	}
-
-	/**
-	 * @param context
-	 * @return value of EditMode
-	 */
-	public final java.lang.Boolean getEditMode(com.mendix.systemwideinterfaces.core.IContext context)
-	{
-		return (java.lang.Boolean) getMendixObject().getValue(context, MemberNames.EditMode.toString());
-	}
-
-	/**
-	 * Set value of EditMode
-	 * @param editmode
-	 */
-	public final void setEditMode(java.lang.Boolean editmode)
-	{
-		setEditMode(getContext(), editmode);
-	}
-
-	/**
-	 * Set value of EditMode
-	 * @param context
-	 * @param editmode
-	 */
-	public final void setEditMode(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Boolean editmode)
-	{
-		getMendixObject().setValue(context, MemberNames.EditMode.toString(), editmode);
 	}
 
 	/**
