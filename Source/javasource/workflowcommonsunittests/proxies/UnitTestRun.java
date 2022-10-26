@@ -15,6 +15,27 @@ public class UnitTestRun
 	 */
 	public static final java.lang.String entityName = "WorkflowCommonsUnitTests.UnitTestRun";
 
+	/**
+	 * Enum describing members of this entity
+	 */
+	public enum MemberNames
+	{
+		Started("Started");
+
+		private final java.lang.String metaName;
+
+		MemberNames(java.lang.String s)
+		{
+			metaName = s;
+		}
+
+		@java.lang.Override
+		public java.lang.String toString()
+		{
+			return metaName;
+		}
+	}
+
 	public UnitTestRun(com.mendix.systemwideinterfaces.core.IContext context)
 	{
 		this(context, com.mendix.core.Core.instantiate(context, entityName));
@@ -102,6 +123,42 @@ public class UnitTestRun
 	{
 		com.mendix.core.Core.delete(context, getMendixObject());
 	}
+	/**
+	 * @return value of Started
+	 */
+	public final java.lang.Boolean getStarted()
+	{
+		return getStarted(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of Started
+	 */
+	public final java.lang.Boolean getStarted(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.Boolean) getMendixObject().getValue(context, MemberNames.Started.toString());
+	}
+
+	/**
+	 * Set value of Started
+	 * @param started
+	 */
+	public final void setStarted(java.lang.Boolean started)
+	{
+		setStarted(getContext(), started);
+	}
+
+	/**
+	 * Set value of Started
+	 * @param context
+	 * @param started
+	 */
+	public final void setStarted(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Boolean started)
+	{
+		getMendixObject().setValue(context, MemberNames.Started.toString(), started);
+	}
+
 	/**
 	 * @return the IMendixObject instance of this proxy for use in the Core interface.
 	 */
