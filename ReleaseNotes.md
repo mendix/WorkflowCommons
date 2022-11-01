@@ -1,6 +1,13 @@
-## Release 9.9.9
+## Release 2.4.0
 
-* TEST release notes
+* We upgraded the module to Mendix 9.19.0
+* Attachments outside the scope of a comment now need to be part of your own domain model, and should be associated to the context entity of the Workflow. This is required so you can configure the applicable security settings, since the context of a specific. Workflow is not known in advance in Workflow Commons
+    * In Studio, attachments can be added using the ‘File’ property in the Workflow wizard
+    * In Studio Pro, attachments can be added using a specialization of System.FileDocument
+* As a result: Attachments in Workflow Commons are now (an optional) part of comments. A migration microflow is provided that will create a comment for every workflow instance and link all its existing attachments. If your app requires migration, this option will be shown in the Workflow Admin Center. Until the migration has been executed, existing comments and attachments will not be visible in any of the included pages and snippets. Make sure to create a backup of your data before you execute the migration
+* To increase the security of your app we updated the access rules for the WorkflowComment and WorkflowAttachment entities. Users can now only read comments and attachment for the workflows in which they are involved, i.e. they are either a targeted or assigned user in at least one user task of that workflow instance. Users can add new comments and/or attachments and update or delete their own comments as long as the Workflow is ‘In Progress’
+* We added support for subworkflows in the Workflow Admin page and page template: whenever a workflow was called from a parent workflow, this is shown in the page header
+* We updated the icons that are used in the ‘Jump to Activity’ pop-up
 
 _______
 
