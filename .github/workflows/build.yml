@@ -21,17 +21,17 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out current repository under $GITHUB_WORKSPACE/app folder
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # v3
         with:
           path: 'app'
 
       # Checks-out mendix/docker-mendix-buildpack to $GITHUB_WORKSPACE/build-pack folder
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # v3
         with:
           repository: 'mendix/docker-mendix-buildpack'
           path: 'build-pack'
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # v3
         with:
           repository: 'mendixlabs/mx-docker-tools'
           path: 'mx-tools'
@@ -181,7 +181,7 @@ jobs:
 
       - name: Archive results
         if: ${{ always() }}
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2 # v2
         with:
           name: Results
           path: ${{ github.workspace }}/out/*
