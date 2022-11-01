@@ -81,18 +81,18 @@ jobs:
             exit 1
           fi
 
-      - name: Check Release notes and make new release tag
+      - name: Check release notes and create new release tag
         run: |
           Organization="mendix"
           Project="WorkflowCommons"
           ReleaseNotesFile="ReleaseNotes.md"
           ReleaseTag=$(curl https://api.github.com/repos/$Organization/$Project/releases/latest -s | jq .tag_name -r | tr -d '[:space:]')
-          echo "Detected release tag in github:\"$ReleaseTag\""
+          echo "Detected release tag in GitHub:\"$ReleaseTag\""
           cd $GITHUB_WORKSPACE/app
           DeclaredRelease=$(sed -n 's/^## Release //p' $ReleaseNotesFile | head -n 1 | tr -d '[:space:]')
           echo "Declared release in the local file:\"$DeclaredRelease\""
           if [ "$ReleaseTag" == "$DeclaredRelease" ]; then
-            echo "There are no new changes in the file \"$ReleaseNotesFile\". Please add new version and release notes into this file before make a merge request."
+            echo "There are no new changes in the file \"$ReleaseNotesFile\". Please add new version and release notes into this file before making a merge request."
             exit 1; 
           fi
           # Put release version into env variable
@@ -103,10 +103,10 @@ jobs:
           StartLine="## Release $DeclaredRelease"
           EndLine="_______"
           # Get release notes using "awk" and trin first and last lines usin "sed"
-          ReleseNotes=$(awk "/$StartLine/,/$EndLine/" $ReleaseNotesFile | sed 1d | sed '$ d')
-          echo "Release notest from file: $ReleseNotes"
+          ReleaseNotes=$(awk "/$StartLine/,/$EndLine/" $ReleaseNotesFile | sed 1d | sed '$ d')
+          echo "Release notes from file: $ReleaseNotes"
           # Put release notes into output path
-          echo "$ReleseNotes" | tee $GITHUB_WORKSPACE/out/ReleaseNotes.md
+          echo "$ReleaseNotes" | tee $GITHUB_WORKSPACE/out/ReleaseNotes.md
 
       - name: Build MX Util
         run: |
@@ -160,10 +160,10 @@ jobs:
             git config --global user.email 'noreply@github.com'
             git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
             git add ${{env.NEW_RELEASE_BIN_FILE}}
-            git commit -am "Made relaes WorkflowCommons v. ${{env.NEW_RELEASE_VERSION}}"
+            git commit -am "Made release WorkflowCommons v${{env.NEW_RELEASE_VERSION}}"
             git push
 
-      - name: Make release in Github
+      - name: Make release in GitHub
         if: github.event_name != 'pull_request'
         uses: softprops/action-gh-release@1e07f4398721186383de40550babbdf2b84acfc5 # v1
         with:
