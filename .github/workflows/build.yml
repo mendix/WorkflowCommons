@@ -165,7 +165,7 @@ jobs:
 
       - name: Make release in Github
         if: github.event_name != 'pull_request'
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@1e07f4398721186383de40550babbdf2b84acfc5 # v1
         with:
           body_path: ./out/ReleaseNotes.md
           token: ${{ secrets.GITHUB_TOKEN }}
