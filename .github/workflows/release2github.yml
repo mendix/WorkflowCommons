@@ -1,0 +1,140 @@
+name: Create GitHub release
+
+# Controls when the workflow will run
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out current repository under $GITHUB_WORKSPACE/app folder
+      - uses: actions/checkout@e2f20e631ae6d7dd3b768f56a5d2af784dd54791 # v2
+        with:
+          path: 'app'
+
+      - uses: actions/checkout@e2f20e631ae6d7dd3b768f56a5d2af784dd54791 # v2
+        with:
+          repository: 'mendixlabs/mx-docker-tools'
+          path: 'mx-tools'
+
+      - name: Define MX_VERSION
+        run: |
+          cd $GITHUB_WORKSPACE/app/Source
+          VERSION=$(sqlite3 ExpenseRequestStarterApp.mpr 'SELECT _ProductVersion FROM _MetaData LIMIT 1')
+          echo "Detected MX Version:$VERSION"
+          echo "MX_VERSION=$VERSION" >> $GITHUB_ENV
+      
+      - name: Create output directory
+        run: mkdir $GITHUB_WORKSPACE/out
+
+      - name: Check release notes and make new release tag
+        run: |
+          Organization="mendix"
+          Project="WorkflowCommons"
+          cd $GITHUB_WORKSPACE/app
+          ReleaseNotesFile="ReleaseNotes.md"
+          if [[ ! -f "$ReleaseNotesFile" ]]; then 
+              echo "Unable to find file \"$ReleaseNotesFile\""
+              exit 1; 
+          fi
+          # Get release tags using public API
+          ReleaseTag=$(curl https://api.github.com/repos/$Organization/$Project/releases/latest -s | jq .tag_name -r | tr -d '[:space:]')
+          echo "Detected release tag in github:\"$ReleaseTag\""
+          DeclaredRelease=$(sed -n 's/^## Release //p' $ReleaseNotesFile | head -n 1 | tr -d '[:space:]')
+          echo "Declared release in the local file:\"$DeclaredRelease\""
+          if [ "$ReleaseTag" == "$DeclaredRelease" ]; then
+            echo "There are no new changes in the file \"$ReleaseNotesFile\". Please add new version and release notes into this file before making a merge request."
+            exit 1; 
+          fi
+          # Put release version into env variable
+          echo "NEW_RELEASE_VERSION=$DeclaredRelease" >> $GITHUB_ENV
+          # Make a correct file name
+          BinaryFileName="WorkflowCommons-$(echo "$DeclaredRelease" | sed 's/\./-/g').mpk"
+          echo "NEW_RELEASE_BIN_FILE=$BinaryFileName" >> $GITHUB_ENV
+          StartLine="## Release $DeclaredRelease"
+          EndLine="_______"
+          # Get release notes using "awk" and truncate first and last lines using "sed"
+          ReleaseNotes=$(awk "/$StartLine/,/$EndLine/" $ReleaseNotesFile | sed 1d | sed '$ d')
+          echo "Release notest from file: $ReleaseNotes"
+          # Put release notes into output path
+          echo "$ReleaseNotes" | tee $GITHUB_WORKSPACE/out/ReleaseNotes.md
+
+      - name: Build MX Util
+        run: |
+          cd $GITHUB_WORKSPACE/mx-tools
+          make version=${{env.MX_VERSION}} build
+
+      - name: Run MX Util
+        run: |
+          MX_TOOLS_IMAGE="mendixlabs/mx-docker-tools:"${{env.MX_VERSION}}
+          mkdir $GITHUB_WORKSPACE/app/Source/packages
+          docker run -v $GITHUB_WORKSPACE/app/Source:/opt/app -i $MX_TOOLS_IMAGE mxutil.exe create-module-package --package-dir /opt/app/packages /opt/app/ExpenseRequestStarterApp.mpr "WorkflowCommons" --exclude-files="(resources|userlib)" | tee $GITHUB_WORKSPACE/out/mxutil.log
+          cp -f $GITHUB_WORKSPACE/app/Source/packages/WorkflowCommons.mpk $GITHUB_WORKSPACE/app/Releases/${{env.NEW_RELEASE_BIN_FILE}}
+          rm -rf $GITHUB_WORKSPACE/app/Source/packages
+
+      - name: Delete rudiment widgets
+        run: |
+            TEMP_UNZIP_FOLDER="$GITHUB_WORKSPACE/TempUnzip"
+            TARGET_MPK="$GITHUB_WORKSPACE/app/Releases/${{env.NEW_RELEASE_BIN_FILE}}"
+            ALLOWED_LIST="$GITHUB_WORKSPACE/app/.github/workflows/AllowedWidgetsList.txt"
+
+            if [[ ! -f "$ALLOWED_LIST" ]]; then 
+              echo "Unable to find file AllowedWidgetsList.txt"
+              exit 1; 
+            fi
+
+            if [ -d "$TEMP_UNZIP_FOLDER" ]; then rm -Rf $TEMP_UNZIP_FOLDER; fi
+            mkdir $TEMP_UNZIP_FOLDER
+            unzip -x $TARGET_MPK -d $TEMP_UNZIP_FOLDER
+
+            cd "$TEMP_UNZIP_FOLDER/widgets"
+            for i in *; do
+              if ! grep -q "$i" $ALLOWED_LIST; then
+                echo "Deleting widget: $i" | tee -a $GITHUB_WORKSPACE/out/deletedWidgets.log
+                rm "$i"
+                sed -i "/$i/d" $TEMP_UNZIP_FOLDER/package.xml
+              fi
+            done
+            
+            cd $TEMP_UNZIP_FOLDER
+            zip -r ${{env.NEW_RELEASE_BIN_FILE}} *
+
+            mv -f ${{env.NEW_RELEASE_BIN_FILE}} $GITHUB_WORKSPACE/app/Releases/
+
+            if [ -d "$TEMP_UNZIP_FOLDER" ]; then rm -Rf $TEMP_UNZIP_FOLDER; fi
+
+      - name: Commit release
+        if: github.event_name != 'pull_request'
+        run: |
+            cd $GITHUB_WORKSPACE/app/Releases
+            git config --global user.name 'GitHub Workflow'
+            git config --global user.email 'noreply@github.com'
+            git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+            git add ${{env.NEW_RELEASE_BIN_FILE}}
+            git commit -am "Auto-release WorkflowCommons v${{env.NEW_RELEASE_VERSION}}"
+            git push
+
+      - name: Make release in Github
+        if: github.event_name != 'pull_request'
+        uses: softprops/action-gh-release@1e07f4398721186383de40550babbdf2b84acfc5 # v1
+        with:
+          body_path: ./out/ReleaseNotes.md
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag_name: ${{env.NEW_RELEASE_VERSION}}
+          name: Release ${{env.NEW_RELEASE_VERSION}}
+          files: |
+            ./app/Releases/${{env.NEW_RELEASE_BIN_FILE}}
+
+      - name: Archive results
+        if: ${{ always() }}
+        uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2 # v2
+        with:
+          name: Results
+          path: ${{ github.workspace }}/out/*

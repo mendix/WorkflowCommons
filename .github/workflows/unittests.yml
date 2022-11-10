@@ -1,0 +1,94 @@
+name: Run Unit Tests
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out current repository under $GITHUB_WORKSPACE/app folder
+      - uses: actions/checkout@e2f20e631ae6d7dd3b768f56a5d2af784dd54791 # v2
+        with:
+          path: 'app'
+
+      # Checks-out mendix/docker-mendix-buildpack to $GITHUB_WORKSPACE/build-pack folder
+      - uses: actions/checkout@e2f20e631ae6d7dd3b768f56a5d2af784dd54791 # v2
+        with:
+          repository: 'mendix/docker-mendix-buildpack'
+          path: 'build-pack'
+
+      - uses: actions/checkout@e2f20e631ae6d7dd3b768f56a5d2af784dd54791 # v2
+        with:
+          repository: 'mendixlabs/mx-docker-tools'
+          path: 'mx-tools'
+
+      - name: Define MX_VERSION
+        run: |
+          cd $GITHUB_WORKSPACE/app/Source
+          VERSION=$(sqlite3 ExpenseRequestStarterApp.mpr 'SELECT _ProductVersion FROM _MetaData LIMIT 1')
+          echo "Detected MX Version:$VERSION"
+          echo "MX_VERSION=$VERSION" >> $GITHUB_ENV
+
+      - name: Create build directory
+        run: mkdir build-pack/build
+      
+      - name: Create output directory
+        run: mkdir $GITHUB_WORKSPACE/out
+
+      - name: Copy application files to build directory
+        run: cp -v -r app/Source/. build-pack/build
+
+      - name: Build docker image
+        run: |
+          cd build-pack
+          make build-image
+
+      - name: Run docker image
+        run: |
+          cd build-pack
+          make run-container &
+          timeout 60s bash -c 'until curl -s http://localhost:8080 | grep "<title>Mendix</title>"; do sleep 5; done'
+
+      - name: Start unit tests
+        run: |
+          timeout 60s bash -c 'until curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/rest/wfcunittest/v1/wfcunittests/start | grep "204"; do sleep 5; done'
+
+      - name: Check status of unit tests
+        run: |
+          timeout 120s \
+            bash -c \
+               'until \
+                  curl -s -H "Accept: application/json" -o $GITHUB_WORKSPACE/out/test_results.json -w "%{http_code}" http://localhost:8080/rest/wfcunittest/v1/wfcunittests/status | grep "200" && \
+                  cat $GITHUB_WORKSPACE/out/test_results.json | jq ".Result" | grep "_3_Success"; \
+                do sleep 5; done' \
+            || true
+          if ! cat $GITHUB_WORKSPACE/out/test_results.json | jq ".Result" | grep "_3_Success" ; then
+            echo “Failed to execute tests”
+            exit 1
+          fi
+
+      - name: Collect docker logs
+        id: collectLogs
+        if: ${{ always() }}
+        run: docker ps -q | xargs -n 1 docker logs >> $GITHUB_WORKSPACE/out/docker.log
+
+      - name: Archive results
+        if: ${{ always() }}
+        uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2 # v2
+        with:
+          name: Results
+          path: ${{ github.workspace }}/out/*
