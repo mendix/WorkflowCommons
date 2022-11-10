@@ -1,4 +1,4 @@
-name: Mendix WorkflowCommons
+name: Run Unit Tests
 
 # Controls when the workflow will run
 on:
