@@ -1,3 +1,11 @@
+## Release 2.5.0
+
+* We upgraded the module to Mendix 9.20.0
+* Starting with Mendix 9.20.0, you can disable the auto-assignment of users when opening a user task. We updated the user task page templates to include the message "You can only complete a task when you are the assigned user" that is displayed when you open a user task page and you are not the assigned user for this user task
+* We optimized the 'Refresh' action that is used in the Task Inbox page. For this action we now use the 'Refresh entity' action that is available in the Nanoflow Commons module. This module is included by default when starting a new app. If your app currently does not include the Nanoflow Commons module, please make sure to import Nanoflow Commons from the marketplace when upgrading to v2.5.0 of Workflow Commons
+
+_______
+
 ## Release 2.4.0
 
 * We upgraded the module to Mendix 9.19.0
