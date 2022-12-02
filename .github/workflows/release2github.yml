@@ -81,6 +81,7 @@ jobs:
 
       - name: Delete rudiment widgets
         run: |
+            # Prepare directories
             TEMP_UNZIP_FOLDER="$GITHUB_WORKSPACE/TempUnzip"
             TARGET_MPK="$GITHUB_WORKSPACE/app/Releases/${{env.NEW_RELEASE_BIN_FILE}}"
             ALLOWED_LIST="$GITHUB_WORKSPACE/app/.github/workflows/AllowedWidgetsList.txt"
@@ -95,13 +96,32 @@ jobs:
             unzip -x $TARGET_MPK -d $TEMP_UNZIP_FOLDER
 
             cd "$TEMP_UNZIP_FOLDER/widgets"
+            # Save package.xml file in log before changes
+            cat $TEMP_UNZIP_FOLDER/package.xml | tee -a $GITHUB_WORKSPACE/out/package.xml.bak
+
+            # for each file in widget directory we need to check contains widget into allowed list
             for i in *; do
               if ! grep -q "$i" $ALLOWED_LIST; then
+                # deleting file in widget directory 
                 echo "Deleting widget: $i" | tee -a $GITHUB_WORKSPACE/out/deletedWidgets.log
                 rm "$i"
-                sed -i "/$i/d" $TEMP_UNZIP_FOLDER/package.xml
+
+                # Deleting refernces in package.xml file
+                # Replace all "." to escape char "\."
+                fileName=$(echo $i | sed 's/\./\\\./')
+
+                # Regex: text started with "<" 
+                # then contains some =, alphabet, /, ", space 
+                # then contains name of MPK file with escape dots
+                # then contains some =, alphabet, /, ", space 
+                # and then ending with ">"
+                # replacing regex match to empty
+                sed -i -E "s/<[=a-z\/\" ]+$fileName[=a-z\/\" ]+>//g" $TEMP_UNZIP_FOLDER/package.xml
               fi
             done
+
+            # Delete some empty lines in result file after all removes
+            sed -i '/^$/d' $TEMP_UNZIP_FOLDER/package.xml
             
             cd $TEMP_UNZIP_FOLDER
             zip -r ${{env.NEW_RELEASE_BIN_FILE}} *
