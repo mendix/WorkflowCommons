@@ -62,11 +62,11 @@ public class Microflows
 		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
 		Core.microflowCall("WorkflowCommons.ACT_DashboardContext_Refresh").withParams(params).execute(context);
 	}
-	public static boolean aCT_TaskCount_Refresh(IContext context, workflowcommons.proxies.TaskCount _taskCount)
+	public static void aCT_TaskCount_Update(IContext context, workflowcommons.proxies.TaskCount _taskCount)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
 		params.put("TaskCount", _taskCount == null ? null : _taskCount.getMendixObject());
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommons.ACT_TaskCount_Refresh").withParams(params).execute(context);
+		Core.microflowCall("WorkflowCommons.ACT_TaskCount_Update").withParams(params).execute(context);
 	}
 	public static void aCT_UserTask_AssignToMe(IContext context, system.proxies.WorkflowUserTask _workflowUserTask)
 	{
