@@ -32,7 +32,7 @@ import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IDataType;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 
-import objecthandling.XPath;
+import communitycommons.XPath;
 import unittesting.proxies.TestSuite;
 import unittesting.proxies.UnitTest;
 import unittesting.proxies.UnitTestResult;
@@ -366,6 +366,8 @@ public class TestManager
 
 			if (res) {
 				test.setResultMessage("Microflow completed successfully");
+			} else if (resultObject instanceof String) {
+				test.setResultMessage((String)resultObject);
 			}
 
 			return res;
