@@ -121,7 +121,7 @@ jobs:
             done
 
             # Delete some empty lines in result file after all removes
-            sed -i '/^$/d' $TEMP_UNZIP_FOLDER/package.xml
+            sed -i '/^[[:space:]]*$/d' $TEMP_UNZIP_FOLDER/package.xml
             
             cd $TEMP_UNZIP_FOLDER
             zip -r ${{env.NEW_RELEASE_BIN_FILE}} *
