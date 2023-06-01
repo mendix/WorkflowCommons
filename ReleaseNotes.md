@@ -1,3 +1,15 @@
+## Release 3.0.0
+
+* We upgraded the module to Mendix 10.0.0-beta2
+* We added support for multi-user tasks
+* With the introduction of multi-user tasks, assignees are now a reference set. If you used Workflow Commons in your project before and have existing data on user tasks, you will need to migrate your existing assignee data in Workflow Commons. Note: you can only upgrade data from Workflow Commons v2.4.0 or higher, if you currently use a version of WFC before this version, please upgrade to WFC v2.4.0 or higher first. To run the migration, you can either: 
+  * Use the migration microflow 'ACT_Assignee_Migration' (also added to the 'WorkflowAdminCenter' page), or:
+  * Add the 'ASu_Assignee_Migrate' microflow to the project's after startup microflow to transfer to the new association 'UserTaskView_Assignees'.
+* The 'UserTaskView_Assignee' association is deprecated, please use the 'UserTaskView_Assignees' association instead. See the note regarding multi-user tasks above.
+* We added support for lock/unlock; you can now lock or unlock a workflow definition from the Workflow Management page. If a workflow definition is locked, no new instances of this workflow can be created. When you lock/unlock a workflow definition, you can choose to pause/unpause the running workflow instances.
+
+_______
+
 ## Release 2.5.0
 
 * We upgraded the module to Mendix 9.20.0
