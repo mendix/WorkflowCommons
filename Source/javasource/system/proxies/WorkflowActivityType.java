@@ -15,7 +15,9 @@ public enum WorkflowActivityType
 	UserTask(new java.lang.String[][] { new java.lang.String[] { "en_US", "User task" } }),
 	CallMicroflow(new java.lang.String[][] { new java.lang.String[] { "en_US", "Call Microflow" } }),
 	CallWorkflow(new java.lang.String[][] { new java.lang.String[] { "en_US", "Call Workflow" } }),
-	JumpTo(new java.lang.String[][] { new java.lang.String[] { "en_US", "Jump" } });
+	JumpTo(new java.lang.String[][] { new java.lang.String[] { "en_US", "Jump" } }),
+	MultiInputUserTask(new java.lang.String[][] { new java.lang.String[] { "en_US", "Multi User Task" } }),
+	WaitForNotification(new java.lang.String[][] { new java.lang.String[] { "en_US", "Wait for Notification" } });
 
 	private final java.util.Map<java.lang.String, java.lang.String> captions;
 

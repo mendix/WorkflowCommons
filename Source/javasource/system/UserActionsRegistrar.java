@@ -6,7 +6,6 @@ public class UserActionsRegistrar
 {
   public void registerActions(IActionRegistrator registrator)
   {
-    registrator.bundleComponentLoaded();
     registrator.registerUserAction(communitycommons.actions.Base64Decode.class);
     registrator.registerUserAction(communitycommons.actions.Base64DecodeToFile.class);
     registrator.registerUserAction(communitycommons.actions.Base64Encode.class);
@@ -99,22 +98,9 @@ public class UserActionsRegistrar
     registrator.registerUserAction(communitycommons.actions.TimeMeasureStart.class);
     registrator.registerUserAction(communitycommons.actions.XSSSanitize.class);
     registrator.registerUserAction(communitycommons.actions.YearsBetween.class);
-    registrator.registerUserAction(mendixsso.actions.DecryptString.class);
-    registrator.registerUserAction(mendixsso.actions.EncryptString.class);
-    registrator.registerUserAction(mendixsso.actions.FindOrCreateUserWithUserInfo.class);
-    registrator.registerUserAction(mendixsso.actions.GenerateRandomPassword.class);
-    registrator.registerUserAction(mendixsso.actions.GetTokenEndpointURI.class);
-    registrator.registerUserAction(mendixsso.actions.GetUserInfoEndpointURI.class);
-    registrator.registerUserAction(mendixsso.actions.GetUserProfileFromUserInfoJSON.class);
-    registrator.registerUserAction(mendixsso.actions.InitializeUserMapper.class);
-    registrator.registerUserAction(mendixsso.actions.LoadBooleanValueFromEnvOrDefault.class);
-    registrator.registerUserAction(mendixsso.actions.LoadStringValueFromEnvOrDefault.class);
-    registrator.registerUserAction(mendixsso.actions.LogOutUser.class);
-    registrator.registerUserAction(mendixsso.actions.StartSignOnServlet.class);
     registrator.registerUserAction(system.actions.VerifyPassword.class);
     registrator.registerUserAction(taskqueuehelpers.actions.GetProcessedQueueCount.class);
     registrator.registerUserAction(taskqueuehelpers.actions.GetQueueCounts.class);
-    registrator.registerUserAction(taskqueuehelpers.actions.MapToChartParameters.class);
     registrator.registerUserAction(unittesting.actions.FindAllUnitTests.class);
     registrator.registerUserAction(unittesting.actions.ReportStepJava.class);
     registrator.registerUserAction(unittesting.actions.RunAllUnitTestsWrapper.class);

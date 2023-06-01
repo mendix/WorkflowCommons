@@ -4,542 +4,1343 @@
 
 package workflowcommonsunittests.proxies.microflows;
 
-import java.util.HashMap;
-import java.util.Map;
 import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 
-public class Microflows
+public final class Microflows
 {
 	/**
-	 * @deprecated
-	 * The default constructor of the Microflows class should not be used.
-	 * Use the static microflow invocation methods instead.
+	 * Private constructor to prevent instantiation of this class. 
 	 */
-	@java.lang.Deprecated(since = "9.12", forRemoval = true)
-	public Microflows() {}
+	private Microflows() {}
 
 	// These are the microflows for the WorkflowCommonsUnitTests module
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_ExecuteAllWFCommonsUnitTestsBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.ACT_ExecuteAllWFCommonsUnitTests");
+		return builder;
+	}
+
 	public static void aCT_ExecuteAllWFCommonsUnitTests(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		Core.microflowCall("WorkflowCommonsUnitTests.ACT_ExecuteAllWFCommonsUnitTests").withParams(params).execute(context);
+		aCT_ExecuteAllWFCommonsUnitTestsBuilder().execute(context);
 	}
-	public static void createAndStartDummyWorkflow(IContext context, java.lang.String _action, workflowcommonsunittests.proxies.UnitTestRun _unitTestRun)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder createAndStartDummyWorkflowBuilder(
+		java.lang.String _action,
+		workflowcommonsunittests.proxies.UnitTestRun _unitTestRun
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Action", _action);
-		params.put("UnitTestRun", _unitTestRun == null ? null : _unitTestRun.getMendixObject());
-		Core.microflowCall("WorkflowCommonsUnitTests.CreateAndStartDummyWorkflow").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.CreateAndStartDummyWorkflow");
+		builder = builder.withParam("Action", _action);
+		builder = builder.withParam("UnitTestRun", _unitTestRun);
+		return builder;
 	}
-	public static void createAndStartExpenseRequestWorkflow(IContext context, java.lang.String _action, workflowcommonsunittests.proxies.UnitTestRun _unitTestRun)
+
+	public static void createAndStartDummyWorkflow(
+		IContext context,
+		java.lang.String _action,
+		workflowcommonsunittests.proxies.UnitTestRun _unitTestRun
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Action", _action);
-		params.put("UnitTestRun", _unitTestRun == null ? null : _unitTestRun.getMendixObject());
-		Core.microflowCall("WorkflowCommonsUnitTests.CreateAndStartExpenseRequestWorkflow").withParams(params).execute(context);
+		createAndStartDummyWorkflowBuilder(
+				_action,
+				_unitTestRun
+			)
+			.execute(context);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder createAndStartExpenseRequestWorkflowBuilder(
+		java.lang.String _action,
+		workflowcommonsunittests.proxies.UnitTestRun _unitTestRun
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.CreateAndStartExpenseRequestWorkflow");
+		builder = builder.withParam("Action", _action);
+		builder = builder.withParam("UnitTestRun", _unitTestRun);
+		return builder;
+	}
+
+	public static void createAndStartExpenseRequestWorkflow(
+		IContext context,
+		java.lang.String _action,
+		workflowcommonsunittests.proxies.UnitTestRun _unitTestRun
+	)
+	{
+		createAndStartExpenseRequestWorkflowBuilder(
+				_action,
+				_unitTestRun
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder createDemoUsersForUnitTestBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.CreateDemoUsersForUnitTest");
+		return builder;
+	}
+
 	public static void createDemoUsersForUnitTest(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		Core.microflowCall("WorkflowCommonsUnitTests.CreateDemoUsersForUnitTest").withParams(params).execute(context);
+		createDemoUsersForUnitTestBuilder().execute(context);
 	}
-	public static java.util.List<unittesting.proxies.UnitTest> dS_TestSuite_GetFailedUnitTests(IContext context, unittesting.proxies.TestSuite _testSuite)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_TestSuite_GetFailedUnitTestsBuilder(
+		unittesting.proxies.TestSuite _testSuite
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("TestSuite", _testSuite == null ? null : _testSuite.getMendixObject());
-		java.util.List<IMendixObject> objs = Core.microflowCall("WorkflowCommonsUnitTests.DS_TestSuite_GetFailedUnitTests").withParams(params).execute(context);
-		if (objs == null) {
-			return null;
-		} else {
-			return objs.stream()
-				.map(obj -> unittesting.proxies.UnitTest.initialize(context, obj))
-				.collect(java.util.stream.Collectors.toList());
-		}
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.DS_TestSuite_GetFailedUnitTests");
+		builder = builder.withParam("TestSuite", _testSuite);
+		return builder;
 	}
-	public static void oCh_Workflow_State_UnitTest(IContext context, system.proxies.Workflow _workflow)
+
+	public static java.util.List<unittesting.proxies.UnitTest> dS_TestSuite_GetFailedUnitTests(
+		IContext context,
+		unittesting.proxies.TestSuite _testSuite
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Workflow", _workflow == null ? null : _workflow.getMendixObject());
-		Core.microflowCall("WorkflowCommonsUnitTests.OCh_Workflow_State_UnitTest").withParams(params).execute(context);
+		Object result = dS_TestSuite_GetFailedUnitTestsBuilder(
+				_testSuite
+			)
+			.execute(context);
+		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> unittesting.proxies.UnitTest.initialize(context, obj));
 	}
-	public static void oCh_WorkflowUserTask_State_UnitTest(IContext context, system.proxies.WorkflowUserTask _userTask)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder oCh_Workflow_State_UnitTestBuilder(
+		system.proxies.Workflow _workflow
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("UserTask", _userTask == null ? null : _userTask.getMendixObject());
-		Core.microflowCall("WorkflowCommonsUnitTests.OCh_WorkflowUserTask_State_UnitTest").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.OCh_Workflow_State_UnitTest");
+		builder = builder.withParam("Workflow", _workflow);
+		return builder;
 	}
-	public static void pRS_InitiateUnitTests(IContext context, system.proxies.HttpResponse _httpResponse)
+
+	public static void oCh_Workflow_State_UnitTest(
+		IContext context,
+		system.proxies.Workflow _workflow
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("httpResponse", _httpResponse == null ? null : _httpResponse.getMendixObject());
-		Core.microflowCall("WorkflowCommonsUnitTests.PRS_InitiateUnitTests").withParams(params).execute(context);
+		oCh_Workflow_State_UnitTestBuilder(
+				_workflow
+			)
+			.execute(context);
 	}
-	public static unittesting.proxies.TestSuite pRS_PollUnitTestResults(IContext context, system.proxies.HttpResponse _httpResponse)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder oCh_WorkflowUserTask_State_UnitTestBuilder(
+		system.proxies.WorkflowUserTask _userTask
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("httpResponse", _httpResponse == null ? null : _httpResponse.getMendixObject());
-		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommonsUnitTests.PRS_PollUnitTestResults").withParams(params).execute(context);
-		return result == null ? null : unittesting.proxies.TestSuite.initialize(context, result);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.OCh_WorkflowUserTask_State_UnitTest");
+		builder = builder.withParam("UserTask", _userTask);
+		return builder;
 	}
+
+	public static void oCh_WorkflowUserTask_State_UnitTest(
+		IContext context,
+		system.proxies.WorkflowUserTask _userTask
+	)
+	{
+		oCh_WorkflowUserTask_State_UnitTestBuilder(
+				_userTask
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder pRS_InitiateUnitTestsBuilder(
+		system.proxies.HttpResponse _httpResponse
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.PRS_InitiateUnitTests");
+		builder = builder.withParam("httpResponse", _httpResponse);
+		return builder;
+	}
+
+	public static void pRS_InitiateUnitTests(
+		IContext context,
+		system.proxies.HttpResponse _httpResponse
+	)
+	{
+		pRS_InitiateUnitTestsBuilder(
+				_httpResponse
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder pRS_PollUnitTestResultsBuilder(
+		system.proxies.HttpResponse _httpResponse
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.PRS_PollUnitTestResults");
+		builder = builder.withParam("httpResponse", _httpResponse);
+		return builder;
+	}
+
+	public static unittesting.proxies.TestSuite pRS_PollUnitTestResults(
+		IContext context,
+		system.proxies.HttpResponse _httpResponse
+	)
+	{
+		Object result = pRS_PollUnitTestResultsBuilder(
+				_httpResponse
+			)
+			.execute(context);
+		return result == null ? null : unittesting.proxies.TestSuite.initialize(context, (IMendixObject) result);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder setup_CleanUpBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.Setup_CleanUp");
+		return builder;
+	}
+
 	public static void setup_CleanUp(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		Core.microflowCall("WorkflowCommonsUnitTests.Setup_CleanUp").withParams(params).execute(context);
+		setup_CleanUpBuilder().execute(context);
 	}
-	public static void setup_Workflows(IContext context, workflowcommonsunittests.proxies.UnitTestRun _unitTestRun, java.lang.String _action, java.lang.Long _amount)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder setup_WorkflowsBuilder(
+		workflowcommonsunittests.proxies.UnitTestRun _unitTestRun,
+		java.lang.String _action,
+		java.lang.Long _amount
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("UnitTestRun", _unitTestRun == null ? null : _unitTestRun.getMendixObject());
-		params.put("Action", _action);
-		params.put("Amount", _amount);
-		Core.microflowCall("WorkflowCommonsUnitTests.Setup_Workflows").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.Setup_Workflows");
+		builder = builder.withParam("UnitTestRun", _unitTestRun);
+		builder = builder.withParam("Action", _action);
+		builder = builder.withParam("Amount", _amount);
+		return builder;
 	}
+
+	public static void setup_Workflows(
+		IContext context,
+		workflowcommonsunittests.proxies.UnitTestRun _unitTestRun,
+		java.lang.String _action,
+		java.lang.Long _amount
+	)
+	{
+		setup_WorkflowsBuilder(
+				_unitTestRun,
+				_action,
+				_amount
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_DashboardContext_ForDummyWorkflowBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.SUB_DashboardContext_ForDummyWorkflow");
+		return builder;
+	}
+
 	public static workflowcommons.proxies.DashboardContext sUB_DashboardContext_ForDummyWorkflow(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommonsUnitTests.SUB_DashboardContext_ForDummyWorkflow").withParams(params).execute(context);
-		return result == null ? null : workflowcommons.proxies.DashboardContext.initialize(context, result);
+		Object result = sUB_DashboardContext_ForDummyWorkflowBuilder().execute(context);
+		return result == null ? null : workflowcommons.proxies.DashboardContext.initialize(context, (IMendixObject) result);
 	}
-	public static void sUB_DummyWorkflow_CompleteTask(IContext context, system.proxies.WorkflowUserTask _workflowUserTask)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_DummyWorkflow_CompleteTaskBuilder(
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("WorkflowUserTask", _workflowUserTask == null ? null : _workflowUserTask.getMendixObject());
-		Core.microflowCall("WorkflowCommonsUnitTests.SUB_DummyWorkflow_CompleteTask").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.SUB_DummyWorkflow_CompleteTask");
+		builder = builder.withParam("WorkflowUserTask", _workflowUserTask);
+		return builder;
 	}
+
+	public static void sUB_DummyWorkflow_CompleteTask(
+		IContext context,
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
+	{
+		sUB_DummyWorkflow_CompleteTaskBuilder(
+				_workflowUserTask
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_ExecuteAllWFCommonsUnitTestsBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.SUB_ExecuteAllWFCommonsUnitTests");
+		return builder;
+	}
+
 	public static void sUB_ExecuteAllWFCommonsUnitTests(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		Core.microflowCall("WorkflowCommonsUnitTests.SUB_ExecuteAllWFCommonsUnitTests").withParams(params).execute(context);
+		sUB_ExecuteAllWFCommonsUnitTestsBuilder().execute(context);
 	}
-	public static void sUB_ExpenseRequest_UnitTestRun_ExecuteUnitTestsWhenAllSetup(IContext context, expenserequestexample.proxies.ExpenseRequest _expenseRequest)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_ExpenseRequest_UnitTestRun_ExecuteUnitTestsWhenAllSetupBuilder(
+		expenserequestexample.proxies.ExpenseRequest _expenseRequest
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("ExpenseRequest", _expenseRequest == null ? null : _expenseRequest.getMendixObject());
-		Core.microflowCall("WorkflowCommonsUnitTests.SUB_ExpenseRequest_UnitTestRun_ExecuteUnitTestsWhenAllSetup").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.SUB_ExpenseRequest_UnitTestRun_ExecuteUnitTestsWhenAllSetup");
+		builder = builder.withParam("ExpenseRequest", _expenseRequest);
+		return builder;
 	}
-	public static void sUB_ExpenseRequest_UnitTestRun_MarkAsReady(IContext context, expenserequestexample.proxies.ExpenseRequest _expenseRequest)
+
+	public static void sUB_ExpenseRequest_UnitTestRun_ExecuteUnitTestsWhenAllSetup(
+		IContext context,
+		expenserequestexample.proxies.ExpenseRequest _expenseRequest
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("ExpenseRequest", _expenseRequest == null ? null : _expenseRequest.getMendixObject());
-		Core.microflowCall("WorkflowCommonsUnitTests.SUB_ExpenseRequest_UnitTestRun_MarkAsReady").withParams(params).execute(context);
+		sUB_ExpenseRequest_UnitTestRun_ExecuteUnitTestsWhenAllSetupBuilder(
+				_expenseRequest
+			)
+			.execute(context);
 	}
-	public static void sUB_ExpenseRequest_UnitTestRun_VerifyAndExecute(IContext context, expenserequestexample.proxies.ExpenseRequest _expenseRequest)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_ExpenseRequest_UnitTestRun_MarkAsReadyBuilder(
+		expenserequestexample.proxies.ExpenseRequest _expenseRequest
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("ExpenseRequest", _expenseRequest == null ? null : _expenseRequest.getMendixObject());
-		Core.microflowCall("WorkflowCommonsUnitTests.SUB_ExpenseRequest_UnitTestRun_VerifyAndExecute").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.SUB_ExpenseRequest_UnitTestRun_MarkAsReady");
+		builder = builder.withParam("ExpenseRequest", _expenseRequest);
+		return builder;
 	}
-	public static void sUB_ExpenseRequestWorkflow_CompleteTask(IContext context, system.proxies.WorkflowUserTask _workflowUserTask)
+
+	public static void sUB_ExpenseRequest_UnitTestRun_MarkAsReady(
+		IContext context,
+		expenserequestexample.proxies.ExpenseRequest _expenseRequest
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("WorkflowUserTask", _workflowUserTask == null ? null : _workflowUserTask.getMendixObject());
-		Core.microflowCall("WorkflowCommonsUnitTests.SUB_ExpenseRequestWorkflow_CompleteTask").withParams(params).execute(context);
+		sUB_ExpenseRequest_UnitTestRun_MarkAsReadyBuilder(
+				_expenseRequest
+			)
+			.execute(context);
 	}
-	public static void sub_JumpToEndWorkflow(IContext context, system.proxies.Workflow _workflow)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_ExpenseRequest_UnitTestRun_VerifyAndExecuteBuilder(
+		expenserequestexample.proxies.ExpenseRequest _expenseRequest
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Workflow", _workflow == null ? null : _workflow.getMendixObject());
-		Core.microflowCall("WorkflowCommonsUnitTests.Sub_JumpToEndWorkflow").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.SUB_ExpenseRequest_UnitTestRun_VerifyAndExecute");
+		builder = builder.withParam("ExpenseRequest", _expenseRequest);
+		return builder;
 	}
+
+	public static void sUB_ExpenseRequest_UnitTestRun_VerifyAndExecute(
+		IContext context,
+		expenserequestexample.proxies.ExpenseRequest _expenseRequest
+	)
+	{
+		sUB_ExpenseRequest_UnitTestRun_VerifyAndExecuteBuilder(
+				_expenseRequest
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_ExpenseRequestWorkflow_CompleteTaskBuilder(
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.SUB_ExpenseRequestWorkflow_CompleteTask");
+		builder = builder.withParam("WorkflowUserTask", _workflowUserTask);
+		return builder;
+	}
+
+	public static void sUB_ExpenseRequestWorkflow_CompleteTask(
+		IContext context,
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
+	{
+		sUB_ExpenseRequestWorkflow_CompleteTaskBuilder(
+				_workflowUserTask
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sub_JumpToEndWorkflowBuilder(
+		system.proxies.Workflow _workflow
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.Sub_JumpToEndWorkflow");
+		builder = builder.withParam("Workflow", _workflow);
+		return builder;
+	}
+
+	public static void sub_JumpToEndWorkflow(
+		IContext context,
+		system.proxies.Workflow _workflow
+	)
+	{
+		sub_JumpToEndWorkflowBuilder(
+				_workflow
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_RetrieveTestSuiteBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.SUB_RetrieveTestSuite");
+		return builder;
+	}
+
 	public static unittesting.proxies.TestSuite sUB_RetrieveTestSuite(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommonsUnitTests.SUB_RetrieveTestSuite").withParams(params).execute(context);
-		return result == null ? null : unittesting.proxies.TestSuite.initialize(context, result);
+		Object result = sUB_RetrieveTestSuiteBuilder().execute(context);
+		return result == null ? null : unittesting.proxies.TestSuite.initialize(context, (IMendixObject) result);
 	}
-	public static void sUB_Workflow_SetOverdue(IContext context, system.proxies.Workflow _workflow)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_UT_Comment_AddBuilder(
+		workflowcommons.proxies.WorkflowView _workflowView
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Workflow", _workflow == null ? null : _workflow.getMendixObject());
-		Core.microflowCall("WorkflowCommonsUnitTests.SUB_Workflow_SetOverdue").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.SUB_UT_Comment_Add");
+		builder = builder.withParam("WorkflowView", _workflowView);
+		return builder;
 	}
-	public static void sUB_Workflow_UnitTestRun_VerifyAndExecute(IContext context, system.proxies.Workflow _workflow)
+
+	public static workflowcommons.proxies.WorkflowComment sUB_UT_Comment_Add(
+		IContext context,
+		workflowcommons.proxies.WorkflowView _workflowView
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Workflow", _workflow == null ? null : _workflow.getMendixObject());
-		Core.microflowCall("WorkflowCommonsUnitTests.SUB_Workflow_UnitTestRun_VerifyAndExecute").withParams(params).execute(context);
+		Object result = sUB_UT_Comment_AddBuilder(
+				_workflowView
+			)
+			.execute(context);
+		return result == null ? null : workflowcommons.proxies.WorkflowComment.initialize(context, (IMendixObject) result);
 	}
-	public static void sUB_WorkflowUserTask_UnitTestRun_FollowUpActions(IContext context, system.proxies.WorkflowUserTask _workflowUserTask)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_Workflow_SetOverdueBuilder(
+		system.proxies.Workflow _workflow
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("WorkflowUserTask", _workflowUserTask == null ? null : _workflowUserTask.getMendixObject());
-		Core.microflowCall("WorkflowCommonsUnitTests.SUB_WorkflowUserTask_UnitTestRun_FollowUpActions").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.SUB_Workflow_SetOverdue");
+		builder = builder.withParam("Workflow", _workflow);
+		return builder;
 	}
-	public static void tASK_StartDummyWorkflowForUnitTest(IContext context, expenserequestexample.proxies.ExpenseRequest _expenseRequest)
+
+	public static void sUB_Workflow_SetOverdue(
+		IContext context,
+		system.proxies.Workflow _workflow
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("ExpenseRequest", _expenseRequest == null ? null : _expenseRequest.getMendixObject());
-		Core.microflowCall("WorkflowCommonsUnitTests.TASK_StartDummyWorkflowForUnitTest").withParams(params).execute(context);
+		sUB_Workflow_SetOverdueBuilder(
+				_workflow
+			)
+			.execute(context);
 	}
-	public static void tASK_StartExpenseRequestWorkflowForUnitTest(IContext context, expenserequestexample.proxies.ExpenseRequest _expenseRequest)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_Workflow_UnitTestRun_VerifyAndExecuteBuilder(
+		system.proxies.Workflow _workflow
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("ExpenseRequest", _expenseRequest == null ? null : _expenseRequest.getMendixObject());
-		Core.microflowCall("WorkflowCommonsUnitTests.TASK_StartExpenseRequestWorkflowForUnitTest").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.SUB_Workflow_UnitTestRun_VerifyAndExecute");
+		builder = builder.withParam("Workflow", _workflow);
+		return builder;
 	}
-	public static void tASK_WorkflowUserTask_ExecuteFollowupActions(IContext context, expenserequestexample.proxies.ExpenseRequest _expenseRequest)
+
+	public static void sUB_Workflow_UnitTestRun_VerifyAndExecute(
+		IContext context,
+		system.proxies.Workflow _workflow
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("ExpenseRequest", _expenseRequest == null ? null : _expenseRequest.getMendixObject());
-		Core.microflowCall("WorkflowCommonsUnitTests.TASK_WorkflowUserTask_ExecuteFollowupActions").withParams(params).execute(context);
+		sUB_Workflow_UnitTestRun_VerifyAndExecuteBuilder(
+				_workflow
+			)
+			.execute(context);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_WorkflowUserTask_UnitTestRun_FollowUpActionsBuilder(
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.SUB_WorkflowUserTask_UnitTestRun_FollowUpActions");
+		builder = builder.withParam("WorkflowUserTask", _workflowUserTask);
+		return builder;
+	}
+
+	public static void sUB_WorkflowUserTask_UnitTestRun_FollowUpActions(
+		IContext context,
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
+	{
+		sUB_WorkflowUserTask_UnitTestRun_FollowUpActionsBuilder(
+				_workflowUserTask
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder tASK_StartDummyWorkflowForUnitTestBuilder(
+		expenserequestexample.proxies.ExpenseRequest _expenseRequest
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.TASK_StartDummyWorkflowForUnitTest");
+		builder = builder.withParam("ExpenseRequest", _expenseRequest);
+		return builder;
+	}
+
+	public static void tASK_StartDummyWorkflowForUnitTest(
+		IContext context,
+		expenserequestexample.proxies.ExpenseRequest _expenseRequest
+	)
+	{
+		tASK_StartDummyWorkflowForUnitTestBuilder(
+				_expenseRequest
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder tASK_StartExpenseRequestWorkflowForUnitTestBuilder(
+		expenserequestexample.proxies.ExpenseRequest _expenseRequest
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.TASK_StartExpenseRequestWorkflowForUnitTest");
+		builder = builder.withParam("ExpenseRequest", _expenseRequest);
+		return builder;
+	}
+
+	public static void tASK_StartExpenseRequestWorkflowForUnitTest(
+		IContext context,
+		expenserequestexample.proxies.ExpenseRequest _expenseRequest
+	)
+	{
+		tASK_StartExpenseRequestWorkflowForUnitTestBuilder(
+				_expenseRequest
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder tASK_WorkflowUserTask_ExecuteFollowupActionsBuilder(
+		expenserequestexample.proxies.ExpenseRequest _expenseRequest
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.TASK_WorkflowUserTask_ExecuteFollowupActions");
+		builder = builder.withParam("ExpenseRequest", _expenseRequest);
+		return builder;
+	}
+
+	public static void tASK_WorkflowUserTask_ExecuteFollowupActions(
+		IContext context,
+		expenserequestexample.proxies.ExpenseRequest _expenseRequest
+	)
+	{
+		tASK_WorkflowUserTask_ExecuteFollowupActionsBuilder(
+				_expenseRequest
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder teardownBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.Teardown");
+		return builder;
+	}
+
 	public static void teardown(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		Core.microflowCall("WorkflowCommonsUnitTests.Teardown").withParams(params).execute(context);
+		teardownBuilder().execute(context);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_Workflow_WorkflowAttachmentAddBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_Workflow_WorkflowAttachmentAdd");
+		return builder;
+	}
+
 	public static boolean uT_Workflow_WorkflowAttachmentAdd(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_Workflow_WorkflowAttachmentAdd").withParams(params).execute(context);
+		Object result = uT_Workflow_WorkflowAttachmentAddBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_Workflow_WorkflowCommentAddBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_Workflow_WorkflowCommentAdd");
+		return builder;
+	}
+
 	public static boolean uT_Workflow_WorkflowCommentAdd(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_Workflow_WorkflowCommentAdd").withParams(params).execute(context);
+		Object result = uT_Workflow_WorkflowCommentAddBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_AverageHandlingTimeBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_AverageHandlingTime");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_AverageHandlingTime(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_AverageHandlingTime").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_AverageHandlingTimeBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_AverageHandlingTimeForDummyWorkflowBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_AverageHandlingTimeForDummyWorkflow");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_AverageHandlingTimeForDummyWorkflow(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_AverageHandlingTimeForDummyWorkflow").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_AverageHandlingTimeForDummyWorkflowBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_CountAverageHandlingTimeBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountAverageHandlingTime");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_CountAverageHandlingTime(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountAverageHandlingTime").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_CountAverageHandlingTimeBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_CountAverageHandlingTimeForDummyWorkflowBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountAverageHandlingTimeForDummyWorkflow");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_CountAverageHandlingTimeForDummyWorkflow(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountAverageHandlingTimeForDummyWorkflow").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_CountAverageHandlingTimeForDummyWorkflowBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_CountCompletedOntimeUserTasksBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountCompletedOntimeUserTasks");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_CountCompletedOntimeUserTasks(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountCompletedOntimeUserTasks").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_CountCompletedOntimeUserTasksBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_CountCompletedOntimeUserTasksForDummyBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountCompletedOntimeUserTasksForDummy");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_CountCompletedOntimeUserTasksForDummy(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountCompletedOntimeUserTasksForDummy").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_CountCompletedOntimeUserTasksForDummyBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_CountCompletedOnTimeWorkflowsBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountCompletedOnTimeWorkflows");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_CountCompletedOnTimeWorkflows(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountCompletedOnTimeWorkflows").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_CountCompletedOnTimeWorkflowsBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_CountCompletedOnTimeWorkflowsForDummyWorkflowBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountCompletedOnTimeWorkflowsForDummyWorkflow");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_CountCompletedOnTimeWorkflowsForDummyWorkflow(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountCompletedOnTimeWorkflowsForDummyWorkflow").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_CountCompletedOnTimeWorkflowsForDummyWorkflowBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_CountCompletedOverdueUserTasksBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountCompletedOverdueUserTasks");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_CountCompletedOverdueUserTasks(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountCompletedOverdueUserTasks").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_CountCompletedOverdueUserTasksBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_CountCompletedOverdueUserTasksForDummyWorkflowBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountCompletedOverdueUserTasksForDummyWorkflow");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_CountCompletedOverdueUserTasksForDummyWorkflow(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountCompletedOverdueUserTasksForDummyWorkflow").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_CountCompletedOverdueUserTasksForDummyWorkflowBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_CountCompletedOverdueWorkflowsBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountCompletedOverdueWorkflows");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_CountCompletedOverdueWorkflows(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountCompletedOverdueWorkflows").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_CountCompletedOverdueWorkflowsBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_CountCompletedOverdueWorkflowsForDummyWorkflowBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountCompletedOverdueWorkflowsForDummyWorkflow");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_CountCompletedOverdueWorkflowsForDummyWorkflow(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountCompletedOverdueWorkflowsForDummyWorkflow").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_CountCompletedOverdueWorkflowsForDummyWorkflowBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_CountCompletedUserTasksBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountCompletedUserTasks");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_CountCompletedUserTasks(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountCompletedUserTasks").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_CountCompletedUserTasksBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_CountCompletedUserTasksForDummyWorkflowBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountCompletedUserTasksForDummyWorkflow");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_CountCompletedUserTasksForDummyWorkflow(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountCompletedUserTasksForDummyWorkflow").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_CountCompletedUserTasksForDummyWorkflowBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_CountCompletedWorkflowsBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountCompletedWorkflows");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_CountCompletedWorkflows(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountCompletedWorkflows").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_CountCompletedWorkflowsBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_CountCompletedWorkflowsForDummyWorkflowBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountCompletedWorkflowsForDummyWorkflow");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_CountCompletedWorkflowsForDummyWorkflow(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountCompletedWorkflowsForDummyWorkflow").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_CountCompletedWorkflowsForDummyWorkflowBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_CountFailedUserTasksBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountFailedUserTasks");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_CountFailedUserTasks(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountFailedUserTasks").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_CountFailedUserTasksBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_CountFailedUserTasksForDummyWorkflowBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountFailedUserTasksForDummyWorkflow");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_CountFailedUserTasksForDummyWorkflow(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountFailedUserTasksForDummyWorkflow").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_CountFailedUserTasksForDummyWorkflowBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_CountInProgressUserTasksBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountInProgressUserTasks");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_CountInProgressUserTasks(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountInProgressUserTasks").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_CountInProgressUserTasksBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_CountInProgressUserTasksForDummyWorkflowBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountInProgressUserTasksForDummyWorkflow");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_CountInProgressUserTasksForDummyWorkflow(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountInProgressUserTasksForDummyWorkflow").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_CountInProgressUserTasksForDummyWorkflowBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_CountInProgressWorkflowsBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountInProgressWorkflows");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_CountInProgressWorkflows(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountInProgressWorkflows").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_CountInProgressWorkflowsBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_CountInProgressWorkflowsForDummyWorkflowBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountInProgressWorkflowsForDummyWorkflow");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_CountInProgressWorkflowsForDummyWorkflow(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountInProgressWorkflowsForDummyWorkflow").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_CountInProgressWorkflowsForDummyWorkflowBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_CountOverdueUserTasksBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountOverdueUserTasks");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_CountOverdueUserTasks(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountOverdueUserTasks").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_CountOverdueUserTasksBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_CountOverdueUserTasksForDummyWorkflowBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountOverdueUserTasksForDummyWorkflow");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_CountOverdueUserTasksForDummyWorkflow(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountOverdueUserTasksForDummyWorkflow").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_CountOverdueUserTasksForDummyWorkflowBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_CountOverdueWorkflowsBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountOverdueWorkflows");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_CountOverdueWorkflows(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountOverdueWorkflows").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_CountOverdueWorkflowsBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_CountOverdueWorkflowsForDummyWorkflowBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountOverdueWorkflowsForDummyWorkflow");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_CountOverdueWorkflowsForDummyWorkflow(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_CountOverdueWorkflowsForDummyWorkflow").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_CountOverdueWorkflowsForDummyWorkflowBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_RetrieveOrCreateDashboardContextBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_RetrieveOrCreateDashboardContext");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_RetrieveOrCreateDashboardContext(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_RetrieveOrCreateDashboardContext").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_RetrieveOrCreateDashboardContextBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_RetrieveOrCreateTaskSummaryBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_RetrieveOrCreateTaskSummary");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_RetrieveOrCreateTaskSummary(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_RetrieveOrCreateTaskSummary").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_RetrieveOrCreateTaskSummaryBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_RetrieveOrCreateTaskSummaryForDummyWorkflowBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_RetrieveOrCreateTaskSummaryForDummyWorkflow");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_RetrieveOrCreateTaskSummaryForDummyWorkflow(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_RetrieveOrCreateTaskSummaryForDummyWorkflow").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_RetrieveOrCreateTaskSummaryForDummyWorkflowBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_RetrieveOrCreateWorkflowSummaryBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_RetrieveOrCreateWorkflowSummary");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_RetrieveOrCreateWorkflowSummary(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_RetrieveOrCreateWorkflowSummary").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_RetrieveOrCreateWorkflowSummaryBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_RetrieveOrCreateWorkflowSummaryForDummyWorkflowBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_RetrieveOrCreateWorkflowSummaryForDummyWorkflow");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_RetrieveOrCreateWorkflowSummaryForDummyWorkflow(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_RetrieveOrCreateWorkflowSummaryForDummyWorkflow").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_RetrieveOrCreateWorkflowSummaryForDummyWorkflowBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_TaskSeriesCreateOrUpdateBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_TaskSeriesCreateOrUpdate");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_TaskSeriesCreateOrUpdate(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_TaskSeriesCreateOrUpdate").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_TaskSeriesCreateOrUpdateBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_TaskSeriesCreateOrUpdateForDummyWorkflowBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_TaskSeriesCreateOrUpdateForDummyWorkflow");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_TaskSeriesCreateOrUpdateForDummyWorkflow(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_TaskSeriesCreateOrUpdateForDummyWorkflow").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_TaskSeriesCreateOrUpdateForDummyWorkflowBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_TaskSummaryCreateOrUpdateAdminBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_TaskSummaryCreateOrUpdateAdmin");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_TaskSummaryCreateOrUpdateAdmin(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_TaskSummaryCreateOrUpdateAdmin").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_TaskSummaryCreateOrUpdateAdminBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_TaskSummaryCreateOrUpdateAdminForDummyWorkflowBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_TaskSummaryCreateOrUpdateAdminForDummyWorkflow");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_TaskSummaryCreateOrUpdateAdminForDummyWorkflow(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_TaskSummaryCreateOrUpdateAdminForDummyWorkflow").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_TaskSummaryCreateOrUpdateAdminForDummyWorkflowBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_TaskSummaryCreateOrUpdateUserBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_TaskSummaryCreateOrUpdateUser");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_TaskSummaryCreateOrUpdateUser(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_TaskSummaryCreateOrUpdateUser").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_TaskSummaryCreateOrUpdateUserBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_TaskSummaryCreateOrUpdateUserForDummyWorkflowBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_TaskSummaryCreateOrUpdateUserForDummyWorkflow");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_TaskSummaryCreateOrUpdateUserForDummyWorkflow(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_TaskSummaryCreateOrUpdateUserForDummyWorkflow").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_TaskSummaryCreateOrUpdateUserForDummyWorkflowBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_TestUpdateSettingsDefaultBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_TestUpdateSettingsDefault");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_TestUpdateSettingsDefault(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_TestUpdateSettingsDefault").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_TestUpdateSettingsDefaultBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_WorkflowSeriesCreateOrUpdateBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_WorkflowSeriesCreateOrUpdate");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_WorkflowSeriesCreateOrUpdate(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_WorkflowSeriesCreateOrUpdate").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_WorkflowSeriesCreateOrUpdateBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_WorkflowSeriesCreateOrUpdateForDummyWorkflowBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_WorkflowSeriesCreateOrUpdateForDummyWorkflow");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_WorkflowSeriesCreateOrUpdateForDummyWorkflow(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_WorkflowSeriesCreateOrUpdateForDummyWorkflow").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_WorkflowSeriesCreateOrUpdateForDummyWorkflowBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_WorkflowSummaryCreateOrUpdateBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_WorkflowSummaryCreateOrUpdate");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_WorkflowSummaryCreateOrUpdate(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_WorkflowSummaryCreateOrUpdate").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_WorkflowSummaryCreateOrUpdateBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_WorkflowSummaryCreateOrUpdateForDummyWorkflowBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_WorkflowSummaryCreateOrUpdateForDummyWorkflow");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_WorkflowSummaryCreateOrUpdateForDummyWorkflow(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_WorkflowSummaryCreateOrUpdateForDummyWorkflow").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_WorkflowSummaryCreateOrUpdateForDummyWorkflowBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_WorkflowTaskDetailsCreateOrUpdateBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_WorkflowTaskDetailsCreateOrUpdate");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_WorkflowTaskDetailsCreateOrUpdate(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_WorkflowTaskDetailsCreateOrUpdate").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_WorkflowTaskDetailsCreateOrUpdateBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowDashboard_WorkflowTaskDetailsCreateOrUpdateForDummyWorkflowBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_WorkflowTaskDetailsCreateOrUpdateForDummyWorkflow");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowDashboard_WorkflowTaskDetailsCreateOrUpdateForDummyWorkflow(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowDashboard_WorkflowTaskDetailsCreateOrUpdateForDummyWorkflow").withParams(params).execute(context);
+		Object result = uT_WorkflowDashboard_WorkflowTaskDetailsCreateOrUpdateForDummyWorkflowBuilder().execute(context);
+		return (boolean) result;
 	}
-	public static boolean uT_WorkflowUserTask_AssignToNoneTargettedUser(IContext context)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowUserTask_AssignToMultipleUsersBuilder()
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowUserTask_AssignToNoneTargettedUser").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowUserTask_AssignToMultipleUsers");
+		return builder;
 	}
+
+	public static boolean uT_WorkflowUserTask_AssignToMultipleUsers(IContext context)
+	{
+		Object result = uT_WorkflowUserTask_AssignToMultipleUsersBuilder().execute(context);
+		return (boolean) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowUserTask_AssignToNoneTargetedUserBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowUserTask_AssignToNoneTargetedUser");
+		return builder;
+	}
+
+	public static boolean uT_WorkflowUserTask_AssignToNoneTargetedUser(IContext context)
+	{
+		Object result = uT_WorkflowUserTask_AssignToNoneTargetedUserBuilder().execute(context);
+		return (boolean) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowUserTask_AssignToUserBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowUserTask_AssignToUser");
+		return builder;
+	}
+
 	public static boolean uT_WorkflowUserTask_AssignToUser(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowUserTask_AssignToUser").withParams(params).execute(context);
+		Object result = uT_WorkflowUserTask_AssignToUserBuilder().execute(context);
+		return (boolean) result;
 	}
-	public static boolean uT_WorkflowUserTask_UnAssignFromUser(IContext context)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_WorkflowUserTask_UnassignFromUserBuilder()
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowUserTask_UnAssignFromUser").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_WorkflowUserTask_UnassignFromUser");
+		return builder;
 	}
+
+	public static boolean uT_WorkflowUserTask_UnassignFromUser(IContext context)
+	{
+		Object result = uT_WorkflowUserTask_UnassignFromUserBuilder().execute(context);
+		return (boolean) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_ZWorkflow_AbortFailedWorkflowBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_ZWorkflow_AbortFailedWorkflow");
+		return builder;
+	}
+
 	public static boolean uT_ZWorkflow_AbortFailedWorkflow(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_ZWorkflow_AbortFailedWorkflow").withParams(params).execute(context);
+		Object result = uT_ZWorkflow_AbortFailedWorkflowBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_ZWorkflow_AbortIncompatibleWorkflowBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_ZWorkflow_AbortIncompatibleWorkflow");
+		return builder;
+	}
+
 	public static boolean uT_ZWorkflow_AbortIncompatibleWorkflow(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_ZWorkflow_AbortIncompatibleWorkflow").withParams(params).execute(context);
+		Object result = uT_ZWorkflow_AbortIncompatibleWorkflowBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_ZWorkflow_AbortInProgressWorkflowBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_ZWorkflow_AbortInProgressWorkflow");
+		return builder;
+	}
+
 	public static boolean uT_ZWorkflow_AbortInProgressWorkflow(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_ZWorkflow_AbortInProgressWorkflow").withParams(params).execute(context);
+		Object result = uT_ZWorkflow_AbortInProgressWorkflowBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_ZWorkflow_AbortPausedWorkflowBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_ZWorkflow_AbortPausedWorkflow");
+		return builder;
+	}
+
 	public static boolean uT_ZWorkflow_AbortPausedWorkflow(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_ZWorkflow_AbortPausedWorkflow").withParams(params).execute(context);
+		Object result = uT_ZWorkflow_AbortPausedWorkflowBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_ZWorkflow_ContinueIncompatibleWorkflowBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_ZWorkflow_ContinueIncompatibleWorkflow");
+		return builder;
+	}
+
 	public static boolean uT_ZWorkflow_ContinueIncompatibleWorkflow(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_ZWorkflow_ContinueIncompatibleWorkflow").withParams(params).execute(context);
+		Object result = uT_ZWorkflow_ContinueIncompatibleWorkflowBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_ZWorkflow_JumpToEndWorkflowBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_ZWorkflow_JumpToEndWorkflow");
+		return builder;
+	}
+
 	public static boolean uT_ZWorkflow_JumpToEndWorkflow(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_ZWorkflow_JumpToEndWorkflow").withParams(params).execute(context);
+		Object result = uT_ZWorkflow_JumpToEndWorkflowBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_ZWorkflow_PauseInProgressWorkflowBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_ZWorkflow_PauseInProgressWorkflow");
+		return builder;
+	}
+
 	public static boolean uT_ZWorkflow_PauseInProgressWorkflow(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_ZWorkflow_PauseInProgressWorkflow").withParams(params).execute(context);
+		Object result = uT_ZWorkflow_PauseInProgressWorkflowBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_ZWorkflow_RestartAbortedWorkflowBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_ZWorkflow_RestartAbortedWorkflow");
+		return builder;
+	}
+
 	public static boolean uT_ZWorkflow_RestartAbortedWorkflow(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_ZWorkflow_RestartAbortedWorkflow").withParams(params).execute(context);
+		Object result = uT_ZWorkflow_RestartAbortedWorkflowBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_ZWorkflow_RestartFailedWorkflowBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_ZWorkflow_RestartFailedWorkflow");
+		return builder;
+	}
+
 	public static boolean uT_ZWorkflow_RestartFailedWorkflow(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_ZWorkflow_RestartFailedWorkflow").withParams(params).execute(context);
+		Object result = uT_ZWorkflow_RestartFailedWorkflowBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_ZWorkflow_RestartIncompatibleWorkflowBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_ZWorkflow_RestartIncompatibleWorkflow");
+		return builder;
+	}
+
 	public static boolean uT_ZWorkflow_RestartIncompatibleWorkflow(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_ZWorkflow_RestartIncompatibleWorkflow").withParams(params).execute(context);
+		Object result = uT_ZWorkflow_RestartIncompatibleWorkflowBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_ZWorkflow_RetryFailedWorkflowBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_ZWorkflow_RetryFailedWorkflow");
+		return builder;
+	}
+
 	public static boolean uT_ZWorkflow_RetryFailedWorkflow(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_ZWorkflow_RetryFailedWorkflow").withParams(params).execute(context);
+		Object result = uT_ZWorkflow_RetryFailedWorkflowBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_ZWorkflow_UnpausePausedWorkflowBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.UT_ZWorkflow_UnpausePausedWorkflow");
+		return builder;
+	}
+
 	public static boolean uT_ZWorkflow_UnpausePausedWorkflow(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.UT_ZWorkflow_UnpausePausedWorkflow").withParams(params).execute(context);
+		Object result = uT_ZWorkflow_UnpausePausedWorkflowBuilder().execute(context);
+		return (boolean) result;
 	}
-	public static void wF_FailedWorkflow_SetReadyForTesting(IContext context, expenserequestexample.proxies.ExpenseRequest _expenseRequest)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder wF_FailedWorkflow_SetReadyForTestingBuilder(
+		expenserequestexample.proxies.ExpenseRequest _expenseRequest
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("ExpenseRequest", _expenseRequest == null ? null : _expenseRequest.getMendixObject());
-		Core.microflowCall("WorkflowCommonsUnitTests.WF_FailedWorkflow_SetReadyForTesting").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.WF_FailedWorkflow_SetReadyForTesting");
+		builder = builder.withParam("ExpenseRequest", _expenseRequest);
+		return builder;
 	}
-	public static boolean wFS_DummySystemTask(IContext context, expenserequestexample.proxies.ExpenseRequest _expenseRequest)
+
+	public static void wF_FailedWorkflow_SetReadyForTesting(
+		IContext context,
+		expenserequestexample.proxies.ExpenseRequest _expenseRequest
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("ExpenseRequest", _expenseRequest == null ? null : _expenseRequest.getMendixObject());
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.WFS_DummySystemTask").withParams(params).execute(context);
+		wF_FailedWorkflow_SetReadyForTestingBuilder(
+				_expenseRequest
+			)
+			.execute(context);
 	}
-	public static void workflow_ChangeState(IContext context, system.proxies.Workflow _workflow, java.lang.String _action)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder wFS_DummySystemTaskBuilder(
+		expenserequestexample.proxies.ExpenseRequest _expenseRequest
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Workflow", _workflow == null ? null : _workflow.getMendixObject());
-		params.put("Action", _action);
-		Core.microflowCall("WorkflowCommonsUnitTests.Workflow_ChangeState").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.WFS_DummySystemTask");
+		builder = builder.withParam("ExpenseRequest", _expenseRequest);
+		return builder;
 	}
-	public static void workflow_MarkIncompatible(IContext context, system.proxies.Workflow _workflow)
+
+	public static boolean wFS_DummySystemTask(
+		IContext context,
+		expenserequestexample.proxies.ExpenseRequest _expenseRequest
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Workflow", _workflow == null ? null : _workflow.getMendixObject());
-		Core.microflowCall("WorkflowCommonsUnitTests.Workflow_MarkIncompatible").withParams(params).execute(context);
+		Object result = wFS_DummySystemTaskBuilder(
+				_expenseRequest
+			)
+			.execute(context);
+		return (boolean) result;
 	}
-	public static void workflowUserTask_CompleteDummyTaskInQueue(IContext context, administration.proxies.Account _account, system.proxies.WorkflowUserTask _workflowUserTask)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder workflow_ChangeStateBuilder(
+		system.proxies.Workflow _workflow,
+		java.lang.String _action
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Account", _account == null ? null : _account.getMendixObject());
-		params.put("WorkflowUserTask", _workflowUserTask == null ? null : _workflowUserTask.getMendixObject());
-		Core.microflowCall("WorkflowCommonsUnitTests.WorkflowUserTask_CompleteDummyTaskInQueue").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.Workflow_ChangeState");
+		builder = builder.withParam("Workflow", _workflow);
+		builder = builder.withParam("Action", _action);
+		return builder;
 	}
-	public static void workflowUserTask_CompleteTaskInQueue(IContext context, administration.proxies.Account _account, system.proxies.WorkflowUserTask _workflowUserTask)
+
+	public static void workflow_ChangeState(
+		IContext context,
+		system.proxies.Workflow _workflow,
+		java.lang.String _action
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Account", _account == null ? null : _account.getMendixObject());
-		params.put("WorkflowUserTask", _workflowUserTask == null ? null : _workflowUserTask.getMendixObject());
-		Core.microflowCall("WorkflowCommonsUnitTests.WorkflowUserTask_CompleteTaskInQueue").withParams(params).execute(context);
+		workflow_ChangeStateBuilder(
+				_workflow,
+				_action
+			)
+			.execute(context);
 	}
-	public static boolean workflowUserTask_HasExpectedState(IContext context, system.proxies.WorkflowUserTask _workflowUserTask, system.proxies.WorkflowUserTaskState _expectedWorkflowTaskState, java.lang.String _messagePrefix)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder workflow_MarkIncompatibleBuilder(
+		system.proxies.Workflow _workflow
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("WorkflowUserTask", _workflowUserTask == null ? null : _workflowUserTask.getMendixObject());
-		params.put("ExpectedWorkflowTaskState", _expectedWorkflowTaskState == null ? null : _expectedWorkflowTaskState.name());
-		params.put("MessagePrefix", _messagePrefix);
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommonsUnitTests.WorkflowUserTask_HasExpectedState").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.Workflow_MarkIncompatible");
+		builder = builder.withParam("Workflow", _workflow);
+		return builder;
+	}
+
+	public static void workflow_MarkIncompatible(
+		IContext context,
+		system.proxies.Workflow _workflow
+	)
+	{
+		workflow_MarkIncompatibleBuilder(
+				_workflow
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder workflowUserTask_CompleteDummyTaskInQueueBuilder(
+		administration.proxies.Account _account,
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.WorkflowUserTask_CompleteDummyTaskInQueue");
+		builder = builder.withParam("Account", _account);
+		builder = builder.withParam("WorkflowUserTask", _workflowUserTask);
+		return builder;
+	}
+
+	public static void workflowUserTask_CompleteDummyTaskInQueue(
+		IContext context,
+		administration.proxies.Account _account,
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
+	{
+		workflowUserTask_CompleteDummyTaskInQueueBuilder(
+				_account,
+				_workflowUserTask
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder workflowUserTask_CompleteTaskInQueueBuilder(
+		administration.proxies.Account _account,
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.WorkflowUserTask_CompleteTaskInQueue");
+		builder = builder.withParam("Account", _account);
+		builder = builder.withParam("WorkflowUserTask", _workflowUserTask);
+		return builder;
+	}
+
+	public static void workflowUserTask_CompleteTaskInQueue(
+		IContext context,
+		administration.proxies.Account _account,
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
+	{
+		workflowUserTask_CompleteTaskInQueueBuilder(
+				_account,
+				_workflowUserTask
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder workflowUserTask_HasExpectedStateBuilder(
+		system.proxies.WorkflowUserTask _workflowUserTask,
+		system.proxies.WorkflowUserTaskState _expectedWorkflowTaskState,
+		java.lang.String _messagePrefix
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommonsUnitTests.WorkflowUserTask_HasExpectedState");
+		builder = builder.withParam("WorkflowUserTask", _workflowUserTask);
+		builder = builder.withParam("ExpectedWorkflowTaskState", _expectedWorkflowTaskState == null ? null : _expectedWorkflowTaskState.name());
+		builder = builder.withParam("MessagePrefix", _messagePrefix);
+		return builder;
+	}
+
+	public static boolean workflowUserTask_HasExpectedState(
+		IContext context,
+		system.proxies.WorkflowUserTask _workflowUserTask,
+		system.proxies.WorkflowUserTaskState _expectedWorkflowTaskState,
+		java.lang.String _messagePrefix
+	)
+	{
+		Object result = workflowUserTask_HasExpectedStateBuilder(
+				_workflowUserTask,
+				_expectedWorkflowTaskState,
+				_messagePrefix
+			)
+			.execute(context);
+		return (boolean) result;
 	}
 }

@@ -18,20 +18,24 @@ import com.mendix.webui.CustomJavaAction;
 
 public class RunAllUnitTestsWrapper extends CustomJavaAction<java.lang.Boolean>
 {
-	private IMendixObject __testRun;
-	private unittesting.proxies.TestSuite testRun;
+	/** @deprecated use testRun.getMendixObject() instead. */
+	@java.lang.Deprecated(forRemoval = true)
+	private final IMendixObject __testRun;
+	private final unittesting.proxies.TestSuite testRun;
 
-	public RunAllUnitTestsWrapper(IContext context, IMendixObject testRun)
+	public RunAllUnitTestsWrapper(
+		IContext context,
+		IMendixObject _testRun
+	)
 	{
 		super(context);
-		this.__testRun = testRun;
+		this.__testRun = _testRun;
+		this.testRun = _testRun == null ? null : unittesting.proxies.TestSuite.initialize(getContext(), _testRun);
 	}
 
 	@java.lang.Override
 	public java.lang.Boolean executeAction() throws Exception
 	{
-		this.testRun = this.__testRun == null ? null : unittesting.proxies.TestSuite.initialize(getContext(), __testRun);
-
 		// BEGIN USER CODE
 		try {
 			//Run tests in a new context without transaction!

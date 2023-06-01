@@ -4,83 +4,108 @@
 
 package taskqueuehelpers.proxies.microflows;
 
-import java.util.HashMap;
-import java.util.Map;
 import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 
-public class Microflows
+public final class Microflows
 {
 	/**
-	 * @deprecated
-	 * The default constructor of the Microflows class should not be used.
-	 * Use the static microflow invocation methods instead.
+	 * Private constructor to prevent instantiation of this class. 
 	 */
-	@java.lang.Deprecated(since = "9.12", forRemoval = true)
-	public Microflows() {}
+	private Microflows() {}
 
 	// These are the microflows for the TaskQueueHelpers module
-	public static java.util.List<taskqueuehelpers.proxies.ProcessedQueueCount> dS_RetrieveProcessedQueueCount(IContext context, taskqueuehelpers.proxies.QueueCount _unused)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_RetrieveCompletionStateCountsBuilder(
+		taskqueuehelpers.proxies.ChartContext _dummy
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Unused", _unused == null ? null : _unused.getMendixObject());
-		java.util.List<IMendixObject> objs = Core.microflowCall("TaskQueueHelpers.DS_RetrieveProcessedQueueCount").withParams(params).execute(context);
-		if (objs == null) {
-			return null;
-		} else {
-			return objs.stream()
-				.map(obj -> taskqueuehelpers.proxies.ProcessedQueueCount.initialize(context, obj))
-				.collect(java.util.stream.Collectors.toList());
-		}
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("TaskQueueHelpers.DS_RetrieveCompletionStateCounts");
+		builder = builder.withParam("Dummy", _dummy);
+		return builder;
 	}
+
+	public static java.util.List<taskqueuehelpers.proxies.CompletionStateCount> dS_RetrieveCompletionStateCounts(
+		IContext context,
+		taskqueuehelpers.proxies.ChartContext _dummy
+	)
+	{
+		Object result = dS_RetrieveCompletionStateCountsBuilder(
+				_dummy
+			)
+			.execute(context);
+		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> taskqueuehelpers.proxies.CompletionStateCount.initialize(context, obj));
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_RetrieveProcessedQueueCountBuilder(
+		taskqueuehelpers.proxies.ChartContext _dummy
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("TaskQueueHelpers.DS_RetrieveProcessedQueueCount");
+		builder = builder.withParam("Dummy", _dummy);
+		return builder;
+	}
+
+	public static java.util.List<taskqueuehelpers.proxies.ProcessedQueueCount> dS_RetrieveProcessedQueueCount(
+		IContext context,
+		taskqueuehelpers.proxies.ChartContext _dummy
+	)
+	{
+		Object result = dS_RetrieveProcessedQueueCountBuilder(
+				_dummy
+			)
+			.execute(context);
+		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> taskqueuehelpers.proxies.ProcessedQueueCount.initialize(context, obj));
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_RetrieveQueueCountsBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("TaskQueueHelpers.DS_RetrieveQueueCounts");
+		return builder;
+	}
+
 	public static java.util.List<taskqueuehelpers.proxies.QueueCount> dS_RetrieveQueueCounts(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		java.util.List<IMendixObject> objs = Core.microflowCall("TaskQueueHelpers.DS_RetrieveQueueCounts").withParams(params).execute(context);
-		if (objs == null) {
-			return null;
-		} else {
-			return objs.stream()
-				.map(obj -> taskqueuehelpers.proxies.QueueCount.initialize(context, obj))
-				.collect(java.util.stream.Collectors.toList());
-		}
+		Object result = dS_RetrieveQueueCountsBuilder().execute(context);
+		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> taskqueuehelpers.proxies.QueueCount.initialize(context, obj));
 	}
-	public static java.util.List<system.proxies.ProcessedQueueTask> dS_RetrieveTaskRetries(IContext context, system.proxies.ProcessedQueueTask _processedQueueTask)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_RetrieveTaskRetriesBuilder(
+		system.proxies.ProcessedQueueTask _processedQueueTask
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("ProcessedQueueTask", _processedQueueTask == null ? null : _processedQueueTask.getMendixObject());
-		java.util.List<IMendixObject> objs = Core.microflowCall("TaskQueueHelpers.DS_RetrieveTaskRetries").withParams(params).execute(context);
-		if (objs == null) {
-			return null;
-		} else {
-			return objs.stream()
-				.map(obj -> system.proxies.ProcessedQueueTask.initialize(context, obj))
-				.collect(java.util.stream.Collectors.toList());
-		}
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("TaskQueueHelpers.DS_RetrieveTaskRetries");
+		builder = builder.withParam("ProcessedQueueTask", _processedQueueTask);
+		return builder;
 	}
-	public static taskqueuehelpers.proxies.QueueCount microflowForBarChart(IContext context)
+
+	public static java.util.List<system.proxies.ProcessedQueueTask> dS_RetrieveTaskRetries(
+		IContext context,
+		system.proxies.ProcessedQueueTask _processedQueueTask
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		IMendixObject result = (IMendixObject)Core.microflowCall("TaskQueueHelpers.MicroflowForBarChart").withParams(params).execute(context);
-		return result == null ? null : taskqueuehelpers.proxies.QueueCount.initialize(context, result);
+		Object result = dS_RetrieveTaskRetriesBuilder(
+				_processedQueueTask
+			)
+			.execute(context);
+		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> system.proxies.ProcessedQueueTask.initialize(context, obj));
 	}
-	public static java.util.List<taskqueuehelpers.proxies.ChartParameters> microflowForPieChart(IContext context, taskqueuehelpers.proxies.QueueCount _unused)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder retrieveChartContextBuilder()
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Unused", _unused == null ? null : _unused.getMendixObject());
-		java.util.List<IMendixObject> objs = Core.microflowCall("TaskQueueHelpers.MicroflowForPieChart").withParams(params).execute(context);
-		if (objs == null) {
-			return null;
-		} else {
-			return objs.stream()
-				.map(obj -> taskqueuehelpers.proxies.ChartParameters.initialize(context, obj))
-				.collect(java.util.stream.Collectors.toList());
-		}
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("TaskQueueHelpers.RetrieveChartContext");
+		return builder;
 	}
+
+	public static taskqueuehelpers.proxies.ChartContext retrieveChartContext(IContext context)
+	{
+		Object result = retrieveChartContextBuilder().execute(context);
+		return result == null ? null : taskqueuehelpers.proxies.ChartContext.initialize(context, (IMendixObject) result);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder scE_CleanupProcessedQueueTasksBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("TaskQueueHelpers.ScE_CleanupProcessedQueueTasks");
+		return builder;
+	}
+
 	public static void scE_CleanupProcessedQueueTasks(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		Core.microflowCall("TaskQueueHelpers.ScE_CleanupProcessedQueueTasks").withParams(params).execute(context);
+		scE_CleanupProcessedQueueTasksBuilder().execute(context);
 	}
 }

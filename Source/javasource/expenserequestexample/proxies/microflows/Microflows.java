@@ -4,122 +4,326 @@
 
 package expenserequestexample.proxies.microflows;
 
-import java.util.HashMap;
-import java.util.Map;
 import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 
-public class Microflows
+public final class Microflows
 {
 	/**
-	 * @deprecated
-	 * The default constructor of the Microflows class should not be used.
-	 * Use the static microflow invocation methods instead.
+	 * Private constructor to prevent instantiation of this class. 
 	 */
-	@java.lang.Deprecated(since = "9.12", forRemoval = true)
-	public Microflows() {}
+	private Microflows() {}
 
 	// These are the microflows for the ExpenseRequestExample module
-	public static void aCT_ApproveExpenseRequest(IContext context, expenserequestexample.proxies.ExpenseRequest _expenseRequest, system.proxies.WorkflowUserTask _userTask)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_ApproveExpenseRequestBuilder(
+		expenserequestexample.proxies.ExpenseRequest _expenseRequest,
+		system.proxies.WorkflowUserTask _userTask
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("ExpenseRequest", _expenseRequest == null ? null : _expenseRequest.getMendixObject());
-		params.put("UserTask", _userTask == null ? null : _userTask.getMendixObject());
-		Core.microflowCall("ExpenseRequestExample.ACT_ApproveExpenseRequest").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("ExpenseRequestExample.ACT_ApproveExpenseRequest");
+		builder = builder.withParam("ExpenseRequest", _expenseRequest);
+		builder = builder.withParam("UserTask", _userTask);
+		return builder;
 	}
-	public static void aCT_ApproveExpenseRequest_Secondary(IContext context, expenserequestexample.proxies.ExpenseRequest _expenseRequest, system.proxies.WorkflowUserTask _userTask)
+
+	public static void aCT_ApproveExpenseRequest(
+		IContext context,
+		expenserequestexample.proxies.ExpenseRequest _expenseRequest,
+		system.proxies.WorkflowUserTask _userTask
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("ExpenseRequest", _expenseRequest == null ? null : _expenseRequest.getMendixObject());
-		params.put("UserTask", _userTask == null ? null : _userTask.getMendixObject());
-		Core.microflowCall("ExpenseRequestExample.ACT_ApproveExpenseRequest_Secondary").withParams(params).execute(context);
+		aCT_ApproveExpenseRequestBuilder(
+				_expenseRequest,
+				_userTask
+			)
+			.execute(context);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_ApproveExpenseRequest_SecondaryBuilder(
+		expenserequestexample.proxies.ExpenseRequest _expenseRequest,
+		system.proxies.WorkflowUserTask _userTask
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("ExpenseRequestExample.ACT_ApproveExpenseRequest_Secondary");
+		builder = builder.withParam("ExpenseRequest", _expenseRequest);
+		builder = builder.withParam("UserTask", _userTask);
+		return builder;
+	}
+
+	public static void aCT_ApproveExpenseRequest_Secondary(
+		IContext context,
+		expenserequestexample.proxies.ExpenseRequest _expenseRequest,
+		system.proxies.WorkflowUserTask _userTask
+	)
+	{
+		aCT_ApproveExpenseRequest_SecondaryBuilder(
+				_expenseRequest,
+				_userTask
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Expense_NewBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("ExpenseRequestExample.ACT_Expense_New");
+		return builder;
+	}
+
 	public static void aCT_Expense_New(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		Core.microflowCall("ExpenseRequestExample.ACT_Expense_New").withParams(params).execute(context);
+		aCT_Expense_NewBuilder().execute(context);
 	}
-	public static void aCT_Expense_Save(IContext context, expenserequestexample.proxies.Expense _expense)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Expense_SaveBuilder(
+		expenserequestexample.proxies.Expense _expense
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Expense", _expense == null ? null : _expense.getMendixObject());
-		Core.microflowCall("ExpenseRequestExample.ACT_Expense_Save").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("ExpenseRequestExample.ACT_Expense_Save");
+		builder = builder.withParam("Expense", _expense);
+		return builder;
 	}
-	public static void aCT_Expense_StartParallelWorkflow(IContext context, expenserequestexample.proxies.Expense _expense)
+
+	public static void aCT_Expense_Save(
+		IContext context,
+		expenserequestexample.proxies.Expense _expense
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Expense", _expense == null ? null : _expense.getMendixObject());
-		Core.microflowCall("ExpenseRequestExample.ACT_Expense_StartParallelWorkflow").withParams(params).execute(context);
+		aCT_Expense_SaveBuilder(
+				_expense
+			)
+			.execute(context);
 	}
-	public static void aCT_RejectExpenseRequest(IContext context, system.proxies.WorkflowUserTask _userTask, expenserequestexample.proxies.ExpenseRequest _expenseRequest)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Expense_StartParallelWorkflowBuilder(
+		expenserequestexample.proxies.Expense _expense
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("UserTask", _userTask == null ? null : _userTask.getMendixObject());
-		params.put("ExpenseRequest", _expenseRequest == null ? null : _expenseRequest.getMendixObject());
-		Core.microflowCall("ExpenseRequestExample.ACT_RejectExpenseRequest").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("ExpenseRequestExample.ACT_Expense_StartParallelWorkflow");
+		builder = builder.withParam("Expense", _expense);
+		return builder;
 	}
-	public static void aCT_RejectExpenseRequest_Secondary(IContext context, system.proxies.WorkflowUserTask _userTask, expenserequestexample.proxies.ExpenseRequest _expenseRequest)
+
+	public static void aCT_Expense_StartParallelWorkflow(
+		IContext context,
+		expenserequestexample.proxies.Expense _expense
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("UserTask", _userTask == null ? null : _userTask.getMendixObject());
-		params.put("ExpenseRequest", _expenseRequest == null ? null : _expenseRequest.getMendixObject());
-		Core.microflowCall("ExpenseRequestExample.ACT_RejectExpenseRequest_Secondary").withParams(params).execute(context);
+		aCT_Expense_StartParallelWorkflowBuilder(
+				_expense
+			)
+			.execute(context);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_RejectExpenseRequestBuilder(
+		system.proxies.WorkflowUserTask _userTask,
+		expenserequestexample.proxies.ExpenseRequest _expenseRequest
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("ExpenseRequestExample.ACT_RejectExpenseRequest");
+		builder = builder.withParam("UserTask", _userTask);
+		builder = builder.withParam("ExpenseRequest", _expenseRequest);
+		return builder;
+	}
+
+	public static void aCT_RejectExpenseRequest(
+		IContext context,
+		system.proxies.WorkflowUserTask _userTask,
+		expenserequestexample.proxies.ExpenseRequest _expenseRequest
+	)
+	{
+		aCT_RejectExpenseRequestBuilder(
+				_userTask,
+				_expenseRequest
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_RejectExpenseRequest_SecondaryBuilder(
+		system.proxies.WorkflowUserTask _userTask,
+		expenserequestexample.proxies.ExpenseRequest _expenseRequest
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("ExpenseRequestExample.ACT_RejectExpenseRequest_Secondary");
+		builder = builder.withParam("UserTask", _userTask);
+		builder = builder.withParam("ExpenseRequest", _expenseRequest);
+		return builder;
+	}
+
+	public static void aCT_RejectExpenseRequest_Secondary(
+		IContext context,
+		system.proxies.WorkflowUserTask _userTask,
+		expenserequestexample.proxies.ExpenseRequest _expenseRequest
+	)
+	{
+		aCT_RejectExpenseRequest_SecondaryBuilder(
+				_userTask,
+				_expenseRequest
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_SetMarkAllWorkflowsOverdueBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("ExpenseRequestExample.ACT_SetMarkAllWorkflowsOverdue");
+		return builder;
+	}
+
 	public static void aCT_SetMarkAllWorkflowsOverdue(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		Core.microflowCall("ExpenseRequestExample.ACT_SetMarkAllWorkflowsOverdue").withParams(params).execute(context);
+		aCT_SetMarkAllWorkflowsOverdueBuilder().execute(context);
 	}
-	public static expenserequestexample.proxies.ExpenseRequest dS_WorkflowTask_RetrieveExpenseRequest(IContext context, system.proxies.WorkflowUserTask _workflowUserTask)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_WorkflowTask_RetrieveExpenseRequestBuilder(
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("WorkflowUserTask", _workflowUserTask == null ? null : _workflowUserTask.getMendixObject());
-		IMendixObject result = (IMendixObject)Core.microflowCall("ExpenseRequestExample.DS_WorkflowTask_RetrieveExpenseRequest").withParams(params).execute(context);
-		return result == null ? null : expenserequestexample.proxies.ExpenseRequest.initialize(context, result);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("ExpenseRequestExample.DS_WorkflowTask_RetrieveExpenseRequest");
+		builder = builder.withParam("WorkflowUserTask", _workflowUserTask);
+		return builder;
 	}
-	public static expenserequestexample.proxies.ExpenseRequest dS_WorkflowUserTask_ParallelWorkflow_Context(IContext context, system.proxies.WorkflowUserTask _userTask)
+
+	public static expenserequestexample.proxies.ExpenseRequest dS_WorkflowTask_RetrieveExpenseRequest(
+		IContext context,
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("UserTask", _userTask == null ? null : _userTask.getMendixObject());
-		IMendixObject result = (IMendixObject)Core.microflowCall("ExpenseRequestExample.DS_WorkflowUserTask_ParallelWorkflow_Context").withParams(params).execute(context);
-		return result == null ? null : expenserequestexample.proxies.ExpenseRequest.initialize(context, result);
+		Object result = dS_WorkflowTask_RetrieveExpenseRequestBuilder(
+				_workflowUserTask
+			)
+			.execute(context);
+		return result == null ? null : expenserequestexample.proxies.ExpenseRequest.initialize(context, (IMendixObject) result);
 	}
-	public static void sUB_StartExpenseRequest(IContext context, expenserequestexample.proxies.Expense _expense)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_WorkflowUserTask_ParallelWorkflow_ContextBuilder(
+		system.proxies.WorkflowUserTask _userTask
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Expense", _expense == null ? null : _expense.getMendixObject());
-		Core.microflowCall("ExpenseRequestExample.SUB_StartExpenseRequest").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("ExpenseRequestExample.DS_WorkflowUserTask_ParallelWorkflow_Context");
+		builder = builder.withParam("UserTask", _userTask);
+		return builder;
 	}
-	public static boolean vAL_Expense(IContext context, expenserequestexample.proxies.Expense _expense)
+
+	public static expenserequestexample.proxies.ExpenseRequest dS_WorkflowUserTask_ParallelWorkflow_Context(
+		IContext context,
+		system.proxies.WorkflowUserTask _userTask
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Expense", _expense == null ? null : _expense.getMendixObject());
-		return (java.lang.Boolean) Core.microflowCall("ExpenseRequestExample.VAL_Expense").withParams(params).execute(context);
+		Object result = dS_WorkflowUserTask_ParallelWorkflow_ContextBuilder(
+				_userTask
+			)
+			.execute(context);
+		return result == null ? null : expenserequestexample.proxies.ExpenseRequest.initialize(context, (IMendixObject) result);
 	}
-	public static boolean vAL_ExpenseRequest(IContext context, expenserequestexample.proxies.ExpenseRequest _expenseRequest)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_StartExpenseRequestBuilder(
+		expenserequestexample.proxies.Expense _expense
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("ExpenseRequest", _expenseRequest == null ? null : _expenseRequest.getMendixObject());
-		return (java.lang.Boolean) Core.microflowCall("ExpenseRequestExample.VAL_ExpenseRequest").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("ExpenseRequestExample.SUB_StartExpenseRequest");
+		builder = builder.withParam("Expense", _expense);
+		return builder;
 	}
-	public static void wF_ParallelWorkflow_Test(IContext context, expenserequestexample.proxies.ExpenseRequest _expenseRequest)
+
+	public static void sUB_StartExpenseRequest(
+		IContext context,
+		expenserequestexample.proxies.Expense _expense
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("ExpenseRequest", _expenseRequest == null ? null : _expenseRequest.getMendixObject());
-		Core.microflowCall("ExpenseRequestExample.WF_ParallelWorkflow_Test").withParams(params).execute(context);
+		sUB_StartExpenseRequestBuilder(
+				_expense
+			)
+			.execute(context);
 	}
-	public static void wF_ReimburseExpenseRequest(IContext context, expenserequestexample.proxies.ExpenseRequest _expenseRequest)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder vAL_ExpenseBuilder(
+		expenserequestexample.proxies.Expense _expense
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("ExpenseRequest", _expenseRequest == null ? null : _expenseRequest.getMendixObject());
-		Core.microflowCall("ExpenseRequestExample.WF_ReimburseExpenseRequest").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("ExpenseRequestExample.VAL_Expense");
+		builder = builder.withParam("Expense", _expense);
+		return builder;
 	}
-	public static void wOC_ExecuteFollowupActions(IContext context, system.proxies.WorkflowUserTask _userTask, expenserequestexample.proxies.ExpenseRequest _expenseRequest)
+
+	public static boolean vAL_Expense(
+		IContext context,
+		expenserequestexample.proxies.Expense _expense
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("UserTask", _userTask == null ? null : _userTask.getMendixObject());
-		params.put("ExpenseRequest", _expenseRequest == null ? null : _expenseRequest.getMendixObject());
-		Core.microflowCall("ExpenseRequestExample.WOC_ExecuteFollowupActions").withParams(params).execute(context);
+		Object result = vAL_ExpenseBuilder(
+				_expense
+			)
+			.execute(context);
+		return (boolean) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder vAL_ExpenseRequestBuilder(
+		expenserequestexample.proxies.ExpenseRequest _expenseRequest
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("ExpenseRequestExample.VAL_ExpenseRequest");
+		builder = builder.withParam("ExpenseRequest", _expenseRequest);
+		return builder;
+	}
+
+	public static boolean vAL_ExpenseRequest(
+		IContext context,
+		expenserequestexample.proxies.ExpenseRequest _expenseRequest
+	)
+	{
+		Object result = vAL_ExpenseRequestBuilder(
+				_expenseRequest
+			)
+			.execute(context);
+		return (boolean) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder wF_ParallelWorkflow_TestBuilder(
+		expenserequestexample.proxies.ExpenseRequest _expenseRequest
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("ExpenseRequestExample.WF_ParallelWorkflow_Test");
+		builder = builder.withParam("ExpenseRequest", _expenseRequest);
+		return builder;
+	}
+
+	public static void wF_ParallelWorkflow_Test(
+		IContext context,
+		expenserequestexample.proxies.ExpenseRequest _expenseRequest
+	)
+	{
+		wF_ParallelWorkflow_TestBuilder(
+				_expenseRequest
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder wF_ReimburseExpenseRequestBuilder(
+		expenserequestexample.proxies.ExpenseRequest _expenseRequest
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("ExpenseRequestExample.WF_ReimburseExpenseRequest");
+		builder = builder.withParam("ExpenseRequest", _expenseRequest);
+		return builder;
+	}
+
+	public static void wF_ReimburseExpenseRequest(
+		IContext context,
+		expenserequestexample.proxies.ExpenseRequest _expenseRequest
+	)
+	{
+		wF_ReimburseExpenseRequestBuilder(
+				_expenseRequest
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder wOC_ExecuteFollowupActionsBuilder(
+		system.proxies.WorkflowUserTask _userTask,
+		expenserequestexample.proxies.ExpenseRequest _expenseRequest
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("ExpenseRequestExample.WOC_ExecuteFollowupActions");
+		builder = builder.withParam("UserTask", _userTask);
+		builder = builder.withParam("ExpenseRequest", _expenseRequest);
+		return builder;
+	}
+
+	public static void wOC_ExecuteFollowupActions(
+		IContext context,
+		system.proxies.WorkflowUserTask _userTask,
+		expenserequestexample.proxies.ExpenseRequest _expenseRequest
+	)
+	{
+		wOC_ExecuteFollowupActionsBuilder(
+				_userTask,
+				_expenseRequest
+			)
+			.execute(context);
 	}
 }

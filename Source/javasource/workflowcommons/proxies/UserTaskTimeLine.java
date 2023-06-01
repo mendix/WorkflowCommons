@@ -4,7 +4,7 @@
 
 package workflowcommons.proxies;
 
-public class UserTaskTimeLine
+public class UserTaskTimeLine implements com.mendix.systemwideinterfaces.core.IEntityProxy
 {
 	private final com.mendix.systemwideinterfaces.core.IMendixObject userTaskTimeLineMendixObject;
 
@@ -22,10 +22,12 @@ public class UserTaskTimeLine
 	{
 		TaskName("TaskName"),
 		CompletedOn("CompletedOn"),
+		CompletionType("CompletionType"),
+		OutcomeCount("OutcomeCount"),
 		Outcome("Outcome"),
 		State("State"),
 		StartedOn("StartedOn"),
-		Assignee("Assignee");
+		Assignees("Assignees");
 
 		private final java.lang.String metaName;
 
@@ -60,15 +62,6 @@ public class UserTaskTimeLine
 	}
 
 	/**
-	 * @deprecated Use 'UserTaskTimeLine.load(IContext, IMendixIdentifier)' instead.
-	 */
-	@java.lang.Deprecated
-	public static workflowcommons.proxies.UserTaskTimeLine initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixIdentifier mendixIdentifier) throws com.mendix.core.CoreException
-	{
-		return workflowcommons.proxies.UserTaskTimeLine.load(context, mendixIdentifier);
-	}
-
-	/**
 	 * Initialize a proxy using context (recommended). This context will be used for security checking when the get- and set-methods without context parameters are called.
 	 * The get- and set-methods with context parameter should be used when for instance sudo access is necessary (IContext.createSudoClone() can be used to obtain sudo access).
 	 * @param context The context to be used
@@ -86,39 +79,6 @@ public class UserTaskTimeLine
 		return workflowcommons.proxies.UserTaskTimeLine.initialize(context, mendixObject);
 	}
 
-	/**
-	 * Commit the changes made on this proxy object.
-	 * @throws com.mendix.core.CoreException
-	 */
-	public final void commit() throws com.mendix.core.CoreException
-	{
-		com.mendix.core.Core.commit(context, getMendixObject());
-	}
-
-	/**
-	 * Commit the changes made on this proxy object using the specified context.
-	 * @throws com.mendix.core.CoreException
-	 */
-	public final void commit(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
-	{
-		com.mendix.core.Core.commit(context, getMendixObject());
-	}
-
-	/**
-	 * Delete the object.
-	 */
-	public final void delete()
-	{
-		com.mendix.core.Core.delete(context, getMendixObject());
-	}
-
-	/**
-	 * Delete the object using the specified context.
-	 */
-	public final void delete(com.mendix.systemwideinterfaces.core.IContext context)
-	{
-		com.mendix.core.Core.delete(context, getMendixObject());
-	}
 	/**
 	 * @return value of TaskName
 	 */
@@ -192,6 +152,87 @@ public class UserTaskTimeLine
 	}
 
 	/**
+	 * Get value of CompletionType
+	 * @param completiontype
+	 */
+	public final system.proxies.WorkflowUserTaskCompletionType getCompletionType()
+	{
+		return getCompletionType(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of CompletionType
+	 */
+	public final system.proxies.WorkflowUserTaskCompletionType getCompletionType(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		Object obj = getMendixObject().getValue(context, MemberNames.CompletionType.toString());
+		if (obj == null) {
+			return null;
+		}
+		return system.proxies.WorkflowUserTaskCompletionType.valueOf((java.lang.String) obj);
+	}
+
+	/**
+	 * Set value of CompletionType
+	 * @param completiontype
+	 */
+	public final void setCompletionType(system.proxies.WorkflowUserTaskCompletionType completiontype)
+	{
+		setCompletionType(getContext(), completiontype);
+	}
+
+	/**
+	 * Set value of CompletionType
+	 * @param context
+	 * @param completiontype
+	 */
+	public final void setCompletionType(com.mendix.systemwideinterfaces.core.IContext context, system.proxies.WorkflowUserTaskCompletionType completiontype)
+	{
+		if (completiontype != null) {
+			getMendixObject().setValue(context, MemberNames.CompletionType.toString(), completiontype.toString());
+		} else {
+			getMendixObject().setValue(context, MemberNames.CompletionType.toString(), null);
+		}
+	}
+
+	/**
+	 * @return value of OutcomeCount
+	 */
+	public final java.lang.Integer getOutcomeCount()
+	{
+		return getOutcomeCount(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of OutcomeCount
+	 */
+	public final java.lang.Integer getOutcomeCount(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.Integer) getMendixObject().getValue(context, MemberNames.OutcomeCount.toString());
+	}
+
+	/**
+	 * Set value of OutcomeCount
+	 * @param outcomecount
+	 */
+	public final void setOutcomeCount(java.lang.Integer outcomecount)
+	{
+		setOutcomeCount(getContext(), outcomecount);
+	}
+
+	/**
+	 * Set value of OutcomeCount
+	 * @param context
+	 * @param outcomecount
+	 */
+	public final void setOutcomeCount(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Integer outcomecount)
+	{
+		getMendixObject().setValue(context, MemberNames.OutcomeCount.toString(), outcomecount);
+	}
+
+	/**
 	 * @return value of Outcome
 	 */
 	public final java.lang.String getOutcome()
@@ -228,7 +269,7 @@ public class UserTaskTimeLine
 	}
 
 	/**
-	 * Set value of State
+	 * Get value of State
 	 * @param state
 	 */
 	public final system.proxies.WorkflowUserTaskState getState()
@@ -309,52 +350,48 @@ public class UserTaskTimeLine
 	}
 
 	/**
-	 * @return value of Assignee
+	 * @return value of Assignees
 	 */
-	public final java.lang.String getAssignee()
+	public final java.lang.String getAssignees()
 	{
-		return getAssignee(getContext());
+		return getAssignees(getContext());
 	}
 
 	/**
 	 * @param context
-	 * @return value of Assignee
+	 * @return value of Assignees
 	 */
-	public final java.lang.String getAssignee(com.mendix.systemwideinterfaces.core.IContext context)
+	public final java.lang.String getAssignees(com.mendix.systemwideinterfaces.core.IContext context)
 	{
-		return (java.lang.String) getMendixObject().getValue(context, MemberNames.Assignee.toString());
+		return (java.lang.String) getMendixObject().getValue(context, MemberNames.Assignees.toString());
 	}
 
 	/**
-	 * Set value of Assignee
-	 * @param assignee
+	 * Set value of Assignees
+	 * @param assignees
 	 */
-	public final void setAssignee(java.lang.String assignee)
+	public final void setAssignees(java.lang.String assignees)
 	{
-		setAssignee(getContext(), assignee);
+		setAssignees(getContext(), assignees);
 	}
 
 	/**
-	 * Set value of Assignee
+	 * Set value of Assignees
 	 * @param context
-	 * @param assignee
+	 * @param assignees
 	 */
-	public final void setAssignee(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String assignee)
+	public final void setAssignees(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String assignees)
 	{
-		getMendixObject().setValue(context, MemberNames.Assignee.toString(), assignee);
+		getMendixObject().setValue(context, MemberNames.Assignees.toString(), assignees);
 	}
 
-	/**
-	 * @return the IMendixObject instance of this proxy for use in the Core interface.
-	 */
+	@Override
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
 		return userTaskTimeLineMendixObject;
 	}
 
-	/**
-	 * @return the IContext instance of this proxy, or null if no IContext instance was specified at initialization.
-	 */
+	@Override
 	public final com.mendix.systemwideinterfaces.core.IContext getContext()
 	{
 		return context;
@@ -380,21 +417,13 @@ public class UserTaskTimeLine
 		return getMendixObject().hashCode();
 	}
 
-	/**
-	 * @return String name of this class
-	 */
+  /**
+   * Gives full name ("Module.Entity" name) of the type of the entity.
+   *
+   * @return the name
+   */
 	public static java.lang.String getType()
 	{
 		return entityName;
-	}
-
-	/**
-	 * @return String GUID from this object, format: ID_0000000000
-	 * @deprecated Use getMendixObject().getId().toLong() to get a unique identifier for this object.
-	 */
-	@java.lang.Deprecated
-	public java.lang.String getGUID()
-	{
-		return "ID_" + getMendixObject().getId().toLong();
 	}
 }
