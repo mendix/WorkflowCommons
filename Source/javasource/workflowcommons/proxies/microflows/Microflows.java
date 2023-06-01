@@ -4,882 +4,2645 @@
 
 package workflowcommons.proxies.microflows;
 
-import java.util.HashMap;
-import java.util.Map;
 import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 
-public class Microflows
+public final class Microflows
 {
 	/**
-	 * @deprecated
-	 * The default constructor of the Microflows class should not be used.
-	 * Use the static microflow invocation methods instead.
+	 * Private constructor to prevent instantiation of this class. 
 	 */
-	@java.lang.Deprecated(since = "9.12", forRemoval = true)
-	public Microflows() {}
+	private Microflows() {}
 
 	// These are the microflows for the WorkflowCommons module
-	public static void aCT_Attachment_Create(IContext context, workflowcommons.proxies.WorkflowComment _workflowComment)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Assignee_MigrateBuilder()
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("WorkflowComment", _workflowComment == null ? null : _workflowComment.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_Attachment_Create").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_Assignee_Migrate");
+		return builder;
 	}
-	public static void aCT_Attachment_Download(IContext context, workflowcommons.proxies.WorkflowAttachment _workflowAttachment)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("WorkflowAttachment", _workflowAttachment == null ? null : _workflowAttachment.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_Attachment_Download").withParams(params).execute(context);
-	}
-	public static void aCT_Attachment_Save(IContext context, workflowcommons.proxies.WorkflowAttachment _workflowAttachment)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("WorkflowAttachment", _workflowAttachment == null ? null : _workflowAttachment.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_Attachment_Save").withParams(params).execute(context);
-	}
-	public static void aCT_Attachment_Save_Admin(IContext context, workflowcommons.proxies.WorkflowAttachment _workflowAttachment)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("WorkflowAttachment", _workflowAttachment == null ? null : _workflowAttachment.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_Attachment_Save_Admin").withParams(params).execute(context);
-	}
-	public static void aCT_Comment_Delete(IContext context, workflowcommons.proxies.WorkflowComment _workflowComment)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("WorkflowComment", _workflowComment == null ? null : _workflowComment.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_Comment_Delete").withParams(params).execute(context);
-	}
-	public static void aCT_CommentsAttachments_Migration(IContext context)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		Core.microflowCall("WorkflowCommons.ACT_CommentsAttachments_Migration").withParams(params).execute(context);
-	}
-	public static void aCT_DashboardContext_Refresh(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_DashboardContext_Refresh").withParams(params).execute(context);
-	}
-	public static void aCT_TaskCount_Update(IContext context, workflowcommons.proxies.TaskCount _taskCount)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("TaskCount", _taskCount == null ? null : _taskCount.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_TaskCount_Update").withParams(params).execute(context);
-	}
-	public static void aCT_UserTask_AssignToMe(IContext context, system.proxies.WorkflowUserTask _workflowUserTask)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("WorkflowUserTask", _workflowUserTask == null ? null : _workflowUserTask.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_UserTask_AssignToMe").withParams(params).execute(context);
-	}
-	public static void aCT_UserTask_AssignToMe_UpdateTaskCount(IContext context, system.proxies.WorkflowUserTask _userTask, workflowcommons.proxies.TaskCount _taskCount)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("UserTask", _userTask == null ? null : _userTask.getMendixObject());
-		params.put("TaskCount", _taskCount == null ? null : _taskCount.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_UserTask_AssignToMe_UpdateTaskCount").withParams(params).execute(context);
-	}
-	public static void aCT_UserTask_ShowDefaultAdminPage(IContext context, system.proxies.WorkflowUserTask _workflowUserTask)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("WorkflowUserTask", _workflowUserTask == null ? null : _workflowUserTask.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_UserTask_ShowDefaultAdminPage").withParams(params).execute(context);
-	}
-	public static void aCT_UserTask_Unassign(IContext context, system.proxies.WorkflowUserTask _userTask)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("UserTask", _userTask == null ? null : _userTask.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_UserTask_Unassign").withParams(params).execute(context);
-	}
-	public static void aCT_UserTaskView_ShowUserTaskPage(IContext context, workflowcommons.proxies.UserTaskView _userTaskView)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("UserTaskView", _userTaskView == null ? null : _userTaskView.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_UserTaskView_ShowUserTaskPage").withParams(params).execute(context);
-	}
-	public static void aCT_UserTaskView_ShowWorkflowAdminPage(IContext context, workflowcommons.proxies.UserTaskView _userTaskView)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("UserTaskView", _userTaskView == null ? null : _userTaskView.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_UserTaskView_ShowWorkflowAdminPage").withParams(params).execute(context);
-	}
-	public static void aCT_Workflow_Abort(IContext context, system.proxies.Workflow _workflow)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Workflow", _workflow == null ? null : _workflow.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_Workflow_Abort").withParams(params).execute(context);
-	}
-	public static void aCT_Workflow_CloseJumpToConfirmation(IContext context, system.proxies.Workflow _workflow)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Workflow", _workflow == null ? null : _workflow.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_Workflow_CloseJumpToConfirmation").withParams(params).execute(context);
-	}
-	public static void aCT_Workflow_Continue(IContext context, system.proxies.Workflow _workflow)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Workflow", _workflow == null ? null : _workflow.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_Workflow_Continue").withParams(params).execute(context);
-	}
-	public static void aCT_Workflow_JumpTo(IContext context, system.proxies.Workflow _workflow)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Workflow", _workflow == null ? null : _workflow.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_Workflow_JumpTo").withParams(params).execute(context);
-	}
-	public static void aCT_Workflow_OpenParentWorkflow(IContext context, system.proxies.Workflow _workflow)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Workflow", _workflow == null ? null : _workflow.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_Workflow_OpenParentWorkflow").withParams(params).execute(context);
-	}
-	public static void aCT_Workflow_Pause(IContext context, system.proxies.Workflow _workflow)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Workflow", _workflow == null ? null : _workflow.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_Workflow_Pause").withParams(params).execute(context);
-	}
-	public static void aCT_Workflow_Restart(IContext context, system.proxies.Workflow _workflow)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Workflow", _workflow == null ? null : _workflow.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_Workflow_Restart").withParams(params).execute(context);
-	}
-	public static void aCT_Workflow_Retry(IContext context, system.proxies.Workflow _workflow)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Workflow", _workflow == null ? null : _workflow.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_Workflow_Retry").withParams(params).execute(context);
-	}
-	public static void aCT_Workflow_Unpause(IContext context, system.proxies.Workflow _workflow)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Workflow", _workflow == null ? null : _workflow.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_Workflow_Unpause").withParams(params).execute(context);
-	}
-	public static void aCT_Workflow_WithdrawConfirmation(IContext context, workflowcommons.proxies.WorkflowComment _workflowComment)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("WorkflowComment", _workflowComment == null ? null : _workflowComment.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_Workflow_WithdrawConfirmation").withParams(params).execute(context);
-	}
-	public static void aCT_WorkflowComment_Edit(IContext context, workflowcommons.proxies.WorkflowComment _workflowComment)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("WorkflowComment", _workflowComment == null ? null : _workflowComment.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_WorkflowComment_Edit").withParams(params).execute(context);
-	}
-	public static void aCT_WorkflowCommentHelper_Edit_Save(IContext context, workflowcommons.proxies.WorkflowCommentHelper _workflowCommentHelper)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("WorkflowCommentHelper", _workflowCommentHelper == null ? null : _workflowCommentHelper.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_WorkflowCommentHelper_Edit_Save").withParams(params).execute(context);
-	}
-	public static void aCT_WorkflowCommentHelper_SaveNew(IContext context, workflowcommons.proxies.WorkflowCommentHelper _workflowCommentHelper, workflowcommons.proxies.WorkflowView _workflowView)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("WorkflowCommentHelper", _workflowCommentHelper == null ? null : _workflowCommentHelper.getMendixObject());
-		params.put("WorkflowView", _workflowView == null ? null : _workflowView.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_WorkflowCommentHelper_SaveNew").withParams(params).execute(context);
-	}
-	public static void aCT_WorkflowCommentHelper_SaveNew_Admin(IContext context, workflowcommons.proxies.WorkflowCommentHelper _workflowCommentHelper, workflowcommons.proxies.WorkflowView _workflowView)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("WorkflowCommentHelper", _workflowCommentHelper == null ? null : _workflowCommentHelper.getMendixObject());
-		params.put("WorkflowView", _workflowView == null ? null : _workflowView.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_WorkflowCommentHelper_SaveNew_Admin").withParams(params).execute(context);
-	}
-	public static void aCT_WorkflowDefinition_DeleteAllWorkflows(IContext context, system.proxies.WorkflowDefinition _workflowDefinition)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("WorkflowDefinition", _workflowDefinition == null ? null : _workflowDefinition.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_WorkflowDefinition_DeleteAllWorkflows").withParams(params).execute(context);
-	}
-	public static void aCT_WorkflowJumpToDetails_Apply(IContext context, system.proxies.WorkflowJumpToDetails _workflowJumpToDetails)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("WorkflowJumpToDetails", _workflowJumpToDetails == null ? null : _workflowJumpToDetails.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_WorkflowJumpToDetails_Apply").withParams(params).execute(context);
-	}
-	public static void aCT_WorkflowUserTask_AssignUser(IContext context, system.proxies.User _user, system.proxies.WorkflowUserTask _workflowUserTask)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("User", _user == null ? null : _user.getMendixObject());
-		params.put("WorkflowUserTask", _workflowUserTask == null ? null : _workflowUserTask.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_WorkflowUserTask_AssignUser").withParams(params).execute(context);
-	}
-	public static void aCT_WorkflowUserTask_TargetUsers_Add(IContext context, java.util.List<system.proxies.User> _userList, system.proxies.WorkflowUserTask _workflowUserTask)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		java.util.List<IMendixObject> listparam_userList = null;
-		if (_userList != null)
-		{
-			listparam_userList = new java.util.ArrayList<>();
-			for (var obj : _userList) {
-				listparam_userList.add(obj.getMendixObject());
-			}
-		}
-		params.put("UserList", listparam_userList);
 
-		params.put("WorkflowUserTask", _workflowUserTask == null ? null : _workflowUserTask.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_WorkflowUserTask_TargetUsers_Add").withParams(params).execute(context);
-	}
-	public static void aCT_WorkflowUserTask_TargetUsers_Remove(IContext context, java.util.List<system.proxies.User> _userList, system.proxies.WorkflowUserTask _workflowUserTask)
+	public static void aCT_Assignee_Migrate(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		java.util.List<IMendixObject> listparam_userList = null;
-		if (_userList != null)
-		{
-			listparam_userList = new java.util.ArrayList<>();
-			for (var obj : _userList) {
-				listparam_userList.add(obj.getMendixObject());
-			}
-		}
-		params.put("UserList", listparam_userList);
+		aCT_Assignee_MigrateBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Attachment_CreateBuilder(
+		workflowcommons.proxies.WorkflowComment _workflowComment
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_Attachment_Create");
+		builder = builder.withParam("WorkflowComment", _workflowComment);
+		return builder;
+	}
 
-		params.put("WorkflowUserTask", _workflowUserTask == null ? null : _workflowUserTask.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_WorkflowUserTask_TargetUsers_Remove").withParams(params).execute(context);
-	}
-	public static void aCT_WorkflowView_ShowWorkflowAdminPage(IContext context, workflowcommons.proxies.WorkflowView _workflowView)
+	public static void aCT_Attachment_Create(
+		IContext context,
+		workflowcommons.proxies.WorkflowComment _workflowComment
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("WorkflowView", _workflowView == null ? null : _workflowView.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_WorkflowView_ShowWorkflowAdminPage").withParams(params).execute(context);
+		aCT_Attachment_CreateBuilder(
+				_workflowComment
+			)
+			.execute(context);
 	}
-	public static void aCT_WorkflowView_WithdrawWorkflow(IContext context, workflowcommons.proxies.WorkflowView _workflowView)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Attachment_DownloadBuilder(
+		workflowcommons.proxies.WorkflowAttachment _workflowAttachment
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("WorkflowView", _workflowView == null ? null : _workflowView.getMendixObject());
-		Core.microflowCall("WorkflowCommons.ACT_WorkflowView_WithdrawWorkflow").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_Attachment_Download");
+		builder = builder.withParam("WorkflowAttachment", _workflowAttachment);
+		return builder;
 	}
-	public static system.proxies.WorkflowDefinition dashboardContext_GetSelectedWorkflowDefinition(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
+
+	public static void aCT_Attachment_Download(
+		IContext context,
+		workflowcommons.proxies.WorkflowAttachment _workflowAttachment
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommons.DashboardContext_GetSelectedWorkflowDefinition").withParams(params).execute(context);
-		return result == null ? null : system.proxies.WorkflowDefinition.initialize(context, result);
+		aCT_Attachment_DownloadBuilder(
+				_workflowAttachment
+			)
+			.execute(context);
 	}
-	public static system.proxies.WorkflowUserTaskDefinition dashboardContext_GetSelectedWorkflowTaskDefinition(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Attachment_SaveBuilder(
+		workflowcommons.proxies.WorkflowAttachment _workflowAttachment
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommons.DashboardContext_GetSelectedWorkflowTaskDefinition").withParams(params).execute(context);
-		return result == null ? null : system.proxies.WorkflowUserTaskDefinition.initialize(context, result);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_Attachment_Save");
+		builder = builder.withParam("WorkflowAttachment", _workflowAttachment);
+		return builder;
 	}
+
+	public static void aCT_Attachment_Save(
+		IContext context,
+		workflowcommons.proxies.WorkflowAttachment _workflowAttachment
+	)
+	{
+		aCT_Attachment_SaveBuilder(
+				_workflowAttachment
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Attachment_Save_AdminBuilder(
+		workflowcommons.proxies.WorkflowAttachment _workflowAttachment
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_Attachment_Save_Admin");
+		builder = builder.withParam("WorkflowAttachment", _workflowAttachment);
+		return builder;
+	}
+
+	public static void aCT_Attachment_Save_Admin(
+		IContext context,
+		workflowcommons.proxies.WorkflowAttachment _workflowAttachment
+	)
+	{
+		aCT_Attachment_Save_AdminBuilder(
+				_workflowAttachment
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Comment_DeleteBuilder(
+		workflowcommons.proxies.WorkflowComment _workflowComment
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_Comment_Delete");
+		builder = builder.withParam("WorkflowComment", _workflowComment);
+		return builder;
+	}
+
+	public static void aCT_Comment_Delete(
+		IContext context,
+		workflowcommons.proxies.WorkflowComment _workflowComment
+	)
+	{
+		aCT_Comment_DeleteBuilder(
+				_workflowComment
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_DashboardContext_RefreshBuilder(
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_DashboardContext_Refresh");
+		builder = builder.withParam("DashboardContext", _dashboardContext);
+		return builder;
+	}
+
+	public static void aCT_DashboardContext_Refresh(
+		IContext context,
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
+	{
+		aCT_DashboardContext_RefreshBuilder(
+				_dashboardContext
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_TaskCount_UpdateBuilder(
+		workflowcommons.proxies.TaskCount _taskCount
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_TaskCount_Update");
+		builder = builder.withParam("TaskCount", _taskCount);
+		return builder;
+	}
+
+	public static void aCT_TaskCount_Update(
+		IContext context,
+		workflowcommons.proxies.TaskCount _taskCount
+	)
+	{
+		aCT_TaskCount_UpdateBuilder(
+				_taskCount
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_UserTask_AssignToMeBuilder(
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_UserTask_AssignToMe");
+		builder = builder.withParam("WorkflowUserTask", _workflowUserTask);
+		return builder;
+	}
+
+	public static void aCT_UserTask_AssignToMe(
+		IContext context,
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
+	{
+		aCT_UserTask_AssignToMeBuilder(
+				_workflowUserTask
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_UserTask_AssignToMe_UpdateTaskCountBuilder(
+		system.proxies.WorkflowUserTask _userTask,
+		workflowcommons.proxies.TaskCount _taskCount
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_UserTask_AssignToMe_UpdateTaskCount");
+		builder = builder.withParam("UserTask", _userTask);
+		builder = builder.withParam("TaskCount", _taskCount);
+		return builder;
+	}
+
+	public static void aCT_UserTask_AssignToMe_UpdateTaskCount(
+		IContext context,
+		system.proxies.WorkflowUserTask _userTask,
+		workflowcommons.proxies.TaskCount _taskCount
+	)
+	{
+		aCT_UserTask_AssignToMe_UpdateTaskCountBuilder(
+				_userTask,
+				_taskCount
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_UserTask_ShowDefaultAdminPageBuilder(
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_UserTask_ShowDefaultAdminPage");
+		builder = builder.withParam("WorkflowUserTask", _workflowUserTask);
+		return builder;
+	}
+
+	public static void aCT_UserTask_ShowDefaultAdminPage(
+		IContext context,
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
+	{
+		aCT_UserTask_ShowDefaultAdminPageBuilder(
+				_workflowUserTask
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_UserTask_UnassignBuilder(
+		system.proxies.WorkflowUserTask _userTask
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_UserTask_Unassign");
+		builder = builder.withParam("UserTask", _userTask);
+		return builder;
+	}
+
+	public static void aCT_UserTask_Unassign(
+		IContext context,
+		system.proxies.WorkflowUserTask _userTask
+	)
+	{
+		aCT_UserTask_UnassignBuilder(
+				_userTask
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_UserTaskView_ShowUserTaskPageBuilder(
+		workflowcommons.proxies.UserTaskView _userTaskView
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_UserTaskView_ShowUserTaskPage");
+		builder = builder.withParam("UserTaskView", _userTaskView);
+		return builder;
+	}
+
+	public static void aCT_UserTaskView_ShowUserTaskPage(
+		IContext context,
+		workflowcommons.proxies.UserTaskView _userTaskView
+	)
+	{
+		aCT_UserTaskView_ShowUserTaskPageBuilder(
+				_userTaskView
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_UserTaskView_ShowWorkflowAdminPageBuilder(
+		workflowcommons.proxies.UserTaskView _userTaskView
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_UserTaskView_ShowWorkflowAdminPage");
+		builder = builder.withParam("UserTaskView", _userTaskView);
+		return builder;
+	}
+
+	public static void aCT_UserTaskView_ShowWorkflowAdminPage(
+		IContext context,
+		workflowcommons.proxies.UserTaskView _userTaskView
+	)
+	{
+		aCT_UserTaskView_ShowWorkflowAdminPageBuilder(
+				_userTaskView
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Workflow_AbortBuilder(
+		system.proxies.Workflow _workflow
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_Workflow_Abort");
+		builder = builder.withParam("Workflow", _workflow);
+		return builder;
+	}
+
+	public static void aCT_Workflow_Abort(
+		IContext context,
+		system.proxies.Workflow _workflow
+	)
+	{
+		aCT_Workflow_AbortBuilder(
+				_workflow
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Workflow_CloseJumpToConfirmationBuilder(
+		system.proxies.Workflow _workflow
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_Workflow_CloseJumpToConfirmation");
+		builder = builder.withParam("Workflow", _workflow);
+		return builder;
+	}
+
+	public static void aCT_Workflow_CloseJumpToConfirmation(
+		IContext context,
+		system.proxies.Workflow _workflow
+	)
+	{
+		aCT_Workflow_CloseJumpToConfirmationBuilder(
+				_workflow
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Workflow_ContinueBuilder(
+		system.proxies.Workflow _workflow
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_Workflow_Continue");
+		builder = builder.withParam("Workflow", _workflow);
+		return builder;
+	}
+
+	public static void aCT_Workflow_Continue(
+		IContext context,
+		system.proxies.Workflow _workflow
+	)
+	{
+		aCT_Workflow_ContinueBuilder(
+				_workflow
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Workflow_JumpToBuilder(
+		system.proxies.Workflow _workflow
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_Workflow_JumpTo");
+		builder = builder.withParam("Workflow", _workflow);
+		return builder;
+	}
+
+	public static void aCT_Workflow_JumpTo(
+		IContext context,
+		system.proxies.Workflow _workflow
+	)
+	{
+		aCT_Workflow_JumpToBuilder(
+				_workflow
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Workflow_OpenParentWorkflowBuilder(
+		system.proxies.Workflow _workflow
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_Workflow_OpenParentWorkflow");
+		builder = builder.withParam("Workflow", _workflow);
+		return builder;
+	}
+
+	public static void aCT_Workflow_OpenParentWorkflow(
+		IContext context,
+		system.proxies.Workflow _workflow
+	)
+	{
+		aCT_Workflow_OpenParentWorkflowBuilder(
+				_workflow
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Workflow_PauseBuilder(
+		system.proxies.Workflow _workflow
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_Workflow_Pause");
+		builder = builder.withParam("Workflow", _workflow);
+		return builder;
+	}
+
+	public static void aCT_Workflow_Pause(
+		IContext context,
+		system.proxies.Workflow _workflow
+	)
+	{
+		aCT_Workflow_PauseBuilder(
+				_workflow
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Workflow_RestartBuilder(
+		system.proxies.Workflow _workflow
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_Workflow_Restart");
+		builder = builder.withParam("Workflow", _workflow);
+		return builder;
+	}
+
+	public static void aCT_Workflow_Restart(
+		IContext context,
+		system.proxies.Workflow _workflow
+	)
+	{
+		aCT_Workflow_RestartBuilder(
+				_workflow
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Workflow_RetryBuilder(
+		system.proxies.Workflow _workflow
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_Workflow_Retry");
+		builder = builder.withParam("Workflow", _workflow);
+		return builder;
+	}
+
+	public static void aCT_Workflow_Retry(
+		IContext context,
+		system.proxies.Workflow _workflow
+	)
+	{
+		aCT_Workflow_RetryBuilder(
+				_workflow
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Workflow_UnpauseBuilder(
+		system.proxies.Workflow _workflow
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_Workflow_Unpause");
+		builder = builder.withParam("Workflow", _workflow);
+		return builder;
+	}
+
+	public static void aCT_Workflow_Unpause(
+		IContext context,
+		system.proxies.Workflow _workflow
+	)
+	{
+		aCT_Workflow_UnpauseBuilder(
+				_workflow
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Workflow_WithdrawConfirmationBuilder(
+		workflowcommons.proxies.WorkflowComment _workflowComment
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_Workflow_WithdrawConfirmation");
+		builder = builder.withParam("WorkflowComment", _workflowComment);
+		return builder;
+	}
+
+	public static void aCT_Workflow_WithdrawConfirmation(
+		IContext context,
+		workflowcommons.proxies.WorkflowComment _workflowComment
+	)
+	{
+		aCT_Workflow_WithdrawConfirmationBuilder(
+				_workflowComment
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_WorkflowComment_EditBuilder(
+		workflowcommons.proxies.WorkflowComment _workflowComment
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_WorkflowComment_Edit");
+		builder = builder.withParam("WorkflowComment", _workflowComment);
+		return builder;
+	}
+
+	public static void aCT_WorkflowComment_Edit(
+		IContext context,
+		workflowcommons.proxies.WorkflowComment _workflowComment
+	)
+	{
+		aCT_WorkflowComment_EditBuilder(
+				_workflowComment
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_WorkflowCommentHelper_Edit_SaveBuilder(
+		workflowcommons.proxies.WorkflowCommentHelper _workflowCommentHelper
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_WorkflowCommentHelper_Edit_Save");
+		builder = builder.withParam("WorkflowCommentHelper", _workflowCommentHelper);
+		return builder;
+	}
+
+	public static void aCT_WorkflowCommentHelper_Edit_Save(
+		IContext context,
+		workflowcommons.proxies.WorkflowCommentHelper _workflowCommentHelper
+	)
+	{
+		aCT_WorkflowCommentHelper_Edit_SaveBuilder(
+				_workflowCommentHelper
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_WorkflowCommentHelper_SaveNewBuilder(
+		workflowcommons.proxies.WorkflowCommentHelper _workflowCommentHelper,
+		workflowcommons.proxies.WorkflowView _workflowView
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_WorkflowCommentHelper_SaveNew");
+		builder = builder.withParam("WorkflowCommentHelper", _workflowCommentHelper);
+		builder = builder.withParam("WorkflowView", _workflowView);
+		return builder;
+	}
+
+	public static void aCT_WorkflowCommentHelper_SaveNew(
+		IContext context,
+		workflowcommons.proxies.WorkflowCommentHelper _workflowCommentHelper,
+		workflowcommons.proxies.WorkflowView _workflowView
+	)
+	{
+		aCT_WorkflowCommentHelper_SaveNewBuilder(
+				_workflowCommentHelper,
+				_workflowView
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_WorkflowCommentHelper_SaveNew_AdminBuilder(
+		workflowcommons.proxies.WorkflowCommentHelper _workflowCommentHelper,
+		workflowcommons.proxies.WorkflowView _workflowView
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_WorkflowCommentHelper_SaveNew_Admin");
+		builder = builder.withParam("WorkflowCommentHelper", _workflowCommentHelper);
+		builder = builder.withParam("WorkflowView", _workflowView);
+		return builder;
+	}
+
+	public static void aCT_WorkflowCommentHelper_SaveNew_Admin(
+		IContext context,
+		workflowcommons.proxies.WorkflowCommentHelper _workflowCommentHelper,
+		workflowcommons.proxies.WorkflowView _workflowView
+	)
+	{
+		aCT_WorkflowCommentHelper_SaveNew_AdminBuilder(
+				_workflowCommentHelper,
+				_workflowView
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_WorkflowDefinition_DeleteAllWorkflowsBuilder(
+		system.proxies.WorkflowDefinition _workflowDefinition
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_WorkflowDefinition_DeleteAllWorkflows");
+		builder = builder.withParam("WorkflowDefinition", _workflowDefinition);
+		return builder;
+	}
+
+	public static void aCT_WorkflowDefinition_DeleteAllWorkflows(
+		IContext context,
+		system.proxies.WorkflowDefinition _workflowDefinition
+	)
+	{
+		aCT_WorkflowDefinition_DeleteAllWorkflowsBuilder(
+				_workflowDefinition
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_WorkflowDefinition_LockBuilder(
+		workflowcommons.proxies.WorkflowDefinitionHelper _workflowDefinitionHelper
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_WorkflowDefinition_Lock");
+		builder = builder.withParam("WorkflowDefinitionHelper", _workflowDefinitionHelper);
+		return builder;
+	}
+
+	public static void aCT_WorkflowDefinition_Lock(
+		IContext context,
+		workflowcommons.proxies.WorkflowDefinitionHelper _workflowDefinitionHelper
+	)
+	{
+		aCT_WorkflowDefinition_LockBuilder(
+				_workflowDefinitionHelper
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_WorkflowDefinition_UnlockBuilder(
+		workflowcommons.proxies.WorkflowDefinitionHelper _workflowDefinitionHelper
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_WorkflowDefinition_Unlock");
+		builder = builder.withParam("WorkflowDefinitionHelper", _workflowDefinitionHelper);
+		return builder;
+	}
+
+	public static void aCT_WorkflowDefinition_Unlock(
+		IContext context,
+		workflowcommons.proxies.WorkflowDefinitionHelper _workflowDefinitionHelper
+	)
+	{
+		aCT_WorkflowDefinition_UnlockBuilder(
+				_workflowDefinitionHelper
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_WorkflowDefinitionHelper_ShowLockPageBuilder(
+		system.proxies.WorkflowDefinition _workflowDefinition
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_WorkflowDefinitionHelper_ShowLockPage");
+		builder = builder.withParam("WorkflowDefinition", _workflowDefinition);
+		return builder;
+	}
+
+	public static void aCT_WorkflowDefinitionHelper_ShowLockPage(
+		IContext context,
+		system.proxies.WorkflowDefinition _workflowDefinition
+	)
+	{
+		aCT_WorkflowDefinitionHelper_ShowLockPageBuilder(
+				_workflowDefinition
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_WorkflowDefinitionHelper_ShowUnlockPageBuilder(
+		system.proxies.WorkflowDefinition _workflowDefinition
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_WorkflowDefinitionHelper_ShowUnlockPage");
+		builder = builder.withParam("WorkflowDefinition", _workflowDefinition);
+		return builder;
+	}
+
+	public static void aCT_WorkflowDefinitionHelper_ShowUnlockPage(
+		IContext context,
+		system.proxies.WorkflowDefinition _workflowDefinition
+	)
+	{
+		aCT_WorkflowDefinitionHelper_ShowUnlockPageBuilder(
+				_workflowDefinition
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_WorkflowJumpToDetails_ApplyBuilder(
+		system.proxies.WorkflowJumpToDetails _workflowJumpToDetails
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_WorkflowJumpToDetails_Apply");
+		builder = builder.withParam("WorkflowJumpToDetails", _workflowJumpToDetails);
+		return builder;
+	}
+
+	public static void aCT_WorkflowJumpToDetails_Apply(
+		IContext context,
+		system.proxies.WorkflowJumpToDetails _workflowJumpToDetails
+	)
+	{
+		aCT_WorkflowJumpToDetails_ApplyBuilder(
+				_workflowJumpToDetails
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_WorkflowUserTask_AssignBuilder(
+		system.proxies.User _user,
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_WorkflowUserTask_Assign");
+		builder = builder.withParam("User", _user);
+		builder = builder.withParam("WorkflowUserTask", _workflowUserTask);
+		return builder;
+	}
+
+	public static void aCT_WorkflowUserTask_Assign(
+		IContext context,
+		system.proxies.User _user,
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
+	{
+		aCT_WorkflowUserTask_AssignBuilder(
+				_user,
+				_workflowUserTask
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_WorkflowUserTask_Assignees_AddBuilder(
+		java.util.List<system.proxies.User> _userList,
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_WorkflowUserTask_Assignees_Add");
+		builder = builder.withParam("UserList", _userList);
+		builder = builder.withParam("WorkflowUserTask", _workflowUserTask);
+		return builder;
+	}
+
+	public static void aCT_WorkflowUserTask_Assignees_Add(
+		IContext context,
+		java.util.List<system.proxies.User> _userList,
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
+	{
+		aCT_WorkflowUserTask_Assignees_AddBuilder(
+				_userList,
+				_workflowUserTask
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_WorkflowUserTask_Assignees_RemoveBuilder(
+		java.util.List<system.proxies.User> _userList,
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_WorkflowUserTask_Assignees_Remove");
+		builder = builder.withParam("UserList", _userList);
+		builder = builder.withParam("WorkflowUserTask", _workflowUserTask);
+		return builder;
+	}
+
+	public static void aCT_WorkflowUserTask_Assignees_Remove(
+		IContext context,
+		java.util.List<system.proxies.User> _userList,
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
+	{
+		aCT_WorkflowUserTask_Assignees_RemoveBuilder(
+				_userList,
+				_workflowUserTask
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_WorkflowUserTask_TargetUsers_AddBuilder(
+		java.util.List<system.proxies.User> _userList,
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_WorkflowUserTask_TargetUsers_Add");
+		builder = builder.withParam("UserList", _userList);
+		builder = builder.withParam("WorkflowUserTask", _workflowUserTask);
+		return builder;
+	}
+
+	public static void aCT_WorkflowUserTask_TargetUsers_Add(
+		IContext context,
+		java.util.List<system.proxies.User> _userList,
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
+	{
+		aCT_WorkflowUserTask_TargetUsers_AddBuilder(
+				_userList,
+				_workflowUserTask
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_WorkflowUserTask_TargetUsers_RemoveBuilder(
+		java.util.List<system.proxies.User> _userList,
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_WorkflowUserTask_TargetUsers_Remove");
+		builder = builder.withParam("UserList", _userList);
+		builder = builder.withParam("WorkflowUserTask", _workflowUserTask);
+		return builder;
+	}
+
+	public static void aCT_WorkflowUserTask_TargetUsers_Remove(
+		IContext context,
+		java.util.List<system.proxies.User> _userList,
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
+	{
+		aCT_WorkflowUserTask_TargetUsers_RemoveBuilder(
+				_userList,
+				_workflowUserTask
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_WorkflowUserTask_UnassignBuilder(
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_WorkflowUserTask_Unassign");
+		builder = builder.withParam("WorkflowUserTask", _workflowUserTask);
+		return builder;
+	}
+
+	public static void aCT_WorkflowUserTask_Unassign(
+		IContext context,
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
+	{
+		aCT_WorkflowUserTask_UnassignBuilder(
+				_workflowUserTask
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_WorkflowView_ShowWorkflowAdminPageBuilder(
+		workflowcommons.proxies.WorkflowView _workflowView
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_WorkflowView_ShowWorkflowAdminPage");
+		builder = builder.withParam("WorkflowView", _workflowView);
+		return builder;
+	}
+
+	public static void aCT_WorkflowView_ShowWorkflowAdminPage(
+		IContext context,
+		workflowcommons.proxies.WorkflowView _workflowView
+	)
+	{
+		aCT_WorkflowView_ShowWorkflowAdminPageBuilder(
+				_workflowView
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_WorkflowView_WithdrawWorkflowBuilder(
+		workflowcommons.proxies.WorkflowView _workflowView
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_WorkflowView_WithdrawWorkflow");
+		builder = builder.withParam("WorkflowView", _workflowView);
+		return builder;
+	}
+
+	public static void aCT_WorkflowView_WithdrawWorkflow(
+		IContext context,
+		workflowcommons.proxies.WorkflowView _workflowView
+	)
+	{
+		aCT_WorkflowView_WithdrawWorkflowBuilder(
+				_workflowView
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aSu_Assignee_MigrateBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ASu_Assignee_Migrate");
+		return builder;
+	}
+
+	public static boolean aSu_Assignee_Migrate(IContext context)
+	{
+		Object result = aSu_Assignee_MigrateBuilder().execute(context);
+		return (boolean) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dashboardContext_GetSelectedWorkflowDefinitionBuilder(
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.DashboardContext_GetSelectedWorkflowDefinition");
+		builder = builder.withParam("DashboardContext", _dashboardContext);
+		return builder;
+	}
+
+	public static system.proxies.WorkflowDefinition dashboardContext_GetSelectedWorkflowDefinition(
+		IContext context,
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
+	{
+		Object result = dashboardContext_GetSelectedWorkflowDefinitionBuilder(
+				_dashboardContext
+			)
+			.execute(context);
+		return result == null ? null : system.proxies.WorkflowDefinition.initialize(context, (IMendixObject) result);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dashboardContext_GetSelectedWorkflowTaskDefinitionBuilder(
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.DashboardContext_GetSelectedWorkflowTaskDefinition");
+		builder = builder.withParam("DashboardContext", _dashboardContext);
+		return builder;
+	}
+
+	public static system.proxies.WorkflowUserTaskDefinition dashboardContext_GetSelectedWorkflowTaskDefinition(
+		IContext context,
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
+	{
+		Object result = dashboardContext_GetSelectedWorkflowTaskDefinitionBuilder(
+				_dashboardContext
+			)
+			.execute(context);
+		return result == null ? null : system.proxies.WorkflowUserTaskDefinition.initialize(context, (IMendixObject) result);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_ConfigurationBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.DS_Configuration");
+		return builder;
+	}
+
 	public static workflowcommons.proxies.Configuration dS_Configuration(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommons.DS_Configuration").withParams(params).execute(context);
-		return result == null ? null : workflowcommons.proxies.Configuration.initialize(context, result);
+		Object result = dS_ConfigurationBuilder().execute(context);
+		return result == null ? null : workflowcommons.proxies.Configuration.initialize(context, (IMendixObject) result);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_TaskCountBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.DS_TaskCount");
+		return builder;
+	}
+
 	public static workflowcommons.proxies.TaskCount dS_TaskCount(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommons.DS_TaskCount").withParams(params).execute(context);
-		return result == null ? null : workflowcommons.proxies.TaskCount.initialize(context, result);
+		Object result = dS_TaskCountBuilder().execute(context);
+		return result == null ? null : workflowcommons.proxies.TaskCount.initialize(context, (IMendixObject) result);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_TaskCount_AdminBuilder(
+		system.proxies.WorkflowDefinition _workflowDefinition
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.DS_TaskCount_Admin");
+		builder = builder.withParam("WorkflowDefinition", _workflowDefinition);
+		return builder;
+	}
+
+	public static workflowcommons.proxies.TaskCount dS_TaskCount_Admin(
+		IContext context,
+		system.proxies.WorkflowDefinition _workflowDefinition
+	)
+	{
+		Object result = dS_TaskCount_AdminBuilder(
+				_workflowDefinition
+			)
+			.execute(context);
+		return result == null ? null : workflowcommons.proxies.TaskCount.initialize(context, (IMendixObject) result);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_TaskDashboardBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.DS_TaskDashboard");
+		return builder;
+	}
+
 	public static workflowcommons.proxies.DashboardContext dS_TaskDashboard(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommons.DS_TaskDashboard").withParams(params).execute(context);
-		return result == null ? null : workflowcommons.proxies.DashboardContext.initialize(context, result);
+		Object result = dS_TaskDashboardBuilder().execute(context);
+		return result == null ? null : workflowcommons.proxies.DashboardContext.initialize(context, (IMendixObject) result);
 	}
-	public static java.util.List<workflowcommons.proxies.TaskSeries> dS_TaskSeries(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_TaskSeriesBuilder(
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		java.util.List<IMendixObject> objs = Core.microflowCall("WorkflowCommons.DS_TaskSeries").withParams(params).execute(context);
-		if (objs == null) {
-			return null;
-		} else {
-			return objs.stream()
-				.map(obj -> workflowcommons.proxies.TaskSeries.initialize(context, obj))
-				.collect(java.util.stream.Collectors.toList());
-		}
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.DS_TaskSeries");
+		builder = builder.withParam("DashboardContext", _dashboardContext);
+		return builder;
 	}
-	public static workflowcommons.proxies.WorkflowView dS_Workflow_WorkflowView(IContext context, system.proxies.Workflow _workflow)
+
+	public static java.util.List<workflowcommons.proxies.TaskSeries> dS_TaskSeries(
+		IContext context,
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Workflow", _workflow == null ? null : _workflow.getMendixObject());
-		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommons.DS_Workflow_WorkflowView").withParams(params).execute(context);
-		return result == null ? null : workflowcommons.proxies.WorkflowView.initialize(context, result);
+		Object result = dS_TaskSeriesBuilder(
+				_dashboardContext
+			)
+			.execute(context);
+		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> workflowcommons.proxies.TaskSeries.initialize(context, obj));
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_Workflow_WorkflowViewBuilder(
+		system.proxies.Workflow _workflow
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.DS_Workflow_WorkflowView");
+		builder = builder.withParam("Workflow", _workflow);
+		return builder;
+	}
+
+	public static workflowcommons.proxies.WorkflowView dS_Workflow_WorkflowView(
+		IContext context,
+		system.proxies.Workflow _workflow
+	)
+	{
+		Object result = dS_Workflow_WorkflowViewBuilder(
+				_workflow
+			)
+			.execute(context);
+		return result == null ? null : workflowcommons.proxies.WorkflowView.initialize(context, (IMendixObject) result);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_WorkflowCommentHelper_InitializeNewBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.DS_WorkflowCommentHelper_InitializeNew");
+		return builder;
+	}
+
 	public static workflowcommons.proxies.WorkflowCommentHelper dS_WorkflowCommentHelper_InitializeNew(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommons.DS_WorkflowCommentHelper_InitializeNew").withParams(params).execute(context);
-		return result == null ? null : workflowcommons.proxies.WorkflowCommentHelper.initialize(context, result);
+		Object result = dS_WorkflowCommentHelper_InitializeNewBuilder().execute(context);
+		return result == null ? null : workflowcommons.proxies.WorkflowCommentHelper.initialize(context, (IMendixObject) result);
 	}
-	public static java.util.List<system.proxies.WorkflowActivityDetails> dS_WorkflowCurrentActivity_Options(IContext context, system.proxies.WorkflowCurrentActivity _workflowCurrentActivity)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_WorkflowCurrentActivity_OptionsBuilder(
+		system.proxies.WorkflowCurrentActivity _workflowCurrentActivity
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("WorkflowCurrentActivity", _workflowCurrentActivity == null ? null : _workflowCurrentActivity.getMendixObject());
-		java.util.List<IMendixObject> objs = Core.microflowCall("WorkflowCommons.DS_WorkflowCurrentActivity_Options").withParams(params).execute(context);
-		if (objs == null) {
-			return null;
-		} else {
-			return objs.stream()
-				.map(obj -> system.proxies.WorkflowActivityDetails.initialize(context, obj))
-				.collect(java.util.stream.Collectors.toList());
-		}
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.DS_WorkflowCurrentActivity_Options");
+		builder = builder.withParam("WorkflowCurrentActivity", _workflowCurrentActivity);
+		return builder;
 	}
+
+	public static java.util.List<system.proxies.WorkflowActivityDetails> dS_WorkflowCurrentActivity_Options(
+		IContext context,
+		system.proxies.WorkflowCurrentActivity _workflowCurrentActivity
+	)
+	{
+		Object result = dS_WorkflowCurrentActivity_OptionsBuilder(
+				_workflowCurrentActivity
+			)
+			.execute(context);
+		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> system.proxies.WorkflowActivityDetails.initialize(context, obj));
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_WorkflowDashboardBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.DS_WorkflowDashboard");
+		return builder;
+	}
+
 	public static workflowcommons.proxies.DashboardContext dS_WorkflowDashboard(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommons.DS_WorkflowDashboard").withParams(params).execute(context);
-		return result == null ? null : workflowcommons.proxies.DashboardContext.initialize(context, result);
+		Object result = dS_WorkflowDashboardBuilder().execute(context);
+		return result == null ? null : workflowcommons.proxies.DashboardContext.initialize(context, (IMendixObject) result);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_WorkflowDefinition_OverviewBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.DS_WorkflowDefinition_Overview");
+		return builder;
+	}
+
 	public static java.util.List<workflowcommons.proxies.WorkflowSummary> dS_WorkflowDefinition_Overview(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		java.util.List<IMendixObject> objs = Core.microflowCall("WorkflowCommons.DS_WorkflowDefinition_Overview").withParams(params).execute(context);
-		if (objs == null) {
-			return null;
-		} else {
-			return objs.stream()
-				.map(obj -> workflowcommons.proxies.WorkflowSummary.initialize(context, obj))
-				.collect(java.util.stream.Collectors.toList());
-		}
+		Object result = dS_WorkflowDefinition_OverviewBuilder().execute(context);
+		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> workflowcommons.proxies.WorkflowSummary.initialize(context, obj));
 	}
-	public static java.util.List<workflowcommons.proxies.DefinitionHelper> dS_WorkflowDefinition_SelectableImplementation(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_WorkflowDefinition_SelectableImplementationBuilder(
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		java.util.List<IMendixObject> objs = Core.microflowCall("WorkflowCommons.DS_WorkflowDefinition_SelectableImplementation").withParams(params).execute(context);
-		if (objs == null) {
-			return null;
-		} else {
-			return objs.stream()
-				.map(obj -> workflowcommons.proxies.DefinitionHelper.initialize(context, obj))
-				.collect(java.util.stream.Collectors.toList());
-		}
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.DS_WorkflowDefinition_SelectableImplementation");
+		builder = builder.withParam("DashboardContext", _dashboardContext);
+		return builder;
 	}
-	public static java.util.List<workflowcommons.proxies.WorkflowSeries> dS_WorkflowSeries(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		java.util.List<IMendixObject> objs = Core.microflowCall("WorkflowCommons.DS_WorkflowSeries").withParams(params).execute(context);
-		if (objs == null) {
-			return null;
-		} else {
-			return objs.stream()
-				.map(obj -> workflowcommons.proxies.WorkflowSeries.initialize(context, obj))
-				.collect(java.util.stream.Collectors.toList());
-		}
-	}
-	public static java.util.List<workflowcommons.proxies.UserTaskView> dS_WorkflowTask_AssignedToUser(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		java.util.List<IMendixObject> objs = Core.microflowCall("WorkflowCommons.DS_WorkflowTask_AssignedToUser").withParams(params).execute(context);
-		if (objs == null) {
-			return null;
-		} else {
-			return objs.stream()
-				.map(obj -> workflowcommons.proxies.UserTaskView.initialize(context, obj))
-				.collect(java.util.stream.Collectors.toList());
-		}
-	}
-	public static java.util.List<system.proxies.WorkflowUserTaskDefinition> dS_WorkflowTaskDefinition_Selectable_Administrator(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		java.util.List<IMendixObject> objs = Core.microflowCall("WorkflowCommons.DS_WorkflowTaskDefinition_Selectable_Administrator").withParams(params).execute(context);
-		if (objs == null) {
-			return null;
-		} else {
-			return objs.stream()
-				.map(obj -> system.proxies.WorkflowUserTaskDefinition.initialize(context, obj))
-				.collect(java.util.stream.Collectors.toList());
-		}
-	}
-	public static java.util.List<workflowcommons.proxies.DefinitionHelper> dS_WorkflowTaskDefinition_Selectable_UserImplementation(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		java.util.List<IMendixObject> objs = Core.microflowCall("WorkflowCommons.DS_WorkflowTaskDefinition_Selectable_UserImplementation").withParams(params).execute(context);
-		if (objs == null) {
-			return null;
-		} else {
-			return objs.stream()
-				.map(obj -> workflowcommons.proxies.DefinitionHelper.initialize(context, obj))
-				.collect(java.util.stream.Collectors.toList());
-		}
-	}
-	public static java.util.List<workflowcommons.proxies.WorkflowTaskDetail> dS_WorkflowTaskDetail(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		java.util.List<IMendixObject> objs = Core.microflowCall("WorkflowCommons.DS_WorkflowTaskDetail").withParams(params).execute(context);
-		if (objs == null) {
-			return null;
-		} else {
-			return objs.stream()
-				.map(obj -> workflowcommons.proxies.WorkflowTaskDetail.initialize(context, obj))
-				.collect(java.util.stream.Collectors.toList());
-		}
-	}
-	public static workflowcommons.proxies.WorkflowView dS_WorkflowUserTask_WorkflowView(IContext context, system.proxies.WorkflowUserTask _workflowUserTask)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("WorkflowUserTask", _workflowUserTask == null ? null : _workflowUserTask.getMendixObject());
-		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommons.DS_WorkflowUserTask_WorkflowView").withParams(params).execute(context);
-		return result == null ? null : workflowcommons.proxies.WorkflowView.initialize(context, result);
-	}
-	public static java.util.List<workflowcommons.proxies.UserTaskTimeLine> dS_WorkflowView_UserTaskTimeline(IContext context, workflowcommons.proxies.WorkflowView _workflowView)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("WorkflowView", _workflowView == null ? null : _workflowView.getMendixObject());
-		java.util.List<IMendixObject> objs = Core.microflowCall("WorkflowCommons.DS_WorkflowView_UserTaskTimeline").withParams(params).execute(context);
-		if (objs == null) {
-			return null;
-		} else {
-			return objs.stream()
-				.map(obj -> workflowcommons.proxies.UserTaskTimeLine.initialize(context, obj))
-				.collect(java.util.stream.Collectors.toList());
-		}
-	}
-	public static void oCh_DashboardContext_UpdateTaskDashboard(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		Core.microflowCall("WorkflowCommons.OCh_DashboardContext_UpdateTaskDashboard").withParams(params).execute(context);
-	}
-	public static void oCh_DashboardContext_UpdateWorkflowDashboard(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		Core.microflowCall("WorkflowCommons.OCh_DashboardContext_UpdateWorkflowDashboard").withParams(params).execute(context);
-	}
-	public static void oCh_Workflow_State(IContext context, system.proxies.Workflow _workflow)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Workflow", _workflow == null ? null : _workflow.getMendixObject());
-		Core.microflowCall("WorkflowCommons.OCh_Workflow_State").withParams(params).execute(context);
-	}
-	public static void oCh_WorkflowUserTask_State(IContext context, system.proxies.WorkflowUserTask _userTask)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("UserTask", _userTask == null ? null : _userTask.getMendixObject());
-		Core.microflowCall("WorkflowCommons.OCh_WorkflowUserTask_State").withParams(params).execute(context);
-	}
-	public static void oCl_WorkflowSummary(IContext context, workflowcommons.proxies.WorkflowSummary _workflowSummary)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("WorkflowSummary", _workflowSummary == null ? null : _workflowSummary.getMendixObject());
-		Core.microflowCall("WorkflowCommons.OCl_WorkflowSummary").withParams(params).execute(context);
-	}
-	public static void sUB_AttachmentsAndCommentsMigration_Verify(IContext context, workflowcommons.proxies.Configuration _configuration)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Configuration", _configuration == null ? null : _configuration.getMendixObject());
-		Core.microflowCall("WorkflowCommons.SUB_AttachmentsAndCommentsMigration_Verify").withParams(params).execute(context);
-	}
-	public static void sUB_Comment_Migrate(IContext context, workflowcommons.proxies.WorkflowComment _workflowComment, java.util.List<workflowcommons.proxies.WorkflowComment> _migratedWorkflowCommentList)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("WorkflowComment", _workflowComment == null ? null : _workflowComment.getMendixObject());
-		java.util.List<IMendixObject> listparam_migratedWorkflowCommentList = null;
-		if (_migratedWorkflowCommentList != null)
-		{
-			listparam_migratedWorkflowCommentList = new java.util.ArrayList<>();
-			for (var obj : _migratedWorkflowCommentList) {
-				listparam_migratedWorkflowCommentList.add(obj.getMendixObject());
-			}
-		}
-		params.put("MigratedWorkflowCommentList", listparam_migratedWorkflowCommentList);
 
-		Core.microflowCall("WorkflowCommons.SUB_Comment_Migrate").withParams(params).execute(context);
-	}
-	public static java.lang.Long sUB_Comments_Migration(IContext context)
+	public static java.util.List<workflowcommons.proxies.DefinitionHelper> dS_WorkflowDefinition_SelectableImplementation(
+		IContext context,
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Long) Core.microflowCall("WorkflowCommons.SUB_Comments_Migration").withParams(params).execute(context);
+		Object result = dS_WorkflowDefinition_SelectableImplementationBuilder(
+				_dashboardContext
+			)
+			.execute(context);
+		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> workflowcommons.proxies.DefinitionHelper.initialize(context, obj));
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_WorkflowSeriesBuilder(
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.DS_WorkflowSeries");
+		builder = builder.withParam("DashboardContext", _dashboardContext);
+		return builder;
+	}
+
+	public static java.util.List<workflowcommons.proxies.WorkflowSeries> dS_WorkflowSeries(
+		IContext context,
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
+	{
+		Object result = dS_WorkflowSeriesBuilder(
+				_dashboardContext
+			)
+			.execute(context);
+		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> workflowcommons.proxies.WorkflowSeries.initialize(context, obj));
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_WorkflowTask_AssignedToUser_TimelineBuilder(
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.DS_WorkflowTask_AssignedToUser_Timeline");
+		builder = builder.withParam("DashboardContext", _dashboardContext);
+		return builder;
+	}
+
+	public static java.util.List<workflowcommons.proxies.UserTaskTimeLine> dS_WorkflowTask_AssignedToUser_Timeline(
+		IContext context,
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
+	{
+		Object result = dS_WorkflowTask_AssignedToUser_TimelineBuilder(
+				_dashboardContext
+			)
+			.execute(context);
+		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> workflowcommons.proxies.UserTaskTimeLine.initialize(context, obj));
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_WorkflowTaskDefinition_Selectable_AdministratorBuilder(
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.DS_WorkflowTaskDefinition_Selectable_Administrator");
+		builder = builder.withParam("DashboardContext", _dashboardContext);
+		return builder;
+	}
+
+	public static java.util.List<system.proxies.WorkflowUserTaskDefinition> dS_WorkflowTaskDefinition_Selectable_Administrator(
+		IContext context,
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
+	{
+		Object result = dS_WorkflowTaskDefinition_Selectable_AdministratorBuilder(
+				_dashboardContext
+			)
+			.execute(context);
+		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> system.proxies.WorkflowUserTaskDefinition.initialize(context, obj));
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_WorkflowTaskDefinition_Selectable_UserImplementationBuilder(
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.DS_WorkflowTaskDefinition_Selectable_UserImplementation");
+		builder = builder.withParam("DashboardContext", _dashboardContext);
+		return builder;
+	}
+
+	public static java.util.List<workflowcommons.proxies.DefinitionHelper> dS_WorkflowTaskDefinition_Selectable_UserImplementation(
+		IContext context,
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
+	{
+		Object result = dS_WorkflowTaskDefinition_Selectable_UserImplementationBuilder(
+				_dashboardContext
+			)
+			.execute(context);
+		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> workflowcommons.proxies.DefinitionHelper.initialize(context, obj));
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_WorkflowTaskDetailBuilder(
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.DS_WorkflowTaskDetail");
+		builder = builder.withParam("DashboardContext", _dashboardContext);
+		return builder;
+	}
+
+	public static java.util.List<workflowcommons.proxies.WorkflowTaskDetail> dS_WorkflowTaskDetail(
+		IContext context,
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
+	{
+		Object result = dS_WorkflowTaskDetailBuilder(
+				_dashboardContext
+			)
+			.execute(context);
+		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> workflowcommons.proxies.WorkflowTaskDetail.initialize(context, obj));
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_WorkflowUserTask_WorkflowViewBuilder(
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.DS_WorkflowUserTask_WorkflowView");
+		builder = builder.withParam("WorkflowUserTask", _workflowUserTask);
+		return builder;
+	}
+
+	public static workflowcommons.proxies.WorkflowView dS_WorkflowUserTask_WorkflowView(
+		IContext context,
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
+	{
+		Object result = dS_WorkflowUserTask_WorkflowViewBuilder(
+				_workflowUserTask
+			)
+			.execute(context);
+		return result == null ? null : workflowcommons.proxies.WorkflowView.initialize(context, (IMendixObject) result);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_WorkflowView_UserTaskTimelineBuilder(
+		workflowcommons.proxies.WorkflowView _workflowView
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.DS_WorkflowView_UserTaskTimeline");
+		builder = builder.withParam("WorkflowView", _workflowView);
+		return builder;
+	}
+
+	public static java.util.List<workflowcommons.proxies.UserTaskTimeLine> dS_WorkflowView_UserTaskTimeline(
+		IContext context,
+		workflowcommons.proxies.WorkflowView _workflowView
+	)
+	{
+		Object result = dS_WorkflowView_UserTaskTimelineBuilder(
+				_workflowView
+			)
+			.execute(context);
+		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> workflowcommons.proxies.UserTaskTimeLine.initialize(context, obj));
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder oCh_DashboardContext_UpdateTaskDashboardBuilder(
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.OCh_DashboardContext_UpdateTaskDashboard");
+		builder = builder.withParam("DashboardContext", _dashboardContext);
+		return builder;
+	}
+
+	public static void oCh_DashboardContext_UpdateTaskDashboard(
+		IContext context,
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
+	{
+		oCh_DashboardContext_UpdateTaskDashboardBuilder(
+				_dashboardContext
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder oCh_DashboardContext_UpdateWorkflowDashboardBuilder(
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.OCh_DashboardContext_UpdateWorkflowDashboard");
+		builder = builder.withParam("DashboardContext", _dashboardContext);
+		return builder;
+	}
+
+	public static void oCh_DashboardContext_UpdateWorkflowDashboard(
+		IContext context,
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
+	{
+		oCh_DashboardContext_UpdateWorkflowDashboardBuilder(
+				_dashboardContext
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder oCh_Workflow_StateBuilder(
+		system.proxies.Workflow _workflow
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.OCh_Workflow_State");
+		builder = builder.withParam("Workflow", _workflow);
+		return builder;
+	}
+
+	public static void oCh_Workflow_State(
+		IContext context,
+		system.proxies.Workflow _workflow
+	)
+	{
+		oCh_Workflow_StateBuilder(
+				_workflow
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder oCh_WorkflowUserTask_StateBuilder(
+		system.proxies.WorkflowUserTask _userTask
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.OCh_WorkflowUserTask_State");
+		builder = builder.withParam("UserTask", _userTask);
+		return builder;
+	}
+
+	public static void oCh_WorkflowUserTask_State(
+		IContext context,
+		system.proxies.WorkflowUserTask _userTask
+	)
+	{
+		oCh_WorkflowUserTask_StateBuilder(
+				_userTask
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder oCl_WorkflowSummaryBuilder(
+		workflowcommons.proxies.WorkflowSummary _workflowSummary
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.OCl_WorkflowSummary");
+		builder = builder.withParam("WorkflowSummary", _workflowSummary);
+		return builder;
+	}
+
+	public static void oCl_WorkflowSummary(
+		IContext context,
+		workflowcommons.proxies.WorkflowSummary _workflowSummary
+	)
+	{
+		oCl_WorkflowSummaryBuilder(
+				_workflowSummary
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_Assignee_MigrateBuilder(
+		workflowcommons.proxies.Configuration _configuration
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_Assignee_Migrate");
+		builder = builder.withParam("Configuration", _configuration);
+		return builder;
+	}
+
+	public static java.lang.Long sUB_Assignee_Migrate(
+		IContext context,
+		workflowcommons.proxies.Configuration _configuration
+	)
+	{
+		Object result = sUB_Assignee_MigrateBuilder(
+				_configuration
+			)
+			.execute(context);
+		return (java.lang.Long) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_AssigneeMigration_VerifyBuilder(
+		workflowcommons.proxies.Configuration _configuration
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_AssigneeMigration_Verify");
+		builder = builder.withParam("Configuration", _configuration);
+		return builder;
+	}
+
+	public static boolean sUB_AssigneeMigration_Verify(
+		IContext context,
+		workflowcommons.proxies.Configuration _configuration
+	)
+	{
+		Object result = sUB_AssigneeMigration_VerifyBuilder(
+				_configuration
+			)
+			.execute(context);
+		return (boolean) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_Configuration_FindOrCreateBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_Configuration_FindOrCreate");
+		return builder;
+	}
+
 	public static workflowcommons.proxies.Configuration sUB_Configuration_FindOrCreate(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommons.SUB_Configuration_FindOrCreate").withParams(params).execute(context);
-		return result == null ? null : workflowcommons.proxies.Configuration.initialize(context, result);
+		Object result = sUB_Configuration_FindOrCreateBuilder().execute(context);
+		return result == null ? null : workflowcommons.proxies.Configuration.initialize(context, (IMendixObject) result);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_DashboardContext_RetrieveOrCreateBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_DashboardContext_RetrieveOrCreate");
+		return builder;
+	}
+
 	public static workflowcommons.proxies.DashboardContext sUB_DashboardContext_RetrieveOrCreate(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommons.SUB_DashboardContext_RetrieveOrCreate").withParams(params).execute(context);
-		return result == null ? null : workflowcommons.proxies.DashboardContext.initialize(context, result);
+		Object result = sUB_DashboardContext_RetrieveOrCreateBuilder().execute(context);
+		return result == null ? null : workflowcommons.proxies.DashboardContext.initialize(context, (IMendixObject) result);
 	}
-	public static void sUB_DashboardContext_UpdateSettings(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_DashboardContext_UpdateSettingsBuilder(
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		Core.microflowCall("WorkflowCommons.SUB_DashboardContext_UpdateSettings").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_DashboardContext_UpdateSettings");
+		builder = builder.withParam("DashboardContext", _dashboardContext);
+		return builder;
 	}
-	public static void sUB_TaskCount_Update(IContext context, workflowcommons.proxies.TaskCount _taskCount)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("TaskCount", _taskCount == null ? null : _taskCount.getMendixObject());
-		Core.microflowCall("WorkflowCommons.SUB_TaskCount_Update").withParams(params).execute(context);
-	}
-	public static void sUB_TaskDashboard_Update(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		Core.microflowCall("WorkflowCommons.SUB_TaskDashboard_Update").withParams(params).execute(context);
-	}
-	public static void sUB_TaskSeries_CreateOrUpdate(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext, system.proxies.WorkflowDefinition _workflowDefinition_Selected, system.proxies.User _user, system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		params.put("WorkflowDefinition_Selected", _workflowDefinition_Selected == null ? null : _workflowDefinition_Selected.getMendixObject());
-		params.put("User", _user == null ? null : _user.getMendixObject());
-		params.put("TaskDefinition_Selected", _taskDefinition_Selected == null ? null : _taskDefinition_Selected.getMendixObject());
-		Core.microflowCall("WorkflowCommons.SUB_TaskSeries_CreateOrUpdate").withParams(params).execute(context);
-	}
-	public static void sUB_TaskSeriesList_Delete(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		Core.microflowCall("WorkflowCommons.SUB_TaskSeriesList_Delete").withParams(params).execute(context);
-	}
-	public static workflowcommons.proxies.TaskSummary sUB_TaskSummary_CreateOrUpdate(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext, system.proxies.WorkflowDefinition _workflowDefinition_Selected, boolean _admin, system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected, system.proxies.User _user)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		params.put("WorkflowDefinition_Selected", _workflowDefinition_Selected == null ? null : _workflowDefinition_Selected.getMendixObject());
-		params.put("Admin", _admin);
-		params.put("TaskDefinition_Selected", _taskDefinition_Selected == null ? null : _taskDefinition_Selected.getMendixObject());
-		params.put("User", _user == null ? null : _user.getMendixObject());
-		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommons.SUB_TaskSummary_CreateOrUpdate").withParams(params).execute(context);
-		return result == null ? null : workflowcommons.proxies.TaskSummary.initialize(context, result);
-	}
-	public static workflowcommons.proxies.TaskSummary sUB_TaskSummary_RetrieveOrCreate(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommons.SUB_TaskSummary_RetrieveOrCreate").withParams(params).execute(context);
-		return result == null ? null : workflowcommons.proxies.TaskSummary.initialize(context, result);
-	}
-	public static administration.proxies.Account sUB_User_GetAccount(IContext context, system.proxies.User _user)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("User", _user == null ? null : _user.getMendixObject());
-		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommons.SUB_User_GetAccount").withParams(params).execute(context);
-		return result == null ? null : administration.proxies.Account.initialize(context, result);
-	}
-	public static void sUB_UserTask_Assign(IContext context, system.proxies.User _user, system.proxies.WorkflowUserTask _workflowUserTask)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("User", _user == null ? null : _user.getMendixObject());
-		params.put("WorkflowUserTask", _workflowUserTask == null ? null : _workflowUserTask.getMendixObject());
-		Core.microflowCall("WorkflowCommons.SUB_UserTask_Assign").withParams(params).execute(context);
-	}
-	public static java.util.List<workflowcommons.proxies.UserTaskView> sUB_UserTask_AssignedToUser(IContext context, java.util.Date _completedOrStartedAfter, java.util.Date _completedOrStartedBefore, system.proxies.WorkflowDefinition _workflowDefinition_Selected, system.proxies.User _user, system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("CompletedOrStartedAfter", _completedOrStartedAfter);
-		params.put("CompletedOrStartedBefore", _completedOrStartedBefore);
-		params.put("WorkflowDefinition_Selected", _workflowDefinition_Selected == null ? null : _workflowDefinition_Selected.getMendixObject());
-		params.put("User", _user == null ? null : _user.getMendixObject());
-		params.put("TaskDefinition_Selected", _taskDefinition_Selected == null ? null : _taskDefinition_Selected.getMendixObject());
-		java.util.List<IMendixObject> objs = Core.microflowCall("WorkflowCommons.SUB_UserTask_AssignedToUser").withParams(params).execute(context);
-		if (objs == null) {
-			return null;
-		} else {
-			return objs.stream()
-				.map(obj -> workflowcommons.proxies.UserTaskView.initialize(context, obj))
-				.collect(java.util.stream.Collectors.toList());
-		}
-	}
-	public static java.math.BigDecimal sUB_UserTask_AverageHandlingTime(IContext context, java.util.Date _completedAfter, java.util.Date _completedBefore, system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected, system.proxies.User _user, system.proxies.WorkflowDefinition _workflowDefinition_Selected, java.lang.Long _userTask_CountCompleted)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("CompletedAfter", _completedAfter);
-		params.put("CompletedBefore", _completedBefore);
-		params.put("TaskDefinition_Selected", _taskDefinition_Selected == null ? null : _taskDefinition_Selected.getMendixObject());
-		params.put("User", _user == null ? null : _user.getMendixObject());
-		params.put("WorkflowDefinition_Selected", _workflowDefinition_Selected == null ? null : _workflowDefinition_Selected.getMendixObject());
-		params.put("UserTask_CountCompleted", _userTask_CountCompleted);
-		return (java.math.BigDecimal) Core.microflowCall("WorkflowCommons.SUB_UserTask_AverageHandlingTime").withParams(params).execute(context);
-	}
-	public static java.lang.Long sUB_UserTask_CountCompleted(IContext context, java.util.Date _completedAfter, java.util.Date _completedBefore, system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected, system.proxies.WorkflowDefinition _workflowDefinition_Selected, system.proxies.User _user)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("CompletedAfter", _completedAfter);
-		params.put("CompletedBefore", _completedBefore);
-		params.put("TaskDefinition_Selected", _taskDefinition_Selected == null ? null : _taskDefinition_Selected.getMendixObject());
-		params.put("WorkflowDefinition_Selected", _workflowDefinition_Selected == null ? null : _workflowDefinition_Selected.getMendixObject());
-		params.put("User", _user == null ? null : _user.getMendixObject());
-		return (java.lang.Long) Core.microflowCall("WorkflowCommons.SUB_UserTask_CountCompleted").withParams(params).execute(context);
-	}
-	public static java.lang.Long sUB_UserTask_CountCompletedOnTime(IContext context, java.util.Date _completedAfter, java.util.Date _completedBefore, system.proxies.WorkflowDefinition _workflowDefinition_Selected, system.proxies.User _user, system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("CompletedAfter", _completedAfter);
-		params.put("CompletedBefore", _completedBefore);
-		params.put("WorkflowDefinition_Selected", _workflowDefinition_Selected == null ? null : _workflowDefinition_Selected.getMendixObject());
-		params.put("User", _user == null ? null : _user.getMendixObject());
-		params.put("TaskDefinition_Selected", _taskDefinition_Selected == null ? null : _taskDefinition_Selected.getMendixObject());
-		return (java.lang.Long) Core.microflowCall("WorkflowCommons.SUB_UserTask_CountCompletedOnTime").withParams(params).execute(context);
-	}
-	public static java.lang.Long sUB_UserTask_CountCompletedOverdue(IContext context, java.util.Date _completedAfter, java.util.Date _completedBefore, system.proxies.WorkflowDefinition _workflowDefinition_Selected, system.proxies.User _user, system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("CompletedAfter", _completedAfter);
-		params.put("CompletedBefore", _completedBefore);
-		params.put("WorkflowDefinition_Selected", _workflowDefinition_Selected == null ? null : _workflowDefinition_Selected.getMendixObject());
-		params.put("User", _user == null ? null : _user.getMendixObject());
-		params.put("TaskDefinition_Selected", _taskDefinition_Selected == null ? null : _taskDefinition_Selected.getMendixObject());
-		return (java.lang.Long) Core.microflowCall("WorkflowCommons.SUB_UserTask_CountCompletedOverdue").withParams(params).execute(context);
-	}
-	public static java.lang.Long sUB_UserTask_CountFailed(IContext context, java.util.Date _completedAfter, java.util.Date _completedBefore, system.proxies.User _user, system.proxies.WorkflowDefinition _workflowDefinition_Selected, system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("CompletedAfter", _completedAfter);
-		params.put("CompletedBefore", _completedBefore);
-		params.put("User", _user == null ? null : _user.getMendixObject());
-		params.put("WorkflowDefinition_Selected", _workflowDefinition_Selected == null ? null : _workflowDefinition_Selected.getMendixObject());
-		params.put("TaskDefinition_Selected", _taskDefinition_Selected == null ? null : _taskDefinition_Selected.getMendixObject());
-		return (java.lang.Long) Core.microflowCall("WorkflowCommons.SUB_UserTask_CountFailed").withParams(params).execute(context);
-	}
-	public static java.lang.Long sUB_UserTask_CountInProgress(IContext context, java.util.Date _startedAfter, java.util.Date _startedBefore, system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected, system.proxies.User _user, system.proxies.WorkflowDefinition _workflowDefinition_Selected)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("StartedAfter", _startedAfter);
-		params.put("StartedBefore", _startedBefore);
-		params.put("TaskDefinition_Selected", _taskDefinition_Selected == null ? null : _taskDefinition_Selected.getMendixObject());
-		params.put("User", _user == null ? null : _user.getMendixObject());
-		params.put("WorkflowDefinition_Selected", _workflowDefinition_Selected == null ? null : _workflowDefinition_Selected.getMendixObject());
-		return (java.lang.Long) Core.microflowCall("WorkflowCommons.SUB_UserTask_CountInProgress").withParams(params).execute(context);
-	}
-	public static java.lang.Long sUB_UserTask_CountOverdue(IContext context, java.util.Date _completedAfter, java.util.Date _completedBefore, system.proxies.WorkflowDefinition _workflowDefinition_Selected, system.proxies.User _user, system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("CompletedAfter", _completedAfter);
-		params.put("CompletedBefore", _completedBefore);
-		params.put("WorkflowDefinition_Selected", _workflowDefinition_Selected == null ? null : _workflowDefinition_Selected.getMendixObject());
-		params.put("User", _user == null ? null : _user.getMendixObject());
-		params.put("TaskDefinition_Selected", _taskDefinition_Selected == null ? null : _taskDefinition_Selected.getMendixObject());
-		return (java.lang.Long) Core.microflowCall("WorkflowCommons.SUB_UserTask_CountOverdue").withParams(params).execute(context);
-	}
-	public static void sUB_UserTask_TargetUsers_Add(IContext context, java.util.List<system.proxies.User> _userList, system.proxies.WorkflowUserTask _workflowUserTask)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		java.util.List<IMendixObject> listparam_userList = null;
-		if (_userList != null)
-		{
-			listparam_userList = new java.util.ArrayList<>();
-			for (var obj : _userList) {
-				listparam_userList.add(obj.getMendixObject());
-			}
-		}
-		params.put("UserList", listparam_userList);
 
-		params.put("WorkflowUserTask", _workflowUserTask == null ? null : _workflowUserTask.getMendixObject());
-		Core.microflowCall("WorkflowCommons.SUB_UserTask_TargetUsers_Add").withParams(params).execute(context);
-	}
-	public static void sUB_UserTask_TargetUsers_Remove(IContext context, java.util.List<system.proxies.User> _userList, system.proxies.WorkflowUserTask _workflowUserTask)
+	public static void sUB_DashboardContext_UpdateSettings(
+		IContext context,
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		java.util.List<IMendixObject> listparam_userList = null;
-		if (_userList != null)
-		{
-			listparam_userList = new java.util.ArrayList<>();
-			for (var obj : _userList) {
-				listparam_userList.add(obj.getMendixObject());
-			}
-		}
-		params.put("UserList", listparam_userList);
+		sUB_DashboardContext_UpdateSettingsBuilder(
+				_dashboardContext
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_TaskCount_UpdateBuilder(
+		workflowcommons.proxies.TaskCount _taskCount
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_TaskCount_Update");
+		builder = builder.withParam("TaskCount", _taskCount);
+		return builder;
+	}
 
-		params.put("WorkflowUserTask", _workflowUserTask == null ? null : _workflowUserTask.getMendixObject());
-		Core.microflowCall("WorkflowCommons.SUB_UserTask_TargetUsers_Remove").withParams(params).execute(context);
-	}
-	public static void sUB_UserTaskTimeline_WorkflowUserTask_SetAssignee(IContext context, workflowcommons.proxies.UserTaskTimeLine _userTaskTimeLine, workflowcommons.proxies.UserTaskView _userTaskView)
+	public static void sUB_TaskCount_Update(
+		IContext context,
+		workflowcommons.proxies.TaskCount _taskCount
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("UserTaskTimeLine", _userTaskTimeLine == null ? null : _userTaskTimeLine.getMendixObject());
-		params.put("UserTaskView", _userTaskView == null ? null : _userTaskView.getMendixObject());
-		Core.microflowCall("WorkflowCommons.SUB_UserTaskTimeline_WorkflowUserTask_SetAssignee").withParams(params).execute(context);
+		sUB_TaskCount_UpdateBuilder(
+				_taskCount
+			)
+			.execute(context);
 	}
-	public static workflowcommons.proxies.UserTaskView sUB_UserTaskView_FindOrCreate(IContext context, system.proxies.WorkflowUserTask _workflowUserTask)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_TaskDashboard_UpdateBuilder(
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("WorkflowUserTask", _workflowUserTask == null ? null : _workflowUserTask.getMendixObject());
-		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommons.SUB_UserTaskView_FindOrCreate").withParams(params).execute(context);
-		return result == null ? null : workflowcommons.proxies.UserTaskView.initialize(context, result);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_TaskDashboard_Update");
+		builder = builder.withParam("DashboardContext", _dashboardContext);
+		return builder;
 	}
-	public static java.lang.Long sUB_Workflow_Attachment_Migrate(IContext context, system.proxies.Workflow _nonMigratedWorkflow, java.util.List<workflowcommons.proxies.WorkflowAttachment> _migratedWorkflowAttachmentList, java.util.List<workflowcommons.proxies.WorkflowComment> _autoGeneratedWorkflowCommentList)
-	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("NonMigratedWorkflow", _nonMigratedWorkflow == null ? null : _nonMigratedWorkflow.getMendixObject());
-		java.util.List<IMendixObject> listparam_migratedWorkflowAttachmentList = null;
-		if (_migratedWorkflowAttachmentList != null)
-		{
-			listparam_migratedWorkflowAttachmentList = new java.util.ArrayList<>();
-			for (var obj : _migratedWorkflowAttachmentList) {
-				listparam_migratedWorkflowAttachmentList.add(obj.getMendixObject());
-			}
-		}
-		params.put("MigratedWorkflowAttachmentList", listparam_migratedWorkflowAttachmentList);
 
-		java.util.List<IMendixObject> listparam_autoGeneratedWorkflowCommentList = null;
-		if (_autoGeneratedWorkflowCommentList != null)
-		{
-			listparam_autoGeneratedWorkflowCommentList = new java.util.ArrayList<>();
-			for (var obj : _autoGeneratedWorkflowCommentList) {
-				listparam_autoGeneratedWorkflowCommentList.add(obj.getMendixObject());
-			}
-		}
-		params.put("AutoGeneratedWorkflowCommentList", listparam_autoGeneratedWorkflowCommentList);
+	public static void sUB_TaskDashboard_Update(
+		IContext context,
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
+	{
+		sUB_TaskDashboard_UpdateBuilder(
+				_dashboardContext
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_TaskSeries_CreateOrUpdateBuilder(
+		workflowcommons.proxies.DashboardContext _dashboardContext,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected,
+		system.proxies.User _user,
+		system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_TaskSeries_CreateOrUpdate");
+		builder = builder.withParam("DashboardContext", _dashboardContext);
+		builder = builder.withParam("WorkflowDefinition_Selected", _workflowDefinition_Selected);
+		builder = builder.withParam("User", _user);
+		builder = builder.withParam("TaskDefinition_Selected", _taskDefinition_Selected);
+		return builder;
+	}
 
-		return (java.lang.Long) Core.microflowCall("WorkflowCommons.SUB_Workflow_Attachment_Migrate").withParams(params).execute(context);
-	}
-	public static java.lang.Long sUB_Workflow_Attachments_Migration(IContext context)
+	public static void sUB_TaskSeries_CreateOrUpdate(
+		IContext context,
+		workflowcommons.proxies.DashboardContext _dashboardContext,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected,
+		system.proxies.User _user,
+		system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Long) Core.microflowCall("WorkflowCommons.SUB_Workflow_Attachments_Migration").withParams(params).execute(context);
+		sUB_TaskSeries_CreateOrUpdateBuilder(
+				_dashboardContext,
+				_workflowDefinition_Selected,
+				_user,
+				_taskDefinition_Selected
+			)
+			.execute(context);
 	}
-	public static java.math.BigDecimal sUB_Workflow_AverageHandlingTime(IContext context, java.lang.Long _workflow_CountCompleted, java.util.Date _completedAfter, java.util.Date _completedBefore, system.proxies.WorkflowDefinition _workflowDefinition_Selected)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_TaskSeriesList_DeleteBuilder(
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Workflow_CountCompleted", _workflow_CountCompleted);
-		params.put("CompletedAfter", _completedAfter);
-		params.put("CompletedBefore", _completedBefore);
-		params.put("WorkflowDefinition_Selected", _workflowDefinition_Selected == null ? null : _workflowDefinition_Selected.getMendixObject());
-		return (java.math.BigDecimal) Core.microflowCall("WorkflowCommons.SUB_Workflow_AverageHandlingTime").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_TaskSeriesList_Delete");
+		builder = builder.withParam("DashboardContext", _dashboardContext);
+		return builder;
 	}
-	public static java.lang.Long sUB_Workflow_CountCompleted(IContext context, java.util.Date _startedAfter, java.util.Date _startedBefore, system.proxies.WorkflowDefinition _workflowDefinition_Selected)
+
+	public static void sUB_TaskSeriesList_Delete(
+		IContext context,
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("StartedAfter", _startedAfter);
-		params.put("StartedBefore", _startedBefore);
-		params.put("WorkflowDefinition_Selected", _workflowDefinition_Selected == null ? null : _workflowDefinition_Selected.getMendixObject());
-		return (java.lang.Long) Core.microflowCall("WorkflowCommons.SUB_Workflow_CountCompleted").withParams(params).execute(context);
+		sUB_TaskSeriesList_DeleteBuilder(
+				_dashboardContext
+			)
+			.execute(context);
 	}
-	public static java.lang.Long sUB_Workflow_CountCompletedOnTime(IContext context, java.util.Date _completedAfter, java.util.Date _completedBefore, system.proxies.WorkflowDefinition _workflowDefinition_Selected)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_TaskSummary_CreateOrUpdateBuilder(
+		workflowcommons.proxies.DashboardContext _dashboardContext,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected,
+		boolean _admin,
+		system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected,
+		system.proxies.User _user
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("CompletedAfter", _completedAfter);
-		params.put("CompletedBefore", _completedBefore);
-		params.put("WorkflowDefinition_Selected", _workflowDefinition_Selected == null ? null : _workflowDefinition_Selected.getMendixObject());
-		return (java.lang.Long) Core.microflowCall("WorkflowCommons.SUB_Workflow_CountCompletedOnTime").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_TaskSummary_CreateOrUpdate");
+		builder = builder.withParam("DashboardContext", _dashboardContext);
+		builder = builder.withParam("WorkflowDefinition_Selected", _workflowDefinition_Selected);
+		builder = builder.withParam("Admin", _admin);
+		builder = builder.withParam("TaskDefinition_Selected", _taskDefinition_Selected);
+		builder = builder.withParam("User", _user);
+		return builder;
 	}
-	public static java.lang.Long sUB_Workflow_CountCompletedOverdue(IContext context, java.util.Date _completedAfter, java.util.Date _completedBefore, system.proxies.WorkflowDefinition _workflowDefinition_Selected)
+
+	public static workflowcommons.proxies.TaskSummary sUB_TaskSummary_CreateOrUpdate(
+		IContext context,
+		workflowcommons.proxies.DashboardContext _dashboardContext,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected,
+		boolean _admin,
+		system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected,
+		system.proxies.User _user
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("CompletedAfter", _completedAfter);
-		params.put("CompletedBefore", _completedBefore);
-		params.put("WorkflowDefinition_Selected", _workflowDefinition_Selected == null ? null : _workflowDefinition_Selected.getMendixObject());
-		return (java.lang.Long) Core.microflowCall("WorkflowCommons.SUB_Workflow_CountCompletedOverdue").withParams(params).execute(context);
+		Object result = sUB_TaskSummary_CreateOrUpdateBuilder(
+				_dashboardContext,
+				_workflowDefinition_Selected,
+				_admin,
+				_taskDefinition_Selected,
+				_user
+			)
+			.execute(context);
+		return result == null ? null : workflowcommons.proxies.TaskSummary.initialize(context, (IMendixObject) result);
 	}
-	public static java.lang.Long sUB_Workflow_CountInProgress(IContext context, java.util.Date _startedAfter, java.util.Date _startedBefore, system.proxies.WorkflowDefinition _workflowDefinition_Selected)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_TaskSummary_RetrieveOrCreateBuilder(
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("StartedAfter", _startedAfter);
-		params.put("StartedBefore", _startedBefore);
-		params.put("WorkflowDefinition_Selected", _workflowDefinition_Selected == null ? null : _workflowDefinition_Selected.getMendixObject());
-		return (java.lang.Long) Core.microflowCall("WorkflowCommons.SUB_Workflow_CountInProgress").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_TaskSummary_RetrieveOrCreate");
+		builder = builder.withParam("DashboardContext", _dashboardContext);
+		return builder;
 	}
-	public static java.lang.Long sUB_Workflow_CountOverdue(IContext context, java.util.Date _startedAfter, java.util.Date _startedBefore, system.proxies.WorkflowDefinition _workflowDefinition_Selected)
+
+	public static workflowcommons.proxies.TaskSummary sUB_TaskSummary_RetrieveOrCreate(
+		IContext context,
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("StartedAfter", _startedAfter);
-		params.put("StartedBefore", _startedBefore);
-		params.put("WorkflowDefinition_Selected", _workflowDefinition_Selected == null ? null : _workflowDefinition_Selected.getMendixObject());
-		return (java.lang.Long) Core.microflowCall("WorkflowCommons.SUB_Workflow_CountOverdue").withParams(params).execute(context);
+		Object result = sUB_TaskSummary_RetrieveOrCreateBuilder(
+				_dashboardContext
+			)
+			.execute(context);
+		return result == null ? null : workflowcommons.proxies.TaskSummary.initialize(context, (IMendixObject) result);
 	}
-	public static void sUB_Workflow_ShowWorkflowAdminPage(IContext context, system.proxies.Workflow _workflow)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_User_GetAccountBuilder(
+		system.proxies.User _user
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Workflow", _workflow == null ? null : _workflow.getMendixObject());
-		Core.microflowCall("WorkflowCommons.SUB_Workflow_ShowWorkflowAdminPage").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_User_GetAccount");
+		builder = builder.withParam("User", _user);
+		return builder;
 	}
-	public static void sUB_WorkflowDashboard_Update(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
+
+	public static administration.proxies.Account sUB_User_GetAccount(
+		IContext context,
+		system.proxies.User _user
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		Core.microflowCall("WorkflowCommons.SUB_WorkflowDashboard_Update").withParams(params).execute(context);
+		Object result = sUB_User_GetAccountBuilder(
+				_user
+			)
+			.execute(context);
+		return result == null ? null : administration.proxies.Account.initialize(context, (IMendixObject) result);
 	}
-	public static boolean sUB_WorkflowJumpToDetails_Validate(IContext context, system.proxies.WorkflowJumpToDetails _workflowJumpToDetails)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_UserTask_Assignee_AddBuilder(
+		system.proxies.User _user,
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("WorkflowJumpToDetails", _workflowJumpToDetails == null ? null : _workflowJumpToDetails.getMendixObject());
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommons.SUB_WorkflowJumpToDetails_Validate").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_UserTask_Assignee_Add");
+		builder = builder.withParam("User", _user);
+		builder = builder.withParam("WorkflowUserTask", _workflowUserTask);
+		return builder;
 	}
-	public static void sUB_WorkflowSeries_CreateOrUpdate(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext, system.proxies.WorkflowDefinition _workflowDefinition_Selected)
+
+	public static void sUB_UserTask_Assignee_Add(
+		IContext context,
+		system.proxies.User _user,
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		params.put("WorkflowDefinition_Selected", _workflowDefinition_Selected == null ? null : _workflowDefinition_Selected.getMendixObject());
-		Core.microflowCall("WorkflowCommons.SUB_WorkflowSeries_CreateOrUpdate").withParams(params).execute(context);
+		sUB_UserTask_Assignee_AddBuilder(
+				_user,
+				_workflowUserTask
+			)
+			.execute(context);
 	}
-	public static void sUB_WorkflowSeriesList_Delete(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_UserTask_Assignee_RemoveBuilder(
+		system.proxies.User _user,
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		Core.microflowCall("WorkflowCommons.SUB_WorkflowSeriesList_Delete").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_UserTask_Assignee_Remove");
+		builder = builder.withParam("User", _user);
+		builder = builder.withParam("WorkflowUserTask", _workflowUserTask);
+		return builder;
 	}
-	public static workflowcommons.proxies.WorkflowSummary sUB_WorkflowSummary_CreateOrUpdate(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext, system.proxies.WorkflowDefinition _workflowDefinition_Selected)
+
+	public static void sUB_UserTask_Assignee_Remove(
+		IContext context,
+		system.proxies.User _user,
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		params.put("WorkflowDefinition_Selected", _workflowDefinition_Selected == null ? null : _workflowDefinition_Selected.getMendixObject());
-		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommons.SUB_WorkflowSummary_CreateOrUpdate").withParams(params).execute(context);
-		return result == null ? null : workflowcommons.proxies.WorkflowSummary.initialize(context, result);
+		sUB_UserTask_Assignee_RemoveBuilder(
+				_user,
+				_workflowUserTask
+			)
+			.execute(context);
 	}
-	public static workflowcommons.proxies.WorkflowSummary sUB_WorkflowSummary_RetrieveOrCreate(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_UserTask_Assignees_RemoveBuilder(
+		java.util.List<system.proxies.User> _userList,
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommons.SUB_WorkflowSummary_RetrieveOrCreate").withParams(params).execute(context);
-		return result == null ? null : workflowcommons.proxies.WorkflowSummary.initialize(context, result);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_UserTask_Assignees_Remove");
+		builder = builder.withParam("UserList", _userList);
+		builder = builder.withParam("WorkflowUserTask", _workflowUserTask);
+		return builder;
 	}
-	public static java.math.BigDecimal sUB_WorkflowTask_AverageHandlingTime(IContext context, java.util.Date _completedAfter, java.util.Date _completedBefore, system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected)
+
+	public static void sUB_UserTask_Assignees_Remove(
+		IContext context,
+		java.util.List<system.proxies.User> _userList,
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("CompletedAfter", _completedAfter);
-		params.put("CompletedBefore", _completedBefore);
-		params.put("TaskDefinition_Selected", _taskDefinition_Selected == null ? null : _taskDefinition_Selected.getMendixObject());
-		return (java.math.BigDecimal) Core.microflowCall("WorkflowCommons.SUB_WorkflowTask_AverageHandlingTime").withParams(params).execute(context);
+		sUB_UserTask_Assignees_RemoveBuilder(
+				_userList,
+				_workflowUserTask
+			)
+			.execute(context);
 	}
-	public static void sUB_WorkflowTaskDetail_CreateOrUpdate(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext, system.proxies.WorkflowDefinition _workflowDefinition_Selected)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_UserTask_AssignToMeBuilder(
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		params.put("WorkflowDefinition_Selected", _workflowDefinition_Selected == null ? null : _workflowDefinition_Selected.getMendixObject());
-		Core.microflowCall("WorkflowCommons.SUB_WorkflowTaskDetail_CreateOrUpdate").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_UserTask_AssignToMe");
+		builder = builder.withParam("WorkflowUserTask", _workflowUserTask);
+		return builder;
 	}
-	public static void sUB_WorkflowTaskDetail_Delete(IContext context, workflowcommons.proxies.DashboardContext _dashboardContext)
+
+	public static boolean sUB_UserTask_AssignToMe(
+		IContext context,
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("DashboardContext", _dashboardContext == null ? null : _dashboardContext.getMendixObject());
-		Core.microflowCall("WorkflowCommons.SUB_WorkflowTaskDetail_Delete").withParams(params).execute(context);
+		Object result = sUB_UserTask_AssignToMeBuilder(
+				_workflowUserTask
+			)
+			.execute(context);
+		return (boolean) result;
 	}
-	public static boolean sUB_WorkflowView_CommentAttachment_Validate(IContext context, workflowcommons.proxies.WorkflowView _workflowView, java.lang.String _operation)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_UserTask_Asssignees_AddBuilder(
+		java.util.List<system.proxies.User> _userList,
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("WorkflowView", _workflowView == null ? null : _workflowView.getMendixObject());
-		params.put("Operation", _operation);
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommons.SUB_WorkflowView_CommentAttachment_Validate").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_UserTask_Asssignees_Add");
+		builder = builder.withParam("UserList", _userList);
+		builder = builder.withParam("WorkflowUserTask", _workflowUserTask);
+		return builder;
 	}
-	public static boolean sUB_WorkflowView_CurrentUserIsTargeted(IContext context, workflowcommons.proxies.WorkflowView _workflowView)
+
+	public static void sUB_UserTask_Asssignees_Add(
+		IContext context,
+		java.util.List<system.proxies.User> _userList,
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("WorkflowView", _workflowView == null ? null : _workflowView.getMendixObject());
-		return (java.lang.Boolean) Core.microflowCall("WorkflowCommons.SUB_WorkflowView_CurrentUserIsTargeted").withParams(params).execute(context);
+		sUB_UserTask_Asssignees_AddBuilder(
+				_userList,
+				_workflowUserTask
+			)
+			.execute(context);
 	}
-	public static workflowcommons.proxies.WorkflowView sUB_WorkflowView_FindOrCreate(IContext context, system.proxies.Workflow _workflow)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_UserTask_AverageHandlingTimeBuilder(
+		java.util.Date _completedAfter,
+		java.util.Date _completedBefore,
+		system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected,
+		system.proxies.User _user,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected,
+		java.lang.Long _userTask_CountCompleted
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Workflow", _workflow == null ? null : _workflow.getMendixObject());
-		IMendixObject result = (IMendixObject)Core.microflowCall("WorkflowCommons.SUB_WorkflowView_FindOrCreate").withParams(params).execute(context);
-		return result == null ? null : workflowcommons.proxies.WorkflowView.initialize(context, result);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_UserTask_AverageHandlingTime");
+		builder = builder.withParam("CompletedAfter", _completedAfter);
+		builder = builder.withParam("CompletedBefore", _completedBefore);
+		builder = builder.withParam("TaskDefinition_Selected", _taskDefinition_Selected);
+		builder = builder.withParam("User", _user);
+		builder = builder.withParam("WorkflowDefinition_Selected", _workflowDefinition_Selected);
+		builder = builder.withParam("UserTask_CountCompleted", _userTask_CountCompleted);
+		return builder;
 	}
-	public static void sUB_WorkflowView_ShowWorkflowAdminPage(IContext context, workflowcommons.proxies.WorkflowView _workflowView)
+
+	public static java.math.BigDecimal sUB_UserTask_AverageHandlingTime(
+		IContext context,
+		java.util.Date _completedAfter,
+		java.util.Date _completedBefore,
+		system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected,
+		system.proxies.User _user,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected,
+		java.lang.Long _userTask_CountCompleted
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("WorkflowView", _workflowView == null ? null : _workflowView.getMendixObject());
-		Core.microflowCall("WorkflowCommons.SUB_WorkflowView_ShowWorkflowAdminPage").withParams(params).execute(context);
+		Object result = sUB_UserTask_AverageHandlingTimeBuilder(
+				_completedAfter,
+				_completedBefore,
+				_taskDefinition_Selected,
+				_user,
+				_workflowDefinition_Selected,
+				_userTask_CountCompleted
+			)
+			.execute(context);
+		return (java.math.BigDecimal) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_UserTask_CountCompletedBuilder(
+		java.util.Date _completedAfter,
+		java.util.Date _completedBefore,
+		system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected,
+		system.proxies.User _user
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_UserTask_CountCompleted");
+		builder = builder.withParam("CompletedAfter", _completedAfter);
+		builder = builder.withParam("CompletedBefore", _completedBefore);
+		builder = builder.withParam("TaskDefinition_Selected", _taskDefinition_Selected);
+		builder = builder.withParam("WorkflowDefinition_Selected", _workflowDefinition_Selected);
+		builder = builder.withParam("User", _user);
+		return builder;
+	}
+
+	public static java.lang.Long sUB_UserTask_CountCompleted(
+		IContext context,
+		java.util.Date _completedAfter,
+		java.util.Date _completedBefore,
+		system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected,
+		system.proxies.User _user
+	)
+	{
+		Object result = sUB_UserTask_CountCompletedBuilder(
+				_completedAfter,
+				_completedBefore,
+				_taskDefinition_Selected,
+				_workflowDefinition_Selected,
+				_user
+			)
+			.execute(context);
+		return (java.lang.Long) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_UserTask_CountCompletedOnTimeBuilder(
+		java.util.Date _completedAfter,
+		java.util.Date _completedBefore,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected,
+		system.proxies.User _user,
+		system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_UserTask_CountCompletedOnTime");
+		builder = builder.withParam("CompletedAfter", _completedAfter);
+		builder = builder.withParam("CompletedBefore", _completedBefore);
+		builder = builder.withParam("WorkflowDefinition_Selected", _workflowDefinition_Selected);
+		builder = builder.withParam("User", _user);
+		builder = builder.withParam("TaskDefinition_Selected", _taskDefinition_Selected);
+		return builder;
+	}
+
+	public static java.lang.Long sUB_UserTask_CountCompletedOnTime(
+		IContext context,
+		java.util.Date _completedAfter,
+		java.util.Date _completedBefore,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected,
+		system.proxies.User _user,
+		system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected
+	)
+	{
+		Object result = sUB_UserTask_CountCompletedOnTimeBuilder(
+				_completedAfter,
+				_completedBefore,
+				_workflowDefinition_Selected,
+				_user,
+				_taskDefinition_Selected
+			)
+			.execute(context);
+		return (java.lang.Long) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_UserTask_CountCompletedOverdueBuilder(
+		java.util.Date _completedAfter,
+		java.util.Date _completedBefore,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected,
+		system.proxies.User _user,
+		system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_UserTask_CountCompletedOverdue");
+		builder = builder.withParam("CompletedAfter", _completedAfter);
+		builder = builder.withParam("CompletedBefore", _completedBefore);
+		builder = builder.withParam("WorkflowDefinition_Selected", _workflowDefinition_Selected);
+		builder = builder.withParam("User", _user);
+		builder = builder.withParam("TaskDefinition_Selected", _taskDefinition_Selected);
+		return builder;
+	}
+
+	public static java.lang.Long sUB_UserTask_CountCompletedOverdue(
+		IContext context,
+		java.util.Date _completedAfter,
+		java.util.Date _completedBefore,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected,
+		system.proxies.User _user,
+		system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected
+	)
+	{
+		Object result = sUB_UserTask_CountCompletedOverdueBuilder(
+				_completedAfter,
+				_completedBefore,
+				_workflowDefinition_Selected,
+				_user,
+				_taskDefinition_Selected
+			)
+			.execute(context);
+		return (java.lang.Long) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_UserTask_CountFailedBuilder(
+		java.util.Date _completedAfter,
+		java.util.Date _completedBefore,
+		system.proxies.User _user,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected,
+		system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_UserTask_CountFailed");
+		builder = builder.withParam("CompletedAfter", _completedAfter);
+		builder = builder.withParam("CompletedBefore", _completedBefore);
+		builder = builder.withParam("User", _user);
+		builder = builder.withParam("WorkflowDefinition_Selected", _workflowDefinition_Selected);
+		builder = builder.withParam("TaskDefinition_Selected", _taskDefinition_Selected);
+		return builder;
+	}
+
+	public static java.lang.Long sUB_UserTask_CountFailed(
+		IContext context,
+		java.util.Date _completedAfter,
+		java.util.Date _completedBefore,
+		system.proxies.User _user,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected,
+		system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected
+	)
+	{
+		Object result = sUB_UserTask_CountFailedBuilder(
+				_completedAfter,
+				_completedBefore,
+				_user,
+				_workflowDefinition_Selected,
+				_taskDefinition_Selected
+			)
+			.execute(context);
+		return (java.lang.Long) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_UserTask_CountInProgressBuilder(
+		java.util.Date _startedAfter,
+		java.util.Date _startedBefore,
+		system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected,
+		system.proxies.User _user,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_UserTask_CountInProgress");
+		builder = builder.withParam("StartedAfter", _startedAfter);
+		builder = builder.withParam("StartedBefore", _startedBefore);
+		builder = builder.withParam("TaskDefinition_Selected", _taskDefinition_Selected);
+		builder = builder.withParam("User", _user);
+		builder = builder.withParam("WorkflowDefinition_Selected", _workflowDefinition_Selected);
+		return builder;
+	}
+
+	public static java.lang.Long sUB_UserTask_CountInProgress(
+		IContext context,
+		java.util.Date _startedAfter,
+		java.util.Date _startedBefore,
+		system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected,
+		system.proxies.User _user,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected
+	)
+	{
+		Object result = sUB_UserTask_CountInProgressBuilder(
+				_startedAfter,
+				_startedBefore,
+				_taskDefinition_Selected,
+				_user,
+				_workflowDefinition_Selected
+			)
+			.execute(context);
+		return (java.lang.Long) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_UserTask_CountOverdueBuilder(
+		java.util.Date _completedAfter,
+		java.util.Date _completedBefore,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected,
+		system.proxies.User _user,
+		system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_UserTask_CountOverdue");
+		builder = builder.withParam("CompletedAfter", _completedAfter);
+		builder = builder.withParam("CompletedBefore", _completedBefore);
+		builder = builder.withParam("WorkflowDefinition_Selected", _workflowDefinition_Selected);
+		builder = builder.withParam("User", _user);
+		builder = builder.withParam("TaskDefinition_Selected", _taskDefinition_Selected);
+		return builder;
+	}
+
+	public static java.lang.Long sUB_UserTask_CountOverdue(
+		IContext context,
+		java.util.Date _completedAfter,
+		java.util.Date _completedBefore,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected,
+		system.proxies.User _user,
+		system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected
+	)
+	{
+		Object result = sUB_UserTask_CountOverdueBuilder(
+				_completedAfter,
+				_completedBefore,
+				_workflowDefinition_Selected,
+				_user,
+				_taskDefinition_Selected
+			)
+			.execute(context);
+		return (java.lang.Long) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_UserTask_TargetUsers_AddBuilder(
+		java.util.List<system.proxies.User> _userList,
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_UserTask_TargetUsers_Add");
+		builder = builder.withParam("UserList", _userList);
+		builder = builder.withParam("WorkflowUserTask", _workflowUserTask);
+		return builder;
+	}
+
+	public static void sUB_UserTask_TargetUsers_Add(
+		IContext context,
+		java.util.List<system.proxies.User> _userList,
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
+	{
+		sUB_UserTask_TargetUsers_AddBuilder(
+				_userList,
+				_workflowUserTask
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_UserTask_TargetUsers_RemoveBuilder(
+		java.util.List<system.proxies.User> _userList,
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_UserTask_TargetUsers_Remove");
+		builder = builder.withParam("UserList", _userList);
+		builder = builder.withParam("WorkflowUserTask", _workflowUserTask);
+		return builder;
+	}
+
+	public static void sUB_UserTask_TargetUsers_Remove(
+		IContext context,
+		java.util.List<system.proxies.User> _userList,
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
+	{
+		sUB_UserTask_TargetUsers_RemoveBuilder(
+				_userList,
+				_workflowUserTask
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_UserTaskOutcome_AssignedToUserBuilder(
+		java.util.Date _completedOrStartedAfter,
+		java.util.Date _completedOrStartedBefore,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected,
+		system.proxies.User _user,
+		system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_UserTaskOutcome_AssignedToUser");
+		builder = builder.withParam("CompletedOrStartedAfter", _completedOrStartedAfter);
+		builder = builder.withParam("CompletedOrStartedBefore", _completedOrStartedBefore);
+		builder = builder.withParam("WorkflowDefinition_Selected", _workflowDefinition_Selected);
+		builder = builder.withParam("User", _user);
+		builder = builder.withParam("TaskDefinition_Selected", _taskDefinition_Selected);
+		return builder;
+	}
+
+	public static java.util.List<system.proxies.WorkflowUserTaskOutcome> sUB_UserTaskOutcome_AssignedToUser(
+		IContext context,
+		java.util.Date _completedOrStartedAfter,
+		java.util.Date _completedOrStartedBefore,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected,
+		system.proxies.User _user,
+		system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected
+	)
+	{
+		Object result = sUB_UserTaskOutcome_AssignedToUserBuilder(
+				_completedOrStartedAfter,
+				_completedOrStartedBefore,
+				_workflowDefinition_Selected,
+				_user,
+				_taskDefinition_Selected
+			)
+			.execute(context);
+		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> system.proxies.WorkflowUserTaskOutcome.initialize(context, obj));
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_UserTaskOutcomeView_AssignedToUserBuilder(
+		java.util.Date _completedOrStartedAfter,
+		java.util.Date _completedOrStartedBefore,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected,
+		system.proxies.User _user,
+		system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_UserTaskOutcomeView_AssignedToUser");
+		builder = builder.withParam("CompletedOrStartedAfter", _completedOrStartedAfter);
+		builder = builder.withParam("CompletedOrStartedBefore", _completedOrStartedBefore);
+		builder = builder.withParam("WorkflowDefinition_Selected", _workflowDefinition_Selected);
+		builder = builder.withParam("User", _user);
+		builder = builder.withParam("TaskDefinition_Selected", _taskDefinition_Selected);
+		return builder;
+	}
+
+	public static java.util.List<workflowcommons.proxies.UserTaskOutcomeView> sUB_UserTaskOutcomeView_AssignedToUser(
+		IContext context,
+		java.util.Date _completedOrStartedAfter,
+		java.util.Date _completedOrStartedBefore,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected,
+		system.proxies.User _user,
+		system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected
+	)
+	{
+		Object result = sUB_UserTaskOutcomeView_AssignedToUserBuilder(
+				_completedOrStartedAfter,
+				_completedOrStartedBefore,
+				_workflowDefinition_Selected,
+				_user,
+				_taskDefinition_Selected
+			)
+			.execute(context);
+		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> workflowcommons.proxies.UserTaskOutcomeView.initialize(context, obj));
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_UserTaskOutcomeView_FindOrCreateBuilder(
+		workflowcommons.proxies.UserTaskView _userTaskView,
+		system.proxies.WorkflowUserTaskOutcome _workflowUserTaskOutcome
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_UserTaskOutcomeView_FindOrCreate");
+		builder = builder.withParam("UserTaskView", _userTaskView);
+		builder = builder.withParam("WorkflowUserTaskOutcome", _workflowUserTaskOutcome);
+		return builder;
+	}
+
+	public static workflowcommons.proxies.UserTaskOutcomeView sUB_UserTaskOutcomeView_FindOrCreate(
+		IContext context,
+		workflowcommons.proxies.UserTaskView _userTaskView,
+		system.proxies.WorkflowUserTaskOutcome _workflowUserTaskOutcome
+	)
+	{
+		Object result = sUB_UserTaskOutcomeView_FindOrCreateBuilder(
+				_userTaskView,
+				_workflowUserTaskOutcome
+			)
+			.execute(context);
+		return result == null ? null : workflowcommons.proxies.UserTaskOutcomeView.initialize(context, (IMendixObject) result);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_UserTaskTimeline_WorkflowUserTask_SetAssigneeBuilder(
+		workflowcommons.proxies.UserTaskTimeLine _userTaskTimeLine,
+		workflowcommons.proxies.UserTaskView _userTaskView
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_UserTaskTimeline_WorkflowUserTask_SetAssignee");
+		builder = builder.withParam("UserTaskTimeLine", _userTaskTimeLine);
+		builder = builder.withParam("UserTaskView", _userTaskView);
+		return builder;
+	}
+
+	public static void sUB_UserTaskTimeline_WorkflowUserTask_SetAssignee(
+		IContext context,
+		workflowcommons.proxies.UserTaskTimeLine _userTaskTimeLine,
+		workflowcommons.proxies.UserTaskView _userTaskView
+	)
+	{
+		sUB_UserTaskTimeline_WorkflowUserTask_SetAssigneeBuilder(
+				_userTaskTimeLine,
+				_userTaskView
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_UserTaskTimeline_WorkflowUserTask_SetOutcomeCountBuilder(
+		workflowcommons.proxies.UserTaskTimeLine _userTaskTimeLine,
+		workflowcommons.proxies.UserTaskView _userTaskView
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_UserTaskTimeline_WorkflowUserTask_SetOutcomeCount");
+		builder = builder.withParam("UserTaskTimeLine", _userTaskTimeLine);
+		builder = builder.withParam("UserTaskView", _userTaskView);
+		return builder;
+	}
+
+	public static void sUB_UserTaskTimeline_WorkflowUserTask_SetOutcomeCount(
+		IContext context,
+		workflowcommons.proxies.UserTaskTimeLine _userTaskTimeLine,
+		workflowcommons.proxies.UserTaskView _userTaskView
+	)
+	{
+		sUB_UserTaskTimeline_WorkflowUserTask_SetOutcomeCountBuilder(
+				_userTaskTimeLine,
+				_userTaskView
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_UserTaskView_FindOrCreateBuilder(
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_UserTaskView_FindOrCreate");
+		builder = builder.withParam("WorkflowUserTask", _workflowUserTask);
+		return builder;
+	}
+
+	public static workflowcommons.proxies.UserTaskView sUB_UserTaskView_FindOrCreate(
+		IContext context,
+		system.proxies.WorkflowUserTask _workflowUserTask
+	)
+	{
+		Object result = sUB_UserTaskView_FindOrCreateBuilder(
+				_workflowUserTask
+			)
+			.execute(context);
+		return result == null ? null : workflowcommons.proxies.UserTaskView.initialize(context, (IMendixObject) result);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_Workflow_AverageHandlingTimeBuilder(
+		java.lang.Long _workflow_CountCompleted,
+		java.util.Date _completedAfter,
+		java.util.Date _completedBefore,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_Workflow_AverageHandlingTime");
+		builder = builder.withParam("Workflow_CountCompleted", _workflow_CountCompleted);
+		builder = builder.withParam("CompletedAfter", _completedAfter);
+		builder = builder.withParam("CompletedBefore", _completedBefore);
+		builder = builder.withParam("WorkflowDefinition_Selected", _workflowDefinition_Selected);
+		return builder;
+	}
+
+	public static java.math.BigDecimal sUB_Workflow_AverageHandlingTime(
+		IContext context,
+		java.lang.Long _workflow_CountCompleted,
+		java.util.Date _completedAfter,
+		java.util.Date _completedBefore,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected
+	)
+	{
+		Object result = sUB_Workflow_AverageHandlingTimeBuilder(
+				_workflow_CountCompleted,
+				_completedAfter,
+				_completedBefore,
+				_workflowDefinition_Selected
+			)
+			.execute(context);
+		return (java.math.BigDecimal) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_Workflow_CountCompletedBuilder(
+		java.util.Date _startedAfter,
+		java.util.Date _startedBefore,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_Workflow_CountCompleted");
+		builder = builder.withParam("StartedAfter", _startedAfter);
+		builder = builder.withParam("StartedBefore", _startedBefore);
+		builder = builder.withParam("WorkflowDefinition_Selected", _workflowDefinition_Selected);
+		return builder;
+	}
+
+	public static java.lang.Long sUB_Workflow_CountCompleted(
+		IContext context,
+		java.util.Date _startedAfter,
+		java.util.Date _startedBefore,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected
+	)
+	{
+		Object result = sUB_Workflow_CountCompletedBuilder(
+				_startedAfter,
+				_startedBefore,
+				_workflowDefinition_Selected
+			)
+			.execute(context);
+		return (java.lang.Long) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_Workflow_CountCompletedOnTimeBuilder(
+		java.util.Date _completedAfter,
+		java.util.Date _completedBefore,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_Workflow_CountCompletedOnTime");
+		builder = builder.withParam("CompletedAfter", _completedAfter);
+		builder = builder.withParam("CompletedBefore", _completedBefore);
+		builder = builder.withParam("WorkflowDefinition_Selected", _workflowDefinition_Selected);
+		return builder;
+	}
+
+	public static java.lang.Long sUB_Workflow_CountCompletedOnTime(
+		IContext context,
+		java.util.Date _completedAfter,
+		java.util.Date _completedBefore,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected
+	)
+	{
+		Object result = sUB_Workflow_CountCompletedOnTimeBuilder(
+				_completedAfter,
+				_completedBefore,
+				_workflowDefinition_Selected
+			)
+			.execute(context);
+		return (java.lang.Long) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_Workflow_CountCompletedOverdueBuilder(
+		java.util.Date _completedAfter,
+		java.util.Date _completedBefore,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_Workflow_CountCompletedOverdue");
+		builder = builder.withParam("CompletedAfter", _completedAfter);
+		builder = builder.withParam("CompletedBefore", _completedBefore);
+		builder = builder.withParam("WorkflowDefinition_Selected", _workflowDefinition_Selected);
+		return builder;
+	}
+
+	public static java.lang.Long sUB_Workflow_CountCompletedOverdue(
+		IContext context,
+		java.util.Date _completedAfter,
+		java.util.Date _completedBefore,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected
+	)
+	{
+		Object result = sUB_Workflow_CountCompletedOverdueBuilder(
+				_completedAfter,
+				_completedBefore,
+				_workflowDefinition_Selected
+			)
+			.execute(context);
+		return (java.lang.Long) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_Workflow_CountInProgressBuilder(
+		java.util.Date _startedAfter,
+		java.util.Date _startedBefore,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_Workflow_CountInProgress");
+		builder = builder.withParam("StartedAfter", _startedAfter);
+		builder = builder.withParam("StartedBefore", _startedBefore);
+		builder = builder.withParam("WorkflowDefinition_Selected", _workflowDefinition_Selected);
+		return builder;
+	}
+
+	public static java.lang.Long sUB_Workflow_CountInProgress(
+		IContext context,
+		java.util.Date _startedAfter,
+		java.util.Date _startedBefore,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected
+	)
+	{
+		Object result = sUB_Workflow_CountInProgressBuilder(
+				_startedAfter,
+				_startedBefore,
+				_workflowDefinition_Selected
+			)
+			.execute(context);
+		return (java.lang.Long) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_Workflow_CountOverdueBuilder(
+		java.util.Date _startedAfter,
+		java.util.Date _startedBefore,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_Workflow_CountOverdue");
+		builder = builder.withParam("StartedAfter", _startedAfter);
+		builder = builder.withParam("StartedBefore", _startedBefore);
+		builder = builder.withParam("WorkflowDefinition_Selected", _workflowDefinition_Selected);
+		return builder;
+	}
+
+	public static java.lang.Long sUB_Workflow_CountOverdue(
+		IContext context,
+		java.util.Date _startedAfter,
+		java.util.Date _startedBefore,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected
+	)
+	{
+		Object result = sUB_Workflow_CountOverdueBuilder(
+				_startedAfter,
+				_startedBefore,
+				_workflowDefinition_Selected
+			)
+			.execute(context);
+		return (java.lang.Long) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_Workflow_ShowWorkflowAdminPageBuilder(
+		system.proxies.Workflow _workflow
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_Workflow_ShowWorkflowAdminPage");
+		builder = builder.withParam("Workflow", _workflow);
+		return builder;
+	}
+
+	public static void sUB_Workflow_ShowWorkflowAdminPage(
+		IContext context,
+		system.proxies.Workflow _workflow
+	)
+	{
+		sUB_Workflow_ShowWorkflowAdminPageBuilder(
+				_workflow
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_WorkflowDashboard_UpdateBuilder(
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_WorkflowDashboard_Update");
+		builder = builder.withParam("DashboardContext", _dashboardContext);
+		return builder;
+	}
+
+	public static void sUB_WorkflowDashboard_Update(
+		IContext context,
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
+	{
+		sUB_WorkflowDashboard_UpdateBuilder(
+				_dashboardContext
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_WorkflowDefinitionHelper_FindOrCreateBuilder(
+		system.proxies.WorkflowDefinition _workflowDefinition
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_WorkflowDefinitionHelper_FindOrCreate");
+		builder = builder.withParam("WorkflowDefinition", _workflowDefinition);
+		return builder;
+	}
+
+	public static workflowcommons.proxies.WorkflowDefinitionHelper sUB_WorkflowDefinitionHelper_FindOrCreate(
+		IContext context,
+		system.proxies.WorkflowDefinition _workflowDefinition
+	)
+	{
+		Object result = sUB_WorkflowDefinitionHelper_FindOrCreateBuilder(
+				_workflowDefinition
+			)
+			.execute(context);
+		return result == null ? null : workflowcommons.proxies.WorkflowDefinitionHelper.initialize(context, (IMendixObject) result);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_WorkflowJumpToDetails_ValidateBuilder(
+		system.proxies.WorkflowJumpToDetails _workflowJumpToDetails
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_WorkflowJumpToDetails_Validate");
+		builder = builder.withParam("WorkflowJumpToDetails", _workflowJumpToDetails);
+		return builder;
+	}
+
+	public static boolean sUB_WorkflowJumpToDetails_Validate(
+		IContext context,
+		system.proxies.WorkflowJumpToDetails _workflowJumpToDetails
+	)
+	{
+		Object result = sUB_WorkflowJumpToDetails_ValidateBuilder(
+				_workflowJumpToDetails
+			)
+			.execute(context);
+		return (boolean) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_WorkflowSeries_CreateOrUpdateBuilder(
+		workflowcommons.proxies.DashboardContext _dashboardContext,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_WorkflowSeries_CreateOrUpdate");
+		builder = builder.withParam("DashboardContext", _dashboardContext);
+		builder = builder.withParam("WorkflowDefinition_Selected", _workflowDefinition_Selected);
+		return builder;
+	}
+
+	public static void sUB_WorkflowSeries_CreateOrUpdate(
+		IContext context,
+		workflowcommons.proxies.DashboardContext _dashboardContext,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected
+	)
+	{
+		sUB_WorkflowSeries_CreateOrUpdateBuilder(
+				_dashboardContext,
+				_workflowDefinition_Selected
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_WorkflowSeriesList_DeleteBuilder(
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_WorkflowSeriesList_Delete");
+		builder = builder.withParam("DashboardContext", _dashboardContext);
+		return builder;
+	}
+
+	public static void sUB_WorkflowSeriesList_Delete(
+		IContext context,
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
+	{
+		sUB_WorkflowSeriesList_DeleteBuilder(
+				_dashboardContext
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_WorkflowSummary_CreateOrUpdateBuilder(
+		workflowcommons.proxies.DashboardContext _dashboardContext,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_WorkflowSummary_CreateOrUpdate");
+		builder = builder.withParam("DashboardContext", _dashboardContext);
+		builder = builder.withParam("WorkflowDefinition_Selected", _workflowDefinition_Selected);
+		return builder;
+	}
+
+	public static workflowcommons.proxies.WorkflowSummary sUB_WorkflowSummary_CreateOrUpdate(
+		IContext context,
+		workflowcommons.proxies.DashboardContext _dashboardContext,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected
+	)
+	{
+		Object result = sUB_WorkflowSummary_CreateOrUpdateBuilder(
+				_dashboardContext,
+				_workflowDefinition_Selected
+			)
+			.execute(context);
+		return result == null ? null : workflowcommons.proxies.WorkflowSummary.initialize(context, (IMendixObject) result);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_WorkflowSummary_RetrieveOrCreateBuilder(
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_WorkflowSummary_RetrieveOrCreate");
+		builder = builder.withParam("DashboardContext", _dashboardContext);
+		return builder;
+	}
+
+	public static workflowcommons.proxies.WorkflowSummary sUB_WorkflowSummary_RetrieveOrCreate(
+		IContext context,
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
+	{
+		Object result = sUB_WorkflowSummary_RetrieveOrCreateBuilder(
+				_dashboardContext
+			)
+			.execute(context);
+		return result == null ? null : workflowcommons.proxies.WorkflowSummary.initialize(context, (IMendixObject) result);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_WorkflowTask_AverageHandlingTimeBuilder(
+		java.util.Date _completedAfter,
+		java.util.Date _completedBefore,
+		system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_WorkflowTask_AverageHandlingTime");
+		builder = builder.withParam("CompletedAfter", _completedAfter);
+		builder = builder.withParam("CompletedBefore", _completedBefore);
+		builder = builder.withParam("TaskDefinition_Selected", _taskDefinition_Selected);
+		return builder;
+	}
+
+	public static java.math.BigDecimal sUB_WorkflowTask_AverageHandlingTime(
+		IContext context,
+		java.util.Date _completedAfter,
+		java.util.Date _completedBefore,
+		system.proxies.WorkflowUserTaskDefinition _taskDefinition_Selected
+	)
+	{
+		Object result = sUB_WorkflowTask_AverageHandlingTimeBuilder(
+				_completedAfter,
+				_completedBefore,
+				_taskDefinition_Selected
+			)
+			.execute(context);
+		return (java.math.BigDecimal) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_WorkflowTaskDetail_CreateOrUpdateBuilder(
+		workflowcommons.proxies.DashboardContext _dashboardContext,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_WorkflowTaskDetail_CreateOrUpdate");
+		builder = builder.withParam("DashboardContext", _dashboardContext);
+		builder = builder.withParam("WorkflowDefinition_Selected", _workflowDefinition_Selected);
+		return builder;
+	}
+
+	public static void sUB_WorkflowTaskDetail_CreateOrUpdate(
+		IContext context,
+		workflowcommons.proxies.DashboardContext _dashboardContext,
+		system.proxies.WorkflowDefinition _workflowDefinition_Selected
+	)
+	{
+		sUB_WorkflowTaskDetail_CreateOrUpdateBuilder(
+				_dashboardContext,
+				_workflowDefinition_Selected
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_WorkflowTaskDetail_DeleteBuilder(
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_WorkflowTaskDetail_Delete");
+		builder = builder.withParam("DashboardContext", _dashboardContext);
+		return builder;
+	}
+
+	public static void sUB_WorkflowTaskDetail_Delete(
+		IContext context,
+		workflowcommons.proxies.DashboardContext _dashboardContext
+	)
+	{
+		sUB_WorkflowTaskDetail_DeleteBuilder(
+				_dashboardContext
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_WorkflowTaskTimeline_CompletedBuilder(
+		java.util.List<workflowcommons.proxies.UserTaskOutcomeView> _userTaskOutcomeViewList,
+		java.util.List<workflowcommons.proxies.UserTaskTimeLine> _userTaskTimeLineList
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_WorkflowTaskTimeline_Completed");
+		builder = builder.withParam("UserTaskOutcomeViewList", _userTaskOutcomeViewList);
+		builder = builder.withParam("UserTaskTimeLineList", _userTaskTimeLineList);
+		return builder;
+	}
+
+	public static void sUB_WorkflowTaskTimeline_Completed(
+		IContext context,
+		java.util.List<workflowcommons.proxies.UserTaskOutcomeView> _userTaskOutcomeViewList,
+		java.util.List<workflowcommons.proxies.UserTaskTimeLine> _userTaskTimeLineList
+	)
+	{
+		sUB_WorkflowTaskTimeline_CompletedBuilder(
+				_userTaskOutcomeViewList,
+				_userTaskTimeLineList
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_WorkflowTaskTimeline_InProgressBuilder(
+		java.util.List<system.proxies.WorkflowUserTaskOutcome> _userTaskOutcomeList,
+		java.util.List<workflowcommons.proxies.UserTaskTimeLine> _userTaskTimeLineList
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_WorkflowTaskTimeline_InProgress");
+		builder = builder.withParam("UserTaskOutcomeList", _userTaskOutcomeList);
+		builder = builder.withParam("UserTaskTimeLineList", _userTaskTimeLineList);
+		return builder;
+	}
+
+	public static void sUB_WorkflowTaskTimeline_InProgress(
+		IContext context,
+		java.util.List<system.proxies.WorkflowUserTaskOutcome> _userTaskOutcomeList,
+		java.util.List<workflowcommons.proxies.UserTaskTimeLine> _userTaskTimeLineList
+	)
+	{
+		sUB_WorkflowTaskTimeline_InProgressBuilder(
+				_userTaskOutcomeList,
+				_userTaskTimeLineList
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_WorkflowView_CommentAttachment_ValidateBuilder(
+		workflowcommons.proxies.WorkflowView _workflowView,
+		java.lang.String _operation
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_WorkflowView_CommentAttachment_Validate");
+		builder = builder.withParam("WorkflowView", _workflowView);
+		builder = builder.withParam("Operation", _operation);
+		return builder;
+	}
+
+	public static boolean sUB_WorkflowView_CommentAttachment_Validate(
+		IContext context,
+		workflowcommons.proxies.WorkflowView _workflowView,
+		java.lang.String _operation
+	)
+	{
+		Object result = sUB_WorkflowView_CommentAttachment_ValidateBuilder(
+				_workflowView,
+				_operation
+			)
+			.execute(context);
+		return (boolean) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_WorkflowView_CurrentUserIsTargetedBuilder(
+		workflowcommons.proxies.WorkflowView _workflowView
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_WorkflowView_CurrentUserIsTargeted");
+		builder = builder.withParam("WorkflowView", _workflowView);
+		return builder;
+	}
+
+	public static boolean sUB_WorkflowView_CurrentUserIsTargeted(
+		IContext context,
+		workflowcommons.proxies.WorkflowView _workflowView
+	)
+	{
+		Object result = sUB_WorkflowView_CurrentUserIsTargetedBuilder(
+				_workflowView
+			)
+			.execute(context);
+		return (boolean) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_WorkflowView_FindOrCreateBuilder(
+		system.proxies.Workflow _workflow
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_WorkflowView_FindOrCreate");
+		builder = builder.withParam("Workflow", _workflow);
+		return builder;
+	}
+
+	public static workflowcommons.proxies.WorkflowView sUB_WorkflowView_FindOrCreate(
+		IContext context,
+		system.proxies.Workflow _workflow
+	)
+	{
+		Object result = sUB_WorkflowView_FindOrCreateBuilder(
+				_workflow
+			)
+			.execute(context);
+		return result == null ? null : workflowcommons.proxies.WorkflowView.initialize(context, (IMendixObject) result);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_WorkflowView_ShowWorkflowAdminPageBuilder(
+		workflowcommons.proxies.WorkflowView _workflowView
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_WorkflowView_ShowWorkflowAdminPage");
+		builder = builder.withParam("WorkflowView", _workflowView);
+		return builder;
+	}
+
+	public static void sUB_WorkflowView_ShowWorkflowAdminPage(
+		IContext context,
+		workflowcommons.proxies.WorkflowView _workflowView
+	)
+	{
+		sUB_WorkflowView_ShowWorkflowAdminPageBuilder(
+				_workflowView
+			)
+			.execute(context);
 	}
 }

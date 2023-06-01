@@ -4,7 +4,7 @@
 
 package workflowcommons.proxies;
 
-public class UserTaskView
+public class UserTaskView implements com.mendix.systemwideinterfaces.core.IEntityProxy
 {
 	private final com.mendix.systemwideinterfaces.core.IMendixObject userTaskViewMendixObject;
 
@@ -26,12 +26,14 @@ public class UserTaskView
 		EndTime("EndTime"),
 		DueDate("DueDate"),
 		Outcome("Outcome"),
+		CompletionType("CompletionType"),
 		State("State"),
 		UserTaskView_WorkflowView("WorkflowCommons.UserTaskView_WorkflowView"),
 		UserTaskView_WorkflowUserTask("WorkflowCommons.UserTaskView_WorkflowUserTask"),
 		UserTaskView_WorkflowUserTaskDefinition("WorkflowCommons.UserTaskView_WorkflowUserTaskDefinition"),
-		UserTaskView_Assignee("WorkflowCommons.UserTaskView_Assignee"),
-		UserTaskView_TargetUsers("WorkflowCommons.UserTaskView_TargetUsers");
+		UserTaskView_Assignees("WorkflowCommons.UserTaskView_Assignees"),
+		UserTaskView_TargetUsers("WorkflowCommons.UserTaskView_TargetUsers"),
+		UserTaskView_Assignee("WorkflowCommons.UserTaskView_Assignee");
 
 		private final java.lang.String metaName;
 
@@ -66,15 +68,6 @@ public class UserTaskView
 	}
 
 	/**
-	 * @deprecated Use 'UserTaskView.load(IContext, IMendixIdentifier)' instead.
-	 */
-	@java.lang.Deprecated
-	public static workflowcommons.proxies.UserTaskView initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixIdentifier mendixIdentifier) throws com.mendix.core.CoreException
-	{
-		return workflowcommons.proxies.UserTaskView.load(context, mendixIdentifier);
-	}
-
-	/**
 	 * Initialize a proxy using context (recommended). This context will be used for security checking when the get- and set-methods without context parameters are called.
 	 * The get- and set-methods with context parameter should be used when for instance sudo access is necessary (IContext.createSudoClone() can be used to obtain sudo access).
 	 * @param context The context to be used
@@ -101,39 +94,6 @@ public class UserTaskView
 			.collect(java.util.stream.Collectors.toList());
 	}
 
-	/**
-	 * Commit the changes made on this proxy object.
-	 * @throws com.mendix.core.CoreException
-	 */
-	public final void commit() throws com.mendix.core.CoreException
-	{
-		com.mendix.core.Core.commit(context, getMendixObject());
-	}
-
-	/**
-	 * Commit the changes made on this proxy object using the specified context.
-	 * @throws com.mendix.core.CoreException
-	 */
-	public final void commit(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
-	{
-		com.mendix.core.Core.commit(context, getMendixObject());
-	}
-
-	/**
-	 * Delete the object.
-	 */
-	public final void delete()
-	{
-		com.mendix.core.Core.delete(context, getMendixObject());
-	}
-
-	/**
-	 * Delete the object using the specified context.
-	 */
-	public final void delete(com.mendix.systemwideinterfaces.core.IContext context)
-	{
-		com.mendix.core.Core.delete(context, getMendixObject());
-	}
 	/**
 	 * @return value of Name
 	 */
@@ -351,7 +311,52 @@ public class UserTaskView
 	}
 
 	/**
-	 * Set value of State
+	 * Get value of CompletionType
+	 * @param completiontype
+	 */
+	public final system.proxies.WorkflowUserTaskCompletionType getCompletionType()
+	{
+		return getCompletionType(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of CompletionType
+	 */
+	public final system.proxies.WorkflowUserTaskCompletionType getCompletionType(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		Object obj = getMendixObject().getValue(context, MemberNames.CompletionType.toString());
+		if (obj == null) {
+			return null;
+		}
+		return system.proxies.WorkflowUserTaskCompletionType.valueOf((java.lang.String) obj);
+	}
+
+	/**
+	 * Set value of CompletionType
+	 * @param completiontype
+	 */
+	public final void setCompletionType(system.proxies.WorkflowUserTaskCompletionType completiontype)
+	{
+		setCompletionType(getContext(), completiontype);
+	}
+
+	/**
+	 * Set value of CompletionType
+	 * @param context
+	 * @param completiontype
+	 */
+	public final void setCompletionType(com.mendix.systemwideinterfaces.core.IContext context, system.proxies.WorkflowUserTaskCompletionType completiontype)
+	{
+		if (completiontype != null) {
+			getMendixObject().setValue(context, MemberNames.CompletionType.toString(), completiontype.toString());
+		} else {
+			getMendixObject().setValue(context, MemberNames.CompletionType.toString(), null);
+		}
+	}
+
+	/**
+	 * Get value of State
 	 * @param state
 	 */
 	public final system.proxies.WorkflowUserTaskState getState()
@@ -538,49 +543,54 @@ public class UserTaskView
 
 	/**
 	 * @throws com.mendix.core.CoreException
-	 * @return value of UserTaskView_Assignee
+	 * @return value of UserTaskView_Assignees
 	 */
-	public final system.proxies.User getUserTaskView_Assignee() throws com.mendix.core.CoreException
+	public final java.util.List<system.proxies.User> getUserTaskView_Assignees() throws com.mendix.core.CoreException
 	{
-		return getUserTaskView_Assignee(getContext());
+		return getUserTaskView_Assignees(getContext());
 	}
 
 	/**
 	 * @param context
-	 * @return value of UserTaskView_Assignee
+	 * @return value of UserTaskView_Assignees
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final system.proxies.User getUserTaskView_Assignee(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	@SuppressWarnings("unchecked")
+	public final java.util.List<system.proxies.User> getUserTaskView_Assignees(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		system.proxies.User result = null;
-		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.UserTaskView_Assignee.toString());
-		if (identifier != null) {
-			result = system.proxies.User.load(context, identifier);
+		java.util.List<system.proxies.User> result = new java.util.ArrayList<>();
+		Object valueObject = getMendixObject().getValue(context, MemberNames.UserTaskView_Assignees.toString());
+		if (valueObject == null) {
+			return result;
+		}
+		for (com.mendix.systemwideinterfaces.core.IMendixObject mendixObject : com.mendix.core.Core.retrieveIdList(context, (java.util.List<com.mendix.systemwideinterfaces.core.IMendixIdentifier>) valueObject)) {
+			result.add(system.proxies.User.initialize(context, mendixObject));
 		}
 		return result;
 	}
 
 	/**
-	 * Set value of UserTaskView_Assignee
-	 * @param usertaskview_assignee
+	 * Set value of UserTaskView_Assignees
+	 * @param usertaskview_assignees
 	 */
-	public final void setUserTaskView_Assignee(system.proxies.User usertaskview_assignee)
+	public final void setUserTaskView_Assignees(java.util.List<system.proxies.User> usertaskview_assignees)
 	{
-		setUserTaskView_Assignee(getContext(), usertaskview_assignee);
+		setUserTaskView_Assignees(getContext(), usertaskview_assignees);
 	}
 
 	/**
-	 * Set value of UserTaskView_Assignee
+	 * Set value of UserTaskView_Assignees
 	 * @param context
-	 * @param usertaskview_assignee
+	 * @param usertaskview_assignees
 	 */
-	public final void setUserTaskView_Assignee(com.mendix.systemwideinterfaces.core.IContext context, system.proxies.User usertaskview_assignee)
+	public final void setUserTaskView_Assignees(com.mendix.systemwideinterfaces.core.IContext context, java.util.List<system.proxies.User> usertaskview_assignees)
 	{
-		if (usertaskview_assignee == null) {
-			getMendixObject().setValue(context, MemberNames.UserTaskView_Assignee.toString(), null);
-		} else {
-			getMendixObject().setValue(context, MemberNames.UserTaskView_Assignee.toString(), usertaskview_assignee.getMendixObject().getId());
-		}
+		var identifiers = usertaskview_assignees
+			.stream()
+			.map(proxyObject -> proxyObject.getMendixObject().getId())
+			.collect(java.util.stream.Collectors.toList());
+		
+		getMendixObject().setValue(context, MemberNames.UserTaskView_Assignees.toString(), identifiers);
 	}
 
 	/**
@@ -636,16 +646,59 @@ public class UserTaskView
 	}
 
 	/**
-	 * @return the IMendixObject instance of this proxy for use in the Core interface.
+	 * @throws com.mendix.core.CoreException
+	 * @return value of UserTaskView_Assignee
 	 */
+	public final system.proxies.User getUserTaskView_Assignee() throws com.mendix.core.CoreException
+	{
+		return getUserTaskView_Assignee(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of UserTaskView_Assignee
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final system.proxies.User getUserTaskView_Assignee(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		system.proxies.User result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.UserTaskView_Assignee.toString());
+		if (identifier != null) {
+			result = system.proxies.User.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of UserTaskView_Assignee
+	 * @param usertaskview_assignee
+	 */
+	public final void setUserTaskView_Assignee(system.proxies.User usertaskview_assignee)
+	{
+		setUserTaskView_Assignee(getContext(), usertaskview_assignee);
+	}
+
+	/**
+	 * Set value of UserTaskView_Assignee
+	 * @param context
+	 * @param usertaskview_assignee
+	 */
+	public final void setUserTaskView_Assignee(com.mendix.systemwideinterfaces.core.IContext context, system.proxies.User usertaskview_assignee)
+	{
+		if (usertaskview_assignee == null) {
+			getMendixObject().setValue(context, MemberNames.UserTaskView_Assignee.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.UserTaskView_Assignee.toString(), usertaskview_assignee.getMendixObject().getId());
+		}
+	}
+
+	@Override
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
 		return userTaskViewMendixObject;
 	}
 
-	/**
-	 * @return the IContext instance of this proxy, or null if no IContext instance was specified at initialization.
-	 */
+	@Override
 	public final com.mendix.systemwideinterfaces.core.IContext getContext()
 	{
 		return context;
@@ -671,21 +724,13 @@ public class UserTaskView
 		return getMendixObject().hashCode();
 	}
 
-	/**
-	 * @return String name of this class
-	 */
+  /**
+   * Gives full name ("Module.Entity" name) of the type of the entity.
+   *
+   * @return the name
+   */
 	public static java.lang.String getType()
 	{
 		return entityName;
-	}
-
-	/**
-	 * @return String GUID from this object, format: ID_0000000000
-	 * @deprecated Use getMendixObject().getId().toLong() to get a unique identifier for this object.
-	 */
-	@java.lang.Deprecated
-	public java.lang.String getGUID()
-	{
-		return "ID_" + getMendixObject().getId().toLong();
 	}
 }

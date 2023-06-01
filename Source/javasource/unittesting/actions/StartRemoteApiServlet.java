@@ -16,12 +16,15 @@ import com.mendix.webui.CustomJavaAction;
 
 public class StartRemoteApiServlet extends CustomJavaAction<java.lang.Boolean>
 {
-	private java.lang.String password;
+	private final java.lang.String password;
 
-	public StartRemoteApiServlet(IContext context, java.lang.String password)
+	public StartRemoteApiServlet(
+		IContext context,
+		java.lang.String _password
+	)
 	{
 		super(context);
-		this.password = password;
+		this.password = _password;
 	}
 
 	@java.lang.Override

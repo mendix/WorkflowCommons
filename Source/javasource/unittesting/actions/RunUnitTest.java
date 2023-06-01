@@ -16,20 +16,24 @@ import com.mendix.webui.CustomJavaAction;
 
 public class RunUnitTest extends CustomJavaAction<java.lang.Boolean>
 {
-	private IMendixObject __unitTest;
-	private unittesting.proxies.UnitTest unitTest;
+	/** @deprecated use unitTest.getMendixObject() instead. */
+	@java.lang.Deprecated(forRemoval = true)
+	private final IMendixObject __unitTest;
+	private final unittesting.proxies.UnitTest unitTest;
 
-	public RunUnitTest(IContext context, IMendixObject unitTest)
+	public RunUnitTest(
+		IContext context,
+		IMendixObject _unitTest
+	)
 	{
 		super(context);
-		this.__unitTest = unitTest;
+		this.__unitTest = _unitTest;
+		this.unitTest = _unitTest == null ? null : unittesting.proxies.UnitTest.initialize(getContext(), _unitTest);
 	}
 
 	@java.lang.Override
 	public java.lang.Boolean executeAction() throws Exception
 	{
-		this.unitTest = this.__unitTest == null ? null : unittesting.proxies.UnitTest.initialize(getContext(), __unitTest);
-
 		// BEGIN USER CODE
 		TestManager.instance().runTest(getContext(), unitTest);
 		return true;

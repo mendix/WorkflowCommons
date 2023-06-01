@@ -4,145 +4,335 @@
 
 package unittesting.proxies.microflows;
 
-import java.util.HashMap;
-import java.util.Map;
 import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
 
-public class Microflows
+public final class Microflows
 {
 	/**
-	 * @deprecated
-	 * The default constructor of the Microflows class should not be used.
-	 * Use the static microflow invocation methods instead.
+	 * Private constructor to prevent instantiation of this class. 
 	 */
-	@java.lang.Deprecated(since = "9.12", forRemoval = true)
-	public Microflows() {}
+	private Microflows() {}
 
 	// These are the microflows for the UnitTesting module
-	public static void assertTrue1(IContext context, boolean _valueToAssert)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder assertTrue1Builder(
+		boolean _valueToAssert
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("ValueToAssert", _valueToAssert);
-		Core.microflowCall("UnitTesting.AssertTrue1").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("UnitTesting.AssertTrue1");
+		builder = builder.withParam("ValueToAssert", _valueToAssert);
+		return builder;
 	}
-	public static void assertTrue2(IContext context, boolean _valueToAssert, java.lang.String _message)
+
+	public static void assertTrue1(
+		IContext context,
+		boolean _valueToAssert
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("ValueToAssert", _valueToAssert);
-		params.put("Message", _message);
-		Core.microflowCall("UnitTesting.AssertTrue2").withParams(params).execute(context);
+		assertTrue1Builder(
+				_valueToAssert
+			)
+			.execute(context);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder assertTrue2Builder(
+		boolean _valueToAssert,
+		java.lang.String _message
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("UnitTesting.AssertTrue2");
+		builder = builder.withParam("ValueToAssert", _valueToAssert);
+		builder = builder.withParam("Message", _message);
+		return builder;
+	}
+
+	public static void assertTrue2(
+		IContext context,
+		boolean _valueToAssert,
+		java.lang.String _message
+	)
+	{
+		assertTrue2Builder(
+				_valueToAssert,
+				_message
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder iVK_FindAllTestsBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("UnitTesting.IVK_FindAllTests");
+		return builder;
+	}
+
 	public static void iVK_FindAllTests(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		Core.microflowCall("UnitTesting.IVK_FindAllTests").withParams(params).execute(context);
+		iVK_FindAllTestsBuilder().execute(context);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder iVK_RefreshUnitTestOverviewBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("UnitTesting.IVK_RefreshUnitTestOverview");
+		return builder;
+	}
+
 	public static void iVK_RefreshUnitTestOverview(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		Core.microflowCall("UnitTesting.IVK_RefreshUnitTestOverview").withParams(params).execute(context);
+		iVK_RefreshUnitTestOverviewBuilder().execute(context);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder iVK_RemoveAllAndFindAllTestsBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("UnitTesting.IVK_RemoveAllAndFindAllTests");
+		return builder;
+	}
+
 	public static void iVK_RemoveAllAndFindAllTests(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		Core.microflowCall("UnitTesting.IVK_RemoveAllAndFindAllTests").withParams(params).execute(context);
+		iVK_RemoveAllAndFindAllTestsBuilder().execute(context);
 	}
-	public static void iVK_RemoveTestSuiteAndFindAllTests(IContext context, unittesting.proxies.TestSuite _testSuite)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder iVK_RemoveTestSuiteAndFindAllTestsBuilder(
+		unittesting.proxies.TestSuite _testSuite
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("TestSuite", _testSuite == null ? null : _testSuite.getMendixObject());
-		Core.microflowCall("UnitTesting.IVK_RemoveTestSuiteAndFindAllTests").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("UnitTesting.IVK_RemoveTestSuiteAndFindAllTests");
+		builder = builder.withParam("TestSuite", _testSuite);
+		return builder;
 	}
+
+	public static void iVK_RemoveTestSuiteAndFindAllTests(
+		IContext context,
+		unittesting.proxies.TestSuite _testSuite
+	)
+	{
+		iVK_RemoveTestSuiteAndFindAllTestsBuilder(
+				_testSuite
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder iVK_ResetUnitTestsBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("UnitTesting.IVK_ResetUnitTests");
+		return builder;
+	}
+
 	public static void iVK_ResetUnitTests(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		Core.microflowCall("UnitTesting.IVK_ResetUnitTests").withParams(params).execute(context);
+		iVK_ResetUnitTestsBuilder().execute(context);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder iVK_RunAllTestsBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("UnitTesting.IVK_RunAllTests");
+		return builder;
+	}
+
 	public static void iVK_RunAllTests(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		Core.microflowCall("UnitTesting.IVK_RunAllTests").withParams(params).execute(context);
+		iVK_RunAllTestsBuilder().execute(context);
 	}
-	public static void iVK_ToggleAutoRollback(IContext context, unittesting.proxies.TestSuite _testSuite)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder iVK_ToggleAutoRollbackBuilder(
+		unittesting.proxies.TestSuite _testSuite
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("TestSuite", _testSuite == null ? null : _testSuite.getMendixObject());
-		Core.microflowCall("UnitTesting.IVK_ToggleAutoRollback").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("UnitTesting.IVK_ToggleAutoRollback");
+		builder = builder.withParam("TestSuite", _testSuite);
+		return builder;
 	}
-	public static void iVK_UnitTestDetails(IContext context, unittesting.proxies.UnitTest _unitTest)
+
+	public static void iVK_ToggleAutoRollback(
+		IContext context,
+		unittesting.proxies.TestSuite _testSuite
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("UnitTest", _unitTest == null ? null : _unitTest.getMendixObject());
-		Core.microflowCall("UnitTesting.IVK_UnitTestDetails").withParams(params).execute(context);
+		iVK_ToggleAutoRollbackBuilder(
+				_testSuite
+			)
+			.execute(context);
 	}
-	public static void oCh_TestSuiteRollback(IContext context, unittesting.proxies.TestSuite _testSuite)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder iVK_UnitTestDetailsBuilder(
+		unittesting.proxies.UnitTest _unitTest
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("TestSuite", _testSuite == null ? null : _testSuite.getMendixObject());
-		Core.microflowCall("UnitTesting.OCh_TestSuiteRollback").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("UnitTesting.IVK_UnitTestDetails");
+		builder = builder.withParam("UnitTest", _unitTest);
+		return builder;
 	}
-	public static void reportStep(IContext context, java.lang.String _message)
+
+	public static void iVK_UnitTestDetails(
+		IContext context,
+		unittesting.proxies.UnitTest _unitTest
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Message", _message);
-		Core.microflowCall("UnitTesting.ReportStep").withParams(params).execute(context);
+		iVK_UnitTestDetailsBuilder(
+				_unitTest
+			)
+			.execute(context);
 	}
-	public static void rerunUnittest(IContext context, unittesting.proxies.UnitTest _unitTestRun)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder oCh_TestSuiteRollbackBuilder(
+		unittesting.proxies.TestSuite _testSuite
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("UnitTestRun", _unitTestRun == null ? null : _unitTestRun.getMendixObject());
-		Core.microflowCall("UnitTesting.RerunUnittest").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("UnitTesting.OCh_TestSuiteRollback");
+		builder = builder.withParam("TestSuite", _testSuite);
+		return builder;
 	}
+
+	public static void oCh_TestSuiteRollback(
+		IContext context,
+		unittesting.proxies.TestSuite _testSuite
+	)
+	{
+		oCh_TestSuiteRollbackBuilder(
+				_testSuite
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder reportStepBuilder(
+		java.lang.String _message
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("UnitTesting.ReportStep");
+		builder = builder.withParam("Message", _message);
+		return builder;
+	}
+
+	public static void reportStep(
+		IContext context,
+		java.lang.String _message
+	)
+	{
+		reportStepBuilder(
+				_message
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder rerunUnittestBuilder(
+		unittesting.proxies.UnitTest _unitTestRun
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("UnitTesting.RerunUnittest");
+		builder = builder.withParam("UnitTestRun", _unitTestRun);
+		return builder;
+	}
+
+	public static void rerunUnittest(
+		IContext context,
+		unittesting.proxies.UnitTest _unitTestRun
+	)
+	{
+		rerunUnittestBuilder(
+				_unitTestRun
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder setupBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("UnitTesting.Setup");
+		return builder;
+	}
+
 	public static void setup(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		Core.microflowCall("UnitTesting.Setup").withParams(params).execute(context);
+		setupBuilder().execute(context);
 	}
-	public static void startUnittestRun(IContext context, unittesting.proxies.TestSuite _testSuite)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder startUnittestRunBuilder(
+		unittesting.proxies.TestSuite _testSuite
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("TestSuite", _testSuite == null ? null : _testSuite.getMendixObject());
-		Core.microflowCall("UnitTesting.StartUnittestRun").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("UnitTesting.StartUnittestRun");
+		builder = builder.withParam("TestSuite", _testSuite);
+		return builder;
 	}
+
+	public static void startUnittestRun(
+		IContext context,
+		unittesting.proxies.TestSuite _testSuite
+	)
+	{
+		startUnittestRunBuilder(
+				_testSuite
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder startupBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("UnitTesting.Startup");
+		return builder;
+	}
+
 	public static boolean startup(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("UnitTesting.Startup").withParams(params).execute(context);
+		Object result = startupBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder tearDownBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("UnitTesting.TearDown");
+		return builder;
+	}
+
 	public static void tearDown(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		Core.microflowCall("UnitTesting.TearDown").withParams(params).execute(context);
+		tearDownBuilder().execute(context);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder test_FailingUnitTestBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("UnitTesting.Test_FailingUnitTest");
+		return builder;
+	}
+
 	public static boolean test_FailingUnitTest(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("UnitTesting.Test_FailingUnitTest").withParams(params).execute(context);
+		Object result = test_FailingUnitTestBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder test_IsAssertionErrorCheckBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("UnitTesting.Test_IsAssertionErrorCheck");
+		return builder;
+	}
+
 	public static boolean test_IsAssertionErrorCheck(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("UnitTesting.Test_IsAssertionErrorCheck").withParams(params).execute(context);
+		Object result = test_IsAssertionErrorCheckBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder test_ValidUnitTestBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("UnitTesting.Test_ValidUnitTest");
+		return builder;
+	}
+
 	public static boolean test_ValidUnitTest(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("UnitTesting.Test_ValidUnitTest").withParams(params).execute(context);
+		Object result = test_ValidUnitTestBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder test_WithoutReturnBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("UnitTesting.Test_WithoutReturn");
+		return builder;
+	}
+
 	public static void test_WithoutReturn(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		Core.microflowCall("UnitTesting.Test_WithoutReturn").withParams(params).execute(context);
+		test_WithoutReturnBuilder().execute(context);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder unitTestOverviewBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("UnitTesting.UnitTestOverview");
+		return builder;
+	}
+
 	public static void unitTestOverview(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		Core.microflowCall("UnitTesting.UnitTestOverview").withParams(params).execute(context);
+		unitTestOverviewBuilder().execute(context);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder uT_ValidUnitTestBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("UnitTesting.UT_ValidUnitTest");
+		return builder;
+	}
+
 	public static boolean uT_ValidUnitTest(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("UnitTesting.UT_ValidUnitTest").withParams(params).execute(context);
+		Object result = uT_ValidUnitTestBuilder().execute(context);
+		return (boolean) result;
 	}
 }

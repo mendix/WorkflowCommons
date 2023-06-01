@@ -4,7 +4,7 @@
 
 package workflowcommons.proxies;
 
-public class Configuration
+public class Configuration implements com.mendix.systemwideinterfaces.core.IEntityProxy
 {
 	private final com.mendix.systemwideinterfaces.core.IMendixObject configurationMendixObject;
 
@@ -20,8 +20,8 @@ public class Configuration
 	 */
 	public enum MemberNames
 	{
-		VerifiedAttachmentCommentMigration("VerifiedAttachmentCommentMigration"),
-		ShowAttachmentCommentMigration("ShowAttachmentCommentMigration");
+		VerifiedAssigneeMigration("VerifiedAssigneeMigration"),
+		ShowAssigneeMigration("ShowAssigneeMigration");
 
 		private final java.lang.String metaName;
 
@@ -56,15 +56,6 @@ public class Configuration
 	}
 
 	/**
-	 * @deprecated Use 'Configuration.load(IContext, IMendixIdentifier)' instead.
-	 */
-	@java.lang.Deprecated
-	public static workflowcommons.proxies.Configuration initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixIdentifier mendixIdentifier) throws com.mendix.core.CoreException
-	{
-		return workflowcommons.proxies.Configuration.load(context, mendixIdentifier);
-	}
-
-	/**
 	 * Initialize a proxy using context (recommended). This context will be used for security checking when the get- and set-methods without context parameters are called.
 	 * The get- and set-methods with context parameter should be used when for instance sudo access is necessary (IContext.createSudoClone() can be used to obtain sudo access).
 	 * @param context The context to be used
@@ -92,121 +83,84 @@ public class Configuration
 	}
 
 	/**
-	 * Commit the changes made on this proxy object.
-	 * @throws com.mendix.core.CoreException
+	 * @return value of VerifiedAssigneeMigration
 	 */
-	public final void commit() throws com.mendix.core.CoreException
+	public final java.lang.Boolean getVerifiedAssigneeMigration()
 	{
-		com.mendix.core.Core.commit(context, getMendixObject());
-	}
-
-	/**
-	 * Commit the changes made on this proxy object using the specified context.
-	 * @throws com.mendix.core.CoreException
-	 */
-	public final void commit(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
-	{
-		com.mendix.core.Core.commit(context, getMendixObject());
-	}
-
-	/**
-	 * Delete the object.
-	 */
-	public final void delete()
-	{
-		com.mendix.core.Core.delete(context, getMendixObject());
-	}
-
-	/**
-	 * Delete the object using the specified context.
-	 */
-	public final void delete(com.mendix.systemwideinterfaces.core.IContext context)
-	{
-		com.mendix.core.Core.delete(context, getMendixObject());
-	}
-	/**
-	 * @return value of VerifiedAttachmentCommentMigration
-	 */
-	public final java.lang.Boolean getVerifiedAttachmentCommentMigration()
-	{
-		return getVerifiedAttachmentCommentMigration(getContext());
+		return getVerifiedAssigneeMigration(getContext());
 	}
 
 	/**
 	 * @param context
-	 * @return value of VerifiedAttachmentCommentMigration
+	 * @return value of VerifiedAssigneeMigration
 	 */
-	public final java.lang.Boolean getVerifiedAttachmentCommentMigration(com.mendix.systemwideinterfaces.core.IContext context)
+	public final java.lang.Boolean getVerifiedAssigneeMigration(com.mendix.systemwideinterfaces.core.IContext context)
 	{
-		return (java.lang.Boolean) getMendixObject().getValue(context, MemberNames.VerifiedAttachmentCommentMigration.toString());
+		return (java.lang.Boolean) getMendixObject().getValue(context, MemberNames.VerifiedAssigneeMigration.toString());
 	}
 
 	/**
-	 * Set value of VerifiedAttachmentCommentMigration
-	 * @param verifiedattachmentcommentmigration
+	 * Set value of VerifiedAssigneeMigration
+	 * @param verifiedassigneemigration
 	 */
-	public final void setVerifiedAttachmentCommentMigration(java.lang.Boolean verifiedattachmentcommentmigration)
+	public final void setVerifiedAssigneeMigration(java.lang.Boolean verifiedassigneemigration)
 	{
-		setVerifiedAttachmentCommentMigration(getContext(), verifiedattachmentcommentmigration);
+		setVerifiedAssigneeMigration(getContext(), verifiedassigneemigration);
 	}
 
 	/**
-	 * Set value of VerifiedAttachmentCommentMigration
+	 * Set value of VerifiedAssigneeMigration
 	 * @param context
-	 * @param verifiedattachmentcommentmigration
+	 * @param verifiedassigneemigration
 	 */
-	public final void setVerifiedAttachmentCommentMigration(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Boolean verifiedattachmentcommentmigration)
+	public final void setVerifiedAssigneeMigration(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Boolean verifiedassigneemigration)
 	{
-		getMendixObject().setValue(context, MemberNames.VerifiedAttachmentCommentMigration.toString(), verifiedattachmentcommentmigration);
+		getMendixObject().setValue(context, MemberNames.VerifiedAssigneeMigration.toString(), verifiedassigneemigration);
 	}
 
 	/**
-	 * @return value of ShowAttachmentCommentMigration
+	 * @return value of ShowAssigneeMigration
 	 */
-	public final java.lang.Boolean getShowAttachmentCommentMigration()
+	public final java.lang.Boolean getShowAssigneeMigration()
 	{
-		return getShowAttachmentCommentMigration(getContext());
+		return getShowAssigneeMigration(getContext());
 	}
 
 	/**
 	 * @param context
-	 * @return value of ShowAttachmentCommentMigration
+	 * @return value of ShowAssigneeMigration
 	 */
-	public final java.lang.Boolean getShowAttachmentCommentMigration(com.mendix.systemwideinterfaces.core.IContext context)
+	public final java.lang.Boolean getShowAssigneeMigration(com.mendix.systemwideinterfaces.core.IContext context)
 	{
-		return (java.lang.Boolean) getMendixObject().getValue(context, MemberNames.ShowAttachmentCommentMigration.toString());
+		return (java.lang.Boolean) getMendixObject().getValue(context, MemberNames.ShowAssigneeMigration.toString());
 	}
 
 	/**
-	 * Set value of ShowAttachmentCommentMigration
-	 * @param showattachmentcommentmigration
+	 * Set value of ShowAssigneeMigration
+	 * @param showassigneemigration
 	 */
-	public final void setShowAttachmentCommentMigration(java.lang.Boolean showattachmentcommentmigration)
+	public final void setShowAssigneeMigration(java.lang.Boolean showassigneemigration)
 	{
-		setShowAttachmentCommentMigration(getContext(), showattachmentcommentmigration);
+		setShowAssigneeMigration(getContext(), showassigneemigration);
 	}
 
 	/**
-	 * Set value of ShowAttachmentCommentMigration
+	 * Set value of ShowAssigneeMigration
 	 * @param context
-	 * @param showattachmentcommentmigration
+	 * @param showassigneemigration
 	 */
-	public final void setShowAttachmentCommentMigration(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Boolean showattachmentcommentmigration)
+	public final void setShowAssigneeMigration(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Boolean showassigneemigration)
 	{
-		getMendixObject().setValue(context, MemberNames.ShowAttachmentCommentMigration.toString(), showattachmentcommentmigration);
+		getMendixObject().setValue(context, MemberNames.ShowAssigneeMigration.toString(), showassigneemigration);
 	}
 
-	/**
-	 * @return the IMendixObject instance of this proxy for use in the Core interface.
-	 */
+	@Override
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
 		return configurationMendixObject;
 	}
 
-	/**
-	 * @return the IContext instance of this proxy, or null if no IContext instance was specified at initialization.
-	 */
+	@Override
 	public final com.mendix.systemwideinterfaces.core.IContext getContext()
 	{
 		return context;
@@ -232,21 +186,13 @@ public class Configuration
 		return getMendixObject().hashCode();
 	}
 
-	/**
-	 * @return String name of this class
-	 */
+  /**
+   * Gives full name ("Module.Entity" name) of the type of the entity.
+   *
+   * @return the name
+   */
 	public static java.lang.String getType()
 	{
 		return entityName;
-	}
-
-	/**
-	 * @return String GUID from this object, format: ID_0000000000
-	 * @deprecated Use getMendixObject().getId().toLong() to get a unique identifier for this object.
-	 */
-	@java.lang.Deprecated
-	public java.lang.String getGUID()
-	{
-		return "ID_" + getMendixObject().getId().toLong();
 	}
 }

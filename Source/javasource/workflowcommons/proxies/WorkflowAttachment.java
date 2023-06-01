@@ -22,8 +22,7 @@ public class WorkflowAttachment extends system.proxies.FileDocument
 		Contents("Contents"),
 		HasContents("HasContents"),
 		Size("Size"),
-		WorkflowAttachment_WorkflowComment("WorkflowCommons.WorkflowAttachment_WorkflowComment"),
-		WorkflowAttachment_Workflow("WorkflowCommons.WorkflowAttachment_Workflow");
+		WorkflowAttachment_WorkflowComment("WorkflowCommons.WorkflowAttachment_WorkflowComment");
 
 		private final java.lang.String metaName;
 
@@ -50,15 +49,6 @@ public class WorkflowAttachment extends system.proxies.FileDocument
 		if (!com.mendix.core.Core.isSubClassOf(entityName, workflowAttachmentMendixObject.getType())) {
 			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
 		}	
-	}
-
-	/**
-	 * @deprecated Use 'WorkflowAttachment.load(IContext, IMendixIdentifier)' instead.
-	 */
-	@java.lang.Deprecated
-	public static workflowcommons.proxies.WorkflowAttachment initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixIdentifier mendixIdentifier) throws com.mendix.core.CoreException
-	{
-		return workflowcommons.proxies.WorkflowAttachment.load(context, mendixIdentifier);
 	}
 
 	/**
@@ -135,53 +125,6 @@ public class WorkflowAttachment extends system.proxies.FileDocument
 		}
 	}
 
-	/**
-	 * @throws com.mendix.core.CoreException
-	 * @return value of WorkflowAttachment_Workflow
-	 */
-	public final system.proxies.Workflow getWorkflowAttachment_Workflow() throws com.mendix.core.CoreException
-	{
-		return getWorkflowAttachment_Workflow(getContext());
-	}
-
-	/**
-	 * @param context
-	 * @return value of WorkflowAttachment_Workflow
-	 * @throws com.mendix.core.CoreException
-	 */
-	public final system.proxies.Workflow getWorkflowAttachment_Workflow(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
-	{
-		system.proxies.Workflow result = null;
-		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.WorkflowAttachment_Workflow.toString());
-		if (identifier != null) {
-			result = system.proxies.Workflow.load(context, identifier);
-		}
-		return result;
-	}
-
-	/**
-	 * Set value of WorkflowAttachment_Workflow
-	 * @param workflowattachment_workflow
-	 */
-	public final void setWorkflowAttachment_Workflow(system.proxies.Workflow workflowattachment_workflow)
-	{
-		setWorkflowAttachment_Workflow(getContext(), workflowattachment_workflow);
-	}
-
-	/**
-	 * Set value of WorkflowAttachment_Workflow
-	 * @param context
-	 * @param workflowattachment_workflow
-	 */
-	public final void setWorkflowAttachment_Workflow(com.mendix.systemwideinterfaces.core.IContext context, system.proxies.Workflow workflowattachment_workflow)
-	{
-		if (workflowattachment_workflow == null) {
-			getMendixObject().setValue(context, MemberNames.WorkflowAttachment_Workflow.toString(), null);
-		} else {
-			getMendixObject().setValue(context, MemberNames.WorkflowAttachment_Workflow.toString(), workflowattachment_workflow.getMendixObject().getId());
-		}
-	}
-
 	@java.lang.Override
 	public boolean equals(Object obj)
 	{
@@ -202,22 +145,13 @@ public class WorkflowAttachment extends system.proxies.FileDocument
 		return getMendixObject().hashCode();
 	}
 
-	/**
-	 * @return String name of this class
-	 */
+  /**
+   * Gives full name ("Module.Entity" name) of the type of the entity.
+   *
+   * @return the name
+   */
 	public static java.lang.String getType()
 	{
 		return entityName;
-	}
-
-	/**
-	 * @return String GUID from this object, format: ID_0000000000
-	 * @deprecated Use getMendixObject().getId().toLong() to get a unique identifier for this object.
-	 */
-	@java.lang.Override
-	@java.lang.Deprecated
-	public java.lang.String getGUID()
-	{
-		return "ID_" + getMendixObject().getId().toLong();
 	}
 }

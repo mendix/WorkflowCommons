@@ -15,12 +15,15 @@ import com.mendix.webui.CustomJavaAction;
 
 public class ReportStepJava extends CustomJavaAction<java.lang.Boolean>
 {
-	private java.lang.String message;
+	private final java.lang.String message;
 
-	public ReportStepJava(IContext context, java.lang.String message)
+	public ReportStepJava(
+		IContext context,
+		java.lang.String _message
+	)
 	{
 		super(context);
-		this.message = message;
+		this.message = _message;
 	}
 
 	@java.lang.Override
