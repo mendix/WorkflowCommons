@@ -4,7 +4,7 @@ grant {
   permission java.io.FilePermission "conf/dictionaries/en_US.dic", "read";
   permission java.io.FilePermission "java:fonts", "read";
   permission java.io.FilePermission "quartz.properties", "read";
-  permission java.io.FilePermission "C:/Program Files/Mendix/10.0.0.8352/-", "read";
+  permission java.io.FilePermission "C:/Program Files/Mendix/10.0.0.9976/-", "read";
   permission java.io.FilePermission "C:/Users/Mohammad.Murshed/Documents/GitHub/WorkflowCommons/Source/deployment/-", "read";
   permission java.io.FilePermission "C:/Users/Mohammad.Murshed/Documents/GitHub/WorkflowCommons/Source/deployment/data/files/-", "read";
   permission java.io.FilePermission "C:/Users/Mohammad.Murshed/Documents/GitHub/WorkflowCommons/Source/deployment/data/tmp", "read";
@@ -186,7 +186,7 @@ grant {
   permission org.bouncycastle.jce.ProviderConfigurationPermission "BC", "ecImplicitlyCA, threadLocalEcImplicitlyCA";
 };
 
-grant codeBase "file:C:/Program Files/Mendix/10.0.0.8352/-" {
+grant codeBase "file:C:/Program Files/Mendix/10.0.0.9976/-" {
   permission java.security.AllPermission;
 };
 
@@ -194,7 +194,7 @@ grant codeBase "file:${{java.ext.dirs}}/-" {
   permission java.security.AllPermission;
 };
 
-keystore "file:C:/Program Files/Mendix/10.0.0.8352/runtime/lib/keystore";
+keystore "file:C:/Program Files/Mendix/10.0.0.9976/runtime/lib/keystore";
 
 grant SignedBy "mendix" {
   permission java.security.AllPermission;

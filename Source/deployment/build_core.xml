@@ -15,7 +15,7 @@
   <target name="clean-excluded-jars" description="clean the jar files that should be excluded" />
   <target name="deploy" description="deploy the project">
     <copy todir="${deployment}" overwrite="true">
-      <fileset dir="C:/Program Files/Mendix/10.0.0.8352/modeler/runtemplates/deployment">
+      <fileset dir="C:/Program Files/Mendix/10.0.0.9976/modeler/runtemplates/deployment">
         <exclude name="**/*.template" />
       </fileset>
     </copy>
@@ -30,12 +30,12 @@
     <javac destdir="${deployment}/run/bin" includeAntRuntime="false" debug="true" debuglevel="lines,source" encoding="UTF-8">
       <src path="javasource" />
       <classpath>
-        <fileset file="C:/Program Files/Mendix/10.0.0.8352/runtime/bundles/com.mendix.json.jar" />
-        <fileset file="C:/Program Files/Mendix/10.0.0.8352/runtime/bundles/com.mendix.logging-api.jar" />
-        <fileset file="C:/Program Files/Mendix/10.0.0.8352/runtime/bundles/com.mendix.m2ee-api.jar" />
-        <fileset file="C:/Program Files/Mendix/10.0.0.8352/runtime/bundles/com.mendix.public-api.jar" />
-        <fileset file="C:/Program Files/Mendix/10.0.0.8352/runtime/bundles/javax.servlet.servlet-api.jar" />
-        <fileset file="C:/Program Files/Mendix/10.0.0.8352/runtime/bundles/javax.websocket.websocket-api.jar" />
+        <fileset file="C:/Program Files/Mendix/10.0.0.9976/runtime/bundles/com.mendix.json.jar" />
+        <fileset file="C:/Program Files/Mendix/10.0.0.9976/runtime/bundles/com.mendix.logging-api.jar" />
+        <fileset file="C:/Program Files/Mendix/10.0.0.9976/runtime/bundles/com.mendix.m2ee-api.jar" />
+        <fileset file="C:/Program Files/Mendix/10.0.0.9976/runtime/bundles/com.mendix.public-api.jar" />
+        <fileset file="C:/Program Files/Mendix/10.0.0.9976/runtime/bundles/javax.servlet.servlet-api.jar" />
+        <fileset file="C:/Program Files/Mendix/10.0.0.9976/runtime/bundles/javax.websocket.websocket-api.jar" />
         <fileset dir="userlib">
           <include name="*.jar" />
         </fileset>
@@ -48,7 +48,7 @@
       <arg value="-Duser.language=en" />
       <arg value="com.sun.tools.jdeps.Main" />
       <arg value="-cp" />
-      <arg value="C:/Program Files/Mendix/10.0.0.8352/runtime/bundles/com.mendix.json.jar${path.separator}C:/Program Files/Mendix/10.0.0.8352/runtime/bundles/com.mendix.logging-api.jar${path.separator}C:/Program Files/Mendix/10.0.0.8352/runtime/bundles/com.mendix.m2ee-api.jar${path.separator}C:/Program Files/Mendix/10.0.0.8352/runtime/bundles/com.mendix.public-api.jar${path.separator}C:/Program Files/Mendix/10.0.0.8352/runtime/bundles/javax.servlet.servlet-api.jar${path.separator}C:/Program Files/Mendix/10.0.0.8352/runtime/bundles/javax.websocket.websocket-api.jar${path.separator}userlib/.*" />
+      <arg value="C:/Program Files/Mendix/10.0.0.9976/runtime/bundles/com.mendix.json.jar${path.separator}C:/Program Files/Mendix/10.0.0.9976/runtime/bundles/com.mendix.logging-api.jar${path.separator}C:/Program Files/Mendix/10.0.0.9976/runtime/bundles/com.mendix.m2ee-api.jar${path.separator}C:/Program Files/Mendix/10.0.0.9976/runtime/bundles/com.mendix.public-api.jar${path.separator}C:/Program Files/Mendix/10.0.0.9976/runtime/bundles/javax.servlet.servlet-api.jar${path.separator}C:/Program Files/Mendix/10.0.0.9976/runtime/bundles/javax.websocket.websocket-api.jar${path.separator}userlib/.*" />
       <arg value="--multi-release" />
       <arg value="11" />
       <arg value="-verbose:class" />

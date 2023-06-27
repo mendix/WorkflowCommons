@@ -2,7 +2,7 @@ Initialized native services in: C:\Users\Mohammad.Murshed\.gradle\native
 Initialized jansi services in: C:\Users\Mohammad.Murshed\.gradle\native
 Received JVM installation metadata from 'C:\Program Files\AdoptOpenJDK\jdk-11.0.3.7-hotspot': {JAVA_HOME=C:\Program Files\AdoptOpenJDK\jdk-11.0.3.7-hotspot, JAVA_VERSION=11.0.3, JAVA_VENDOR=AdoptOpenJDK, RUNTIME_NAME=OpenJDK Runtime Environment, RUNTIME_VERSION=11.0.3+7, VM_NAME=OpenJDK 64-Bit Server VM, VM_VERSION=11.0.3+7, VM_VENDOR=AdoptOpenJDK, OS_ARCH=amd64}
 The client will now receive all logging from the daemon (pid: 26352). The daemon log file: C:\Users\Mohammad.Murshed\.gradle\daemon\7.6\daemon-26352.out.log
-Starting 19th build in daemon [uptime: 2 hrs 23 mins 42.564 secs, performance: 99%, non-heap usage: 25% of 256 MiB]
+Starting 23rd build in daemon [uptime: 2 hrs 29 mins 50.297 secs, performance: 99%, non-heap usage: 26% of 256 MiB]
 Using 16 worker leases.
 Now considering [C:\Users\Mohammad.Murshed\Documents\GitHub\WorkflowCommons\Source\deployment, C:\Mendix\ERSA-WOR-1542-Add-New-Completion-Types\deployment] as hierarchies to watch
 Watching the file system is configured to be enabled if available
@@ -19,51 +19,55 @@ Task name matched 'clean-excluded-jars'
 Task name matched 'deploy'
 Selected primary task 'clean-excluded-jars' from project :
 Selected primary task 'deploy' from project :
-Tasks to be executed: [task ':clean-excluded-jars', task ':copyDeploymentArtifacts', task ':copyResources', task ':copyUserLibs', task ':unzipDataSnapshot', task ':deploy']
+Tasks to be executed: [task ':clean-excluded-jars', task ':copyDeploymentArtifacts', task ':copyLibs', task ':copyResources', task ':unzipDataSnapshot', task ':deploy']
 Tasks that were excluded: []
 Resolve mutations for :clean-excluded-jars (Thread[Execution worker,5,main]) started.
+:clean-excluded-jars (Thread[Execution worker,5,main]) started.
 destroyer locations for task group 0 (Thread[included builds,5,main]) started.
-:clean-excluded-jars (Thread[Execution worker Thread 5,5,main]) started.
 
 > Task :clean-excluded-jars UP-TO-DATE
 Caching disabled for task ':clean-excluded-jars' because:
   Build cache is disabled
 Task ':clean-excluded-jars' is not up-to-date because:
   Task has not declared any outputs despite executing actions.
-Resolve mutations for :copyDeploymentArtifacts (Thread[Execution worker Thread 5,5,main]) started.
-:copyDeploymentArtifacts (Thread[Execution worker Thread 5,5,main]) started.
+Resolve mutations for :copyDeploymentArtifacts (Thread[Execution worker,5,main]) started.
+:copyDeploymentArtifacts (Thread[Execution worker,5,main]) started.
 
 > Task :copyDeploymentArtifacts
 Caching disabled for task ':copyDeploymentArtifacts' because:
   Build cache is disabled
 Task ':copyDeploymentArtifacts' is not up-to-date because:
   Task state is not tracked.
-Resolve mutations for :copyResources (Thread[Execution worker Thread 5,5,main]) started.
-:copyResources (Thread[Execution worker Thread 5,5,main]) started.
+Watching 1 directory hierarchies to track changes
+Resolve mutations for :copyLibs (Thread[Execution worker,5,main]) started.
+:copyLibs (Thread[Execution worker,5,main]) started.
+
+> Task :copyLibs
+Watching 2 directory hierarchies to track changes
+Caching disabled for task ':copyLibs' because:
+  Build cache is disabled
+Task ':copyLibs' is not up-to-date because:
+  No history is available.
+Watching 1 directory hierarchies to track changes
+file or directory 'C:\Users\Mohammad.Murshed\Documents\GitHub\WorkflowCommons\Source\vendorlib', not found
+Watching 2 directory hierarchies to track changes
+Resolve mutations for :copyResources (Thread[Execution worker,5,main]) started.
+:copyResources (Thread[Execution worker Thread 6,5,main]) started.
 
 > Task :copyResources
-Watching 2 directory hierarchies to track changes
 Caching disabled for task ':copyResources' because:
   Build cache is disabled
 Task ':copyResources' is not up-to-date because:
-  No history is available.
-Watching 1 directory hierarchies to track changes
-Watching 2 directory hierarchies to track changes
-Resolve mutations for :copyUserLibs (Thread[Execution worker Thread 5,5,main]) started.
-:copyUserLibs (Thread[Execution worker Thread 5,5,main]) started.
-
-> Task :copyUserLibs
-Caching disabled for task ':copyUserLibs' because:
-  Build cache is disabled
-Task ':copyUserLibs' is not up-to-date because:
-  No history is available.
-Resolve mutations for :unzipDataSnapshot (Thread[Execution worker Thread 5,5,main]) started.
-:unzipDataSnapshot (Thread[Execution worker Thread 5,5,main]) started.
+  Output property 'destinationDir' file C:\Users\Mohammad.Murshed\Documents\GitHub\WorkflowCommons\Source\deployment\model\resources\Design_header.png has been removed.
+  Output property 'destinationDir' file C:\Users\Mohammad.Murshed\Documents\GitHub\WorkflowCommons\Source\deployment\model\resources\icon-bb.png has been removed.
+  Output property 'destinationDir' file C:\Users\Mohammad.Murshed\Documents\GitHub\WorkflowCommons\Source\deployment\model\resources\icon-list.png has been removed.
+Resolve mutations for :unzipDataSnapshot (Thread[Execution worker Thread 6,5,main]) started.
+:unzipDataSnapshot (Thread[Execution worker Thread 6,5,main]) started.
 
 > Task :unzipDataSnapshot SKIPPED
 Skipping task ':unzipDataSnapshot' as task onlyIf 'Task is enabled' is false.
-Resolve mutations for :deploy (Thread[Execution worker Thread 5,5,main]) started.
-:deploy (Thread[Execution worker Thread 5,5,main]) started.
+Resolve mutations for :deploy (Thread[Execution worker Thread 14,5,main]) started.
+:deploy (Thread[Execution worker Thread 14,5,main]) started.
 
 > Task :deploy
 Skipping task ':deploy' as it has no actions.

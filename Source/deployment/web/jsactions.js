@@ -10,7 +10,7 @@ define(["big.js"], (__WEBPACK_EXTERNAL_MODULE_big_js__) => { return /******/ (()
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "RefreshEntity": () => (/* binding */ RefreshEntity)
+/* harmony export */   RefreshEntity: () => (/* binding */ RefreshEntity)
 /* harmony export */ });
 /* harmony import */ var big_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! big.js */ "big.js");
 /* harmony import */ var big_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(big_js__WEBPACK_IMPORTED_MODULE_0__);
@@ -133,7 +133,7 @@ var __webpack_exports__ = {};
   \********************************************************************************************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "NanoflowCommons$RefreshEntity": () => (/* binding */ NanoflowCommons$RefreshEntity)
+/* harmony export */   NanoflowCommons$RefreshEntity: () => (/* binding */ NanoflowCommons$RefreshEntity)
 /* harmony export */ });
 const NanoflowCommons$RefreshEntity = async () => (await Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ../../../../../../Users/Mohammad.Murshed/Documents/GitHub/WorkflowCommons/Source/javascriptsource/nanoflowcommons/actions/RefreshEntity */ "../../../../../../Users/Mohammad.Murshed/Documents/GitHub/WorkflowCommons/Source/javascriptsource/nanoflowcommons/actions/RefreshEntity.js"))).RefreshEntity;
 })();

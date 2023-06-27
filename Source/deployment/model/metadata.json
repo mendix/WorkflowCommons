@@ -2,7 +2,7 @@
   "DataBrokerConfiguration": {
     "publishedServices": []
   },
-  "RuntimeVersion": "10.0.0.8352",
+  "RuntimeVersion": "10.0.0.9976",
   "ProjectID": "22d244ee-684b-44a4-af18-84098077a83b",
   "ProjectName": "ExpenseRequestStarterApp",
   "ModelVersion": "unversioned",
@@ -88,6 +88,11 @@
   "Languages": [
     "en_US"
   ],
+  "Configuration": {
+    "SourceDatabaseType": "HSQLDB",
+    "SourceDatabaseName": "default",
+    "SourceBuiltInDatabasePath": "model/sampledata/data/database"
+  },
   "RequestHandlers": [
     {
       "Name": "/api/",

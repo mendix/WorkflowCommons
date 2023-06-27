@@ -2,7 +2,7 @@ Initialized native services in: C:\Users\Mohammad.Murshed\.gradle\native
 Initialized jansi services in: C:\Users\Mohammad.Murshed\.gradle\native
 Received JVM installation metadata from 'C:\Program Files\AdoptOpenJDK\jdk-11.0.3.7-hotspot': {JAVA_HOME=C:\Program Files\AdoptOpenJDK\jdk-11.0.3.7-hotspot, JAVA_VERSION=11.0.3, JAVA_VENDOR=AdoptOpenJDK, RUNTIME_NAME=OpenJDK Runtime Environment, RUNTIME_VERSION=11.0.3+7, VM_NAME=OpenJDK 64-Bit Server VM, VM_VERSION=11.0.3+7, VM_VENDOR=AdoptOpenJDK, OS_ARCH=amd64}
 The client will now receive all logging from the daemon (pid: 26352). The daemon log file: C:\Users\Mohammad.Murshed\.gradle\daemon\7.6\daemon-26352.out.log
-Starting 18th build in daemon [uptime: 2 hrs 23 mins 40.188 secs, performance: 99%, non-heap usage: 25% of 256 MiB]
+Starting 22nd build in daemon [uptime: 2 hrs 29 mins 47.078 secs, performance: 99%, non-heap usage: 26% of 256 MiB]
 Using 16 worker leases.
 Now considering [C:\Users\Mohammad.Murshed\Documents\GitHub\WorkflowCommons\Source\deployment, C:\Mendix\ERSA-WOR-1542-Add-New-Completion-Types\deployment] as hierarchies to watch
 Watching the file system is configured to be enabled if available
@@ -14,24 +14,26 @@ Included projects: [root project 'deployment']
 
 > Configure project :
 Evaluating root project 'deployment' using build file 'C:\Users\Mohammad.Murshed\Documents\GitHub\WorkflowCommons\Source\deployment\build.gradle'.
+Compiling script 'C:\Users\Mohammad.Murshed\Documents\GitHub\WorkflowCommons\Source\deployment\variables.gradle' using SubsetScriptTransformer.
+Compiling script 'C:\Users\Mohammad.Murshed\Documents\GitHub\WorkflowCommons\Source\deployment\variables.gradle' using BuildScriptTransformer.
 All projects evaluated.
 Task name matched 'clean'
 Selected primary task 'clean' from project :
 Tasks to be executed: [task ':clean']
 Tasks that were excluded: []
 Resolve mutations for :clean (Thread[Execution worker,5,main]) started.
-destroyer locations for task group 0 (Thread[Execution worker Thread 13,5,main]) started.
-:clean (Thread[Execution worker,5,main]) started.
+destroyer locations for task group 0 (Thread[Execution worker,5,main]) started.
+:clean (Thread[Execution worker Thread 2,5,main]) started.
 
-> Task :clean UP-TO-DATE
+> Task :clean
 Caching disabled for task ':clean' because:
   Build cache is disabled
 Task ':clean' is not up-to-date because:
   Task has not declared any outputs despite executing actions.
 
-BUILD SUCCESSFUL in 1s
-1 actionable task: 1 up-to-date
-Watched directory hierarchies: [C:\Mendix\ERSA-WOR-1542-Add-New-Completion-Types\deployment]
+BUILD SUCCESSFUL in 2s
+1 actionable task: 1 executed
+Watched directory hierarchies: [C:\Users\Mohammad.Murshed\Documents\GitHub\WorkflowCommons\Source\deployment, C:\Mendix\ERSA-WOR-1542-Add-New-Completion-Types\deployment]
 
 
 

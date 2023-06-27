@@ -110,16 +110,19 @@ unzipDataSnapshot.configure {
     enabled = extractDataSnapshot
 }
 
-tasks.register('copyUserLibs', Copy) {
+tasks.register('copyLibs', Copy) {
     duplicatesStrategy = 'include'
 
     protectedModules.forEach { module ->
         from(module.userlib()) { module.excluded.forEach { exclude(it) } }
     }
 
+    from("$mendixProjectDir/$vendorlibDirName")
+
     from("$mendixProjectDir/$userlibDirName") {
         excludedJars.each { f -> exclude f }
     }
+        
     into "$modelDir/$libDirName/$userlibDirName"
 }
 
@@ -132,7 +135,7 @@ tasks.register("copyResources", Copy) {
 tasks.register("deploy") {
     dependsOn("unzipDataSnapshot")
     dependsOn("copyDeploymentArtifacts")
-    dependsOn("copyUserLibs")
+    dependsOn("copyLibs")
     dependsOn("copyResources")
 }
 
@@ -153,9 +156,12 @@ tasks.register("compile", JavaCompile) {
         include("*.jar")
         excludedJars.forEach { exclude(it) }
     }
+    def vendorlibJarFiles = fileTree("$mendixProjectDir/$vendorlibDirName")
+
+    options.annotationProcessorPath = userlibJarFiles + vendorlibJarFiles
 
     source = [fileTree("$mendixProjectDir/$javaSourceDirName")] + protectedModulesSources
-    classpath = project.files((publicApiJarFiles + userlibJarFiles + protectedModulesJarFiles).sort())
+    classpath = project.files((publicApiJarFiles + userlibJarFiles + protectedModulesJarFiles + vendorlibJarFiles).sort())
     destinationDirectory.set(project.file("$deploymentDir/$compileTargetDir"))
 }
 

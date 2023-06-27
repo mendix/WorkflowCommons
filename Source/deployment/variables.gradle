@@ -1,5 +1,5 @@
 ext {
-	mendixInstallDir = "C:/Program Files/Mendix/10.0.0.8352"
+	mendixInstallDir = "C:/Program Files/Mendix/10.0.0.9976"
 	projectName = "ExpenseRequestStarterApp"
 	projectSafeName = "Source"
 	mendixProjectDir = "C:/Users/Mohammad.Murshed/Documents/GitHub/WorkflowCommons/Source"
@@ -7,7 +7,7 @@ ext {
 	dataSnapshotFile = "C:/Users/Mohammad.Murshed/Documents/GitHub/WorkflowCommons/Source/data-snapshot.zip"
 	dataDir = "C:/Users/Mohammad.Murshed/Documents/GitHub/WorkflowCommons/Source/deployment/data"
 	extractDataSnapshot = false
-	templatesDir = "C:/Program Files/Mendix/10.0.0.8352/modeler/runtemplates"
+	templatesDir = "C:/Program Files/Mendix/10.0.0.9976/modeler/runtemplates"
 	runDir = "run"
 	compileTargetDir = "run/bin"
 	deploymentDirName = "deployment"
@@ -16,6 +16,7 @@ ext {
 	javaSourceDirName = "javasource"
 	libDirName = "lib"
 	userlibDirName = "userlib"
+	vendorlibDirName = "vendorlib"
 	generateFullDebugInfo = false
 	excludedRunTemplatesFiles = [
 		"**/*.template"
