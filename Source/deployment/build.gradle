@@ -1,0 +1,177 @@
+import java.util.stream.Collectors
+
+apply from: "variables.gradle"
+
+def protectedModules = protectedModules
+        .stream()
+        .map { new ProtectedModule(project.ext, it[0], it[1], it[2]) }
+        .collect(Collectors.toList())
+
+def modelDir = "$deploymentDir/$modelDirName"
+
+def debugLevel = "lines,source"
+if (generateFullDebugInfo) {
+    debugLevel = "lines,source,vars"
+}
+
+def publicApiJars = publicApiJars
+        .stream()
+        .map { "$mendixInstallDir/$it" }
+        .collect(Collectors.toList())
+
+
+class ProtectedModule {
+    org.gradle.api.plugins.ExtraPropertiesExtension ext
+    String modulePath
+    List<String> included
+    List<String> excluded
+
+    ProtectedModule(ext, modulePath, included, excluded) {
+        this.ext = ext
+        this.modulePath = modulePath
+        this.included = included
+        this.excluded = excluded
+    }
+
+    private String root() {
+        "${ext.mendixProjectDir}/${modulePath}"
+    }
+
+    String userlib() {
+        "${root()}/${ext.userlibDirName}"
+    }
+
+    String javasource() {
+        "${root()}/${ext.javaSourceDirName}"
+    }
+
+    String resolveJar(String jar) {
+        "${userlib()}/$jar"
+    }
+}
+
+tasks.register("checkDependencies") {
+    description "Check dependencies"
+
+    def packagesArg = jvmRemovedPackages.collect { ["-p", it] }.flatten()
+    def classpath = (publicApiJars + "$mendixProjectDir/$userlibDirName/.*").join(File.pathSeparator)
+
+    def buffer = new ByteArrayOutputStream()
+
+    exec {
+        standardOutput = buffer
+        commandLine = ["java", "-Duser.language=en", "com.sun.tools.jdeps.Main", "-cp", classpath,
+                "--multi-release", "11", "-verbose:class"] + packagesArg + "$deploymentDir/$runDir"
+    }
+
+    def output = new String(buffer.toByteArray())
+    def lines = output.split("\\R")
+
+    if (lines.any { !it.contains("Warning: ") && it.toLowerCase().contains("not found") }) {
+        System.err.println output
+        throw new GradleException("Dependency check failed, most probably some packages and/or classes are not provided.")
+    }
+}
+
+tasks.register('clean', Delete) {
+    description 'clean the deployment directory'
+    delete modelDir
+    delete "$deploymentDir/$runDir"
+}
+
+tasks.register('clean-custom-classes', Delete) {
+    description 'clean the compiled custom java action classes'
+    delete "$deploymentDir/$compileTargetDir"
+}
+
+tasks.register('clean-excluded-jars', Delete) {
+    description = 'clean the jar files that should be excluded'
+    (excludedJars + protectedModules.collectMany { it.excluded }).each { delete("$modelDir/$libDirName/$userlibDirName/$it") }
+}
+
+tasks.register('copyDeploymentArtifacts', Copy) {
+    duplicatesStrategy = 'include'
+    from("$templatesDir/$deploymentDirName") {
+        excludedRunTemplatesFiles.each { f -> exclude f }
+    }
+    into deploymentDir
+    doNotTrackState("Always copy deployment artifacts")
+}
+
+def unzipDataSnapshot = tasks.register('unzipDataSnapshot', Copy) {
+    if (!file(dataDir).exists()) {
+        from zipTree(dataSnapshotFile)
+        into deploymentDir
+    }
+    doNotTrackState("Always unzip data snapshot")
+}
+
+unzipDataSnapshot.configure {
+    enabled = extractDataSnapshot
+}
+
+tasks.register('copyUserLibs', Copy) {
+    duplicatesStrategy = 'include'
+
+    protectedModules.forEach { module ->
+        from(module.userlib()) { module.excluded.forEach { exclude(it) } }
+    }
+
+    from("$mendixProjectDir/$userlibDirName") {
+        excludedJars.each { f -> exclude f }
+    }
+    into "$modelDir/$libDirName/$userlibDirName"
+}
+
+tasks.register("copyResources", Copy) {
+    duplicatesStrategy = 'include'
+    from "$mendixProjectDir/$resourcesDirName"
+    into "$modelDir/$resourcesDirName"
+}
+
+tasks.register("deploy") {
+    dependsOn("unzipDataSnapshot")
+    dependsOn("copyDeploymentArtifacts")
+    dependsOn("copyUserLibs")
+    dependsOn("copyResources")
+}
+
+tasks.register("compile", JavaCompile) {
+    description "Compile Java Actions"
+    
+    options.debug = true
+    options.debugOptions.debugLevel = debugLevel
+
+    options.encoding = "UTF-8"
+    sourceCompatibility = JavaVersion.VERSION_11.toString()
+    targetCompatibility = JavaVersion.VERSION_11.toString()
+
+    def protectedModulesSources = protectedModules.stream().map { fileTree(it.javasource()) }.collect(Collectors.toList())
+    def publicApiJarFiles = files(publicApiJars)
+    def protectedModulesJarFiles = files(protectedModules.stream().flatMap { module -> module.included.stream().map { module.resolveJar(it) } }.collect(Collectors.toList()))
+    def userlibJarFiles = fileTree("$mendixProjectDir/$userlibDirName").matching {
+        include("*.jar")
+        excludedJars.forEach { exclude(it) }
+    }
+
+    source = [fileTree("$mendixProjectDir/$javaSourceDirName")] + protectedModulesSources
+    classpath = project.files((publicApiJarFiles + userlibJarFiles + protectedModulesJarFiles).sort())
+    destinationDirectory.set(project.file("$deploymentDir/$compileTargetDir"))
+}
+
+tasks.register("package", Jar) {
+    dependsOn("compile")
+    description = "Generate Jar file"
+    destinationDirectory.set(project.file("$modelDir/bundles"))
+    archiveBaseName.set("project")
+    from("$deploymentDir/$compileTargetDir") { exclude(".keep") }
+    from("$mendixProjectDir/$userlibDirName") { exclude { it.file.getName().toLowerCase().endsWith(".jar") } }
+    from("$deploymentDir/$runDir/component.xml") { into("OSGI-INF") }
+    manifest {
+        attributes([
+                "Bundle-Name"        : projectSafeName,
+                "Bundle-SymbolicName": "project",
+                "Service-Component"  : "OSGI-INF/component.xml"
+        ])
+    }
+}

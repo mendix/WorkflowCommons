@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "2.2",
+  "appName": "ExpenseRequestStarterApp",
+  "published": [
+    {
+      "name": "WFCUnitTest",
+      "version": "1.0.0",
+      "path": "rest/wfcunittest/v1",
+      "description": "# Readme for API\r\n\r\nThis API is used to trigger the Workflow Commons unit tests. Given that the workflow engine works asynchronous and the unit tests module works synchronous the default API provided by the Unit test module could not be used.\r\n\r\nThis API will `start` the unit tests similair to the button on the development page. It will run asynchronous after an initial setup and kickoff. The `status` function will return the status of the test. While running it will indicate with the `Result` parameter value `_1_Running` that it is still running. When it reaches the status `_2_Failed` or `_3_Success` the unit tests are done. \r\n\r\nPlease do not trigger more then one start activity before the status reaches the final state. Doing so will result in unpredicatable behaviour.",
+      "serviceType": "REST",
+      "contracts": [
+        {
+          "type": "OpenAPI 2.0",
+          "value": "{\"swagger\":\"2.0\",\"info\":{\"title\":\"WFCUnitTest\",\"description\":\"# Readme for API\\r\\n\\r\\nThis API is used to trigger the Workflow Commons unit tests. Given that the workflow engine works asynchronous and the unit tests module works synchronous the default API provided by the Unit test module could not be used.\\r\\n\\r\\nThis API will `start` the unit tests similair to the button on the development page. It will run asynchronous after an initial setup and kickoff. The `status` function will return the status of the test. While running it will indicate with the `Result` parameter value `_1_Running` that it is still running. When it reaches the status `_2_Failed` or `_3_Success` the unit tests are done. \\r\\n\\r\\nPlease do not trigger more then one start activity before the status reaches the final state. Doing so will result in unpredicatable behaviour.\",\"version\":\"1.0.0\"},\"host\":\"{host}\",\"basePath\":\"/rest/wfcunittest/v1\",\"schemes\":[\"{scheme}\"],\"paths\":{\"/wfcunittests/start\":{\"get\":{\"tags\":[\"wfcunittests\"],\"responses\":{\"200\":{\"description\":\"successful operation\"}}}},\"/wfcunittests/status\":{\"get\":{\"tags\":[\"wfcunittests\"],\"responses\":{\"200\":{\"description\":\"successful operation\",\"schema\":{\"$ref\":\"#/definitions/Result\",\"xml\":{\"name\":\"TestSuites\"}}}}}}},\"definitions\":{\"Result\":{\"title\":\"TestSuite\",\"xml\":{\"name\":\"TestSuite\"},\"type\":\"object\",\"properties\":{\"LastRunTime\":{\"type\":\"integer\",\"format\":\"int64\"},\"TestCount\":{\"type\":\"integer\",\"format\":\"int64\"},\"TestFailedCount\":{\"type\":\"integer\",\"format\":\"int64\"},\"Result\":{\"type\":\"string\",\"enum\":[\"_1_Running\",\"_2_Failed\",\"_3_Success\"]},\"FailedUnitTests\":{\"type\":\"array\",\"items\":{\"title\":\"FailedUnitTest\",\"xml\":{\"name\":\"FailedUnitTest\"},\"type\":\"object\",\"properties\":{\"Name\":{\"type\":\"string\"},\"ResultMessage\":{\"type\":\"string\"},\"LastStep\":{\"type\":\"string\"}}}}}}},\"tags\":[{\"name\":\"wfcunittests\",\"description\":\"\"}]}"
+        }
+      ],
+      "security": {
+        "types": [
+          {
+            "type": "None"
+          }
+        ],
+        "allowedRoles": []
+      }
+    }
+  ],
+  "consumed": []
+}

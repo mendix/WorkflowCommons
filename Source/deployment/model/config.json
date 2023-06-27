@@ -1,0 +1,23 @@
+{
+  "Configuration": {
+    "DatabaseName": "default",
+    "DatabasePassword": "",
+    "DatabaseType": "HSQLDB",
+    "DatabaseHost": "",
+    "DatabaseUserName": "",
+    "DatabaseUseIntegratedSecurity": "False",
+    "ApplicationRootUrl": "http://localhost:8081/",
+    "ScheduledEventExecution": "None"
+  },
+  "Constants": {
+    "CommunityCommons.MergeMultiplePdfs_MaxAtOnce": "10",
+    "NanoflowCommons.Nanoflow_Commons_Version": "2.1.0",
+    "TaskQueueHelpers.TasksCompletedOlderThanHours": "1440",
+    "TaskQueueHelpers.TasksNonCompletedOlderThanHours": "1440",
+    "TaskQueueHelpers.DeleteBatchSize": "100",
+    "UnitTesting.RemoteApiPassword": "1",
+    "UnitTesting.RemoteApiEnabled": "False",
+    "UnitTesting.FindJUnitTests": "True"
+  },
+  "AdminPassword": "1"
+}

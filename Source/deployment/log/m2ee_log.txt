@@ -1,0 +1,4 @@
+2023-06-27 17:38:39.408 INFO - M2EE: Added admin request handler '/prometheus' with servlet class 'com.mendix.metrics.prometheus.PrometheusServlet'
+[rtlauncher:container$] INFO Container start took 3496. Ready to accept admin requests.
+
+

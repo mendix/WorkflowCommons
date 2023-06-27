@@ -1,0 +1,123 @@
+{
+  "DataBrokerConfiguration": {
+    "publishedServices": []
+  },
+  "RuntimeVersion": "10.0.0.8352",
+  "ProjectID": "22d244ee-684b-44a4-af18-84098077a83b",
+  "ProjectName": "ExpenseRequestStarterApp",
+  "ModelVersion": "unversioned",
+  "Description": "",
+  "AdminUser": "MxAdmin",
+  "Roles": {
+    "8dd52bfa-6d7e-453b-b506-303c0a3d9567": {
+      "Name": "Administrator",
+      "ManageableRoles": [
+        "8dd52bfa-6d7e-453b-b506-303c0a3d9567",
+        "fe94ca3a-fbf9-4d6b-905b-8797146f4ffd",
+        "73d26fae-dd60-473b-af07-899417b3899c",
+        "4e4388ce-55f5-44e5-b094-e081fd973775"
+      ]
+    },
+    "fe94ca3a-fbf9-4d6b-905b-8797146f4ffd": {
+      "Name": "Employee"
+    },
+    "73d26fae-dd60-473b-af07-899417b3899c": {
+      "Name": "Manager"
+    },
+    "4e4388ce-55f5-44e5-b094-e081fd973775": {
+      "Name": "FinanceController"
+    }
+  },
+  "AdminRole": "8dd52bfa-6d7e-453b-b506-303c0a3d9567",
+  "Constants": [
+    {
+      "Name": "CommunityCommons.MergeMultiplePdfs_MaxAtOnce",
+      "Type": "Integer",
+      "Description": "Restricted to 10 files at once for Mendix Cloud v4 compatibility. If you need to merge more than 10 files increase the number here. Setting the value to <=0 means unlimited.\r\n\r\nNote: We very strongly recommend to not increase the number for applications running in Mendix Cloud v4.",
+      "DefaultValue": "10"
+    },
+    {
+      "Name": "NanoflowCommons.Nanoflow_Commons_Version",
+      "Type": "String",
+      "Description": "",
+      "DefaultValue": "2.1.0"
+    },
+    {
+      "Name": "TaskQueueHelpers.DeleteBatchSize",
+      "Type": "Integer",
+      "Description": "The size of the batches during the clean up for ProcessedTasks. Keeping the higher value may causes potential memory issues.",
+      "DefaultValue": "100"
+    },
+    {
+      "Name": "TaskQueueHelpers.TasksCompletedOlderThanHours",
+      "Type": "Integer",
+      "Description": "The completed processed tasks which are older than this value in hours would be deleted during cleanup.",
+      "DefaultValue": "1440"
+    },
+    {
+      "Name": "TaskQueueHelpers.TasksNonCompletedOlderThanHours",
+      "Type": "Integer",
+      "Description": "The NonCompleted tasks which are older than this value in hours would be deleted during cleanup.",
+      "DefaultValue": "1440"
+    },
+    {
+      "Name": "UnitTesting.FindJUnitTests",
+      "Type": "Boolean",
+      "Description": "Set this value to 'True' when you would like to include your available JUnit tests to be found and listed. Leave 'False' otherwise",
+      "DefaultValue": "True"
+    },
+    {
+      "Name": "UnitTesting.RemoteApiEnabled",
+      "Type": "Boolean",
+      "Description": "",
+      "DefaultValue": "False"
+    },
+    {
+      "Name": "UnitTesting.RemoteApiPassword",
+      "Type": "String",
+      "Description": "",
+      "DefaultValue": "1"
+    }
+  ],
+  "ScheduledEvents": [
+    {
+      "Name": "TaskQueueHelpers.SE_CleanupTaskQueue",
+      "Description": ""
+    }
+  ],
+  "Languages": [
+    "en_US"
+  ],
+  "RequestHandlers": [
+    {
+      "Name": "/api/",
+      "DefaultEnabled": true,
+      "MatchExactly": false
+    },
+    {
+      "Name": "/link/",
+      "DefaultEnabled": true,
+      "MatchExactly": false
+    },
+    {
+      "Name": "/api-doc/",
+      "DefaultEnabled": true,
+      "MatchExactly": false
+    },
+    {
+      "Name": "/rest/",
+      "DefaultEnabled": true,
+      "MatchExactly": false
+    },
+    {
+      "Name": "/rest-doc/",
+      "DefaultEnabled": false,
+      "MatchExactly": false
+    },
+    {
+      "Name": "/p/",
+      "DefaultEnabled": false,
+      "MatchExactly": false
+    }
+  ]
+}
