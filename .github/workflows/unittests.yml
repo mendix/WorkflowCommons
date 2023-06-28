@@ -29,6 +29,7 @@ jobs:
       - uses: actions/checkout@e2f20e631ae6d7dd3b768f56a5d2af784dd54791 # v2
         with:
           repository: 'mendix/docker-mendix-buildpack'
+          ref: 'latest'
           path: 'build-pack'
 
       - uses: actions/checkout@e2f20e631ae6d7dd3b768f56a5d2af784dd54791 # v2
