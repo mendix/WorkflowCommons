@@ -28,7 +28,7 @@ jobs:
       # Checks-out mendix/docker-mendix-buildpack to $GITHUB_WORKSPACE/build-pack folder
       - uses: actions/checkout@e2f20e631ae6d7dd3b768f56a5d2af784dd54791 # v2
         with:
-          repository: 'mendix/docker-mendix-buildpack'
+          repository: 'mendix/docker-mendix-buildpack:latest'
           path: 'build-pack'
 
       - uses: actions/checkout@e2f20e631ae6d7dd3b768f56a5d2af784dd54791 # v2
