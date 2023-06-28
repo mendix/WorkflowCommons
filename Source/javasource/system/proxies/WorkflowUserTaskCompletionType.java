@@ -8,7 +8,9 @@ public enum WorkflowUserTaskCompletionType
 {
 	Single(new java.lang.String[][] { new java.lang.String[] { "en_US", "Single" } }),
 	Veto(new java.lang.String[][] { new java.lang.String[] { "en_US", "Veto" } }),
-	Consensus(new java.lang.String[][] { new java.lang.String[] { "en_US", "Consensus" } });
+	Consensus(new java.lang.String[][] { new java.lang.String[] { "en_US", "Consensus" } }),
+	Majority(new java.lang.String[][] { new java.lang.String[] { "en_US", "Majority" } }),
+	Threshold(new java.lang.String[][] { new java.lang.String[] { "en_US", "Threshold" } });
 
 	private final java.util.Map<java.lang.String, java.lang.String> captions;
 
