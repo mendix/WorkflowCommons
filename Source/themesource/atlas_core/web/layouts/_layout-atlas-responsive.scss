@@ -15,7 +15,7 @@
             .mx-scrollcontainer-slide:not(.mx-scrollcontainer-open) > .region-sidebar {
                 width: $navsidebar-width-closed !important;
 
-                .mx-scrollcontainer-wrapper > .mx-navigationtree ul li {
+                .mx-scrollcontainer-wrapper .mx-navigationtree ul li {
                     &.mx-navigationtree-has-items a {
                         white-space: nowrap;
                     }
@@ -133,14 +133,16 @@
                     font-weight: bold;
                 }
 
-                & > .mx-navigationtree .navbar-inner > ul > li {
+                .mx-navigationtree .navbar-inner > ul > li {
                     & > a {
                         height: $sidebar-icon-height;
                         padding: $spacing-small 0;
                         white-space: nowrap;
                         overflow: hidden;
                         // Glyph icon
-                        .glyphicon {
+                        .glyphicon,
+                        .mx-icon-lined,
+                        .mx-icon-filled {
                             display: flex;
                             align-items: center;
                             justify-content: center;
@@ -163,6 +165,12 @@
                 border-color: transparent;
                 border-radius: 0;
                 background: transparent;
+                display: flex;
+            }
+
+            .mx-icon-filled,
+            .mx-icon-lined {
+                font-size: 20px;
             }
         }
     }

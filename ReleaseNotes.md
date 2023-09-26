@@ -1,3 +1,23 @@
+## Release 3.2.0
+
+* We upgraded the module to Mendix 10.3.0
+* You can now delete an obsolete workflow definition in the 'Workflow management' page
+* We introduced a new wizard to clean-up completed and aborted workflows, you can find this option in the 'Possible actions' menu of the 'Workflow details' page
+* We now use the Gallery widget in the 'My initiated workflows' page
+* We removed dependency on the 'List view controls' widget
+* We added support for the new multi-user task decision method (Microflow)
+
+_______
+
+## Release 3.1.0
+
+* We upgraded the module to Mendix 10.0.0
+* We added support for new multi-user task decision methods (Majority, Threshold)
+* We changed the way target users are displayed on the workflow admin page so that it is consistent with the list of assignees
+* We changed the way the decision method is retrieved on the workflow admin page
+
+_______
+
 ## Release 3.0.0
 
 * We upgraded the module to Mendix 10.0.0-beta2

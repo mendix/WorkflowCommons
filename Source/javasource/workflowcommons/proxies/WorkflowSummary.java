@@ -24,6 +24,7 @@ public class WorkflowSummary implements com.mendix.systemwideinterfaces.core.IEn
 		NumberOfWorkflowOverdue("NumberOfWorkflowOverdue"),
 		NumberOfWorkflowsCompleted("NumberOfWorkflowsCompleted"),
 		IsLocked("IsLocked"),
+		IsObsolete("IsObsolete"),
 		DashboardContext_WorkflowSummary("WorkflowCommons.DashboardContext_WorkflowSummary"),
 		WorkflowSummary_WorkflowDefinition("WorkflowCommons.WorkflowSummary_WorkflowDefinition");
 
@@ -219,6 +220,42 @@ public class WorkflowSummary implements com.mendix.systemwideinterfaces.core.IEn
 	public final void setIsLocked(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Boolean islocked)
 	{
 		getMendixObject().setValue(context, MemberNames.IsLocked.toString(), islocked);
+	}
+
+	/**
+	 * @return value of IsObsolete
+	 */
+	public final java.lang.Boolean getIsObsolete()
+	{
+		return getIsObsolete(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of IsObsolete
+	 */
+	public final java.lang.Boolean getIsObsolete(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.Boolean) getMendixObject().getValue(context, MemberNames.IsObsolete.toString());
+	}
+
+	/**
+	 * Set value of IsObsolete
+	 * @param isobsolete
+	 */
+	public final void setIsObsolete(java.lang.Boolean isobsolete)
+	{
+		setIsObsolete(getContext(), isobsolete);
+	}
+
+	/**
+	 * Set value of IsObsolete
+	 * @param context
+	 * @param isobsolete
+	 */
+	public final void setIsObsolete(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Boolean isobsolete)
+	{
+		getMendixObject().setValue(context, MemberNames.IsObsolete.toString(), isobsolete);
 	}
 
 	/**
