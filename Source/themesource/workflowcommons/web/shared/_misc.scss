@@ -64,7 +64,7 @@
     }
 }
 
-.mxwc-lock-icon.mx-link {
+.mxwc-admin-icon.mx-link {
     color: $font-color-default;
     display: inline;
     margin-left: $spacing-small;
@@ -75,14 +75,14 @@
     }
 }
 
-.mxwc-lock-badge.mx-link {
+.mxwc-admin-badge.mx-link {
     color: $font-color-default;
     padding: 4px 8px 4px 8px;
     display: inline-block;
     margin-left: $spacing-small;
     font-weight: bold;
 
-    &.align-middle {
+    &.align-pageheader {
         vertical-align: middle;
         margin-bottom: $spacing-small;
     }

@@ -551,21 +551,59 @@ public final class Microflows
 			)
 			.execute(context);
 	}
-	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_WorkflowDefinition_DeleteAllWorkflowsBuilder(
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_WorkflowDefinition_CleanUp_ExecuteBuilder(
+		workflowcommons.proxies.CleanupHelper _cleanupHelper
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_WorkflowDefinition_CleanUp_Execute");
+		builder = builder.withParam("CleanupHelper", _cleanupHelper);
+		return builder;
+	}
+
+	public static void aCT_WorkflowDefinition_CleanUp_Execute(
+		IContext context,
+		workflowcommons.proxies.CleanupHelper _cleanupHelper
+	)
+	{
+		aCT_WorkflowDefinition_CleanUp_ExecuteBuilder(
+				_cleanupHelper
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_WorkflowDefinition_CleanUp_OpenBuilder(
 		system.proxies.WorkflowDefinition _workflowDefinition
 	)
 	{
-		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_WorkflowDefinition_DeleteAllWorkflows");
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_WorkflowDefinition_CleanUp_Open");
 		builder = builder.withParam("WorkflowDefinition", _workflowDefinition);
 		return builder;
 	}
 
-	public static void aCT_WorkflowDefinition_DeleteAllWorkflows(
+	public static void aCT_WorkflowDefinition_CleanUp_Open(
 		IContext context,
 		system.proxies.WorkflowDefinition _workflowDefinition
 	)
 	{
-		aCT_WorkflowDefinition_DeleteAllWorkflowsBuilder(
+		aCT_WorkflowDefinition_CleanUp_OpenBuilder(
+				_workflowDefinition
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_WorkflowDefinition_DeleteBuilder(
+		system.proxies.WorkflowDefinition _workflowDefinition
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.ACT_WorkflowDefinition_Delete");
+		builder = builder.withParam("WorkflowDefinition", _workflowDefinition);
+		return builder;
+	}
+
+	public static void aCT_WorkflowDefinition_Delete(
+		IContext context,
+		system.proxies.WorkflowDefinition _workflowDefinition
+	)
+	{
+		aCT_WorkflowDefinition_DeleteBuilder(
 				_workflowDefinition
 			)
 			.execute(context);
@@ -1054,6 +1092,17 @@ public final class Microflows
 			.execute(context);
 		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> workflowcommons.proxies.DefinitionHelper.initialize(context, obj));
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_WorkflowSelectionHelperBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.DS_WorkflowSelectionHelper");
+		return builder;
+	}
+
+	public static workflowcommons.proxies.WorkflowSelectionHelper dS_WorkflowSelectionHelper(IContext context)
+	{
+		Object result = dS_WorkflowSelectionHelperBuilder().execute(context);
+		return result == null ? null : workflowcommons.proxies.WorkflowSelectionHelper.initialize(context, (IMendixObject) result);
+	}
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_WorkflowSeriesBuilder(
 		workflowcommons.proxies.DashboardContext _dashboardContext
 	)
@@ -1194,6 +1243,25 @@ public final class Microflows
 			.execute(context);
 		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> workflowcommons.proxies.UserTaskTimeLine.initialize(context, obj));
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder oCh_CleanupHelper_UpdateCountBuilder(
+		workflowcommons.proxies.CleanupHelper _cleanupHelper
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.OCh_CleanupHelper_UpdateCount");
+		builder = builder.withParam("CleanupHelper", _cleanupHelper);
+		return builder;
+	}
+
+	public static void oCh_CleanupHelper_UpdateCount(
+		IContext context,
+		workflowcommons.proxies.CleanupHelper _cleanupHelper
+	)
+	{
+		oCh_CleanupHelper_UpdateCountBuilder(
+				_cleanupHelper
+			)
+			.execute(context);
+	}
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder oCh_DashboardContext_UpdateTaskDashboardBuilder(
 		workflowcommons.proxies.DashboardContext _dashboardContext
 	)
@@ -1325,6 +1393,66 @@ public final class Microflows
 	{
 		Object result = sUB_AssigneeMigration_VerifyBuilder(
 				_configuration
+			)
+			.execute(context);
+		return (boolean) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_CleanupHelper_Execute_WorkflowBuilder(
+		workflowcommons.proxies.CleanupHelper _cleanupHelper
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_CleanupHelper_Execute_Workflow");
+		builder = builder.withParam("CleanupHelper", _cleanupHelper);
+		return builder;
+	}
+
+	public static java.lang.Long sUB_CleanupHelper_Execute_Workflow(
+		IContext context,
+		workflowcommons.proxies.CleanupHelper _cleanupHelper
+	)
+	{
+		Object result = sUB_CleanupHelper_Execute_WorkflowBuilder(
+				_cleanupHelper
+			)
+			.execute(context);
+		return (java.lang.Long) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_CleanupHelper_Execute_WorkflowViewBuilder(
+		workflowcommons.proxies.CleanupHelper _cleanupHelper
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_CleanupHelper_Execute_WorkflowView");
+		builder = builder.withParam("CleanupHelper", _cleanupHelper);
+		return builder;
+	}
+
+	public static java.lang.Long sUB_CleanupHelper_Execute_WorkflowView(
+		IContext context,
+		workflowcommons.proxies.CleanupHelper _cleanupHelper
+	)
+	{
+		Object result = sUB_CleanupHelper_Execute_WorkflowViewBuilder(
+				_cleanupHelper
+			)
+			.execute(context);
+		return (java.lang.Long) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_CleanupHelper_ValidateBuilder(
+		workflowcommons.proxies.CleanupHelper _cleanupHelper
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_CleanupHelper_Validate");
+		builder = builder.withParam("CleanupHelper", _cleanupHelper);
+		return builder;
+	}
+
+	public static boolean sUB_CleanupHelper_Validate(
+		IContext context,
+		workflowcommons.proxies.CleanupHelper _cleanupHelper
+	)
+	{
+		Object result = sUB_CleanupHelper_ValidateBuilder(
+				_cleanupHelper
 			)
 			.execute(context);
 		return (boolean) result;
