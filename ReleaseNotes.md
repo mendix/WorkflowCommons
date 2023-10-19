@@ -9,6 +9,13 @@
 
 _______
 
+## Release 3.1.1
+
+* We upgraded the module to Mendix 10.1.0
+* We fixed consistency errors 'CE0115' raised on 'Assign' button in 'UserTask_Assign' page due to the new Microflow arguments functionality
+
+_______
+
 ## Release 3.1.0
 
 * We upgraded the module to Mendix 10.0.0
