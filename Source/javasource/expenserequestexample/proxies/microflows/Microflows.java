@@ -303,6 +303,25 @@ public final class Microflows
 			)
 			.execute(context);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder wF_SubWorkflow_DoNothingBuilder(
+		expenserequestexample.proxies.ExpenseRequest _expenseRequest
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("ExpenseRequestExample.WF_SubWorkflow_DoNothing");
+		builder = builder.withParam("ExpenseRequest", _expenseRequest);
+		return builder;
+	}
+
+	public static void wF_SubWorkflow_DoNothing(
+		IContext context,
+		expenserequestexample.proxies.ExpenseRequest _expenseRequest
+	)
+	{
+		wF_SubWorkflow_DoNothingBuilder(
+				_expenseRequest
+			)
+			.execute(context);
+	}
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder wOC_ExecuteFollowupActionsBuilder(
 		system.proxies.WorkflowUserTask _userTask,
 		expenserequestexample.proxies.ExpenseRequest _expenseRequest

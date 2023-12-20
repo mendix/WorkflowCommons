@@ -1,3 +1,17 @@
+## Release 3.3.0
+
+* We upgraded the module to Mendix 10.6.0
+* We added a new activity timeline based on the Retrieve workflow activity records microflow action. The new activity timeline is available on the DefaultWorkflowAdmin page and Workflow_Admin page template.
+* We replaced the activity timeline in the UserTask_Extended page template and the My initiated workflows page with a timeline similar to the new activity timeline on the Workflow Admin page. The difference is that we only show user tasks and multi-user tasks. The other activities are filtered out from these views.
+* We added the Wait for timer activity (icon) to the Jump-to pop-up
+* We updated Atlas Web Content compatibility to 3.4.1
+* We updated Data Widgets compatibility to v2.11.0
+
+Known issues:
+* The activity timeline might show the 'Merge of parallel split' activity in the wrong position (incorrect sort order). This will be fixed in a future release of Studio Pro.
+
+_______
+
 ## Release 3.2.0
 
 * We upgraded the module to Mendix 10.3.0

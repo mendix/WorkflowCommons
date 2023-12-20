@@ -23,6 +23,7 @@ public class RandomStrongPassword extends CustomJavaAction<java.lang.String>
 	private final java.lang.Long MinLength;
 	private final java.lang.Long MaxLength;
 	private final java.lang.Long NrOfCapitalizedCharacters;
+	private final java.lang.Long NrOfLowercaseCharacters;
 	private final java.lang.Long NrOfDigits;
 	private final java.lang.Long NrOfSpecialCharacters;
 
@@ -31,6 +32,7 @@ public class RandomStrongPassword extends CustomJavaAction<java.lang.String>
 		java.lang.Long _minLength,
 		java.lang.Long _maxLength,
 		java.lang.Long _nrOfCapitalizedCharacters,
+		java.lang.Long _nrOfLowercaseCharacters,
 		java.lang.Long _nrOfDigits,
 		java.lang.Long _nrOfSpecialCharacters
 	)
@@ -39,6 +41,7 @@ public class RandomStrongPassword extends CustomJavaAction<java.lang.String>
 		this.MinLength = _minLength;
 		this.MaxLength = _maxLength;
 		this.NrOfCapitalizedCharacters = _nrOfCapitalizedCharacters;
+		this.NrOfLowercaseCharacters = _nrOfLowercaseCharacters;
 		this.NrOfDigits = _nrOfDigits;
 		this.NrOfSpecialCharacters = _nrOfSpecialCharacters;
 	}
@@ -47,7 +50,14 @@ public class RandomStrongPassword extends CustomJavaAction<java.lang.String>
 	public java.lang.String executeAction() throws Exception
 	{
 		// BEGIN USER CODE
-		return StringUtils.randomStrongPassword(safeLongToInt(this.MinLength), safeLongToInt(this.MaxLength), safeLongToInt(this.NrOfCapitalizedCharacters), safeLongToInt(NrOfDigits), safeLongToInt(NrOfSpecialCharacters));
+		return StringUtils.randomStrongPassword(
+			safeLongToInt(MinLength),
+			safeLongToInt(MaxLength),
+			safeLongToInt(NrOfCapitalizedCharacters),
+			safeLongToInt(NrOfLowercaseCharacters),
+			safeLongToInt(NrOfDigits),
+			safeLongToInt(NrOfSpecialCharacters)
+		);
 		// END USER CODE
 	}
 
@@ -62,11 +72,12 @@ public class RandomStrongPassword extends CustomJavaAction<java.lang.String>
 	}
 
 	// BEGIN EXTRA CODE
-	public static int safeLongToInt(long l) {
+	public static int safeLongToInt(Long l) {
+		if (l == null) return 0;
 		if (l < Integer.MIN_VALUE || l > Integer.MAX_VALUE) {
 			throw new IllegalArgumentException(l + " cannot be cast to int without changing its value.");
 		}
-		return (int) l;
+		return l.intValue();
 	}
 	// END EXTRA CODE
 }

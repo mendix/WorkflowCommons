@@ -26,10 +26,6 @@ $grid-selected-row-background: $brand-light;
     .table-content {
         display: grid;
         position: relative;
-
-        &.infinite-loading {
-            overflow-y: scroll;
-        }
     }
 
     /* Pseudo Row, to target this object please use .tr > .td or .tr > div */
@@ -46,10 +42,7 @@ $grid-selected-row-background: $brand-light;
         border-width: 0;
         border-color: $grid-border-color;
         padding: $spacing-medium;
-        position: -webkit-sticky; /* Safari */
-        position: sticky;
         top: 0;
-        z-index: 1;
         min-width: 0;
 
         /* Clickable column header (Sortable) */
@@ -90,11 +83,16 @@ $grid-selected-row-background: $brand-light;
                 border-left: $dragging-effect-size solid $dragging-color-effect;
                 padding-left: 0;
             }
+
+            &:not(:has(.filter)) {
+                .column-header {
+                    height: 100%;
+                }
+            }
         }
 
         /* Header text */
         .column-header {
-            height: 100%;
             margin: 1px 1px 1px -$dragging-effect-size + 1px;
 
             display: flex;
@@ -105,6 +103,8 @@ $grid-selected-row-background: $brand-light;
                 flex-grow: 1;
                 text-overflow: ellipsis;
                 overflow: hidden;
+                text-wrap: nowrap;
+                align-self: center;
             }
 
             svg {
@@ -143,6 +143,26 @@ $grid-selected-row-background: $brand-light;
         }
     }
 
+    /* If Column Header has filter */
+    &:has(.th .column-container .filter:not(:empty)) {
+        .th {
+            &.column-selector {
+                padding: $spacing-medium 0;
+            }
+            /*adjust filter-selector icon to be mid-bottom aligned */
+            .column-selector-content {
+                align-self: flex-end;
+                margin-bottom: 3px;
+            }
+
+            /*adjust checkbox toggle to be mid-bottom aligned */
+            &.widget-datagrid-col-select {
+                align-items: flex-end;
+                padding-bottom: calc($spacing-medium + 11px);
+            }
+        }
+    }
+
     /* Column selector for hidable columns */
     .column-selector {
         padding: 0;
@@ -150,10 +170,10 @@ $grid-selected-row-background: $brand-light;
         /* Column content */
         .column-selector-content {
             align-self: center;
-
+            padding-right: $spacing-medium;
             /* Button containing the eye icon */
             .column-selector-button {
-                $icon-margin: 8px;
+                $icon-margin: 7px;
                 /* 2px as path of icon's path is a bit bigger than outer svg */
                 $icon-slack-size: 2px;
 
@@ -164,8 +184,6 @@ $grid-selected-row-background: $brand-light;
                 width: ($icon-size + $icon-margin * 2 + $icon-slack-size);
 
                 svg {
-                    width: $icon-size;
-                    height: $icon-size;
                     margin: $icon-margin;
                 }
             }
@@ -217,11 +235,17 @@ $grid-selected-row-background: $brand-light;
         }
 
         &:focus {
-            outline: none;
+            outline-width: 1px;
+            outline-style: solid;
+            outline-offset: -1px;
+            outline-color: $brand-primary;
         }
 
-        > .td-text,
-        * {
+        &.clickable {
+            cursor: pointer;
+        }
+
+        > .td-text {
             white-space: nowrap;
             word-break: break-word;
             text-overflow: ellipsis;
@@ -253,26 +277,14 @@ $grid-selected-row-background: $brand-light;
 
     .align-column-left {
         justify-content: flex-start;
-
-        span {
-            justify-content: flex-start;
-        }
     }
 
     .align-column-center {
         justify-content: center;
-
-        span {
-            justify-content: center;
-        }
     }
 
     .align-column-right {
         justify-content: flex-end;
-
-        span {
-            justify-content: flex-end;
-        }
     }
 }
 
@@ -312,6 +324,13 @@ $grid-selected-row-background: $brand-light;
         &:focus-visible {
             outline: 1px solid $brand-primary;
         }
+    }
+    .pagination-icon {
+        position: relative;
+        top: 4px;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
     }
 }
 
@@ -355,4 +374,8 @@ $grid-selected-row-background: $brand-light;
             background-color: $grid-selected-row-background;
         }
     }
+}
+
+.widget-datagrid-col-select input:focus-visible {
+    outline-offset: 0;
 }

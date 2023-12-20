@@ -11,7 +11,7 @@ public enum WorkflowUserTaskCompletionType
 	Consensus(new java.lang.String[][] { new java.lang.String[] { "en_US", "Consensus" } }),
 	Majority(new java.lang.String[][] { new java.lang.String[] { "en_US", "Majority" } }),
 	Threshold(new java.lang.String[][] { new java.lang.String[] { "en_US", "Threshold" } }),
-	Microflow(new java.lang.String[][] { new java.lang.String[] { "en_US", "Microflow" } });
+	Microflow(new java.lang.String[][] { new java.lang.String[] { "en_US", "Custom" } });
 
 	private final java.util.Map<java.lang.String, java.lang.String> captions;
 
