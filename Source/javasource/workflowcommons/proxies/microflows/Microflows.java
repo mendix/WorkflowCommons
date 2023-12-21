@@ -999,6 +999,46 @@ public final class Microflows
 			.execute(context);
 		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> workflowcommons.proxies.TaskSeries.initialize(context, obj));
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_TimelineViewer_WorkflowActivityRecords_FullBuilder(
+		workflowcommons.proxies.TimelineViewer _timelineViewer
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.DS_TimelineViewer_WorkflowActivityRecords_Full");
+		builder = builder.withParam("TimelineViewer", _timelineViewer);
+		return builder;
+	}
+
+	public static java.util.List<system.proxies.WorkflowActivityRecord> dS_TimelineViewer_WorkflowActivityRecords_Full(
+		IContext context,
+		workflowcommons.proxies.TimelineViewer _timelineViewer
+	)
+	{
+		Object result = dS_TimelineViewer_WorkflowActivityRecords_FullBuilder(
+				_timelineViewer
+			)
+			.execute(context);
+		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> system.proxies.WorkflowActivityRecord.initialize(context, obj));
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_TimelineViewer_WorkflowActivityRecords_TasksBuilder(
+		workflowcommons.proxies.TimelineViewer _timelineViewer
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.DS_TimelineViewer_WorkflowActivityRecords_Tasks");
+		builder = builder.withParam("TimelineViewer", _timelineViewer);
+		return builder;
+	}
+
+	public static java.util.List<system.proxies.WorkflowActivityRecord> dS_TimelineViewer_WorkflowActivityRecords_Tasks(
+		IContext context,
+		workflowcommons.proxies.TimelineViewer _timelineViewer
+	)
+	{
+		Object result = dS_TimelineViewer_WorkflowActivityRecords_TasksBuilder(
+				_timelineViewer
+			)
+			.execute(context);
+		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> system.proxies.WorkflowActivityRecord.initialize(context, obj));
+	}
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_Workflow_WorkflowViewBuilder(
 		system.proxies.Workflow _workflow
 	)
@@ -1223,25 +1263,25 @@ public final class Microflows
 			.execute(context);
 		return result == null ? null : workflowcommons.proxies.WorkflowView.initialize(context, (IMendixObject) result);
 	}
-	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_WorkflowView_UserTaskTimelineBuilder(
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_WorkflowView_TimelineViewerBuilder(
 		workflowcommons.proxies.WorkflowView _workflowView
 	)
 	{
-		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.DS_WorkflowView_UserTaskTimeline");
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.DS_WorkflowView_TimelineViewer");
 		builder = builder.withParam("WorkflowView", _workflowView);
 		return builder;
 	}
 
-	public static java.util.List<workflowcommons.proxies.UserTaskTimeLine> dS_WorkflowView_UserTaskTimeline(
+	public static workflowcommons.proxies.TimelineViewer dS_WorkflowView_TimelineViewer(
 		IContext context,
 		workflowcommons.proxies.WorkflowView _workflowView
 	)
 	{
-		Object result = dS_WorkflowView_UserTaskTimelineBuilder(
+		Object result = dS_WorkflowView_TimelineViewerBuilder(
 				_workflowView
 			)
 			.execute(context);
-		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> workflowcommons.proxies.UserTaskTimeLine.initialize(context, obj));
+		return result == null ? null : workflowcommons.proxies.TimelineViewer.initialize(context, (IMendixObject) result);
 	}
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder oCh_CleanupHelper_UpdateCountBuilder(
 		workflowcommons.proxies.CleanupHelper _cleanupHelper
@@ -2171,52 +2211,6 @@ public final class Microflows
 			)
 			.execute(context);
 		return result == null ? null : workflowcommons.proxies.UserTaskOutcomeView.initialize(context, (IMendixObject) result);
-	}
-	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_UserTaskTimeline_WorkflowUserTask_SetAssigneeBuilder(
-		workflowcommons.proxies.UserTaskTimeLine _userTaskTimeLine,
-		workflowcommons.proxies.UserTaskView _userTaskView
-	)
-	{
-		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_UserTaskTimeline_WorkflowUserTask_SetAssignee");
-		builder = builder.withParam("UserTaskTimeLine", _userTaskTimeLine);
-		builder = builder.withParam("UserTaskView", _userTaskView);
-		return builder;
-	}
-
-	public static void sUB_UserTaskTimeline_WorkflowUserTask_SetAssignee(
-		IContext context,
-		workflowcommons.proxies.UserTaskTimeLine _userTaskTimeLine,
-		workflowcommons.proxies.UserTaskView _userTaskView
-	)
-	{
-		sUB_UserTaskTimeline_WorkflowUserTask_SetAssigneeBuilder(
-				_userTaskTimeLine,
-				_userTaskView
-			)
-			.execute(context);
-	}
-	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_UserTaskTimeline_WorkflowUserTask_SetOutcomeCountBuilder(
-		workflowcommons.proxies.UserTaskTimeLine _userTaskTimeLine,
-		workflowcommons.proxies.UserTaskView _userTaskView
-	)
-	{
-		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("WorkflowCommons.SUB_UserTaskTimeline_WorkflowUserTask_SetOutcomeCount");
-		builder = builder.withParam("UserTaskTimeLine", _userTaskTimeLine);
-		builder = builder.withParam("UserTaskView", _userTaskView);
-		return builder;
-	}
-
-	public static void sUB_UserTaskTimeline_WorkflowUserTask_SetOutcomeCount(
-		IContext context,
-		workflowcommons.proxies.UserTaskTimeLine _userTaskTimeLine,
-		workflowcommons.proxies.UserTaskView _userTaskView
-	)
-	{
-		sUB_UserTaskTimeline_WorkflowUserTask_SetOutcomeCountBuilder(
-				_userTaskTimeLine,
-				_userTaskView
-			)
-			.execute(context);
 	}
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_UserTaskView_FindOrCreateBuilder(
 		system.proxies.WorkflowUserTask _workflowUserTask

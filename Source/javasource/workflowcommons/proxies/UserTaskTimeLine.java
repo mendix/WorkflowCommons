@@ -23,7 +23,6 @@ public class UserTaskTimeLine implements com.mendix.systemwideinterfaces.core.IE
 		TaskName("TaskName"),
 		CompletedOn("CompletedOn"),
 		CompletionType("CompletionType"),
-		OutcomeCount("OutcomeCount"),
 		Outcome("Outcome"),
 		State("State"),
 		StartedOn("StartedOn"),
@@ -194,42 +193,6 @@ public class UserTaskTimeLine implements com.mendix.systemwideinterfaces.core.IE
 		} else {
 			getMendixObject().setValue(context, MemberNames.CompletionType.toString(), null);
 		}
-	}
-
-	/**
-	 * @return value of OutcomeCount
-	 */
-	public final java.lang.Integer getOutcomeCount()
-	{
-		return getOutcomeCount(getContext());
-	}
-
-	/**
-	 * @param context
-	 * @return value of OutcomeCount
-	 */
-	public final java.lang.Integer getOutcomeCount(com.mendix.systemwideinterfaces.core.IContext context)
-	{
-		return (java.lang.Integer) getMendixObject().getValue(context, MemberNames.OutcomeCount.toString());
-	}
-
-	/**
-	 * Set value of OutcomeCount
-	 * @param outcomecount
-	 */
-	public final void setOutcomeCount(java.lang.Integer outcomecount)
-	{
-		setOutcomeCount(getContext(), outcomecount);
-	}
-
-	/**
-	 * Set value of OutcomeCount
-	 * @param context
-	 * @param outcomecount
-	 */
-	public final void setOutcomeCount(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Integer outcomecount)
-	{
-		getMendixObject().setValue(context, MemberNames.OutcomeCount.toString(), outcomecount);
 	}
 
 	/**

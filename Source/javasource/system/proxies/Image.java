@@ -20,6 +20,7 @@ public class Image extends system.proxies.FileDocument
 	public enum MemberNames
 	{
 		PublicThumbnailPath("PublicThumbnailPath"),
+		EnableCaching("EnableCaching"),
 		FileID("FileID"),
 		Name("Name"),
 		DeleteAfterDownload("DeleteAfterDownload"),
@@ -115,6 +116,42 @@ public class Image extends system.proxies.FileDocument
 	public final void setPublicThumbnailPath(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String publicthumbnailpath)
 	{
 		getMendixObject().setValue(context, MemberNames.PublicThumbnailPath.toString(), publicthumbnailpath);
+	}
+
+	/**
+	 * @return value of EnableCaching
+	 */
+	public final java.lang.Boolean getEnableCaching()
+	{
+		return getEnableCaching(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of EnableCaching
+	 */
+	public final java.lang.Boolean getEnableCaching(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.Boolean) getMendixObject().getValue(context, MemberNames.EnableCaching.toString());
+	}
+
+	/**
+	 * Set value of EnableCaching
+	 * @param enablecaching
+	 */
+	public final void setEnableCaching(java.lang.Boolean enablecaching)
+	{
+		setEnableCaching(getContext(), enablecaching);
+	}
+
+	/**
+	 * Set value of EnableCaching
+	 * @param context
+	 * @param enablecaching
+	 */
+	public final void setEnableCaching(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Boolean enablecaching)
+	{
+		getMendixObject().setValue(context, MemberNames.EnableCaching.toString(), enablecaching);
 	}
 
 	@java.lang.Override
