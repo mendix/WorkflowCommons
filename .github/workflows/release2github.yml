@@ -36,7 +36,7 @@ jobs:
 
       - name: Check release notes and make new release tag
         run: |
-          Organization="mendix"
+          Organization="dimas9009"
           Project="WorkflowCommons"
           cd $GITHUB_WORKSPACE/app
           ReleaseNotesFile="ReleaseNotes.md"
