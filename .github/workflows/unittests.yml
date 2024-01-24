@@ -29,12 +29,8 @@ jobs:
       - uses: actions/checkout@e2f20e631ae6d7dd3b768f56a5d2af784dd54791 # v2
         with:
           repository: 'mendix/docker-mendix-buildpack'
+          ref: 'latest'
           path: 'build-pack'
-
-      - uses: actions/checkout@e2f20e631ae6d7dd3b768f56a5d2af784dd54791 # v2
-        with:
-          repository: 'mendixlabs/mx-docker-tools'
-          path: 'mx-tools'
 
       - name: Define MX_VERSION
         run: |
@@ -44,7 +40,8 @@ jobs:
           echo "MX_VERSION=$VERSION" >> $GITHUB_ENV
 
       - name: Create build directory
-        run: mkdir build-pack/build
+        run: |
+          mkdir build-pack/build
       
       - name: Create output directory
         run: mkdir $GITHUB_WORKSPACE/out
@@ -55,12 +52,13 @@ jobs:
       - name: Build docker image
         run: |
           cd build-pack
-          make build-image
+          docker build -t mendix-rootfs:app -f rootfs-app.dockerfile .
+          docker build -t mendix-rootfs:builder -f rootfs-builder.dockerfile .
+          docker build -t mxbuildpack --build-arg BUILD_PATH=build .
 
-      - name: Run docker image
+      - name: Run application
         run: |
-          cd build-pack
-          make run-container &
+          docker-compose -f $GITHUB_WORKSPACE/app/.github/workflows/scripts/runapp.yml up &
           timeout 60s bash -c 'until curl -s http://localhost:8080 | grep "<title>Mendix</title>"; do sleep 5; done'
 
       - name: Start unit tests
