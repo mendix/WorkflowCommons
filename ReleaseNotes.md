@@ -1,3 +1,12 @@
+## Release 3.3.1
+
+* We fixed an issue in the “TaskDashboard“ page where “My open tasks” and "All open tasks” kept displaying multi-user tasks even after the “current user” selected an outcome and no longer can access them.
+
+Known issues:
+* The activity timeline might show the 'Merge of parallel split' activity in the wrong position (incorrect sort order). This will be fixed in a future release of Studio Pro.
+
+_______
+
 ## Release 3.3.0
 
 * We upgraded the module to Mendix 10.6.0
