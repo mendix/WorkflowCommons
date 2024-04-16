@@ -60,6 +60,14 @@ _______
 
 _______
 
+## Release 2.6.0
+
+* We upgraded the module to Mendix 9.24.0
+* We updated Atlas Web Content compatability to v3.4.1
+* We updated Atlas Core compatability to v3.12.3
+
+_______
+
 ## Release 2.5.0
 
 * We upgraded the module to Mendix 9.20.0
