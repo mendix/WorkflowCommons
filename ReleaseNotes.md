@@ -4,7 +4,7 @@
 * We added support for new attribute CanApplyJumpTo that was introduced in Mendix 10.11.0 that indicates whether it is allowed to apply a jump-to option to the workflow in its current state.
 * We fixed a bug where Paused user tasks where not displayed with the correct state in the activity timeline.
 * We removed the unused charts configuration file from the module.
-* We updated Data Widgets compatibility to v2.19.1.
+* We updated Data Widgets compatibility to v2.19.1
 
 Known issues:
 * The activity timeline might show the 'Merge of parallel split' activity in the wrong position (incorrect sort order). This will be fixed in a future release of Studio Pro.
