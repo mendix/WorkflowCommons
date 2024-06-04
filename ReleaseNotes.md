@@ -1,5 +1,6 @@
 ## Release 3.4.0
 
+* We upgraded the module to Mendix 10.11.0
 * We added support for new attribute CanApplyJumpTo that was introduced in Mendix 10.11.0 that indicates whether it is allowed to apply a jump-to option to the workflow in its current state.
 * We fixed a bug where Paused user tasks where not displayed with the correct state in the activity timeline.
 * We removed the unused charts configuration file from the module.
