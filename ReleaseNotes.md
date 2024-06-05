@@ -7,9 +7,6 @@
 * We removed the unused charts configuration file from the module.
 * We updated Data Widgets compatibility to v2.19.1
 
-Known issues:
-* The activity timeline might show the 'Merge of parallel split' activity in the wrong position (incorrect sort order). This will be fixed in a future release of Studio Pro.
-
 _______
 
 ## Release 3.3.1
