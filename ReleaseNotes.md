@@ -1,3 +1,17 @@
+## Release 3.4.0
+
+* We upgraded the module to Mendix 10.11.0
+* We added support for new attribute CanApplyJumpTo that was introduced in Mendix 10.11.0 that indicates whether it is allowed to apply a jump-to option to the workflow in its current state.
+* We fixed a bug where Paused user tasks where not displayed with the correct state in the activity timeline.
+* We fixed an issue where navigating to the Workflow dashboard page would raise an error when using Postgres as the database.
+* We removed the unused charts configuration file from the module.
+* We updated Data Widgets compatibility to v2.19.1
+
+Known issues:
+* The activity timeline might show the 'Merge of parallel split' activity in the wrong position (incorrect sort order). This will be fixed in a future release of Studio Pro.
+
+_______
+
 ## Release 3.3.1
 
 * We fixed an issue in the “TaskDashboard“ page where “My open tasks” and "All open tasks” kept displaying multi-user tasks even after the “current user” selected an outcome and no longer can access them.
