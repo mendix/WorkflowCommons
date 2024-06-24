@@ -1,3 +1,16 @@
+## Release 3.5.0
+
+* We added support for React client, introduced as public beta in Mendix 10.7.0. As part of this, we updated all dropdown and reference selector widgets to the new Combo Box widget. 
+* We updated Atlas Core module compatibility to v3.14.2 to replace the Static image widget with the Image widget.
+* We updated Data Widgets module compatibility to v2.20.0  
+* We updated Charts widget compatibility to v5.0.0
+
+Notes:
+* Make sure that you have the Combo Box widget installed in your project. If you do not already have it, you can download it from the marketplace. 
+* When importing the module in Mendix 10.6.0 or above, you might get consistency error CE6087 for renamed design properties. Right-click and update all renamed design properties in the project.
+
+_______
+
 ## Release 3.4.0
 
 * We upgraded the module to Mendix 10.11.0
