@@ -1,3 +1,14 @@
+## Release 3.6.0
+
+* We introduced the audit trail feature to track all events and actions that have taken place in the workflows in your application. Refer to the module documentation for more details on how to configure a workflow event handler for audit trails.
+* We added a key attribute to WorkflowView and UserTaskView entities, that uniquely identifies the workflow and user task instances. The value is helpful for correlating audit trail data to the related workflow or user task.
+
+Note: If you want to add the keys to existing WorkflowView and UserTaskView data you need to run a migration, you can either:  
+* Use the migration microflow 'ACT_Key_Migrate' (also added to the 'WorkflowAdminCenter' page), or:
+* Add the 'ASu_Key_Migrate' microflow to the project's after startup microflow.
+
+_______
+
 ## Release 3.5.0
 
 * We added support for React client, introduced as public beta in Mendix 10.7.0. As part of this, we updated all dropdown and reference selector widgets to the new Combo Box widget. 
