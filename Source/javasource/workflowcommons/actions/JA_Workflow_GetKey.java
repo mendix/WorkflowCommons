@@ -38,7 +38,7 @@ public class JA_Workflow_GetKey extends CustomJavaAction<java.lang.String>
 		if (workflow == null)
 			throw new RuntimeException("No Workflow object provided");
 		
-		return Core.workflows().getUserTask(getContext(), workflow.getMendixObject()).getKey();
+		return Core.workflows().getWorkflow(getContext(), workflow.getMendixObject()).getKey();
 		// END USER CODE
 	}
 
