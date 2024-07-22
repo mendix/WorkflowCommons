@@ -1,3 +1,10 @@
+## Release 3.7.0
+
+* We added a scheduled event to clean-up expired audit trail logs. Refer to module documentation for more details and how to set it up.
+* We fixed inconsistent log node names.
+
+_______
+
 ## Release 3.6.0
 
 * We introduced the audit trail feature to track all events and actions that have taken place in the workflows in your application. Refer to the module documentation for more details on how to configure a workflow event handler for audit trails.
