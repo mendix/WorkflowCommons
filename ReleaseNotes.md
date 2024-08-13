@@ -1,3 +1,13 @@
+## Release 3.8.0
+
+* We upgraded the module to Mendix 10.12.0
+* We updated Data Widgets module compatibility to v2.21.2
+* We added an option to select if you want to keep the target users or re-run user targeting when retrying a workflow that has a failed user task.
+* We added a confirmation pop-up to all actions in the Workflow Admin page.
+* We added the microflows ‘ACT_UserTask_AssignToUser’ and ‘ACT_UserTask_AssignToUsers' to the ‘Use me’ folder, that can be used to assign user(s) to a user task. The 'ACT_UserTask_AssignToUsers’ microflow is only applicable for multi-user tasks.
+
+_______
+
 ## Release 3.7.0
 
 * We added a scheduled event to clean-up expired audit trail logs. Refer to module documentation for more details and how to set it up.
