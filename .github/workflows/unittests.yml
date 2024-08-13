@@ -4,9 +4,9 @@ name: Run Unit Tests
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -23,14 +23,14 @@ jobs:
       # Checks-out current repository under $GITHUB_WORKSPACE/app folder
       - uses: actions/checkout@e2f20e631ae6d7dd3b768f56a5d2af784dd54791 # v2
         with:
-          path: 'app'
+          path: "app"
 
       # Checks-out mendix/docker-mendix-buildpack to $GITHUB_WORKSPACE/build-pack folder
       - uses: actions/checkout@e2f20e631ae6d7dd3b768f56a5d2af784dd54791 # v2
         with:
-          repository: 'mendix/docker-mendix-buildpack'
-          ref: 'latest'
-          path: 'build-pack'
+          repository: "mendix/docker-mendix-buildpack"
+          ref: "latest"
+          path: "build-pack"
 
       - name: Define MX_VERSION
         run: |
@@ -42,7 +42,7 @@ jobs:
       - name: Create build directory
         run: |
           mkdir build-pack/build
-      
+
       - name: Create output directory
         run: mkdir $GITHUB_WORKSPACE/out
 
@@ -58,7 +58,7 @@ jobs:
 
       - name: Run application
         run: |
-          docker-compose -f $GITHUB_WORKSPACE/app/.github/workflows/scripts/runapp.yml up &
+          docker compose -f $GITHUB_WORKSPACE/app/.github/workflows/scripts/runapp.yml up &
           timeout 60s bash -c 'until curl -s http://localhost:8080 | grep "<title>Mendix</title>"; do sleep 5; done'
 
       - name: Start unit tests
