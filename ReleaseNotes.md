@@ -1,3 +1,9 @@
+## Release 3.8.1
+
+* We fixed an issue in the Task Inbox and Task Dashboard pages where the ‘Assignee(s)' column did not display the Assignee name(s).
+
+_______
+
 ## Release 3.8.0
 
 * We upgraded the module to Mendix 10.12.0
