@@ -1,3 +1,11 @@
+## Release 3.9.0
+
+* We upgraded the module to Mendix 10.14.0
+* We replaced the usage of the `WorkflowWaitForTimer` image with the `WorkflowTimer` image.
+* We added compatibility for changes in the System module that were introduced with Mendix 10.14.0.
+
+_______
+
 ## Release 3.8.1
 
 * We fixed an issue in the Task Inbox and Task Dashboard pages where the ‘Assignee(s)' column did not display the Assignee name(s).
