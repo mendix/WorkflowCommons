@@ -86,7 +86,7 @@ jobs:
 
       - name: Archive results
         if: ${{ always() }}
-        uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2 # v2
+        uses: actions/upload-artifact@ff15f0306b3f739f7b6fd43fb5d26cd321bd4de5 # v3.2.1
         with:
           name: Results
           path: ${{ github.workspace }}/out/*

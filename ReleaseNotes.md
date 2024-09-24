@@ -1,3 +1,12 @@
+## Release 3.10.0
+
+* We added a constant `DueDateExpirationInDays` to configure the period in days for which the workflows/user tasks are to be considered almost due. 
+* We added visual indicators that indicates workflows/user tasks that are almost due based on the constant `DueDateExpirationInDays` or overdue in pages `Task Inbox`, `Task Dashboard`, `Default Workflow Admin` and `Workflow Definition View`. 
+* We added `Due in x day(s)` counters to the `Workflow Dashboard` for workflows/user tasks. Where the value of `x` is the `DueDateExpirationInDays` constant value.
+* We fixed a bug in the calculation of the overdue counters in the `Workflow Dashboard`.
+
+_______
+
 ## Release 3.9.0
 
 * We upgraded the module to Mendix 10.14.0
