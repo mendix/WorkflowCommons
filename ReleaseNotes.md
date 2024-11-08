@@ -1,3 +1,9 @@
+## Release 3.11.0
+
+* We added 'Task assignment' page. This page provides the workflow administrator the ability to manage the assignment and targeting of user tasks based on a selected user. This is typically done when a user is leaving the organization or a group/role.
+* We updated Data Widgets module compatibility to v2.26.0
+_______
+
 ## Release 3.10.0
 
 * We added a constant `DueDateExpirationInDays` to configure the period in days for which the workflows/user tasks are to be considered almost due. 
