@@ -1,3 +1,11 @@
+## Release 3.12.0
+
+* We upgraded the module to Mendix 10.17.0 
+* We updated Data Widgets module compatibility to v2.28.1
+* We fixed an issue where the `Reason` field was not displayed for `Paused` workflow instances after locking a workflow definition. We updated the conditional visibility to show the `Reason` field if available, regardless of the workflow state.
+* We fixed an issue where switching between the `Minimal`, `Default` and `All` views did not work correctly for the Audit Trail.
+* We added compatibility for changes in the System module that were introduced with Mendix 10.17.0
+
 ## Release 3.11.0
 
 * We added 'Manage task assignments' page. This page provides the workflow administrator the ability to manage the assignment and targeting of user tasks based on a selected user. This is typically done when a user is leaving the organization or a group/role.
