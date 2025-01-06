@@ -1,3 +1,10 @@
+## Release 3.12.1
+
+* We changed the length of the `Reason` attribute in the `WorkflowAuditTrailRecord` entity to unlimited.
+* We fixed the warnings in the module where applicable.
+
+_______
+
 ## Release 3.12.0
 
 * We upgraded the module to Mendix 10.17.0 
@@ -6,10 +13,13 @@
 * We fixed an issue where switching between the `Minimal`, `Default` and `All` views did not work correctly for the Audit Trail.
 * We added compatibility for changes in the System module that were introduced with Mendix 10.17.0
 
+_______
+
 ## Release 3.11.0
 
 * We added 'Manage task assignments' page. This page provides the workflow administrator the ability to manage the assignment and targeting of user tasks based on a selected user. This is typically done when a user is leaving the organization or a group/role.
 * We updated Data Widgets module compatibility to v2.26.0
+
 _______
 
 ## Release 3.10.0
