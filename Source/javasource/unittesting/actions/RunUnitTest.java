@@ -12,9 +12,9 @@ package unittesting.actions;
 import unittesting.TestManager;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
-import com.mendix.webui.CustomJavaAction;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
-public class RunUnitTest extends CustomJavaAction<java.lang.Boolean>
+public class RunUnitTest extends UserAction<java.lang.Boolean>
 {
 	/** @deprecated use unitTest.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)

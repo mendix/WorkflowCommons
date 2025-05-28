@@ -11,9 +11,9 @@ package unittesting.actions;
 
 import unittesting.TestManager;
 import com.mendix.systemwideinterfaces.core.IContext;
-import com.mendix.webui.CustomJavaAction;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
-public class ThrowAssertionFailed extends CustomJavaAction<java.lang.Boolean>
+public class ThrowAssertionFailed extends UserAction<java.lang.Boolean>
 {
 	private final java.lang.String message;
 

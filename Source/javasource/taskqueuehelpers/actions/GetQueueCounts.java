@@ -14,15 +14,15 @@ import com.mendix.systemwideinterfaces.connectionbus.data.IDataTable;
 import com.mendix.systemwideinterfaces.connectionbus.requests.types.IOQLTextGetRequest;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
-import com.mendix.webui.CustomJavaAction;
 import system.proxies.QueuedTask;
 import taskqueuehelpers.proxies.QueueCount;
 import java.util.stream.Collectors;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * Creates a List of QueueCount entities grouped by queue name. The grouping will aggregate the open count and running count of each queue.
  */
-public class GetQueueCounts extends CustomJavaAction<java.util.List<IMendixObject>>
+public class GetQueueCounts extends UserAction<java.util.List<IMendixObject>>
 {
 	public GetQueueCounts(IContext context)
 	{
