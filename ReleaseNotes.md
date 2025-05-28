@@ -1,3 +1,54 @@
+## Release 4.0.0
+
+* We upgraded the module to Mendix 11.0.0-beta.2
+* We introduced a new View Entity `WorkflowUserTaskView`, for unified access to user tasks regardless of whether these tasks are in progress or completed. For more information, refer to the Workflow Commons module documentation.
+* We removed the state change events microflows `OCh_Workflow_State` and `OCh_WorkflowUserTask_State`, since state-change events are removed in Mendix 11.
+* We removed the assignee and key migration microflows that were introduced in version 3.0.0 and 3.6.0 respectively and are no longer applicable. See the first note for more details.
+* We added migration logic to perform a one-off migration of your existing data. When using Workflow Commons and upgrading your app to Mendix 11, it is required to perform this migration and update your app accordingly. See the second note for more details.
+* We added an icon next to targeted/assigned users to indicate when a user is inactive, only visible for administrators.
+* We replaced the List View for displaying assignees with a Data Grid 2 reference set supported feature.
+* We fixed an issue where the overdue time was displayed incorrectly in the timeline.
+* We updated Atlas Core module compatibility to v3.17.0
+* We updated Atlas Web Content module compatibility to v3.8.0
+* We updated Data Widgets module compatibility to v2.31.0
+
+Note: When upgrading to v4.0.0 or above, make sure that you are currently using Workflow Commons v3.6.0 or above. If you are using an earlier version, first upgrade to any version between v3.6.0 and (but not including) v4.0.0, using a Mendix 10 version. Perform the required key and/or assignee migrations for all your environments. Any required migration will be shown in the WorkflowAdminCenter page. 
+
+Note: As a result of upgrading to Mendix 11, the microflows and snippets that previously used the `WorkflowCommons.UserTaskView` entity have been replaced with documents that uses `WorkflowCommons.WorkflowUserTaskView` or `System.WorkflowEndedUserTask` as a parameter. If you are using one or more of them in your project, see the list below for replacement. Also, in case you have any logic based on the `WorkflowCommons.UserTaskView` entity, make sure to adapt this accordingly.
+
+Microflows:
+* ACT_UserTaskView_ShowUserTask Page → replace with ACT_WorkflowUserTaskView_ShowUserTaskPage
+* ACT_UserTaskView_ShowWorkflowAdminPage → replace with ACT_WorkflowUserTaskView_ShowDefaultAdminPage
+* ACT_WorkflowView_ShowWorkflowAdminPage → replace with  ACT_Workflow_ShowWorkflowAdminPage
+
+Snippets:
+* Snip_UserTaskView_Assignees → replace with Snip_WorkflowUserTaskView_Assignees 
+* Snip_UserTaskView_Assignees_Aggregated → replace with Snip_WorkflowUserTaskView_Assignees 
+* Snip_UserTaskView_Details → replace with Snip_WorkflowUserTaskView_Details
+* Snip_UserTaskView_Header → replace with Snip_UserTask_Header or Snip_WorfkflowEndedUserTask_Header
+* Snip_UserTaskView_IncompatibleWarning → replace with Snip_WorkflowUserTaskView_IncompatibleWarning
+* Snip_UserTaskView_NameColumn → replace with Snip_WorkflowUserTaskView_NameColumn 
+* Snip_UserTaskView_NameColumnWithIcon → replace with Snip_WorkflowUserTaskView_NameColumnWithIcon 
+* Snip_UserTaskView_State → replace with Snip_WorkflowUserTaskView_State
+* Snip_UserTaskView_TargetUsers → replace with Snip_UserTask_TargetUsers or Snip_WorkflowEndedUserTask_TargetUsers
+* Snip_WorkflowView_ActivityTimeline → replace with Snip_Workflow_ActivityTimeline
+* Snip_WorkflowView_ActivityTimelineOnly_Full → replace with Snip_Workflow_ActivityTimelineOnly_Full
+* Snip_WorkflowView_ActivityTimelineOnly_Tasks → replace with Snip_Workflow_ActivityTimelineOnly_Tasks
+* Snip_WorkflowView_AuditTrail → replace with Snip_Workflow_AuditTrail 
+* Snip_WorkflowView_CommentsAndAttachments → replace with Snip_Workflow_CommentsAndAttachments
+* Snip_WorkflowView_CommentsAndAttachments_Admin → replace with Snip_Workflow_CommentsAndAttachments_Admin
+* Snip_WorkflowView_CompletedTaskDetails → replace with Snip_Workflow_TaskDetails
+* Snip_WorkflowView_Detail → replace with Snip_Workflow_Detail 
+* Snip_WorkflowView_Header → replace with Snip_Workflow_Header 
+* Snip_WorkflowView_NotificationArea → replace with Snip_Workflow_NotificationArea
+* Snip_WorkflowView_State → replace with Snip_Workflow_State
+* Snip_WorkflowView_StateCircleOnly → replace with Snip_Workflow_StateCircleOnly 
+* Snip_WorkflowView_TaskTimeline → replace with Snip_Workflow_TaskTimeline
+* Snip_WorkflowView_TaskTimeline_WithoutNameandDescription → replace with Snip_Workflow_TaskTimeline_WithoutName
+* Snip_WorkflowView_TaskTimelineOnly → replace with Snip_Workflow_TaskTimelineOnly
+
+_______
+
 ## Release 3.12.1
 
 * We changed the length of the `Reason` attribute in the `WorkflowAuditTrailRecord` entity to unlimited.

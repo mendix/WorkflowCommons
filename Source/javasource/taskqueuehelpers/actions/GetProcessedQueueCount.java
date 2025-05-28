@@ -14,16 +14,16 @@ import com.mendix.systemwideinterfaces.connectionbus.data.IDataTable;
 import com.mendix.systemwideinterfaces.connectionbus.requests.types.IOQLTextGetRequest;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
-import com.mendix.webui.CustomJavaAction;
 import system.proxies.ProcessedQueueTask;
 import system.proxies.QueueTaskStatus;
 import taskqueuehelpers.proxies.ProcessedQueueCount;
 import java.util.stream.Collectors;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * Creates a List of ProcessedQueueCount entities grouped by queue name. The grouping will aggregate the comlpeted and non-completed count of each queue based on status.
  */
-public class GetProcessedQueueCount extends CustomJavaAction<java.util.List<IMendixObject>>
+public class GetProcessedQueueCount extends UserAction<java.util.List<IMendixObject>>
 {
 	public GetProcessedQueueCount(IContext context)
 	{
