@@ -1,3 +1,9 @@
+## Release 4.0.1
+
+* We included OSS clearance report and license file in the module package.
+
+_______
+
 ## Release 4.0.0
 
 * We upgraded the module to Mendix 11.0.0-beta.2
