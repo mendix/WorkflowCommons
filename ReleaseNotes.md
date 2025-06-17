@@ -1,6 +1,6 @@
 ## Release 4.0.1
 
-* We included OSS clearance report and license file in the module package.
+* We included the OSS clearance report and license file in the module package.
 
 _______
 
