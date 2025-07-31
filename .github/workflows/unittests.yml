@@ -49,7 +49,7 @@ jobs:
 
       - name: Build docker image
         run: |
-          docker build -t mxbuildpack ../docker-context
+          docker build -t mxbuildpack docker-context
 
       - name: Run application
         run: |
