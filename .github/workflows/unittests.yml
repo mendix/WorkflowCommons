@@ -39,22 +39,23 @@ jobs:
           echo "Detected MX Version:$VERSION"
           echo "MX_VERSION=$VERSION" >> $GITHUB_ENV
 
-      - name: Create build directory
-        run: |
-          mkdir build-pack/build
-
       - name: Create output directory
         run: mkdir $GITHUB_WORKSPACE/out
 
-      - name: Copy application files to build directory
-        run: cp -v -r app/Source/. build-pack/build
+      - name: Build Mendix app
+        run: |
+          cd build-pack
+          python3 build.py --source ../app/Source --destination ../docker-context build-mda-dir
 
-      - name: Build docker image
+      - name: Build rootfs images
         run: |
           cd build-pack
           docker build -t mendix-rootfs:app -f rootfs-app.dockerfile .
           docker build -t mendix-rootfs:builder -f rootfs-builder.dockerfile .
-          docker build -t mxbuildpack --build-arg BUILD_PATH=build .
+
+      - name: Build docker image
+        run: |
+          docker build -t mxbuildpack docker-context
 
       - name: Run application
         run: |
@@ -86,7 +87,7 @@ jobs:
 
       - name: Archive results
         if: ${{ always() }}
-        uses: actions/upload-artifact@ff15f0306b3f739f7b6fd43fb5d26cd321bd4de5 # v3.2.1
+        uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874 # v4
         with:
           name: Results
           path: ${{ github.workspace }}/out/*
