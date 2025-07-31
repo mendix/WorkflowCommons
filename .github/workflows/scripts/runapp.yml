@@ -13,6 +13,7 @@ services:
             ADMIN_PASSWORD: Password1!
             DATABASE_ENDPOINT: postgres://mendix:mendix@db:5432/mendix
             MXCONSTANT_UnitTesting_Enabled: "true"
+            MX_UnitTesting_Enabled: "true"
         ports:
             - 8080:8080
         links:
