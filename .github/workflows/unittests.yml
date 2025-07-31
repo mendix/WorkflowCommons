@@ -47,6 +47,12 @@ jobs:
           cd build-pack
           python3 build.py --source ../app/Source --destination ../docker-context build-mda-dir
 
+      - name: Build rootfs images
+        run: |
+          cd build-pack
+          docker build -t mendix-rootfs:app -f rootfs-app.dockerfile .
+          docker build -t mendix-rootfs:builder -f rootfs-builder.dockerfile .
+
       - name: Build docker image
         run: |
           docker build -t mxbuildpack docker-context
