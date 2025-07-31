@@ -42,7 +42,7 @@ jobs:
       - name: Create output directory
         run: mkdir $GITHUB_WORKSPACE/out
 
-      - name: Build Mendix app using build.py (v6 approach)
+      - name: Build Mendix app
         run: |
           cd build-pack
           python3 build.py --source ../app/Source --destination ../docker-context build-mda-dir
