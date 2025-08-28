@@ -92,6 +92,21 @@
     }
 }
 
-.mxwc-account-inactive.mx-link {
+.mxwc-indicator-danger.mx-link {
     color: $brand-danger;
 }
+
+.mxwc-beta-badge {
+    position: absolute;
+    right: $spacing-large;
+    top: $spacing-large;
+	border-radius: 16px;
+	min-width: 18px;
+	min-height: 18px;
+	padding: 4px 8px 4px 8px;
+	color: white;
+	white-space: nowrap;
+	display: block;
+    width: fit-content;
+    background: $brand-primary;
+}    

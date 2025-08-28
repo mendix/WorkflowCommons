@@ -1,3 +1,10 @@
+## Release 4.1.0
+
+* We upgraded the module to Mendix 11.2.0
+* We added support for Workflow groups, introduced in Mendix 11.2.0. For more information, refer to the Workflow Commons module documentation.
+
+_______
+
 ## Release 4.0.1
 
 * We included the OSS clearance report and license file in the module package.
