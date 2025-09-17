@@ -1,3 +1,9 @@
+## Release 4.2.0
+
+* We added a conflict resolution feature that allows workflow administrators to resolve incompatible workflows in groups. For more information, refer to the Workflow Commons module documentation.
+
+_______
+
 ## Release 4.1.0
 
 * We upgraded the module to Mendix 11.2.0
