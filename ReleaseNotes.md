@@ -1,3 +1,12 @@
+## Release 4.3.0
+
+* We updated Data Widgets module compatibility to v3.5.0 
+* We updated Atlas Core module compatibility to v4.1.3 
+* We updated Atlas Web Content module compatibility to v4.1.0
+* We fixed an issue where switching between the Minimal, Default and All views did not work correctly for the Audit Trail.
+
+_______
+
 ## Release 4.2.0
 
 * We added a conflict resolution feature that allows workflow administrators to resolve incompatible workflows in groups. For more information, refer to the Workflow Commons module documentation.
