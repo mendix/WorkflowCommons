@@ -1,3 +1,10 @@
+## Release 4.4.0
+
+* We upgraded the module to Mendix 11.6.0  
+* We removed the 'Beta' badge for the Workflow Groups feature, as Workflow Groups are generally available as of Mendix 11.6.0
+
+_______
+
 ## Release 4.3.0
 
 * We updated Data Widgets module compatibility to v3.5.0 
