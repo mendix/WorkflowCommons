@@ -1,3 +1,11 @@
+## Release 4.5.0
+
+* We improved several data grids in the 'WorkflowDefinition_View' page: In the 'Workflows' tab, we removed the superfluous 'Workflow Definition' column and added an 'Ended On' column. In the 'Tasks' tab, we updated the 'Task & Workflow' column and added 'Task Definition' and 'Ended On' columns.
+* We improved the navigation in the 'Tasks' tab of the 'WorkflowDefinition_View' page: You can now view the task details in a pop-up, and navigate to the Workflow Admin page by clicking on the workflow name.
+* We updated the 'DefaultWorkflowAdmin' page by adding a search filter on top of the task list. We also added the 'Ended On' and 'Due Date' fields in the 'Tasks' tab.
+
+_______
+
 ## Release 4.4.0
 
 * We upgraded the module to Mendix 11.6.0  
