@@ -1,3 +1,11 @@
+## Release 4.6.0
+
+* We upgraded the module to Mendix 11.8.0
+* We added support for non-interrupting event sub-processes.
+* We fixed an issue where the dropdown filter for the 'Assignee(s)' column did not refresh after self-assigning a task in the Task Inbox page.
+
+_______
+
 ## Release 4.5.0
 
 * We improved several data grids in the 'WorkflowDefinition_View' page: In the 'Workflows' tab, we removed the superfluous 'Workflow Definition' column and added an 'Ended On' column. In the 'Tasks' tab, we updated the 'Task & Workflow' column and added 'Task Definition' and 'Ended On' columns.
