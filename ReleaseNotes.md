@@ -1,6 +1,7 @@
 ## Release 4.6.0
 
 * We upgraded the module to Mendix 11.8.0
+* We updated Data Widgets module compatibility to v3.8.0
 * We added support for non-interrupting event sub-processes.
 * We fixed an issue where the dropdown filter for the 'Assignee(s)' column did not refresh after self-assigning a task in the Task Inbox page.
 
