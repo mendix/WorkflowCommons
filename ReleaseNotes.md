@@ -1,3 +1,11 @@
+## Release 4.7.0
+
+* We upgraded the module to Mendix 11.9.0
+* We added support for AI agent tasks.
+* We fixed an issue where some of the entity access rules were too restrictive because the target groups association was missing (#272958). 
+
+_______
+
 ## Release 4.6.0
 
 * We upgraded the module to Mendix 11.8.0
