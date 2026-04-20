@@ -1,3 +1,13 @@
+## Release 4.8.0
+
+* We updated Data Widgets module compatibility to v3.9.0 
+* We updated Atlas Core module compatibility to v4.3.5 
+* We updated Atlas Web Content module compatibility to v4.3.0
+* We reduced the dependency on the Administration module in several microflows, snippets, and pages.
+* We aligned the sort order by StartTime on the Task Inbox and Task Dashboard pages.
+
+_______
+
 ## Release 4.7.0
 
 * We upgraded the module to Mendix 11.9.0
