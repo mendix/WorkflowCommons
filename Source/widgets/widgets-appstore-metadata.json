@@ -42,6 +42,18 @@
       "name": "Switch",
       "version": "2.1.3",
       "appStoreVersionGuid": "5130d81c-73b2-4c9f-9017-057801d3c609"
+    },
+    {
+      "sha-256": "ea49f6bfc3efdd4fe8325e4b9892cbb5aab627051b45fe9c3a5fce5ad8d76bf6",
+      "name": "Combobox",
+      "version": "2.6.1",
+      "appStoreVersionGuid": "37663916-91dc-4ee3-a28a-21493c33edd4"
+    },
+    {
+      "sha-256": "f348981cfa1834e4f9ae1a397e5ef1c3634e0c2212da57853f7c1a4d4b7f4d20",
+      "name": "Image",
+      "version": "1.5.0",
+      "appStoreVersionGuid": "37cce618-06d0-4126-a768-0c398f307172"
     }
   ]
 }

@@ -1,3 +1,11 @@
+## Release 4.9.0
+
+* We upgraded the module to Mendix 11.10.0
+* We added support for interrupting event sub-processes.
+* We updated the timeline snippets to include the event sub-processes. 
+
+_______
+
 ## Release 4.8.0
 
 * We updated Data Widgets module compatibility to v3.9.0 
