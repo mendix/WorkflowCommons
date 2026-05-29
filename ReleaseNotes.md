@@ -1,3 +1,11 @@
+## Release 4.10.0
+
+* We upgraded the module to Mendix 11.11.0
+* We added support for notification boundary events.
+* We added support for notification events.
+
+_______
+
 ## Release 4.9.0
 
 * We upgraded the module to Mendix 11.10.0
