@@ -1,3 +1,12 @@
+## Release 4.11.0
+
+* We upgraded the module to Mendix 11.13.0
+* We added support for timer event sub-processes.
+* We updated Data Widgets module compatibility to v3.11.2 
+* We updated Atlas Core module compatibility to v4.3.7 
+
+_______
+
 ## Release 4.10.0
 
 * We upgraded the module to Mendix 11.11.0
