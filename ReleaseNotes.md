@@ -1,3 +1,9 @@
+## Release 4.10.1
+
+* We updated WorkflowUserTaskView OQL from UNION to UNION ALL for Oracle compatibility.
+
+_______
+
 ## Release 4.10.0
 
 * We upgraded the module to Mendix 11.11.0
