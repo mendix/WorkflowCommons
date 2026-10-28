@@ -1,3 +1,13 @@
+## Release 4.12.0
+
+* We upgraded the module to Mendix 11.16.0
+* We added support for the new 'Runtime mode' for managing Workflow Groups at runtime. In order to use this feature, ensure that 'Group definition' is set to 'Runtime' in App Settings.
+* We updated Data Widgets module compatibility to v3.11.7
+* We updated Atlas Core module compatibility to v4.6.0
+* We updated Atlas Web Content module compatibility to v4.4.0
+
+_______
+
 ## Release 4.11.1
 
 * We updated WorkflowUserTaskView OQL from UNION to UNION ALL for Oracle compatibility.

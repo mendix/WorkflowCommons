@@ -85,7 +85,7 @@
         line-height: var(--form-input-line-height);
 
         & + .control-label {
-            margin-left: var(--form-label-gutter);
+            margin-inline-start: var(--form-label-gutter);
         }
     }
 
@@ -126,6 +126,10 @@
 
     textarea.form-control {
         flex-basis: auto;
+    }
+
+    .mx-textarea textarea.form-control {
+        min-height: var(--suggested-height);
     }
 
     .mx-compound-control {
@@ -169,14 +173,14 @@
         div[class*="textBox"] > .control-label,
         div[class*="textArea"] > .control-label,
         div[class*="datePicker"] > .control-label {
-            @extend .form-control-static;
+            @extend .form-control-static !optional;
         }
 
         // Label
         .control-label {
             overflow: hidden;
             margin-bottom: 4px;
-            text-align: left;
+            text-align: start;
             text-overflow: ellipsis;
             color: var(--form-label-color);
             font-size: var(--form-label-size);
@@ -193,14 +197,14 @@
     }
 
     .page-form-vertical {
-        @extend .form-vertical;
+        @extend .form-vertical !optional;
         .form-group:not(.label-after) {
             flex-direction: column;
         }
     }
 
     .page-form-horizontal {
-        @extend .form-horizontal;
+        @extend .form-horizontal !optional;
         @media not screen and (max-width: $screen-sm-max) {
             .form-group.no-columns:not(.label-after) {
                 // overwrite default no-columns behavior when
@@ -260,7 +264,7 @@
                 margin-bottom: 0;
                 padding-top: var(--form-input-padding-y);
                 padding-bottom: var(--form-input-padding-y);
-                padding-right: var(--form-label-gutter);
+                padding-inline-end: var(--form-label-gutter);
                 line-height: var(--form-input-line-height);
             }
         }
